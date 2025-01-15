@@ -8,10 +8,11 @@ interface Props {
   img: string,
   imgAlt: string,
   description: string,
-  link: string
+  linkHref: string,
+  linkName: string
 }
 
-export default function Card({ title, img, imgAlt, description, link}: Props) {
+export default function Card({ title, img, imgAlt, description, linkHref, linkName}: Props) {
   return (
     <Container>
       <Title>{`${title}`}</Title>
@@ -19,7 +20,7 @@ export default function Card({ title, img, imgAlt, description, link}: Props) {
         <StyledImage alt={imgAlt} src={img} width={500} height={500} objectFit="contain" />
       </ImageContainer>
       <Description>{`${description}`}</Description>
-      <Button><Link href={''}>Ir a {`${link}`}</Link></Button>
+      <Button><Link href={linkHref}>Ir a {`${linkName}`}</Link></Button>
     </Container>
   );
 }
