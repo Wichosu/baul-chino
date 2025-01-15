@@ -1,14 +1,18 @@
 "use client"
 import styled from "styled-components"
 
-export default function Hero() {
+interface Props {
+  children: string
+}
+
+export default function Hero({ children }: Props) {
   return (
     <Container>
       <Title>
         Baúl Chino
       </Title>
       <WelcomeMessage>
-        Baúl Chino tiene como propósito ser una página con material didáctico para apoyar el aprendizaje del idioma Chino Mandarín. 好好学习, 天天向上.
+        { children }
       </WelcomeMessage>
     </Container>
   )
