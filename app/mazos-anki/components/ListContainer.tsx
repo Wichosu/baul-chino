@@ -6,6 +6,18 @@ const ankiDecks = [
   {
     name: 'HSK1',
     link: '/hsk-1.apkg'
+  },
+  {
+    name: 'HSK2',
+    link: '/hsk-2.apkg'
+  },
+  {
+    name: 'HSK3',
+    link: '/hsk-3.apkg'
+  },
+  {
+    name: 'HSK4',
+    link: '/hsk-4.apkg'
   }
 ];
 

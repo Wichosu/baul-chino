@@ -14,5 +14,9 @@ export default function ListItem({ linkRef, linkName }: Props) {
 }
 
 const Item = styled(Link)`
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: fit-content;
   color: blue;
 `
