@@ -68,4 +68,5 @@ const Button = styled(Link)`
   border-radius: 4px;
   border: none;
   cursor: pointer;
+  text-decoration: none;
 `;

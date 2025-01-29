@@ -64,6 +64,7 @@ const Title = styled(Link)`
   font-size: 2rem;
   font-weight: 500;
   margin-right: auto;
+  text-decoration: none;
 `;
 
 const SideBar = styled.div<{ $styles?: IMenuStyles; }>`
@@ -101,6 +102,7 @@ const NavLink = styled(Link)`
   color: hsl(221, 83%, 53%);
   font-size: 1.25rem;
   margin-top: 20px;
+  text-decoration: none;
 
   ${SideBarContainer} & {
     display: block;
