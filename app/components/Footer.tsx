@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export default function Footer() {
   return (
       <small style={{
@@ -7,6 +9,8 @@ export default function Footer() {
         marginBottom: '40px'
       }}>
         Más por venir...
+      <br/>
+        Desarrollado por <Link href={"https://www.linkedin.com/in/luis-wicho-miranda/"} target="_blank">Luis Miranda (Wicho)</Link>
       </small>
   )
 }
