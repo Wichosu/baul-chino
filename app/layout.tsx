@@ -17,11 +17,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={montserrat.className}>
-        {children}
-      </body>
+    <>
+      <html lang="en">
+        <body className={montserrat.className}>
+          {children}
+        </body>
+      </html>
       <GlobalStyles />
-    </html>
+    </>
   );
 }
