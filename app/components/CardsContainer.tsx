@@ -5,7 +5,7 @@ import ankiHsk from "../images/anki-hsk.png"
 
 const cardsList = [
   {
-    title: 'Mazos Anki HSK 1-3',
+    title: 'Mazos Anki HSK 1-4',
     img: ankiHsk,
     imgAlt: '',
     description: 'Colección de mazos Anki con vocabulario del HSK 1 al HSK 3',

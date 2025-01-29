@@ -65,6 +65,7 @@ const Title = styled(Link)`
   font-weight: 500;
   margin-right: auto;
   text-decoration: none;
+  color: black;
 `;
 
 const SideBar = styled.div<{ $styles?: IMenuStyles; }>`
