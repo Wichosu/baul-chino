@@ -2,14 +2,15 @@
 import styled from "styled-components"
 
 interface Props {
+  title: string
   children: string
 }
 
-export default function Hero({ children }: Props) {
+export default function Hero({ title, children }: Props) {
   return (
     <Container>
       <Title>
-        Baúl Chino
+        { title }
       </Title>
       <WelcomeMessage>
         { children }
