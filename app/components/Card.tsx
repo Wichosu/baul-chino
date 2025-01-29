@@ -20,7 +20,7 @@ export default function Card({ title, img, imgAlt, description, linkHref, linkNa
         <StyledImage alt={imgAlt} src={img} width={500} height={500} objectFit="contain" />
       </ImageContainer>
       <Description>{`${description}`}</Description>
-      <Button><Link href={linkHref}>Ir a {`${linkName}`}</Link></Button>
+      <Button href={linkHref}>Ir a {`${linkName}`}</Button>
     </Container>
   );
 }
@@ -57,7 +57,9 @@ const Description = styled.p`
   margin-bottom: 10px;
 `;
 
-const Button = styled.button`
+const Button = styled(Link)`
+  display: block;
+  text-align: center;
   width: 100%;
   background-color: hsl(213, 93%, 67%);
   color: hsl(0, 0%, 98%);

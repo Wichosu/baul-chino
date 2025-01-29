@@ -12,6 +12,7 @@ const ankiDecks = [
 export default function ListContainer() {
   return (
     <Container>
+      <Title>Mazos con traducción al Inglés</Title>
       {
         ankiDecks.map((e, index) => (
           <ListItem 
@@ -28,6 +29,11 @@ export default function ListContainer() {
 const Container = styled.div`
   width: 85%;
   margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+`
+
+const Title = styled.h3`
   margin-top: 20px;
   margin-bottom: 20px;
 `
