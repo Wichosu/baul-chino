@@ -7,7 +7,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "Baúl Chino",
-  description: "Baul Chino tiene como propósito ser una página con material didáctico para apoyar el aprendizaje del idioma Chino Mandarín",
+  description: "Baúl Chino tiene como propósito ser una página con material didáctico para apoyar el aprendizaje del idioma Chino Mandarín",
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <html lang="en">
+      <html lang="es">
         <body className={montserrat.className}>
           {children}
         </body>
