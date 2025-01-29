@@ -1,11 +1,12 @@
 "use client"
 import styled from "styled-components"
 import Card from "./Card"
+import ankiHsk from "../../public/anki-hsk.png";
 
 const cardsList = [
   {
     title: 'Mazos Anki HSK 1-3',
-    img: '/anki-hsk.png',
+    img: ankiHsk,
     imgAlt: '',
     description: 'Colección de mazos Anki con vocabulario del HSK 1 al HSK 3',
     linkHref: 'mazos-anki',

@@ -1,11 +1,11 @@
 "use client"
 import styled from "styled-components";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 interface Props {
   title: string,
-  img: string,
+  img: string | StaticImageData,
   imgAlt: string,
   description: string,
   linkHref: string,
