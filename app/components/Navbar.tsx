@@ -19,11 +19,11 @@ export default function Navbar() {
 
   if(openMenu) {
     menuStyles = {
-      translateX: "0"
+      translateX: "100%",
     }
   } else {
     menuStyles = {
-      translateX: "100%"
+      translateX: "0",
     }
   }
 
@@ -69,10 +69,13 @@ const Title = styled(Link)`
 `;
 
 const SideBar = styled.div<{ $styles?: IMenuStyles; }>`
-  position: absolute;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: -100%;
   background-color: #f5f5f5;
-  transition: 500ms ease;
   transform: translateX(${props => props.$styles?.translateX});
+  transition: 500ms ease;
   width: 100%;
   height: 100%;
 

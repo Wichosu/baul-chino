@@ -1,7 +1,7 @@
 "use client"
 import styled from "styled-components"
 import Card from "./Card"
-import ankiHsk from "../images/anki-hsk.png"
+import ankiHsk from "../images/anki-menu.png"
 
 const cardsList = [
   {
