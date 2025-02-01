@@ -2,38 +2,73 @@
 import styled from "styled-components";
 import ListItem from "./ListItem";
 
-const ankiDecks = [
+const enAnkiDecks = [
+  //EN decks
   {
-    name: 'HSK1',
-    link: '/hsk-1.apkg'
+    name: 'EN-HSK-1',
+    link: '/EN-HSK-1.apkg'
   },
   {
-    name: 'HSK2',
-    link: '/hsk-2.apkg'
+    name: 'EN-HSK-2',
+    link: '/EN-HSK-2.apkg'
   },
   {
-    name: 'HSK3',
-    link: '/hsk-3.apkg'
+    name: 'EN-HSK-3',
+    link: '/EN-HSK-3.apkg'
   },
   {
-    name: 'HSK4',
-    link: '/hsk-4.apkg'
-  }
+    name: 'EN-HSK-4A',
+    link: '/EN-HSK-4A.apkg'
+  },
 ];
+
+const esAnkiDecks = [
+  //ES decks
+  {
+    name: 'ES-HSK-1',
+    link: '/ES-HSK-1.apkg'
+  },
+  {
+    name: 'ES-HSK-2',
+    link: '/ES-HSK-2.apkg'
+  },
+  {
+    name: 'ES-HSK-3',
+    link: '/ES-HSK-3.apkg'
+  },
+  {
+    name: 'ES-HSK-4A',
+    link: '/ES-HSK-4A.apkg'
+  }
+]
 
 export default function ListContainer() {
   return (
     <Container>
-      <Title>Mazos con traducción al Inglés</Title>
-      {
-        ankiDecks.map((e, index) => (
-          <ListItem 
+      <BlockWrapper>
+        <Title>Mazos con traducción al Inglés</Title>
+        {
+          enAnkiDecks.map((e, index) => (
+            <ListItem 
             key={index} 
             linkRef={e.link}
             linkName={e.name}
-          />
-        ))
-      }
+            />
+          ))
+        }
+      </BlockWrapper>
+      <BlockWrapper>
+        <Title>Mazos con traducción al Español</Title>
+        {
+          esAnkiDecks.map((e, index) => (
+            <ListItem 
+            key={index}
+            linkRef={e.link}
+            linkName={e.name}
+            />
+          ))
+        }
+      </BlockWrapper>
     </Container>
   )
 };
@@ -48,4 +83,9 @@ const Container = styled.div`
 const Title = styled.h3`
   margin-top: 20px;
   margin-bottom: 20px;
+`
+
+const BlockWrapper = styled.section`
+  display: inline-block;
+  margin-right: 80px;
 `

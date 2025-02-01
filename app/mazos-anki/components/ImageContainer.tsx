@@ -1,13 +1,26 @@
 "use client"
 import styled from "styled-components"
 import Image from "next/image"
+import ankiMenu from "../../images/anki-menu.png"
+import ankiCard from "../../images/anki-card.png"
+import ankiBrowser from "../../images/anki-browser.png"
+import ankiCardFront from "../../images/anki-card-front.png"
 
 export default function ImageContainer() {
   return (
     <Container>
       <Title>Imagenes Ilustrativas</Title>
       <ImageWrapper>
-        <StyledImage alt="" src={'/anki-hsk.png'} width={500} height={500} />
+        <StyledImage alt="" src={ankiMenu} />
+      </ImageWrapper>
+      <ImageWrapper>
+        <StyledImage alt="" src={ankiCard} />
+      </ImageWrapper>
+      <ImageWrapper>
+        <StyledImage alt="" src={ankiBrowser} />
+      </ImageWrapper>
+      <ImageWrapper>
+        <StyledImage alt="" src={ankiCardFront} />
       </ImageWrapper>
     </Container>
   )
@@ -28,7 +41,9 @@ const Title = styled.p`
 `
 
 const ImageWrapper = styled.div`
-  max-width: 400px;
+  display: inline-block;
+  max-width: 500px;
+  margin: 20px;
 `
 
 const StyledImage = styled(Image)`

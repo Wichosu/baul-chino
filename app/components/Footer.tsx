@@ -10,7 +10,7 @@ export default function Footer() {
       }}>
         Más por venir...
       <br/>
-        Desarrollado por <Link href={"https://www.linkedin.com/in/luis-wicho-miranda/"} target="_blank">Luis Miranda (Wicho)</Link>
+        Desarrollado por <Link href={"https://github.com/Wichosu"} target="_blank">Luis Miranda (Wicho)</Link>
       </small>
   )
 }
