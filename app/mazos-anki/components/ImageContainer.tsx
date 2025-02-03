@@ -11,16 +11,16 @@ export default function ImageContainer() {
     <Container>
       <Title>Imagenes Ilustrativas</Title>
       <ImageWrapper>
-        <StyledImage alt="" src={ankiMenu} />
+        <StyledImage alt="Menú de Anki mostrando una lista de mazos" src={ankiMenu} />
       </ImageWrapper>
       <ImageWrapper>
-        <StyledImage alt="" src={ankiCard} />
+        <StyledImage alt="Flashcard mostrando los carácteres 不客气, su forma en pinyin, su audio, traducción al español y una animación con la sucesión de trazos" src={ankiCard} />
       </ImageWrapper>
       <ImageWrapper>
-        <StyledImage alt="" src={ankiBrowser} />
+        <StyledImage alt="Explorador de archivos de Anki, en el se muestran todas las Flashcards presentes en un mazo" src={ankiBrowser} />
       </ImageWrapper>
       <ImageWrapper>
-        <StyledImage alt="" src={ankiCardFront} />
+        <StyledImage alt="Flashcard mostrando únicamente el carácter 爱" src={ankiCardFront} />
       </ImageWrapper>
     </Container>
   )
