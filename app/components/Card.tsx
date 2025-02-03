@@ -5,14 +5,14 @@ import Link from "next/link";
 
 interface Props {
   title: string,
-  img: string | StaticImageData,
   imgAlt: string,
+  img: string | StaticImageData,
   description: string,
   linkHref: string,
   linkName: string
 }
 
-export default function Card({ title, img, imgAlt, description, linkHref, linkName}: Props) {
+export default function Card({ title, imgAlt, img, description, linkHref, linkName}: Props) {
   return (
     <Container>
       <Title>{`${title}`}</Title>

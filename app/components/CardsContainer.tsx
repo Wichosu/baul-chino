@@ -6,8 +6,8 @@ import ankiHsk from "../images/anki-menu.png"
 const cardsList = [
   {
     title: 'Mazos Anki HSK 1-4',
+    imgAlt: 'Menú de Anki mostrando una lista de mazos',
     img: ankiHsk,
-    imgAlt: '',
     description: 'Colección de mazos Anki con vocabulario del HSK 1 al HSK 3',
     linkHref: 'mazos-anki',
     linkName: 'Mazos Anki'
@@ -22,8 +22,8 @@ export default function CardsContainer() {
           <Card 
             key={index} 
             title={e.title} 
-            img={e.img}
             imgAlt={e.imgAlt}
+            img={e.img}
             description={e.description} 
             linkHref={e.linkHref}
             linkName={e.linkName} 
