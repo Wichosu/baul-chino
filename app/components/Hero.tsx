@@ -1,9 +1,10 @@
 "use client"
 import styled from "styled-components"
+import { ReactNode } from "react"
 
 interface Props {
   title: string
-  children: string
+  children: string | ReactNode
 }
 
 export default function Hero({ title, children }: Props) {

@@ -32,10 +32,8 @@ const Container = styled.div`
   margin-top: 20px;
   margin-bottom: 20px;
 `
-
-const Title = styled.p`
-  text-align: center;
-  font-size: 1.25rem;
+const Title = styled.h3`
+  font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 10px;
 `
