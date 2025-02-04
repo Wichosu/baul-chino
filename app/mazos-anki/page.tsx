@@ -1,3 +1,4 @@
+import { Metadata } from "next"
 import Navbar from "../components/Navbar"
 import Hero from "../components/Hero"
 import Dowloads from "./components/Downloads"
@@ -5,6 +6,10 @@ import ListContainer from "./components/ListContainer"
 import Instructions from "./components/Instructions"
 import ImageContainer from "./components/ImageContainer"
 import Footer from "../components/Footer"
+
+export const metadata: Metadata = {
+  title: "Mazos Anki"
+}
 
 export default function Home() {
   return (

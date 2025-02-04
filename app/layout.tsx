@@ -8,8 +8,14 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: "Baúl Chino",
-  description: "Baúl Chino tiene como propósito ser una página con material didáctico para apoyar el aprendizaje del idioma Chino Mandarín",
+  title: {
+    absolute: "Baúl Chino",
+    template: "%s - Baúl Chino"
+  },
+  description: "Baúl Chino tiene como propósito ser una página con material didáctico para apoyar con el aprendizaje del idioma Chino Mandarín",
+  twitter: {
+    card: "summary_large_image"
+  },
 };
 
 export default function RootLayout({
