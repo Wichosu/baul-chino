@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image"
   },
+  metadataBase: new URL("https://www.baulchino.com/"),
 };
 
 export default function RootLayout({
