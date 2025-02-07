@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react"
 import GlobalStyles from "./GlobalStyles";
 import StyledComponentsRegistry from "./lib/registry";
 
@@ -32,6 +33,7 @@ export default function RootLayout({
           <StyledComponentsRegistry>
             {children}
           </StyledComponentsRegistry>
+          <Analytics />
         </body>
       </html>
     </>
