@@ -28,10 +28,13 @@ export default function Card({ title, imgAlt, img, description, linkHref, linkNa
 const Container = styled.div`
   width: 85%;
   margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 
   @media (min-width: 768px) {
     max-width: 400px;
     margin: 0;
+    flex: 1 1 400px;
   }
 `;
 
@@ -50,6 +53,7 @@ const StyledImage = styled(Image)`
   width: 100%;
   height: 100%;
   object-fit: 'contain';
+  aspect-ratio: 1 / 1;
 `;
 
 const Description = styled.p`
