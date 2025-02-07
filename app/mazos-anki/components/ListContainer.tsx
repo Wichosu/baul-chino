@@ -73,7 +73,7 @@ export default function ListContainer() {
   )
 };
 
-const Container = styled.div`
+const Container = styled.section`
   width: 85%;
   margin: 0 auto;
   margin-top: 20px;
@@ -85,7 +85,7 @@ const Title = styled.h3`
   margin-bottom: 20px;
 `
 
-const BlockWrapper = styled.section`
+const BlockWrapper = styled.article`
   display: inline-block;
   margin-right: 80px;
 `

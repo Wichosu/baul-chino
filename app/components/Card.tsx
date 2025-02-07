@@ -25,7 +25,7 @@ export default function Card({ title, imgAlt, img, description, linkHref, linkNa
   );
 }
 
-const Container = styled.div`
+const Container = styled.article`
   width: 85%;
   margin: 0 auto;
   margin-top: 20px;

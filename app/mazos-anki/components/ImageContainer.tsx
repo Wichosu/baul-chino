@@ -26,7 +26,7 @@ export default function ImageContainer() {
   )
 };
 
-const Container = styled.div`
+const Container = styled.section`
   width: 85%;
   margin: 0 auto;
   margin-top: 20px;
@@ -38,7 +38,7 @@ const Title = styled.h3`
   margin-bottom: 10px;
 `
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled.figure`
   display: inline-block;
   max-width: 500px;
   margin: 20px;

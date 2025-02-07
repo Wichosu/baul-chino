@@ -7,10 +7,12 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <Hero title="Inicio">
-        Baúl Chino tiene como propósito ser una página con material didáctico para apoyar el aprendizaje del idioma Chino Mandarín para los hispanohablantes. 好好学习, 天天向上.
-      </Hero>
-      <CardsContainer />
+      <main>
+        <Hero title="Inicio">
+          Baúl Chino tiene como propósito ser una página con material didáctico para apoyar el aprendizaje del idioma Chino Mandarín para los hispanohablantes. 好好学习, 天天向上.
+        </Hero>
+        <CardsContainer />
+      </main>
       <Footer />
     </>
   );
