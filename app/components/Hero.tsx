@@ -20,7 +20,7 @@ export default function Hero({ title, children }: Props) {
   )
 }
 
-const Container = styled.div`
+const Container = styled.section`
   width: 85%;
   margin: 0 auto;
   margin-top: 20px;

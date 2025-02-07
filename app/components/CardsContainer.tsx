@@ -53,7 +53,7 @@ export default function CardsContainer() {
   )
 }
 
-const Container = styled.div`
+const Container = styled.section`
   width: 85%;
   margin: 0 auto;
 
