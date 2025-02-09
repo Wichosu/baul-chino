@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Card from "./Card"
 import ankiHsk from "../images/anki-menu.png"
 import hskBooks from "../images/hsk-books.png"
+import chineseChannels from "../images/chinese-channels-image.png"
 import { StaticImageData } from "next/image"
 
 interface Card {
@@ -30,6 +31,14 @@ const cardsList: Card[] = [
     description: 'Descarga los libros HSK del 1 al 6 de manera gratuita',
     linkHref: '/libros-hsk',
     linkName: 'Libros HSK'
+  },
+  {
+    title: 'Canales de Chino',
+    imgAlt: 'Colección de 4 imágenes mostrando canales de YouTube en donde se enseña Chino Mandarín de diferentes formas',
+    img: chineseChannels,
+    description: 'Lista de canales de YouTube con contenido en Chino para practicar o aprender.',
+    linkHref: '/canales',
+    linkName: 'Lista de Canales'
   }
 ]
 

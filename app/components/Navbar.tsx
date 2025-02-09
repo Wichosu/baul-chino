@@ -37,6 +37,7 @@ export default function Navbar() {
           <NavLink onClick={onClickMenu} href={'/'}>Inicio</NavLink>
           <NavLink onClick={onClickMenu} href={'/mazos-anki'}>Mazos Anki</NavLink>
           <NavLink onClick={onClickMenu} href={'/libros-hsk'}>Libros HSK</NavLink>
+          <NavLink onClick={onClickMenu} href={'/canales'}>Lista de Canales</NavLink>
         </SideBarContainer>
       </SideBar>
       <Container>
@@ -47,6 +48,7 @@ export default function Navbar() {
         <NavLink href={"/"}>Inicio</NavLink>
         <NavLink href={"/mazos-anki"}>Mazos Anki</NavLink>
         <NavLink href={'/libros-hsk'}>Libros HSK</NavLink>
+        <NavLink href={'/canales'}>Lista de Canales</NavLink>
       </Container>
     </>
   );
