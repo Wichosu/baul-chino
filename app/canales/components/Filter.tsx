@@ -13,7 +13,8 @@ interface IChannel {
   name: string,
   description: string,
   url: string,
-  categories: string[]
+  categories: string[],
+  languages: string[]
 }
 
 const languages = [
@@ -55,18 +56,21 @@ const channels: IChannel[] = [
     description: 'En este canal te enseñaremos CHINO MANDARÍN en castellano, para que puedas tener un dialogo comercial, turístico o simplemente una charla cotidiana con personas que hablan en Chino.',
     url: 'https://www.youtube.com/@clasesdechinomandarin',
     categories: ['Lecciones de Chino'],
+    languages: ['Español']
   },
   {
     name: 'Nininterprete',
     description: 'Soy Nini, intérprete de chino-español, apasionada por enseñar mi cultura e idioma. Bienvenidos a mi canal',
     url: 'https://www.youtube.com/@nininterprete',
     categories: ['Lecciones de Chino', 'Vida Cotidiana'],
+    languages: ['Español']
   },
   {
     name: 'Aprende Chino con Marco',
     description: 'Aprende chino mandarín de una forma sencilla, cada video que publicamos está basado en el uso cotidiano del idioma en China. Así que aprenderás las cosas más importantes y más usadas.',
     url: 'https://www.youtube.com/@AprendeChinoConMarco',
     categories: ['Lecciones de Chino'],
+    languages: ['Español']
   }
 ]
 
