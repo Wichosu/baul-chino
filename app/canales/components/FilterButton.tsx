@@ -1,10 +1,15 @@
 "use client"
 import styled from "styled-components"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ReactNode } from "react"
 
 interface Props {
   children: string | ReactNode
+  id: number
+  resetTrigger: boolean
+  addIdToFilter: (id: number) => void
+  removeIdFromFilter: (id: number) => void
+  setUpTrigger: () => void
 }
 
 interface IButton {
@@ -12,16 +17,34 @@ interface IButton {
   color: string;
 }
 
-export default function FilterButton({ children }: Props) {
+export default function FilterButton({ 
+  children,
+  id,
+  addIdToFilter,
+  removeIdFromFilter,
+  resetTrigger,
+  setUpTrigger
+}: Props) {
   //Toggle Filter Buttons
   const [toggleFilter, setToggleFilter] = useState(false);
+  let buttonStyles: IButton
+
+  useEffect(() => {
+    if (resetTrigger) {
+      setToggleFilter(false)
+      setUpTrigger()
+    }
+  }, [resetTrigger, setUpTrigger])
 
   const onClickFilter = () => {
-    setToggleFilter((bool) => !bool)
-    console.log(toggleFilter)
-  }
+    setToggleFilter((state) => !state)
 
-  let buttonStyles: IButton
+    if (toggleFilter) {
+      removeIdFromFilter(id)
+    } else {
+      addIdToFilter(id)
+    }
+  }
 
   if(toggleFilter) {
     buttonStyles = {
@@ -43,6 +66,7 @@ export default function FilterButton({ children }: Props) {
 }
 
 const Button = styled.button<{ $styles?: IButton}>`
+  cursor: pointer;
   font-size: 1rem;
   display: inline;
   width: max-content;
