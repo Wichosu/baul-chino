@@ -1,6 +1,10 @@
 "use client"
+import { createClient } from "@/app/utils/supabase/client";
+import { ILanguage } from "../interfaces/ILanguage";
+import { IChannel } from "../interfaces/IChannel";
+import { ICategory } from "../interfaces/ICategory";
 import styled from "styled-components"
-import { useState } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import FilterButton from "./FilterButton";
 import Channel from "./Channel";
@@ -9,75 +13,110 @@ interface IMenuStyles {
   translateX: string
 }
 
-interface IChannel {
-  name: string,
-  description: string,
-  url: string,
-  categories: string[],
-  languages: string[]
-}
-
-const languages = [
-  {
-    name: 'Español'
-  },
-  {
-    name: 'Inglés'
-  }
-]
-
-const categories = [
-  {
-    name: 'Vida Cotidiana'
-  },
-  {
-    name: 'Lecciones de Chino'
-  },
-  {
-    name: 'Películas y Series Completas'
-  },
-  {
-    name: 'Resumenes de Películas y Series'
-  },
-  {
-    name: 'Ciencia y Tecnología'
-  },
-  {
-    name: 'Literatura y Poesía'
-  },
-  {
-    name: 'Cuentos Infantiles'
-  },
-]
-
-const channels: IChannel[] = [
-  {
-    name: 'Clases de Chino Mandarín',
-    description: 'En este canal te enseñaremos CHINO MANDARÍN en castellano, para que puedas tener un dialogo comercial, turístico o simplemente una charla cotidiana con personas que hablan en Chino.',
-    url: 'https://www.youtube.com/@clasesdechinomandarin',
-    categories: ['Lecciones de Chino'],
-    languages: ['Español']
-  },
-  {
-    name: 'Nininterprete',
-    description: 'Soy Nini, intérprete de chino-español, apasionada por enseñar mi cultura e idioma. Bienvenidos a mi canal',
-    url: 'https://www.youtube.com/@nininterprete',
-    categories: ['Lecciones de Chino', 'Vida Cotidiana'],
-    languages: ['Español']
-  },
-  {
-    name: 'Aprende Chino con Marco',
-    description: 'Aprende chino mandarín de una forma sencilla, cada video que publicamos está basado en el uso cotidiano del idioma en China. Así que aprenderás las cosas más importantes y más usadas.',
-    url: 'https://www.youtube.com/@AprendeChinoConMarco',
-    categories: ['Lecciones de Chino'],
-    languages: ['Español']
-  }
-]
-
 export default function Filter() {
   //Open Filter Menu
-  const [openFilter, setOpenFilter] = useState(false);
+  const [openFilter, setOpenFilter] = useState(false)
+  const filterLanguage = useRef<number[]>([])
+  const filterCategory = useRef<number[]>([])
+  const [dataLanguage, setDataLanguage] = useState<ILanguage[]>([])
+  const [dataCategory, setDataCategory] = useState<ICategory[]>([])
+  const [dataChannel, setDataChannel] = useState<IChannel[]>([])
+  const [resetTrigger, setResetTrigger] = useState(false)
+  const supabase = createClient()
 
+  //Fetch Filtered Data
+  const fetchFilteredChannel = async () => {
+    const languages = [...filterLanguage.current]
+    const categories = [...filterCategory.current]
+
+    if (languages.length === 0) {
+      dataLanguage.map((language) => languages.push(language.id))
+    }
+    if (categories.length === 0) {
+      dataCategory.map((category) => categories.push(category.id))
+    }
+
+    console.log("State Filter Language")
+    console.log(filterLanguage)
+    console.log("Props filter lang")
+    console.log(languages)
+
+    console.log("State Filter Categories")
+    console.log(filterCategory)
+    console.log("Props filter Categories")
+    console.log(categories)
+
+    const { data } = await supabase
+      .from('channel')
+      .select(`
+        *,
+        channel_category!inner (
+          category!inner (
+            id,
+            name
+          )
+        ),
+        channel_language!inner (
+          language!inner (
+            id,
+            name
+          )
+        )
+      `)
+      .in('channel_category.category.id', categories)
+      .in('channel_language.language.id', languages)
+
+    setDataChannel(data as IChannel[])
+    console.log("Data Channel Filtered")
+    console.log(data)
+  }
+
+  //Fetch Initial Data
+  const fetchLanguage = useCallback(async () => {
+    const { data }= await supabase
+      .from('language')
+      .select('*')
+
+    setDataLanguage(data as ILanguage[])
+  }, [supabase])
+
+  const fetchCategory = useCallback(async () => {
+    const { data } = await supabase
+      .from('category')
+      .select('*')
+
+    setDataCategory(data as ICategory[])
+  }, [supabase])
+
+  const fetchChannel = useCallback(async () => {
+    const { data } = await supabase
+      .from('channel')
+      .select(`
+        *,
+        channel_category!inner (
+          category!inner (
+            id,
+            name
+          )
+        ),
+        channel_language!inner (
+          language!inner (
+            id,
+            name
+          )
+        )
+      `)
+
+    setDataChannel(data as IChannel[])
+  }, [supabase])
+
+  useEffect(() => {
+    fetchLanguage()
+    fetchCategory()
+    fetchChannel()
+  }, [fetchLanguage, fetchCategory, fetchChannel])
+
+  //Toggle Filter SideBar
   const onClickFilter = () => {
     setOpenFilter((bool) => !bool)
   }
@@ -94,10 +133,47 @@ export default function Filter() {
     }
   }
 
-  //Filter Array
-//  const currentFilters = []
+  //Filter Arrays
+  const addIdToCategoryFilter = (id: number) => {
+    filterCategory.current.push(id)
+    console.log("ADDED to category")
+    console.log(filterCategory)
+  }
 
-  //function to filter array with all content and create a new array with the filter content
+  const addIdToLanguageFilter = (id: number) => {
+    filterLanguage.current.push(id)
+    console.log("ADDED to language")
+    console.log(filterLanguage)
+  }
+
+  const removeIdFromCategoryFilter = (id: number) => {
+    filterCategory.current.splice(filterCategory.current.indexOf(id), 1)
+    console.log("REMOVE to category")
+    console.log(filterCategory)
+  } 
+
+  const removeIdFromLanguageFilter = (id: number) => {
+    filterLanguage.current.splice(filterLanguage.current.indexOf(id), 1)
+    console.log("REMOVE to language")
+    console.log(filterLanguage)
+  }
+
+  //Clean Filters with Reniciar Filtros Button
+  const cleanFilters = () => {
+    filterLanguage.current.splice(0, filterLanguage.current.length)
+    filterCategory.current.splice(0, filterCategory.current.length)
+    console.log("Filter Language")
+    console.log(filterLanguage)
+    console.log("Filter Category")
+    console.log(filterCategory)
+    setResetTrigger(true)
+    fetchChannel()
+  }
+
+  //Restart Trigger after reseting filter buttons
+  const setUpTrigger = () => {
+    setResetTrigger(false)
+  }
 
   return (
     <>
@@ -109,30 +185,101 @@ export default function Filter() {
           <div>
             <SidebarTitle>Idiomas</SidebarTitle>
             {
-              languages.map((language, index) => (
-                <FilterButton key={index}>{ language.name }</FilterButton>
+              dataLanguage.map((language, index) => (
+                <FilterButton 
+                  key={index} 
+                  id={language.id} 
+                  addIdToFilter={addIdToLanguageFilter}
+                  removeIdFromFilter={removeIdFromLanguageFilter}
+                  resetTrigger={resetTrigger}
+                  setUpTrigger={setUpTrigger}
+                >
+                  { language.name }
+                </FilterButton>
               ))
             }
           </div>
           <div>
             <SidebarTitle>Categorías</SidebarTitle>
             {
-              categories.map((category, index) => (
-                <FilterButton key={index}>{ category.name }</FilterButton>
+              dataCategory.map((category, index) => (
+                <FilterButton 
+                  key={index}
+                  id={category.id}
+                  addIdToFilter={addIdToCategoryFilter}
+                  removeIdFromFilter={removeIdFromCategoryFilter}
+                  resetTrigger={resetTrigger}
+                  setUpTrigger={setUpTrigger}
+                >
+                  { category.name }
+                </FilterButton>
               ))
             }
           </div>
           <ActionButtonContainer>
-            <ActionButton $backgroundColor="#dc2626">Reiniciar Filtros</ActionButton>
-            <ActionButton>Aplicar Filtros</ActionButton>
+            <ActionButton 
+              onClick={() => {
+                cleanFilters()
+                onClickFilter()
+              }} 
+              $backgroundColor="#dc2626"
+            >
+              Reiniciar Filtros
+            </ActionButton>
+            <ActionButton 
+              onClick={() => {
+                fetchFilteredChannel()
+                onClickFilter()
+              }}
+            >
+              Aplicar Filtros
+            </ActionButton>
           </ActionButtonContainer>
         </SideBarContainer>
       </SideBar>
       <Container>
         <Title>Filtros</Title>
+          <ActionButtonContainer>
+            <ActionButton onClick={cleanFilters} $backgroundColor="#dc2626">Reiniciar Filtros</ActionButton>
+            <ActionButton onClick={fetchFilteredChannel}>Aplicar Filtros</ActionButton>
+          </ActionButtonContainer>
+        <FilterContainer>
+          <SidebarTitle>Idiomas</SidebarTitle>
+          {
+            dataLanguage.map((language, index) => (
+              <FilterButton 
+                key={index}
+                id={language.id}
+                addIdToFilter={addIdToLanguageFilter}
+                removeIdFromFilter={removeIdFromLanguageFilter}
+                resetTrigger={resetTrigger}
+                setUpTrigger={setUpTrigger}
+              >
+                { language.name }
+              </FilterButton>
+            ))
+          }
+        </FilterContainer>
+        <FilterContainer>
+          <SidebarTitle>Categorías</SidebarTitle>
+          {
+            dataCategory.map((category, index) => (
+              <FilterButton 
+                key={index}
+                id={category.id}
+                addIdToFilter={addIdToCategoryFilter}
+                removeIdFromFilter={removeIdFromCategoryFilter}
+                resetTrigger={resetTrigger}
+                setUpTrigger={setUpTrigger}
+              >
+                { category.name }
+              </FilterButton>
+            ))
+          }
+        </FilterContainer>
         <FilterMenuButton onClick={onClickFilter}>Abrir Menu de Filtros</FilterMenuButton>
         {
-          channels.map((channel, index) => (
+          dataChannel.map((channel, index) => (
             <Channel key={index} channel={channel} />
           ))
         }
@@ -155,7 +302,8 @@ const Title = styled.h1`
   margin-bottom: 10px;
 
   @media (min-width: 768px) {
-    display: block;
+    display: inline-block;
+    margin-right: 40px;
   }
 `;
 
@@ -203,13 +351,14 @@ const Figure = styled.figure`
   margin-left: auto;
 `;
 
-const SidebarTitle = styled.h3`
+const SidebarTitle = styled.summary`
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 10px;
 `
 
 const ActionButton = styled.button<{ $backgroundColor?: string}>`
+  cursor: pointer;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px;
@@ -218,39 +367,29 @@ const ActionButton = styled.button<{ $backgroundColor?: string}>`
   border-radius: 4px;
   background-color: ${props => props.$backgroundColor || '#2687fd'};
   color: #fafafa;
+
+  @media (min-width: 768px) {
+    margin-right: 20px
+  }
 `
 const ActionButtonContainer = styled.div`
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
+  display: none;
+  
+  ${SideBarContainer} & {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  @media (min-width: 768px) {
+    display: inline-block;
+  }
 `
 
-/*
-const FilterButtonContainer = styled.div`
-  column-count: auto;
-  overflow: auto;
-`
+const FilterContainer = styled.div`
+  display: none;
 
-const FilterButton = styled.button`
-  display: inline;
-  width: max-content;
-  break-inside: avoid;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-bottom: 10px;
-  margin-right: 10px;
+  @media (min-width: 768px) {
+    display: block;
+  }
 `
-/**
-  display: grid;
-  grid-template-rows: auto auto;
-  grid-auto-flow: column;
-  align-items: center;
-  justify-items: center;
-  row-gap: 20px;
-  column-gap: 10px;
-  width: 100%;
-  overflow: auto;
-* 
- */

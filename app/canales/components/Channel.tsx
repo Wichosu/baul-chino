@@ -1,14 +1,7 @@
 "use client"
 import styled from "styled-components"
 import Link from "next/link"
-
-type IChannel = {
-  name: string,
-  description: string,
-  url: string,
-  categories: string[],
-  languages: string[]
-}
+import { IChannel } from "../interfaces/IChannel"
 
 interface Props {
   channel: IChannel
@@ -19,8 +12,8 @@ export default function Channel ({ channel }: Props) {
     <Container>
       <Title href={channel.url} target="_blank">{ channel.name }</Title>
       <Description>{ channel.description }</Description>
-      <Categories>{ channel.categories.map((category) => `${category} | `)}</Categories>
-      <Categories>{ channel.languages.map((language) => `${language} | `)}</Categories>
+      <Categories>{ channel.channel_category.map(({ category }) => `${category.name} | `)}</Categories>
+      <Categories>{ channel.channel_language.map(({ language }) => `${language.name} | `)}</Categories>
     </Container>
   )
 }
