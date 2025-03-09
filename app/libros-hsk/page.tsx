@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Descarga todos los libros HSK, desde HSK 1 hasta HSK 6, en formato PDF. La descarga es totalmente gratuita y sin anuncios o links molestos."
 }
 
-export default function Home() {
+export default function Page() {
   return (
     <>
       <Navbar />
