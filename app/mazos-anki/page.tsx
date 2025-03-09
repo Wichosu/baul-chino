@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: "Colección de mazos anki con vocabulario HSK. Cada mazo contiene un carácter, su pinyin, traducción en Inglés o Español, y un gif ilustrando la sucesión de trazos."
 }
 
-export default function Home() {
+export default function Page() {
   return (
     <>
       <Navbar />

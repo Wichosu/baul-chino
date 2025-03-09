@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Lista de canales de YouTube con contenido en Chino Mandarín para practicar o aprender."
 }
 
-export default async function Home() {
+export default async function Page() {
   return (
     <>
       <Navbar />

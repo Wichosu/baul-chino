@@ -32,9 +32,7 @@ const Container = styled.article`
   margin-bottom: 20px;
 
   @media (min-width: 768px) {
-    max-width: 400px;
-    margin: 0;
-    flex: 1 1 400px;
+
   }
 `;
 

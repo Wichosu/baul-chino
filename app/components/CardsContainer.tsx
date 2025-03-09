@@ -39,6 +39,14 @@ const cardsList: Card[] = [
     description: 'Lista de canales de YouTube con contenido en Chino para practicar o aprender.',
     linkHref: '/canales',
     linkName: 'Lista de Canales'
+  },
+  {
+    title: 'Escritura de Hanzi 汉字',
+    imgAlt: 'Aprende a escribir chino, conoce el orden de los trazos y sus radicales',
+    img: chineseChannels,
+    description: 'Aprende a escribir chino, conoce el orden de los trazos y sus radicales',
+    linkHref: '/hanzi',
+    linkName: 'Escritura de Hanzi'
   }
 ]
 
@@ -67,7 +75,7 @@ const Container = styled.section`
   margin: 0 auto;
 
   @media (min-width: 768px) {
-    display: flex;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr)
   }
 `;
