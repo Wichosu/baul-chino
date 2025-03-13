@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Hero from "../components/Hero";
+import Writer from "./components/Writer";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -16,8 +17,7 @@ export default function Page() {
         Herramienta para aprender a escribir chino, conocer el orden de los trazos y sus radicales
         observando animaciones personalizadas.
       </Hero>
-      <h1>汉字</h1>
-      <p>这是一个汉字页面</p>
+      <Writer />
       <Footer />
     </>
   );
