@@ -3,6 +3,7 @@ import HanziWriter from "hanzi-writer"
 import { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import CanvasSvg from "./CanvasSvg"
+import { Neonderthaw } from "next/font/google"
 
 export default function Writer() {
   const canvasRef = useRef<HTMLDivElement>(null)
@@ -11,6 +12,7 @@ export default function Writer() {
 
   const renderHanzi = () => {
     if (canvasRef.current === null) return
+    if (canvasSvgRef.current === null) return
     //if (canvasRef.current.childNodes.length > 0) return
     //Cleanup previous hanzi
     const childNodes = Object.values(canvasRef.current.childNodes)
@@ -22,40 +24,11 @@ export default function Writer() {
 
     hanziArray.map((hanzi) => {
       if (canvasRef.current === null) return
+      if (canvasSvgRef.current === null) return
 
-      const svg = canvasRef.current.appendChild(document.createElement('svg'))
-      
-      const horizontalLine = svg.appendChild(document.createElement('line'))
-      horizontalLine.setAttribute('x1', '0')
-      horizontalLine.setAttribute('y1', '0')
-      horizontalLine.setAttribute('x2', '100')
-      horizontalLine.setAttribute('y2', '100')
-      horizontalLine.setAttribute('stroke', '#DDD')
-
-      const verticalLine = svg.appendChild(document.createElement('line'))
-      verticalLine.setAttribute('x1', '100')
-      verticalLine.setAttribute('y1', '0')
-      verticalLine.setAttribute('x2', '0')
-      verticalLine.setAttribute('y2', '100')
-      verticalLine.setAttribute('stroke', '#DDD')
-
-      const diagonalLine = svg.appendChild(document.createElement('line'))
-      diagonalLine.setAttribute('x1', '50')
-      diagonalLine.setAttribute('y1', '0')
-      diagonalLine.setAttribute('x2', '50')
-      diagonalLine.setAttribute('y2', '100')
-      diagonalLine.setAttribute('stroke', '#DDD')
-
-      const diagonalLine2 = svg.appendChild(document.createElement('line'))
-      diagonalLine2.setAttribute('x1', '0')
-      diagonalLine2.setAttribute('y1', '50')
-      diagonalLine2.setAttribute('x2', '100')
-      diagonalLine2.setAttribute('y2', '50')
-      diagonalLine2.setAttribute('stroke', '#DDD')
-
-      HanziWriter.create(canvasRef.current?? '', hanzi, {
-        width: 150,
-        height: 150,
+      HanziWriter.create(canvasSvgRef.current, hanzi, {
+        width: 100,
+        height: 100,
         padding: 5
       })
       .loopCharacterAnimation()
@@ -66,6 +39,38 @@ export default function Writer() {
       //   padding: 5
       // })
       // .loopCharacterAnimation()
+    })
+
+    const canvasChildNodes = Object.values(canvasRef.current.childNodes)
+
+    canvasChildNodes.map((node) => {
+      const horizontalLine = node.appendChild(document.createElement('line'))
+      horizontalLine.setAttribute('x1', '0')
+      horizontalLine.setAttribute('y1', '0')
+      horizontalLine.setAttribute('x2', '100')
+      horizontalLine.setAttribute('y2', '100')
+      horizontalLine.setAttribute('stroke', '#DDD')
+
+      const verticalLine = node.appendChild(document.createElement('line'))
+      verticalLine.setAttribute('x1', '100')
+      verticalLine.setAttribute('y1', '0')
+      verticalLine.setAttribute('x2', '0')
+      verticalLine.setAttribute('y2', '100')
+      verticalLine.setAttribute('stroke', '#DDD')
+
+      const diagonalLine = node.appendChild(document.createElement('line'))
+      diagonalLine.setAttribute('x1', '50')
+      diagonalLine.setAttribute('y1', '0')
+      diagonalLine.setAttribute('x2', '50')
+      diagonalLine.setAttribute('y2', '100')
+      diagonalLine.setAttribute('stroke', '#DDD')
+
+      const diagonalLine2 = node.appendChild(document.createElement('line'))
+      diagonalLine2.setAttribute('x1', '0')
+      diagonalLine2.setAttribute('y1', '50')
+      diagonalLine2.setAttribute('x2', '100')
+      diagonalLine2.setAttribute('y2', '50')
+      diagonalLine2.setAttribute('stroke', '#DDD')
     })
   }
 
