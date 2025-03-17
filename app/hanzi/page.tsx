@@ -16,6 +16,8 @@ export default function Page() {
       <Hero title="Escribe Hanzi 汉字">
         Herramienta para aprender a escribir chino, conocer el orden de los trazos y sus radicales
         observando animaciones personalizadas.
+        <br />
+        Escribe en la caja de texto y se mostraran tus hanzi 汉字
       </Hero>
       <Writer />
       <Footer />

@@ -1,94 +1,50 @@
 "use client"
 import HanziWriter from "hanzi-writer"
-import { useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import styled from "styled-components"
-import CanvasSvg from "./CanvasSvg"
-import { Neonderthaw } from "next/font/google"
+import { cleanUpCanvas, createHanziBackground } from "../utils/renderHanziUtils"
 
 export default function Writer() {
-  const canvasRef = useRef<HTMLDivElement>(null)
-  const canvasSvgRef = useRef<HTMLElement>(null)
-  const [hanzi, setHanzi] = useState<string>('')
+  const canvasRef = useRef<HTMLDivElement>(null!)
+  const [hanzi, setHanzi] = useState<string>('汉字')
 
-  const renderHanzi = () => {
-    if (canvasRef.current === null) return
-    if (canvasSvgRef.current === null) return
-    //if (canvasRef.current.childNodes.length > 0) return
+  const renderHanzi = useCallback(async () => {
+    const romanRegex = '[A-Z]|[a-z]'
+
+    if (hanzi.match(romanRegex)) return
+
     //Cleanup previous hanzi
-    const childNodes = Object.values(canvasRef.current.childNodes)
-
-    childNodes.map((child) => child.remove())
+    cleanUpCanvas(canvasRef.current.childNodes)
 
     //Create hanzi
     const hanziArray = hanzi.split('')
 
     hanziArray.map((hanzi) => {
-      if (canvasRef.current === null) return
-      if (canvasSvgRef.current === null) return
+      //Create Hanzi background
+      const background = createHanziBackground(canvasRef.current)
 
-      HanziWriter.create(canvasSvgRef.current, hanzi, {
+      HanziWriter.create(background as unknown as HTMLElement, hanzi, {
         width: 100,
         height: 100,
         padding: 5
       })
-      .loopCharacterAnimation()
-
-      // HanziWriter.create(canvasRef.current?? '', hanzi, {
-      //   width: 150,
-      //   height: 150,
-      //   padding: 5
-      // })
-      // .loopCharacterAnimation()
+        .loopCharacterAnimation()
     })
-
-    const canvasChildNodes = Object.values(canvasRef.current.childNodes)
-
-    canvasChildNodes.map((node) => {
-      const horizontalLine = node.appendChild(document.createElement('line'))
-      horizontalLine.setAttribute('x1', '0')
-      horizontalLine.setAttribute('y1', '0')
-      horizontalLine.setAttribute('x2', '100')
-      horizontalLine.setAttribute('y2', '100')
-      horizontalLine.setAttribute('stroke', '#DDD')
-
-      const verticalLine = node.appendChild(document.createElement('line'))
-      verticalLine.setAttribute('x1', '100')
-      verticalLine.setAttribute('y1', '0')
-      verticalLine.setAttribute('x2', '0')
-      verticalLine.setAttribute('y2', '100')
-      verticalLine.setAttribute('stroke', '#DDD')
-
-      const diagonalLine = node.appendChild(document.createElement('line'))
-      diagonalLine.setAttribute('x1', '50')
-      diagonalLine.setAttribute('y1', '0')
-      diagonalLine.setAttribute('x2', '50')
-      diagonalLine.setAttribute('y2', '100')
-      diagonalLine.setAttribute('stroke', '#DDD')
-
-      const diagonalLine2 = node.appendChild(document.createElement('line'))
-      diagonalLine2.setAttribute('x1', '0')
-      diagonalLine2.setAttribute('y1', '50')
-      diagonalLine2.setAttribute('x2', '100')
-      diagonalLine2.setAttribute('y2', '50')
-      diagonalLine2.setAttribute('stroke', '#DDD')
-    })
-  }
+  }, [hanzi])
 
   useEffect(() => {
     renderHanzi()
-
-    return () => {
-      canvasRef.current?.remove()
-    }
-  }, [canvasRef])
+  }, [renderHanzi])
 
   return (
     <>
       <Container>
-        <CanvasSvg ref={canvasSvgRef} />
         <CanvasDiv ref={canvasRef} />
-        <Input type='text' onChange={(e) => setHanzi(e.target.value)} />
-        <Button onClick={() => renderHanzi()}>Escribir Hanzi</Button>
+        <Input 
+          type='text' 
+          onChange={(e) => setHanzi(e.target.value)} 
+          placeholder="Escribe aquí tus hanzi 汉字" 
+        />
       </Container>
     </>
   )
@@ -105,6 +61,9 @@ const CanvasDiv = styled.div`
   width: fit-content;
   margin: 0 auto;
   margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 `
 
 const Input = styled.input`
@@ -120,18 +79,4 @@ const Input = styled.input`
   &:focus {
     border: none;
   }
-`
-
-const Button = styled.button`
-  width: fit-content;
-  margin: 0 auto;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 4px;
-  border: none;
-  background-color: hsl(213, 98%, 57%);
-  color: #fafafa;
-  cursor: pointer;
 `
