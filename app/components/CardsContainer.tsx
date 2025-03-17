@@ -4,6 +4,7 @@ import Card from "./Card"
 import ankiHsk from "../images/anki-menu.png"
 import hskBooks from "../images/hsk-books.png"
 import chineseChannels from "../images/chinese-channels-image.png"
+import hanzi from "../images/hanzi.png"
 import { StaticImageData } from "next/image"
 
 interface Card {
@@ -43,7 +44,7 @@ const cardsList: Card[] = [
   {
     title: 'Escritura de Hanzi 汉字',
     imgAlt: 'Aprende a escribir chino, conoce el orden de los trazos y sus radicales',
-    img: chineseChannels,
+    img: hanzi,
     description: 'Aprende a escribir chino, conoce el orden de los trazos y sus radicales',
     linkHref: '/hanzi',
     linkName: 'Escritura de Hanzi'
