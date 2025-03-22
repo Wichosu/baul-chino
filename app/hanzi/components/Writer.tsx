@@ -24,7 +24,7 @@ export default function Writer() {
     hanziArray.map((hanzi) => {
       //Filter Roman letters and Punctuation simbols
       const romanRegex = /[A-Z]|[a-z]/
-      const punctRegex = /[^\p{Script=Han}\p{L}\p{N}]/u
+      const punctRegex = /[^\p{Script=Han}\p{L}]/u
 
       if (hanzi.match(romanRegex)) return
       if (hanzi.match(punctRegex)) return
