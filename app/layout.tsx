@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react"
 import GlobalStyles from "./GlobalStyles";
 import StyledComponentsRegistry from "./lib/registry";
+import { PostHogProvider } from "./providers";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -30,9 +31,11 @@ export default function RootLayout({
       <GlobalStyles />
       <html lang="es">
         <body className={montserrat.className}>
-          <StyledComponentsRegistry>
-            {children}
-          </StyledComponentsRegistry>
+          <PostHogProvider>
+            <StyledComponentsRegistry>
+              {children}
+            </StyledComponentsRegistry>
+          </PostHogProvider>
           <Analytics />
         </body>
       </html>
