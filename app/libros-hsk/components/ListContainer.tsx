@@ -1,6 +1,8 @@
 "use client"
 import styled from "styled-components";
 import ListItem from "./ListItem";
+import Card from "@/app/components/Card";
+import demoImage from "../../images/hsk-books.png"
 
 const hskBooks = [
   {
@@ -81,15 +83,17 @@ export default function ListContainer() {
   return (
     <Container>
       <Title>Haz click para descargar el libro HSK deseado</Title>
-      {
-        hskBooks.map((e, index) => (
-          <ListItem 
-            key={index} 
-            linkRef={e.link}
-            linkName={e.name}
-          />
-        ))
-      }
+      <BooksContainer>
+        {
+          hskBooks.map((e, index) => (
+            <Card key={index}>
+              <Card.Title>{ e.name }</Card.Title>
+              <Card.CardImage img={demoImage} imgAlt={e.name} />
+              <Card.Button linkRef={e.link}>Descargar { e.name }</Card.Button>
+            </Card>
+          ))
+        }
+      </BooksContainer>
     </Container>
   )
 };
@@ -104,4 +108,10 @@ const Container = styled.section`
 const Title = styled.h3`
   margin-top: 20px;
   margin-bottom: 20px;
+`
+
+const BooksContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 `
