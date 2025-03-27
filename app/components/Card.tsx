@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import React, { ReactNode } from "react";
+import React, { HTMLAttributeAnchorTarget, ReactNode } from "react";
 
 export default function Card({ children }: { children: ReactNode }) {
   return (
@@ -13,7 +13,8 @@ export default function Card({ children }: { children: ReactNode }) {
 }
 
 const Container = styled.article`
-  width: 85%;
+  width: 100%;
+  max-width: 80%;
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -62,9 +63,14 @@ const StyledDescription = styled.p`
   margin-bottom: 10px;
 `;
 
-function Button({ linkRef, children, margin }: { linkRef: string, children: ReactNode, margin?: boolean }) {
+type ButtonOptions = Partial<{
+  margin: boolean,
+  target: HTMLAttributeAnchorTarget
+}>
+
+function Button({ linkRef, children, options }: { linkRef: string, children: ReactNode, options?: ButtonOptions }) {
   return (
-    <StyledButton href={linkRef} $margin={margin}>{ children }</StyledButton>
+    <StyledButton href={linkRef} $margin={options?.margin} target={options?.target}>{ children }</StyledButton>
   )
 }
 
@@ -85,6 +91,11 @@ const StyledButton = styled(Link)<{ $margin?: boolean}>`
   border: none;
   cursor: pointer;
   text-decoration: none;
+  transition: 200ms ease;
+
+  &:hover {
+    background-color: hsl(213, 93%, 57%);
+  }
 `;
 
 Card.Title = Title
