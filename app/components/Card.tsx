@@ -62,13 +62,16 @@ const StyledDescription = styled.p`
   margin-bottom: 10px;
 `;
 
-function Button({ linkRef, children }: { linkRef: string, children: ReactNode }) {
+function Button({ linkRef, children, margin }: { linkRef: string, children: ReactNode, margin?: boolean }) {
   return (
-    <StyledButton href={linkRef}>{ children }</StyledButton>
+    <StyledButton href={linkRef} $margin={margin}>{ children }</StyledButton>
   )
 }
 
-const StyledButton = styled(Link)`
+const StyledButton = styled(Link)<{ $margin?: boolean}>`
+  margin-top: ${props => props.$margin ? '10px' : '0px'};
+  margin-bottom: ${props => props.$margin ? '10px' : '0px'};
+
   display: block;
   text-align: center;
   width: 100%;
