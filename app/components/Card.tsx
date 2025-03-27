@@ -2,25 +2,12 @@
 import styled from "styled-components";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import React, { ReactNode } from "react";
 
-interface Props {
-  title: string,
-  imgAlt: string,
-  img: string | StaticImageData,
-  description: string,
-  linkHref: string,
-  linkName: string
-}
-
-export default function Card({ title, imgAlt, img, description, linkHref, linkName}: Props) {
+export default function Card({ children }: { children: ReactNode }) {
   return (
     <Container>
-      <Title>{`${title}`}</Title>
-      <ImageContainer>
-        <StyledImage alt={imgAlt} src={img} width={500} height={500} objectFit="contain" />
-      </ImageContainer>
-      <Description>{`${description}`}</Description>
-      <Button href={linkHref}>Ir a {`${linkName}`}</Button>
+      { children }
     </Container>
   );
 }
@@ -30,16 +17,26 @@ const Container = styled.article`
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 20px;
-
-  @media (min-width: 768px) {
-
-  }
 `;
 
-const Title = styled.h1`
+function Title({ children }: { children: string }) {
+  return (
+    <StyledTitle>{ children }</StyledTitle>
+  )
+}
+
+const StyledTitle = styled.h1`
   font-size: 2rem;
   font-weight: 500;
 `;
+
+function CardImage({ imgAlt, img }: { imgAlt: string, img: string | StaticImageData }) {
+  return (
+    <ImageContainer>
+      <StyledImage alt={imgAlt} src={img} width={500} height={500} objectFit="contain" />
+    </ImageContainer>
+  )
+}
 
 const ImageContainer = styled.figure`
   width: 100%;
@@ -54,12 +51,24 @@ const StyledImage = styled(Image)`
   aspect-ratio: 1 / 1;
 `;
 
-const Description = styled.p`
+function Description({ children }: { children: string }) {
+  return (
+    <StyledDescription>{ children }</StyledDescription>
+  )
+}
+
+const StyledDescription = styled.p`
   margin-top: 10px;
   margin-bottom: 10px;
 `;
 
-const Button = styled(Link)`
+function Button({ linkRef, children }: { linkRef: string, children: ReactNode }) {
+  return (
+    <StyledButton href={linkRef}>{ children }</StyledButton>
+  )
+}
+
+const StyledButton = styled(Link)`
   display: block;
   text-align: center;
   width: 100%;
@@ -67,8 +76,15 @@ const Button = styled(Link)`
   color: hsl(0, 0%, 98%);
   padding-top: 12px;
   padding-bottom: 12px;
+  padding-left: 6px;
+  padding-right: 6px;
   border-radius: 4px;
   border: none;
   cursor: pointer;
   text-decoration: none;
 `;
+
+Card.Title = Title
+Card.CardImage = CardImage
+Card.Description = Description
+Card.Button = Button
