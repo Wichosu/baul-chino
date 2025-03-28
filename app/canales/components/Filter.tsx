@@ -26,11 +26,45 @@ export default function Filter({ FetchedLanguages, FetchedCategories, FetchedCha
   const filterLanguage = useRef<number[]>([])
   const filterCategory = useRef<number[]>([])
 
+  const [selectedLanguage, setSelectedLanguage] = useState<number[]>(FetchedLanguages.map((language) => language.id))
+  const [selectedCategory, setSelectedCategory] = useState<number[]>(FetchedCategories.map((category) => category.id))
+
   const [dataChannel, setDataChannel] = useState<IChannel[]>(FetchedChannels)
 
   const [resetTrigger, setResetTrigger] = useState(false)
 
   const supabase = createClient()
+
+  useEffect(() => {
+    const fetchFilteredChannel = async () => {
+      const { data } = await supabase
+        .from('channel')
+        .select(`
+          *,
+          channel_category!inner (
+            category!inner (
+              id,
+              name
+            )
+          ),
+          channel_language!inner (
+            language!inner (
+              id,
+              name
+            )
+          )
+        `)
+        .in('channel_category.category.id', selectedCategory)
+        .in('channel_language.language.id', selectedLanguage)
+
+      console.log("DATA")
+      console.log(data)
+
+      setDataChannel(data as IChannel[])
+    }
+
+    fetchFilteredChannel()
+  }, [selectedCategory, selectedLanguage])
 
   //Fetch Filtered Data
   const fetchFilteredChannel = async () => {
@@ -99,26 +133,34 @@ export default function Filter({ FetchedLanguages, FetchedCategories, FetchedCha
   //Filter Arrays
   const addIdToCategoryFilter = (id: number) => {
     filterCategory.current.push(id)
+    setSelectedCategory([...selectedCategory, id])
     console.log("ADDED to category")
     console.log(filterCategory)
+    console.log(selectedCategory)
   }
 
   const addIdToLanguageFilter = (id: number) => {
     filterLanguage.current.push(id)
+    setSelectedLanguage([...selectedLanguage, id])
     console.log("ADDED to language")
     console.log(filterLanguage)
+    console.log(selectedLanguage)
   }
 
   const removeIdFromCategoryFilter = (id: number) => {
     filterCategory.current.splice(filterCategory.current.indexOf(id), 1)
+    setSelectedCategory(selectedCategory.filter((item) => item !== id))
     console.log("REMOVE to category")
     console.log(filterCategory)
+    console.log(selectedCategory)
   } 
 
   const removeIdFromLanguageFilter = (id: number) => {
     filterLanguage.current.splice(filterLanguage.current.indexOf(id), 1)
+    setSelectedLanguage(selectedLanguage.filter((item) => item !== id))
     console.log("REMOVE to language")
     console.log(filterLanguage)
+    console.log(selectedLanguage)
   }
 
   //Clean Filters with Reniciar Filtros Button
