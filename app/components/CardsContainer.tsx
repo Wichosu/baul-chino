@@ -56,15 +56,12 @@ export default function CardsContainer() {
     <Container>
       {
         cardsList.map((e, index) => (
-          <Card 
-            key={index} 
-            title={e.title} 
-            imgAlt={e.imgAlt}
-            img={e.img}
-            description={e.description} 
-            linkHref={e.linkHref}
-            linkName={e.linkName} 
-          />
+          <Card key={index}>
+            <Card.Title>{ e.title }</Card.Title>
+            <Card.CardImage img={e.img} imgAlt={e.imgAlt}  />
+            <Card.Description>{ e.description }</Card.Description>
+            <Card.Button linkRef={e.linkHref}>Ir a { e.linkName }</Card.Button>
+          </Card>
         ))
       }
     </Container>
@@ -77,6 +74,7 @@ const Container = styled.section`
 
   @media (min-width: 768px) {
     display: grid;
-    grid-template-columns: repeat(3, 1fr)
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
   }
 `;

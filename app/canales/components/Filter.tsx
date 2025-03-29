@@ -13,16 +13,58 @@ interface IMenuStyles {
   translateX: string
 }
 
-export default function Filter() {
+type Props = {
+  FetchedLanguages: ILanguage[],
+  FetchedCategories: ICategory[],
+  FetchedChannels: IChannel[]
+}
+
+export default function Filter({ FetchedLanguages, FetchedCategories, FetchedChannels }: Props) {
   //Open Filter Menu
   const [openFilter, setOpenFilter] = useState(false)
+
   const filterLanguage = useRef<number[]>([])
   const filterCategory = useRef<number[]>([])
-  const [dataLanguage, setDataLanguage] = useState<ILanguage[]>([])
-  const [dataCategory, setDataCategory] = useState<ICategory[]>([])
-  const [dataChannel, setDataChannel] = useState<IChannel[]>([])
+
+  const [selectedLanguage, setSelectedLanguage] = useState<number[]>(FetchedLanguages.map((language) => language.id))
+  const [selectedCategory, setSelectedCategory] = useState<number[]>(FetchedCategories.map((category) => category.id))
+
+  const [dataChannel, setDataChannel] = useState<IChannel[]>(FetchedChannels)
+
   const [resetTrigger, setResetTrigger] = useState(false)
+
   const supabase = createClient()
+
+  useEffect(() => {
+    const fetchFilteredChannel = async () => {
+      const { data } = await supabase
+        .from('channel')
+        .select(`
+          *,
+          channel_category!inner (
+            category!inner (
+              id,
+              name
+            )
+          ),
+          channel_language!inner (
+            language!inner (
+              id,
+              name
+            )
+          )
+        `)
+        .in('channel_category.category.id', selectedCategory)
+        .in('channel_language.language.id', selectedLanguage)
+
+      console.log("DATA")
+      console.log(data)
+
+      setDataChannel(data as IChannel[])
+    }
+
+    fetchFilteredChannel()
+  }, [selectedCategory, selectedLanguage])
 
   //Fetch Filtered Data
   const fetchFilteredChannel = async () => {
@@ -30,10 +72,10 @@ export default function Filter() {
     const categories = [...filterCategory.current]
 
     if (languages.length === 0) {
-      dataLanguage.map((language) => languages.push(language.id))
+      FetchedLanguages.map((language) => languages.push(language.id))
     }
     if (categories.length === 0) {
-      dataCategory.map((category) => categories.push(category.id))
+      FetchedCategories.map((category) => categories.push(category.id))
     }
 
     console.log("State Filter Language")
@@ -71,51 +113,6 @@ export default function Filter() {
     console.log(data)
   }
 
-  //Fetch Initial Data
-  const fetchLanguage = useCallback(async () => {
-    const { data }= await supabase
-      .from('language')
-      .select('*')
-
-    setDataLanguage(data as ILanguage[])
-  }, [supabase])
-
-  const fetchCategory = useCallback(async () => {
-    const { data } = await supabase
-      .from('category')
-      .select('*')
-
-    setDataCategory(data as ICategory[])
-  }, [supabase])
-
-  const fetchChannel = useCallback(async () => {
-    const { data } = await supabase
-      .from('channel')
-      .select(`
-        *,
-        channel_category!inner (
-          category!inner (
-            id,
-            name
-          )
-        ),
-        channel_language!inner (
-          language!inner (
-            id,
-            name
-          )
-        )
-      `)
-
-    setDataChannel(data as IChannel[])
-  }, [supabase])
-
-  useEffect(() => {
-    fetchLanguage()
-    fetchCategory()
-    fetchChannel()
-  }, [fetchLanguage, fetchCategory, fetchChannel])
-
   //Toggle Filter SideBar
   const onClickFilter = () => {
     setOpenFilter((bool) => !bool)
@@ -136,26 +133,34 @@ export default function Filter() {
   //Filter Arrays
   const addIdToCategoryFilter = (id: number) => {
     filterCategory.current.push(id)
+    setSelectedCategory([...selectedCategory, id])
     console.log("ADDED to category")
     console.log(filterCategory)
+    console.log(selectedCategory)
   }
 
   const addIdToLanguageFilter = (id: number) => {
     filterLanguage.current.push(id)
+    setSelectedLanguage([...selectedLanguage, id])
     console.log("ADDED to language")
     console.log(filterLanguage)
+    console.log(selectedLanguage)
   }
 
   const removeIdFromCategoryFilter = (id: number) => {
     filterCategory.current.splice(filterCategory.current.indexOf(id), 1)
+    setSelectedCategory(selectedCategory.filter((item) => item !== id))
     console.log("REMOVE to category")
     console.log(filterCategory)
+    console.log(selectedCategory)
   } 
 
   const removeIdFromLanguageFilter = (id: number) => {
     filterLanguage.current.splice(filterLanguage.current.indexOf(id), 1)
+    setSelectedLanguage(selectedLanguage.filter((item) => item !== id))
     console.log("REMOVE to language")
     console.log(filterLanguage)
+    console.log(selectedLanguage)
   }
 
   //Clean Filters with Reniciar Filtros Button
@@ -167,7 +172,7 @@ export default function Filter() {
     console.log("Filter Category")
     console.log(filterCategory)
     setResetTrigger(true)
-    fetchChannel()
+    fetchFilteredChannel()
   }
 
   //Restart Trigger after reseting filter buttons
@@ -185,7 +190,7 @@ export default function Filter() {
           <div>
             <SidebarTitle>Idiomas</SidebarTitle>
             {
-              dataLanguage.map((language, index) => (
+              FetchedLanguages.map((language, index) => (
                 <FilterButton 
                   key={index} 
                   id={language.id} 
@@ -202,7 +207,7 @@ export default function Filter() {
           <div>
             <SidebarTitle>Categorías</SidebarTitle>
             {
-              dataCategory.map((category, index) => (
+              FetchedCategories.map((category, index) => (
                 <FilterButton 
                   key={index}
                   id={category.id}
@@ -246,7 +251,7 @@ export default function Filter() {
         <FilterContainer>
           <SidebarTitle>Idiomas</SidebarTitle>
           {
-            dataLanguage.map((language, index) => (
+            FetchedLanguages.map((language, index) => (
               <FilterButton 
                 key={index}
                 id={language.id}
@@ -263,7 +268,7 @@ export default function Filter() {
         <FilterContainer>
           <SidebarTitle>Categorías</SidebarTitle>
           {
-            dataCategory.map((category, index) => (
+            FetchedCategories.map((category, index) => (
               <FilterButton 
                 key={index}
                 id={category.id}
