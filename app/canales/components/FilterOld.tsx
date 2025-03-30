@@ -4,10 +4,10 @@ import { ILanguage } from "../interfaces/ILanguage";
 import { IChannel } from "../interfaces/IChannel";
 import { ICategory } from "../interfaces/ICategory";
 import styled from "styled-components"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import FilterButton from "./FilterButton";
-import ChannelsList from "./ChannelsList";
+import Channel from "./Channel";
 
 interface IMenuStyles {
   translateX: string
@@ -23,9 +23,11 @@ export default function Filter({ FetchedLanguages, FetchedCategories, FetchedCha
   //Open Filter Menu
   const [openFilter, setOpenFilter] = useState(false)
 
-  // Start with empty selection arrays instead of all items selected
-  const [selectedLanguage, setSelectedLanguage] = useState<number[]>([])
-  const [selectedCategory, setSelectedCategory] = useState<number[]>([])
+  const filterLanguage = useRef<number[]>([])
+  const filterCategory = useRef<number[]>([])
+
+  const [selectedLanguage, setSelectedLanguage] = useState<number[]>(FetchedLanguages.map((language) => language.id))
+  const [selectedCategory, setSelectedCategory] = useState<number[]>(FetchedCategories.map((category) => category.id))
 
   const [dataChannel, setDataChannel] = useState<IChannel[]>(FetchedChannels)
 
@@ -33,56 +35,83 @@ export default function Filter({ FetchedLanguages, FetchedCategories, FetchedCha
 
   const supabase = createClient()
 
-  // This effect will run whenever filter selections change
   useEffect(() => {
     const fetchFilteredChannel = async () => {
-      // Use all options if nothing is selected
-      const languages = selectedLanguage.length === 0 
-        ? FetchedLanguages.map(language => language.id) 
-        : selectedLanguage
-        
-      const categories = selectedCategory.length === 0
-        ? FetchedCategories.map(category => category.id)
-        : selectedCategory
-
-      console.log("Fetching with languages:", languages)
-      console.log("Fetching with categories:", categories)
-
-      try {
-        const { data, error } = await supabase
-          .from('channel')
-          .select(`
-            *,
-            channel_category!inner (
-              category!inner (
-                id,
-                name
-              )
-            ),
-            channel_language!inner (
-              language!inner (
-                id,
-                name
-              )
+      const { data } = await supabase
+        .from('channel')
+        .select(`
+          *,
+          channel_category!inner (
+            category!inner (
+              id,
+              name
             )
-          `)
-          .in('channel_category.category.id', categories)
-          .in('channel_language.language.id', languages)
+          ),
+          channel_language!inner (
+            language!inner (
+              id,
+              name
+            )
+          )
+        `)
+        .in('channel_category.category.id', selectedCategory)
+        .in('channel_language.language.id', selectedLanguage)
 
-        if (error) {
-          console.error("Error fetching filtered data:", error)
-          return
-        }
+      console.log("DATA")
+      console.log(data)
 
-        console.log("Data Channel Filtered:", data)
-        setDataChannel(data as IChannel[])
-      } catch (err) {
-        console.error("Exception when fetching data:", err)
-      }
+      setDataChannel(data as IChannel[])
     }
 
     fetchFilteredChannel()
-  }, [selectedCategory, selectedLanguage, FetchedCategories, FetchedLanguages, supabase])
+  }, [selectedCategory, selectedLanguage, supabase])
+
+  //Fetch Filtered Data
+  const fetchFilteredChannel = async () => {
+    const languages = [...filterLanguage.current]
+    const categories = [...filterCategory.current]
+
+    if (languages.length === 0) {
+      FetchedLanguages.map((language) => languages.push(language.id))
+    }
+    if (categories.length === 0) {
+      FetchedCategories.map((category) => categories.push(category.id))
+    }
+
+    console.log("State Filter Language")
+    console.log(filterLanguage)
+    console.log("Props filter lang")
+    console.log(languages)
+
+    console.log("State Filter Categories")
+    console.log(filterCategory)
+    console.log("Props filter Categories")
+    console.log(categories)
+
+    const { data } = await supabase
+      .from('channel')
+      .select(`
+        *,
+        channel_category!inner (
+          category!inner (
+            id,
+            name
+          )
+        ),
+        channel_language!inner (
+          language!inner (
+            id,
+            name
+          )
+        )
+      `)
+      .in('channel_category.category.id', categories)
+      .in('channel_language.language.id', languages)
+
+    setDataChannel(data as IChannel[])
+    console.log("Data Channel Filtered")
+    console.log(data)
+  }
 
   //Toggle Filter SideBar
   const onClickFilter = () => {
@@ -103,38 +132,47 @@ export default function Filter({ FetchedLanguages, FetchedCategories, FetchedCha
 
   //Filter Arrays
   const addIdToCategoryFilter = (id: number) => {
-    setSelectedCategory(prev => {
-      // Only add if not already in the array
-      if (!prev.includes(id)) {
-        return [...prev, id]
-      }
-      return prev
-    })
+    filterCategory.current.push(id)
+    setSelectedCategory([...selectedCategory, id])
+    console.log("ADDED to category")
+    console.log(filterCategory)
+    console.log(selectedCategory)
   }
 
   const addIdToLanguageFilter = (id: number) => {
-    setSelectedLanguage(prev => {
-      // Only add if not already in the array
-      if (!prev.includes(id)) {
-        return [...prev, id]
-      }
-      return prev
-    })
+    filterLanguage.current.push(id)
+    setSelectedLanguage([...selectedLanguage, id])
+    console.log("ADDED to language")
+    console.log(filterLanguage)
+    console.log(selectedLanguage)
   }
 
   const removeIdFromCategoryFilter = (id: number) => {
-    setSelectedCategory(prev => prev.filter(item => item !== id))
+    filterCategory.current.splice(filterCategory.current.indexOf(id), 1)
+    setSelectedCategory(selectedCategory.filter((item) => item !== id))
+    console.log("REMOVE to category")
+    console.log(filterCategory)
+    console.log(selectedCategory)
   } 
 
   const removeIdFromLanguageFilter = (id: number) => {
-    setSelectedLanguage(prev => prev.filter(item => item !== id))
+    filterLanguage.current.splice(filterLanguage.current.indexOf(id), 1)
+    setSelectedLanguage(selectedLanguage.filter((item) => item !== id))
+    console.log("REMOVE to language")
+    console.log(filterLanguage)
+    console.log(selectedLanguage)
   }
 
-  //Clean Filters
+  //Clean Filters with Reniciar Filtros Button
   const cleanFilters = () => {
-    setSelectedLanguage([])
-    setSelectedCategory([])
+    filterLanguage.current.splice(0, filterLanguage.current.length)
+    filterCategory.current.splice(0, filterCategory.current.length)
+    console.log("Filter Language")
+    console.log(filterLanguage)
+    console.log("Filter Category")
+    console.log(filterCategory)
     setResetTrigger(true)
+    fetchFilteredChannel()
   }
 
   //Restart Trigger after reseting filter buttons
@@ -193,6 +231,14 @@ export default function Filter({ FetchedLanguages, FetchedCategories, FetchedCha
             >
               Reiniciar Filtros
             </ActionButton>
+            <ActionButton 
+              onClick={() => {
+                fetchFilteredChannel()
+                onClickFilter()
+              }}
+            >
+              Aplicar Filtros
+            </ActionButton>
           </ActionButtonContainer>
         </SideBarContainer>
       </SideBar>
@@ -200,6 +246,7 @@ export default function Filter({ FetchedLanguages, FetchedCategories, FetchedCha
         <Title>Filtros</Title>
           <ActionButtonContainer>
             <ActionButton onClick={cleanFilters} $backgroundColor="#dc2626">Reiniciar Filtros</ActionButton>
+            <ActionButton onClick={fetchFilteredChannel}>Aplicar Filtros</ActionButton>
           </ActionButtonContainer>
         <FilterContainer>
           <SidebarTitle>Idiomas</SidebarTitle>
@@ -236,7 +283,11 @@ export default function Filter({ FetchedLanguages, FetchedCategories, FetchedCha
           }
         </FilterContainer>
         <FilterMenuButton onClick={onClickFilter}>Abrir Menu de Filtros</FilterMenuButton>
-        <ChannelsList dataChannel={dataChannel} />
+        {
+          dataChannel.map((channel, index) => (
+            <Channel key={index} channel={channel} />
+          ))
+        }
       </Container>
     </>
   )
