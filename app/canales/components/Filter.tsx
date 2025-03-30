@@ -97,15 +97,11 @@ export default function Filter({ FetchedLanguages, FetchedCategories, FetchedCha
             Reiniciar Filtros
           </ActionButton>
         </ActionButtonContainer>
-        
-        <FilterContainer>
-          {languageFilterSection}
-        </FilterContainer>
-        
-        <FilterContainer>
-          {categoryFilterSection}
-        </FilterContainer>
-        
+
+        {languageFilterSection}
+
+        {categoryFilterSection}
+
         <FilterMenuButton onClick={toggleFilter}>
           Abrir Menu de Filtros
         </FilterMenuButton>
@@ -171,12 +167,5 @@ const ActionButtonContainer = styled.div`
 
   @media (min-width: 768px) {
     display: inline-block;
-  }
-`
-const FilterContainer = styled.div`
-  display: none;
-
-  @media (min-width: 768px) {
-    display: block;
   }
 `
