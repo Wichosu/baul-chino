@@ -1,255 +1,246 @@
 "use client"
-import { useCallback, useEffect, useMemo, useState } from "react";
-import Image from "next/image";
-import styled from "styled-components";
 import { createClient } from "@/app/utils/supabase/client";
 import { ILanguage } from "../interfaces/ILanguage";
 import { IChannel } from "../interfaces/IChannel";
 import { ICategory } from "../interfaces/ICategory";
+import styled from "styled-components"
+import { useState, useEffect } from "react";
+import Image from "next/image";
 import FilterButton from "./FilterButton";
 import ChannelsList from "./ChannelsList";
 
-// Custom hook for filter logic
-const useFilterSelection = <T extends number>(initial: T[] = []) => {
-  const [selected, setSelected] = useState<T[]>(initial);
-  const [resetTrigger, setResetTrigger] = useState(false);
+interface IMenuStyles {
+  translateX: string
+}
 
-  const addId = useCallback((id: T) => {
-    setSelected(prev => prev.includes(id) ? prev : [...prev, id]);
-  }, []);
+type Props = {
+  FetchedLanguages: ILanguage[],
+  FetchedCategories: ICategory[],
+  FetchedChannels: IChannel[]
+}
 
-  const removeId = useCallback((id: T) => {
-    setSelected(prev => prev.filter(item => item !== id));
-  }, []);
+export default function Filter({ FetchedLanguages, FetchedCategories, FetchedChannels }: Props) {
+  //Open Filter Menu
+  const [openFilter, setOpenFilter] = useState(false)
 
-  const reset = useCallback(() => {
-    setSelected([]);
-    setResetTrigger(true);
-  }, []);
+  // Start with empty selection arrays instead of all items selected
+  const [selectedLanguage, setSelectedLanguage] = useState<number[]>([])
+  const [selectedCategory, setSelectedCategory] = useState<number[]>([])
 
-  const clearTrigger = useCallback(() => {
-    setResetTrigger(false);
-  }, []);
+  const [dataChannel, setDataChannel] = useState<IChannel[]>(FetchedChannels)
 
-  return { selected, addId, removeId, reset, resetTrigger, clearTrigger };
-};
+  const [resetTrigger, setResetTrigger] = useState(false)
 
-// Custom hook for channel filtering
-const useFilteredChannels = (
-  channels: IChannel[],
-  languageIds: number[],
-  categoryIds: number[],
-  allLanguages: ILanguage[],
-  allCategories: ICategory[]
-) => {
-  const [filteredChannels, setFilteredChannels] = useState<IChannel[]>(channels);
-  const supabase = createClient();
+  const supabase = createClient()
 
+  // This effect will run whenever filter selections change
   useEffect(() => {
-    const fetchFilteredChannels = async () => {
-      const languages = languageIds.length ? languageIds : allLanguages.map(l => l.id);
-      const categories = categoryIds.length ? categoryIds : allCategories.map(c => c.id);
+    const fetchFilteredChannel = async () => {
+      // Use all options if nothing is selected
+      const languages = selectedLanguage.length === 0 
+        ? FetchedLanguages.map(language => language.id) 
+        : selectedLanguage
+        
+      const categories = selectedCategory.length === 0
+        ? FetchedCategories.map(category => category.id)
+        : selectedCategory
+
+      console.log("Fetching with languages:", languages)
+      console.log("Fetching with categories:", categories)
 
       try {
         const { data, error } = await supabase
           .from('channel')
           .select(`
             *,
-            channel_category!inner (category!inner (id, name)),
-            channel_language!inner (language!inner (id, name))
+            channel_category!inner (
+              category!inner (
+                id,
+                name
+              )
+            ),
+            channel_language!inner (
+              language!inner (
+                id,
+                name
+              )
+            )
           `)
           .in('channel_category.category.id', categories)
-          .in('channel_language.language.id', languages);
+          .in('channel_language.language.id', languages)
 
-        if (error) throw error;
-        setFilteredChannels(data as IChannel[]);
-      } catch (error) {
-        console.error("Filter error:", error);
+        if (error) {
+          console.error("Error fetching filtered data:", error)
+          return
+        }
+
+        console.log("Data Channel Filtered:", data)
+        setDataChannel(data as IChannel[])
+      } catch (err) {
+        console.error("Exception when fetching data:", err)
       }
-    };
+    }
 
-    fetchFilteredChannels();
-  }, [languageIds, categoryIds, allLanguages, allCategories, supabase]);
+    fetchFilteredChannel()
+  }, [selectedCategory, selectedLanguage, FetchedCategories, FetchedLanguages, supabase])
 
-  return filteredChannels;
-};
+  //Toggle Filter SideBar
+  const onClickFilter = () => {
+    setOpenFilter((bool) => !bool)
+  }
 
-interface FilterMenuProps {
-  isOpen: boolean;
-  onClose: () => void;
-  children: React.ReactNode;
-}
+  let menuStyles: IMenuStyles
 
-const FilterMenu: React.FC<FilterMenuProps> = ({ isOpen, onClose, children }) => {
-  const translateX = isOpen ? "100%" : "0";
-  
-  return (
-    <SideBar $translateX={translateX}>
-      <SideBarContainer>
-        <CloseButton onClick={onClose}>
-          <Image alt="close button" src="/x.svg" width={30} height={30} />
-        </CloseButton>
-        {children}
-      </SideBarContainer>
-    </SideBar>
-  );
-};
+  if(openFilter) {
+    menuStyles = {
+      translateX: "100%",
+    }
+  } else {
+    menuStyles = {
+      translateX: "0",
+    }
+  }
 
-interface FilterSectionProps {
-  title: string;
-  items: Array<{ id: number; name: string }>;
-  onAdd: (id: number) => void;
-  onRemove: (id: number) => void;
-  resetTrigger: boolean;
-  onResetComplete: () => void;
-}
+  //Filter Arrays
+  const addIdToCategoryFilter = (id: number) => {
+    setSelectedCategory(prev => {
+      // Only add if not already in the array
+      if (!prev.includes(id)) {
+        return [...prev, id]
+      }
+      return prev
+    })
+  }
 
-const FilterSection: React.FC<FilterSectionProps> = ({
-  title,
-  items,
-  onAdd,
-  onRemove,
-  resetTrigger,
-  onResetComplete
-}) => (
-  <div>
-    <SidebarTitle>{title}</SidebarTitle>
-    {items.map((item) => (
-      <FilterButton
-        key={item.id}
-        id={item.id}
-        addIdToFilter={onAdd}
-        removeIdFromFilter={onRemove}
-        resetTrigger={resetTrigger}
-        setUpTrigger={onResetComplete}
-      >
-        {item.name}
-      </FilterButton>
-    ))}
-  </div>
-);
+  const addIdToLanguageFilter = (id: number) => {
+    setSelectedLanguage(prev => {
+      // Only add if not already in the array
+      if (!prev.includes(id)) {
+        return [...prev, id]
+      }
+      return prev
+    })
+  }
 
-type Props = {
-  FetchedLanguages: ILanguage[];
-  FetchedCategories: ICategory[];
-  FetchedChannels: IChannel[];
-};
+  const removeIdFromCategoryFilter = (id: number) => {
+    setSelectedCategory(prev => prev.filter(item => item !== id))
+  } 
 
-export default function Filter({ FetchedLanguages, FetchedCategories, FetchedChannels }: Props) {
-  const [openFilter, setOpenFilter] = useState(false);
-  
-  // Language filter management
-  const {
-    selected: selectedLanguage,
-    addId: addIdToLanguageFilter,
-    removeId: removeIdFromLanguageFilter,
-    reset: resetLanguageFilter,
-    resetTrigger: languageResetTrigger,
-    clearTrigger: clearLanguageTrigger
-  } = useFilterSelection<number>();
+  const removeIdFromLanguageFilter = (id: number) => {
+    setSelectedLanguage(prev => prev.filter(item => item !== id))
+  }
 
-  // Category filter management
-  const {
-    selected: selectedCategory,
-    addId: addIdToCategoryFilter,
-    removeId: removeIdFromCategoryFilter,
-    reset: resetCategoryFilter,
-    resetTrigger: categoryResetTrigger,
-    clearTrigger: clearCategoryTrigger
-  } = useFilterSelection<number>();
+  //Clean Filters
+  const cleanFilters = () => {
+    setSelectedLanguage([])
+    setSelectedCategory([])
+    setResetTrigger(true)
+  }
 
-  // Get filtered channels
-  const dataChannel = useFilteredChannels(
-    FetchedChannels,
-    selectedLanguage,
-    selectedCategory,
-    FetchedLanguages,
-    FetchedCategories
-  );
-
-  // Combined reset function
-  const cleanFilters = useCallback(() => {
-    resetLanguageFilter();
-    resetCategoryFilter();
-  }, [resetLanguageFilter, resetCategoryFilter]);
-
-  const toggleFilter = useCallback(() => {
-    setOpenFilter(prev => !prev);
-  }, []);
-
-  // Memoized filter sections to prevent unnecessary re-renders
-  const languageFilterSection = useMemo(() => (
-    <FilterSection
-      title="Idiomas"
-      items={FetchedLanguages}
-      onAdd={addIdToLanguageFilter}
-      onRemove={removeIdFromLanguageFilter}
-      resetTrigger={languageResetTrigger}
-      onResetComplete={clearLanguageTrigger}
-    />
-  ), [FetchedLanguages, addIdToLanguageFilter, removeIdFromLanguageFilter, languageResetTrigger, clearLanguageTrigger]);
-
-  const categoryFilterSection = useMemo(() => (
-    <FilterSection
-      title="Categorías"
-      items={FetchedCategories}
-      onAdd={addIdToCategoryFilter}
-      onRemove={removeIdFromCategoryFilter}
-      resetTrigger={categoryResetTrigger}
-      onResetComplete={clearCategoryTrigger}
-    />
-  ), [FetchedCategories, addIdToCategoryFilter, removeIdFromCategoryFilter, categoryResetTrigger, clearCategoryTrigger]);
+  //Restart Trigger after reseting filter buttons
+  const setUpTrigger = () => {
+    setResetTrigger(false)
+  }
 
   return (
     <>
-      {/* Mobile Filter Menu */}
-      <FilterMenu isOpen={openFilter} onClose={toggleFilter}>
-        {languageFilterSection}
-        {categoryFilterSection}
-        <ActionButtonContainer>
-          <ActionButton 
-            onClick={() => {
-              cleanFilters();
-              toggleFilter();
-            }} 
-            $backgroundColor="#dc2626"
-          >
-            Reiniciar Filtros
-          </ActionButton>
-        </ActionButtonContainer>
-      </FilterMenu>
-
-      {/* Desktop Filter */}
+      <SideBar $styles={menuStyles}>
+        <SideBarContainer>
+          <Figure onClick={onClickFilter}>
+            <Image alt="close button" src={'/x.svg'} width={30} height={30} />
+          </Figure>
+          <div>
+            <SidebarTitle>Idiomas</SidebarTitle>
+            {
+              FetchedLanguages.map((language, index) => (
+                <FilterButton 
+                  key={index} 
+                  id={language.id} 
+                  addIdToFilter={addIdToLanguageFilter}
+                  removeIdFromFilter={removeIdFromLanguageFilter}
+                  resetTrigger={resetTrigger}
+                  setUpTrigger={setUpTrigger}
+                >
+                  { language.name }
+                </FilterButton>
+              ))
+            }
+          </div>
+          <div>
+            <SidebarTitle>Categorías</SidebarTitle>
+            {
+              FetchedCategories.map((category, index) => (
+                <FilterButton 
+                  key={index}
+                  id={category.id}
+                  addIdToFilter={addIdToCategoryFilter}
+                  removeIdFromFilter={removeIdFromCategoryFilter}
+                  resetTrigger={resetTrigger}
+                  setUpTrigger={setUpTrigger}
+                >
+                  { category.name }
+                </FilterButton>
+              ))
+            }
+          </div>
+          <ActionButtonContainer>
+            <ActionButton 
+              onClick={() => {
+                cleanFilters()
+                onClickFilter()
+              }} 
+              $backgroundColor="#dc2626"
+            >
+              Reiniciar Filtros
+            </ActionButton>
+          </ActionButtonContainer>
+        </SideBarContainer>
+      </SideBar>
       <Container>
         <Title>Filtros</Title>
-        <ActionButtonContainer>
-          <ActionButton onClick={cleanFilters} $backgroundColor="#dc2626">
-            Reiniciar Filtros
-          </ActionButton>
-        </ActionButtonContainer>
-        
+          <ActionButtonContainer>
+            <ActionButton onClick={cleanFilters} $backgroundColor="#dc2626">Reiniciar Filtros</ActionButton>
+          </ActionButtonContainer>
         <FilterContainer>
-          {languageFilterSection}
+          <SidebarTitle>Idiomas</SidebarTitle>
+          {
+            FetchedLanguages.map((language, index) => (
+              <FilterButton 
+                key={index}
+                id={language.id}
+                addIdToFilter={addIdToLanguageFilter}
+                removeIdFromFilter={removeIdFromLanguageFilter}
+                resetTrigger={resetTrigger}
+                setUpTrigger={setUpTrigger}
+              >
+                { language.name }
+              </FilterButton>
+            ))
+          }
         </FilterContainer>
-        
         <FilterContainer>
-          {categoryFilterSection}
+          <SidebarTitle>Categorías</SidebarTitle>
+          {
+            FetchedCategories.map((category, index) => (
+              <FilterButton 
+                key={index}
+                id={category.id}
+                addIdToFilter={addIdToCategoryFilter}
+                removeIdFromFilter={removeIdFromCategoryFilter}
+                resetTrigger={resetTrigger}
+                setUpTrigger={setUpTrigger}
+              >
+                { category.name }
+              </FilterButton>
+            ))
+          }
         </FilterContainer>
-        
-        <FilterMenuButton onClick={toggleFilter}>
-          Abrir Menu de Filtros
-        </FilterMenuButton>
-        
+        <FilterMenuButton onClick={onClickFilter}>Abrir Menu de Filtros</FilterMenuButton>
         <ChannelsList dataChannel={dataChannel} />
       </Container>
     </>
-  );
+  )
 }
-
-const CloseButton = styled.figure`
-  margin-left: auto;
-  cursor: pointer;
-`;
 
 const Container = styled.section`
   width: 85%;
@@ -270,13 +261,13 @@ const Title = styled.h1`
   }
 `;
 
-const SideBar = styled.div<{ $translateX?: string; }>`
+const SideBar = styled.div<{ $styles?: IMenuStyles; }>`
   position: fixed;
   overflow: auto;
   top: 0;
   left: -100%;
   background-color: #f5f5f5;
-  transform: translateX(${props => props.$translateX});
+  transform: translateX(${props => props.$styles?.translateX});
   transition: 500ms ease;
   width: 100%;
   height: 100%;
@@ -309,6 +300,10 @@ const FilterMenuButton = styled.button`
     display: none;
   }
 `
+
+const Figure = styled.figure`
+  margin-left: auto;
+`;
 
 const SidebarTitle = styled.summary`
   font-size: 1.5rem;
