@@ -81,5 +81,4 @@ const Button = styled.button<{ $styles?: IButton}>`
   border: none;
   border-radius: 4px;
   transition: 200ms ease;
-  scroll-snap-align: start;
 `
