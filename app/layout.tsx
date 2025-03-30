@@ -11,7 +11,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Baúl Chino",
+    absolute: "Baúl Chino - material didáctico para aprender Chino Mandarín",
     template: "%s - Baúl Chino"
   },
   description: "Baúl Chino tiene como propósito ser una página con material didáctico para apoyar con el aprendizaje del idioma Chino Mandarín",

@@ -12,7 +12,7 @@ import { ICategory } from "./interfaces/ICategory"
 import { IChannel } from './interfaces/IChannel'
 
 export const metadata: Metadata = {
-  title: "Lista de Canales",
+  title: "Aprende con contenido en Chino Mandarín",
   description: "Lista de canales de YouTube con contenido en Chino Mandarín para practicar o aprender."
 }
 
