@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react"
 import GlobalStyles from "./GlobalStyles";
 import StyledComponentsRegistry from "./lib/registry";
 import { PostHogProvider } from "./providers";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ export default function RootLayout({
             </StyledComponentsRegistry>
           </PostHogProvider>
           <Analytics />
+          <SpeedInsights />
         </body>
       </html>
     </>
