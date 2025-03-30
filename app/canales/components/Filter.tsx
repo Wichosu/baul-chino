@@ -4,10 +4,11 @@ import { ILanguage } from "../interfaces/ILanguage";
 import { IChannel } from "../interfaces/IChannel";
 import { ICategory } from "../interfaces/ICategory";
 import styled from "styled-components"
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext, Dispatch, SetStateAction } from "react";
 import Image from "next/image";
-import FilterButton from "./FilterButton";
 import ChannelsList from "./ChannelsList";
+import LanguageFilters from "./LanguageFilter";
+import CategoriesFilter from "./CategoriesFilter";
 
 interface IMenuStyles {
   translateX: string
@@ -18,6 +19,28 @@ type Props = {
   FetchedCategories: ICategory[],
   FetchedChannels: IChannel[]
 }
+
+type FilterContext = {
+  FetchedLanguages: ILanguage[],
+  FetchedCategories: ICategory[],
+  addIdToFilter: (id: number, filter: Dispatch<SetStateAction<number[]>>) => void,
+  removeIdFromFilter: (id: number, filter: Dispatch<SetStateAction<number[]>>) => void,
+  resetTrigger: boolean,
+  setUpTrigger: () => void,
+  setSelectedLanguage: Dispatch<SetStateAction<number[]>>,
+  setSelectedCategory: Dispatch<SetStateAction<number[]>>,
+}
+
+export const FilterContext = createContext({
+  FetchedLanguages: [],
+  FetchedCategories: [],
+  addIdToFilter: () => {},
+  removeIdFromFilter: () => {},
+  resetTrigger: false,
+  setUpTrigger: () => {},
+  setSelectedLanguage: () => {},
+  setSelectedCategory: () => {},
+} as FilterContext)
 
 export default function Filter({ FetchedLanguages, FetchedCategories, FetchedChannels }: Props) {
   //Open Filter Menu
@@ -101,35 +124,6 @@ export default function Filter({ FetchedLanguages, FetchedCategories, FetchedCha
     }
   }
 
-  //Filter Arrays
-  const addIdToCategoryFilter = (id: number) => {
-    setSelectedCategory(prev => {
-      // Only add if not already in the array
-      if (!prev.includes(id)) {
-        return [...prev, id]
-      }
-      return prev
-    })
-  }
-
-  const addIdToLanguageFilter = (id: number) => {
-    setSelectedLanguage(prev => {
-      // Only add if not already in the array
-      if (!prev.includes(id)) {
-        return [...prev, id]
-      }
-      return prev
-    })
-  }
-
-  const removeIdFromCategoryFilter = (id: number) => {
-    setSelectedCategory(prev => prev.filter(item => item !== id))
-  } 
-
-  const removeIdFromLanguageFilter = (id: number) => {
-    setSelectedLanguage(prev => prev.filter(item => item !== id))
-  }
-
   //Clean Filters
   const cleanFilters = () => {
     setSelectedLanguage([])
@@ -142,8 +136,31 @@ export default function Filter({ FetchedLanguages, FetchedCategories, FetchedCha
     setResetTrigger(false)
   }
 
+  const addIdToFilter = (id: number, filter: Dispatch<SetStateAction<number[]>>) => {
+    filter(prev => {
+      // Only add if not already in the array
+      if (!prev.includes(id)) {
+        return [...prev, id]
+      }
+      return prev
+    })
+  }
+
+  const removeIdFromFilter = (id: number, filter: Dispatch<SetStateAction<number[]>>) => {
+    filter(prev => prev.filter(item => item !== id))
+  }
+
   return (
-    <>
+    <FilterContext.Provider value={{ 
+      FetchedLanguages,
+      FetchedCategories,
+      addIdToFilter,
+      removeIdFromFilter,
+      resetTrigger,
+      setUpTrigger,
+      setSelectedLanguage,
+      setSelectedCategory,
+    }}>
       <SideBar $styles={menuStyles}>
         <SideBarContainer>
           <Figure onClick={onClickFilter}>
@@ -151,37 +168,11 @@ export default function Filter({ FetchedLanguages, FetchedCategories, FetchedCha
           </Figure>
           <div>
             <SidebarTitle>Idiomas</SidebarTitle>
-            {
-              FetchedLanguages.map((language, index) => (
-                <FilterButton 
-                  key={index} 
-                  id={language.id} 
-                  addIdToFilter={addIdToLanguageFilter}
-                  removeIdFromFilter={removeIdFromLanguageFilter}
-                  resetTrigger={resetTrigger}
-                  setUpTrigger={setUpTrigger}
-                >
-                  { language.name }
-                </FilterButton>
-              ))
-            }
+            <LanguageFilters />
           </div>
           <div>
             <SidebarTitle>Categorías</SidebarTitle>
-            {
-              FetchedCategories.map((category, index) => (
-                <FilterButton 
-                  key={index}
-                  id={category.id}
-                  addIdToFilter={addIdToCategoryFilter}
-                  removeIdFromFilter={removeIdFromCategoryFilter}
-                  resetTrigger={resetTrigger}
-                  setUpTrigger={setUpTrigger}
-                >
-                  { category.name }
-                </FilterButton>
-              ))
-            }
+            <CategoriesFilter />
           </div>
           <ActionButtonContainer>
             <ActionButton 
@@ -203,42 +194,16 @@ export default function Filter({ FetchedLanguages, FetchedCategories, FetchedCha
           </ActionButtonContainer>
         <FilterContainer>
           <SidebarTitle>Idiomas</SidebarTitle>
-          {
-            FetchedLanguages.map((language, index) => (
-              <FilterButton 
-                key={index}
-                id={language.id}
-                addIdToFilter={addIdToLanguageFilter}
-                removeIdFromFilter={removeIdFromLanguageFilter}
-                resetTrigger={resetTrigger}
-                setUpTrigger={setUpTrigger}
-              >
-                { language.name }
-              </FilterButton>
-            ))
-          }
+          <LanguageFilters />
         </FilterContainer>
         <FilterContainer>
           <SidebarTitle>Categorías</SidebarTitle>
-          {
-            FetchedCategories.map((category, index) => (
-              <FilterButton 
-                key={index}
-                id={category.id}
-                addIdToFilter={addIdToCategoryFilter}
-                removeIdFromFilter={removeIdFromCategoryFilter}
-                resetTrigger={resetTrigger}
-                setUpTrigger={setUpTrigger}
-              >
-                { category.name }
-              </FilterButton>
-            ))
-          }
+          <CategoriesFilter />
         </FilterContainer>
         <FilterMenuButton onClick={onClickFilter}>Abrir Menu de Filtros</FilterMenuButton>
         <ChannelsList dataChannel={dataChannel} />
       </Container>
-    </>
+    </FilterContext.Provider>
   )
 }
 
