@@ -12,6 +12,7 @@
     "@supabase/ssr": "^0.5.2",
     "@supabase/supabase-js": "^2.48.1",
     "@vercel/analytics": "^1.4.1",
+    "@vercel/speed-insights": "^1.2.0",
     "hanzi-writer": "^3.7.2",
     "next": "^15.2.4",
     "posthog-js": "^1.232.4",
