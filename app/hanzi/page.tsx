@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
-  title: "Aprende a escribir chino, conoce el orden de los trazos y sus radicales",
+  title: "Conoce el orden de los trazos y sus radicales",
   description: "Herramienta para aprender a escribir chino, conocer el orden de los trazos y sus radicales observando animaciones personalizadas."
 }
 

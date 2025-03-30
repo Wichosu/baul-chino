@@ -6,7 +6,7 @@ import Footer from "../components/Footer"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Libros HSK",
+  title: "Descarga todos los libros HSK de forma gratuita",
   description: "Descarga todos los libros HSK, desde HSK 1 hasta HSK 6, en formato PDF. La descarga es totalmente gratuita y sin anuncios o links molestos."
 }
 
