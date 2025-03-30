@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "srv": "ssh srv.us -R 1:localhost:3000"
   },
   "dependencies": {
     "@supabase/ssr": "^0.5.2",
