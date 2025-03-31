@@ -167,11 +167,9 @@ export default function Filter({ FetchedLanguages, FetchedCategories, FetchedCha
             <Image alt="close button" src={'/x.svg'} width={30} height={30} />
           </Figure>
           <div>
-            <SidebarTitle>Idiomas</SidebarTitle>
             <LanguageFilters />
           </div>
           <div>
-            <SidebarTitle>Categorías</SidebarTitle>
             <CategoriesFilter />
           </div>
           <ActionButtonContainer>
@@ -193,11 +191,9 @@ export default function Filter({ FetchedLanguages, FetchedCategories, FetchedCha
             <ActionButton onClick={cleanFilters} $backgroundColor="#dc2626">Reiniciar Filtros</ActionButton>
           </ActionButtonContainer>
         <FilterContainer>
-          <SidebarTitle>Idiomas</SidebarTitle>
           <LanguageFilters />
         </FilterContainer>
         <FilterContainer>
-          <SidebarTitle>Categorías</SidebarTitle>
           <CategoriesFilter />
         </FilterContainer>
         <FilterMenuButton onClick={onClickFilter}>Abrir Menu de Filtros</FilterMenuButton>
@@ -269,12 +265,6 @@ const FilterMenuButton = styled.button`
 const Figure = styled.figure`
   margin-left: auto;
 `;
-
-const SidebarTitle = styled.summary`
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-bottom: 10px;
-`
 
 const ActionButton = styled.button<{ $backgroundColor?: string}>`
   cursor: pointer;
