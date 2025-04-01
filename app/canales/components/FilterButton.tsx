@@ -65,7 +65,6 @@ const Button = styled.button<{ $styles?: IButton}>`
   cursor: pointer;
   font-size: 1rem;
   display: inline;
-  width: max-content;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px;
@@ -77,4 +76,6 @@ const Button = styled.button<{ $styles?: IButton}>`
   border: none;
   border-radius: 4px;
   transition: 200ms ease;
+  white-space: nowrap;
+  scroll-snap-align: start;
 `
