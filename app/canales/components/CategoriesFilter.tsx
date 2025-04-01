@@ -1,32 +1,135 @@
 "use client"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { FilterContext } from "./Filter"
 import FilterButton from "./FilterButton"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
+import SlideHand from "../assets/SlideHand.svg"
+import Image from "next/image"
 
 export default function CategoriesFilter() {
-  const { FetchedCategories, setSelectedCategory } = useContext(FilterContext)
+  const { FetchedCategories, selectedCategory, setSelectedCategory } = useContext(FilterContext)
+  const [showAnimation, setShowAnimation] = useState(true)
+
+  const categoriesOnTop = FetchedCategories.slice(0, FetchedCategories.length / 2)
+  const categoriesOnBottom = FetchedCategories.slice(FetchedCategories.length / 2, FetchedCategories.length)
 
   return (
     <>
-      <SidebarTitle>Categorías</SidebarTitle>
-      {
-        FetchedCategories.map((category, index) => (
-          <FilterButton 
-            key={index} 
-            id={category.id} 
-            filter={setSelectedCategory}
-          >
-            { category.name }
-          </FilterButton>
-        ))
-      }
+      <Title>
+        Categorías
+        { selectedCategory.length > 0 && <Counter>({ selectedCategory.length })</Counter> }
+      </Title>
+      <FilterDesktopContainer>
+        {
+          FetchedCategories.map((category, index) => (
+            <FilterButton 
+              key={index} 
+              id={category.id} 
+              filter={setSelectedCategory}
+            >
+              { category.name }
+            </FilterButton>
+          ))
+        }
+      </FilterDesktopContainer>
+      <FilterContainer onTouchStart={() => setShowAnimation(() => false)}>
+        { showAnimation && <Instruction alt="" src={SlideHand} width={20} height={20} /> }
+        <FilterScrollWrapper>
+          <FilterFlexContainer>
+            {
+              categoriesOnTop.map((category, index) => (
+                <FilterButton 
+                  key={index} 
+                  id={category.id} 
+                  filter={setSelectedCategory}
+                >
+                  { category.name }
+                </FilterButton>
+              ))
+            }
+          </FilterFlexContainer>
+          <FilterFlexContainer>
+            {
+              categoriesOnBottom.map((category, index) => (
+                <FilterButton 
+                  key={index} 
+                  id={category.id} 
+                  filter={setSelectedCategory}
+                >
+                  { category.name }
+                </FilterButton>
+              ))
+            }
+          </FilterFlexContainer>
+        </FilterScrollWrapper>
+      </FilterContainer>
     </>
   )
 }
 
-const SidebarTitle = styled.summary`
+const Title = styled.summary`
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 10px;
+`
+
+const Counter = styled.span`
+  font-size: 1rem;
+  font-weight: 400;
+  margin-left: 10px;
+`
+
+const FilterDesktopContainer = styled.div`
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+`
+
+const FilterContainer = styled.div`
+  position: relative;
+  isolation: isolate;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`
+
+const slide = keyframes`
+  from {
+    transform: translateX(-100%)
+  }
+  to {
+    transform: translateX(100%)
+  }
+`
+
+const Instruction = styled(Image)`
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 10px);
+  margin-left: 10px;
+  animation: ${slide} 1000ms ease;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`
+
+const FilterScrollWrapper = styled.div`
+  overflow: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`
+
+const FilterFlexContainer = styled.div`
+  display: flex;
 `
