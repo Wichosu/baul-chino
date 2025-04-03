@@ -1,15 +1,13 @@
 "use client"
 import styled from "styled-components"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext, Dispatch, SetStateAction } from "react"
 import { ReactNode } from "react"
+import { FilterContext } from "./Filter"
 
 interface Props {
   children: string | ReactNode
   id: number
-  resetTrigger: boolean
-  addIdToFilter: (id: number) => void
-  removeIdFromFilter: (id: number) => void
-  setUpTrigger: () => void
+  filter: Dispatch<SetStateAction<number[]>>
 }
 
 interface IButton {
@@ -20,11 +18,9 @@ interface IButton {
 export default function FilterButton({ 
   children,
   id,
-  addIdToFilter,
-  removeIdFromFilter,
-  resetTrigger,
-  setUpTrigger
+  filter
 }: Props) {
+  const { addIdToFilter, removeIdFromFilter, resetTrigger, setUpTrigger } = useContext(FilterContext)
   //Toggle Filter Buttons
   const [toggleFilter, setToggleFilter] = useState(false);
   let buttonStyles: IButton
@@ -40,9 +36,9 @@ export default function FilterButton({
     setToggleFilter((state) => !state)
 
     if (toggleFilter) {
-      removeIdFromFilter(id)
+      removeIdFromFilter(id, filter)
     } else {
-      addIdToFilter(id)
+      addIdToFilter(id, filter)
     }
   }
 
@@ -69,7 +65,6 @@ const Button = styled.button<{ $styles?: IButton}>`
   cursor: pointer;
   font-size: 1rem;
   display: inline;
-  width: max-content;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px;
@@ -81,4 +76,6 @@ const Button = styled.button<{ $styles?: IButton}>`
   border: none;
   border-radius: 4px;
   transition: 200ms ease;
+  white-space: nowrap;
+  scroll-snap-align: start;
 `
