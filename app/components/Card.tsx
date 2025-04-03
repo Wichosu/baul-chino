@@ -14,7 +14,7 @@ export default function Card({ children }: { children: ReactNode }) {
 
 const Container = styled.article`
   width: 100%;
-  max-width: 80%;
+//  max-width: 80%;
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 20px;
