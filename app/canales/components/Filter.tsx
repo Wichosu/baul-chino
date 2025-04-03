@@ -5,14 +5,9 @@ import { IChannel } from "../interfaces/IChannel";
 import { ICategory } from "../interfaces/ICategory";
 import styled from "styled-components"
 import { useState, useEffect, createContext, Dispatch, SetStateAction } from "react";
-import Image from "next/image";
 import ChannelsList from "./ChannelsList";
 import LanguageFilters from "./LanguageFilter";
 import CategoriesFilter from "./CategoriesFilter";
-
-interface IMenuStyles {
-  translateX: string
-}
 
 type Props = {
   FetchedLanguages: ILanguage[],
