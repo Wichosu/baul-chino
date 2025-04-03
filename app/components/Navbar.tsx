@@ -11,8 +11,8 @@ interface IMenuStyles {
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
 
-  const onClickMenu = () => {
-    setOpenMenu((bool) => !bool)
+  const closeMenu = () => {
+    setOpenMenu(() => false)
   }
 
   let menuStyles: IMenuStyles
@@ -31,19 +31,19 @@ export default function Navbar() {
     <>
       <SideBar $styles={menuStyles}>
         <SideBarContainer>
-          <Figure onClick={onClickMenu}>
+          <Figure onClick={() => setOpenMenu(() => false)}>
             <Image alt="close button" src={'/x.svg'} width={30} height={30} />
           </Figure>
-          <NavLink onClick={onClickMenu} href={'/'}>Inicio</NavLink>
-          <NavLink onClick={onClickMenu} href={'/mazos-anki'}>Mazos Anki</NavLink>
-          <NavLink onClick={onClickMenu} href={'/libros-hsk'}>Libros HSK</NavLink>
-          <NavLink onClick={onClickMenu} href={'/canales'}>Lista de Canales</NavLink>
-          <NavLink onClick={onClickMenu} href={'/hanzi'}>Escritura de Hanzi</NavLink>
+          <NavLink onClick={closeMenu} href={'/'}>Inicio</NavLink>
+          <NavLink onClick={closeMenu} href={'/mazos-anki'}>Mazos Anki</NavLink>
+          <NavLink onClick={closeMenu} href={'/libros-hsk'}>Libros HSK</NavLink>
+          <NavLink onClick={closeMenu} href={'/canales'}>Lista de Canales</NavLink>
+          <NavLink onClick={closeMenu} href={'/hanzi'}>Escritura de Hanzi</NavLink>
         </SideBarContainer>
       </SideBar>
       <Container>
         <Title href={'/'}>Baúl Chino</Title>
-        <Figure onClick={onClickMenu}>
+        <Figure onClick={() => setOpenMenu(() => true)}>
           <Image alt="menu button" src={'/menu.svg'} width={30} height={30} />
         </Figure>
         <NavLink href={"/"}>Inicio</NavLink>
@@ -75,6 +75,8 @@ const Title = styled(Link)`
 `;
 
 const SideBar = styled.div<{ $styles?: IMenuStyles; }>`
+  isolation: isolate;
+  z-index: 100;
   position: fixed;
   overflow: hidden;
   top: 0;
@@ -83,7 +85,7 @@ const SideBar = styled.div<{ $styles?: IMenuStyles; }>`
   transform: translateX(${props => props.$styles?.translateX});
   transition: 500ms ease;
   width: 100%;
-  height: 100%;
+  height: calc(100% + 80px);
 
   @media (min-width: 768px) {
     display: none;
