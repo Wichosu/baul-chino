@@ -13,7 +13,7 @@ type Props = {
 
 export default function TemplateCard({ textAlt, img, pdfUrl }: Props) {
   return (
-    <LinkWrapper href={pdfUrl} target="_blank">
+    <LinkWrapper href={pdfUrl} download target="_blank">
       <Figure>
         <StyledImage alt={textAlt} src={img} />
       </Figure>
@@ -31,8 +31,14 @@ const LinkWrapper = styled(Link)`
   display: inline-block;
   width: fit-content;
   text-decoration: none;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  scroll-snap-align: start;
+
+  @media (min-width: 768px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
 `
 
 const Figure = styled.figure`
@@ -69,7 +75,7 @@ const TextWrapper = styled.div`
   border: none;
   transition: 200ms ease;
 
-  &:hover {
+  ${LinkWrapper}:hover & {
     background-color: hsl(213, 93%, 57%);
   }
 `
