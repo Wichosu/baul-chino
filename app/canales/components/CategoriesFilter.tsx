@@ -2,9 +2,8 @@
 import { useContext, useState } from "react"
 import { FilterContext } from "./Filter"
 import FilterButton from "./FilterButton"
-import styled, { keyframes } from "styled-components"
-import SlideHand from "../assets/SlideHand.svg"
-import Image from "next/image"
+import styled from "styled-components"
+import HorizontalSlide from "@/app/components/animations/HorizontalSlide"
 
 export default function CategoriesFilter() {
   const { FetchedCategories, selectedCategory, setSelectedCategory } = useContext(FilterContext)
@@ -33,7 +32,7 @@ export default function CategoriesFilter() {
         }
       </FilterDesktopContainer>
       <FilterContainer onTouchStart={() => setShowAnimation(() => false)}>
-        { showAnimation && <Instruction alt="" src={SlideHand} width={20} height={20} /> }
+        { showAnimation && <HorizontalSlide /> }
         <FilterScrollWrapper>
           <FilterFlexContainer>
             {
@@ -90,29 +89,6 @@ const FilterDesktopContainer = styled.div`
 const FilterContainer = styled.div`
   position: relative;
   isolation: isolate;
-
-  @media (min-width: 768px) {
-    display: none;
-  }
-`
-
-const slide = keyframes`
-  from {
-    transform: translateX(-100%)
-  }
-  to {
-    transform: translateX(100%)
-  }
-`
-
-const Instruction = styled(Image)`
-  position: absolute;
-  top: 50%;
-  left: calc(50% - 10px);
-  margin-left: 10px;
-  animation: ${slide} 1000ms ease;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
 
   @media (min-width: 768px) {
     display: none;
