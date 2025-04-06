@@ -39,6 +39,7 @@ export default function Navbar() {
           <NavLink onClick={closeMenu} href={'/libros-hsk'}>Libros HSK</NavLink>
           <NavLink onClick={closeMenu} href={'/canales'}>Lista de Canales</NavLink>
           <NavLink onClick={closeMenu} href={'/hanzi'}>Escritura de Hanzi</NavLink>
+          <NavLink onClick={closeMenu} href={'/plantillas'}>Plantillas</NavLink>
         </SideBarContainer>
       </SideBar>
       <Container>
@@ -51,6 +52,7 @@ export default function Navbar() {
         <NavLink href={'/libros-hsk'}>Libros HSK</NavLink>
         <NavLink href={'/canales'}>Lista de Canales</NavLink>
         <NavLink href={'/hanzi'}>Escritura de Hanzi</NavLink>
+        <NavLink href={'/plantillas'}>Plantillas</NavLink>
       </Container>
     </>
   );
