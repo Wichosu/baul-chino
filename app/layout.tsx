@@ -5,6 +5,8 @@ import GlobalStyles from "./GlobalStyles";
 import StyledComponentsRegistry from "./lib/registry";
 import { PostHogProvider } from "./providers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -34,7 +36,11 @@ export default function RootLayout({
         <body className={montserrat.className}>
           <PostHogProvider>
             <StyledComponentsRegistry>
-              {children}
+              <Navbar />
+              <main>
+                {children}
+              </main>
+              <Footer />
             </StyledComponentsRegistry>
           </PostHogProvider>
           <Analytics />

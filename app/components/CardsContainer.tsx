@@ -5,6 +5,7 @@ import ankiHsk from "../images/anki-menu.png"
 import hskBooks from "../images/hsk-books.png"
 import chineseChannels from "../images/chinese-channels-image.png"
 import hanzi from "../images/hanzi.png"
+import Template from "../images/template20mm.png"
 import { StaticImageData } from "next/image"
 
 interface Card {
@@ -48,6 +49,14 @@ const cardsList: Card[] = [
     description: 'Aprende a escribir chino, conoce el orden de los trazos y sus radicales',
     linkHref: '/hanzi',
     linkName: 'Escritura de Hanzi'
+  },
+  {
+    title: 'Plantillas de caligrafía de 汉字',
+    imgAlt: 'Plantillas para practicar caligrafía de 汉字, como escribir y practicar el orden de los trazos y sus radicales. Variedad de plantillas y generación personalizada',
+    img: Template,
+    description: 'Plantillas para practicar caligrafía de 汉字, como escribir y practicar el orden de los trazos y sus radicales. Variedad de plantillas y generación personalizada',
+    linkHref: '/plantillas',
+    linkName: 'Plantillas'
   }
 ]
 
