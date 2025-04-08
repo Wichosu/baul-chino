@@ -1,8 +1,6 @@
 import { Metadata } from "next";
 import Hero from "../components/Hero";
 import Writer from "./components/Writer";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
   title: "Conoce el orden de los trazos y sus radicales",
@@ -12,7 +10,6 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <Navbar />
       <Hero title="Escribe Hanzi 汉字">
         Herramienta para aprender a escribir chino, conocer el orden de los trazos y sus radicales
         observando animaciones personalizadas.
@@ -20,7 +17,6 @@ export default function Page() {
         Escribe en la caja de texto y se mostraran tus hanzi 汉字
       </Hero>
       <Writer />
-      <Footer />
     </>
   );
 }
