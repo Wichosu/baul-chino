@@ -26,7 +26,7 @@ function Title({ children }: { children: string }) {
   )
 }
 
-const StyledTitle = styled.h1`
+const StyledTitle = styled.h2`
   font-size: 2rem;
   font-weight: 500;
 `;

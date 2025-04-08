@@ -1,9 +1,13 @@
-import Test from "./components/Test"
+import Hero from "@/app/components/Hero"
+import TemplateGenerator from "./components/TemplateGenerator"
 
 export default function Page() {
   return (
     <>
-      <Test />
+      <Hero title="Generador de Plantillas">
+        Generador de plantillas para practicar caligrafía de 汉字. Prueba tus habilidades de escritura y practica el orden de los trazos y sus radicales.
+      </Hero>
+      <TemplateGenerator />
     </>
   )
 }
