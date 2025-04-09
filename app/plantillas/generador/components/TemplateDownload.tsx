@@ -7,13 +7,17 @@ type Props = {
 
 export default function TemplateDownload({ toPDF }: Props) {
   return (
-    <>
+    <Container>
       <Label>Nombre de tu plantilla: </Label>
       <Input type="text" placeholder="Escribe el nombre de tu plantilla" />
       <DownloadButton onClick={toPDF}>Descargar Plantilla</DownloadButton>
-    </>
+    </Container>
   )
 }
+
+const Container = styled.section`
+  
+`
 
 const Label = styled.label`
   font-size: 1.25rem;
