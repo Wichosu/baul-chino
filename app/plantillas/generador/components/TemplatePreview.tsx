@@ -10,7 +10,6 @@ type Props = {
 
 //mm units
 const GridGap = 0
-
 const SquareCount = 330
 
 export default function TemplatePreview({ targetRef }: Props) {

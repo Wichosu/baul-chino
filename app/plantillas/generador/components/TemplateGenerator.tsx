@@ -1,11 +1,11 @@
 "use client"
 import styled from "styled-components";
-import { useRef, createContext } from "react";
+import { useRef } from "react";
 import generatePDF from "react-to-pdf";
-import TemplatePreview from "./TemplatePreview";
+import TemplateContextProvider from "./TemplateContext";
 import TemplateDownload from "./TemplateDownload";
-
-export const TemplateContext = createContext({})
+import GridForm from "./forms/GridForm";
+import TemplatePreview from "./TemplatePreview";
 
 export default function TemplateGenerator() {
   const targetRef = useRef<HTMLDivElement>(null!)
@@ -15,12 +15,13 @@ export default function TemplateGenerator() {
   }
 
   return (
-    <TemplateContext.Provider value={{}}>
-      <Container>
+    <Container>
+      <TemplateContextProvider>
         <TemplateDownload toPDF={toPDF} />
+        <GridForm />
         <TemplatePreview targetRef={targetRef} />
-      </Container>
-    </TemplateContext.Provider>
+      </TemplateContextProvider>
+    </Container>
   )
 }
 
