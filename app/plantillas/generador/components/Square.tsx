@@ -1,12 +1,12 @@
 "use client"
 import styled from "styled-components"
-
-//mm units
-const SquareSize = 12
+import { useTemplateContext } from "./TemplateContext"
 
 export default function Square() {
+  const { squareSize } = useTemplateContext()
+
   return (
-    <SquareContainer $size={SquareSize}>
+    <SquareContainer $size={squareSize}>
       <SquareSvg>
         <line x1={0} y1={`${50}%`} x2={`${100}%`} y2={`${50}%`} stroke="#DDD" />
         <line x1={`${50}%`} y1={0} x2={`${50}%`} y2={`${100}%`} stroke="#DDD" />

@@ -1,16 +1,19 @@
 "use client"
 import styled from "styled-components"
+import { useTemplateContext } from "./TemplateContext"
 
 type Props = {
-  toPDF: () => void
+  toPDF: (filename: string) => void
 }
 
 export default function TemplateDownload({ toPDF }: Props) {
+  const { filename } = useTemplateContext()
+  
   return (
     <Container>
       <Label>Nombre de tu plantilla: </Label>
-      <Input type="text" placeholder="Escribe el nombre de tu plantilla" />
-      <DownloadButton onClick={toPDF}>Descargar Plantilla</DownloadButton>
+      <Input type="text" placeholder="Escribe el nombre de tu plantilla" onChange={(e) => filename.current = e.target.value.trim()} />
+      <DownloadButton onClick={() => toPDF(filename.current)}>Descargar Plantilla</DownloadButton>
     </Container>
   )
 }
@@ -42,6 +45,7 @@ const Input = styled.input`
   }
 
   @media (min-width: 768px) {
+    width: 350px;
     margin-right: 40px;
   }
 `

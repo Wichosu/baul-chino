@@ -2,76 +2,45 @@
 import styled from "styled-components"
 import { useTemplateContext } from "../TemplateContext"
 
-export default function GridForm() {
-  const { gridGap, squareCount, setGridGap, setSquareCount } = useTemplateContext()
+export default function SquareForm() {
+  const { squareSize, setSquareSize } = useTemplateContext()
 
-  const handleGridGapChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSquareSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value)
-    const maxValue = 50
-    const minValue = 0
+    const maxValue = 275
+    const minValue = 10
 
     if(value <= minValue) {
-      e.target.value = minValue.toString()
-      setGridGap(minValue)
+      e.target.value = value.toString()
+      setSquareSize(minValue)
       return
     }
 
     if(value > maxValue) {
       e.target.value = maxValue.toString()
-      setGridGap(maxValue)
+      setSquareSize(maxValue)
       return
     }
 
     e.target.value = value.toString()
-    setGridGap(value)
-  }
-
-  const handleSquareCountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = Number(e.target.value)
-    const maxValue = 999
-    const minValue = 0
-
-    if(value <= minValue) {
-      e.target.value = minValue.toString()
-      setSquareCount(minValue)
-      return
-    }
-
-    if(value > maxValue) {
-      e.target.value = maxValue.toString()
-      setSquareCount(maxValue)
-      return
-    }
-
-    e.target.value = value.toString()
-    setSquareCount(value)
+    setSquareSize(value)
   }
 
   return (
     <Container>
-      <Title>Estilos de la Red</Title>
+      <Title>Estilos del Cuadrado</Title>
       <ModifierContainer>
-        <Label htmlFor="gridGap">Distancia entre cuadrados:</Label>
-        <Span>(0mm - 50mm)</Span>
+        <Label htmlFor="squareSize">Tamaño del cuadrado:</Label>
+        <Span>(10mm - 275mm)</Span>
         <InputContainer>
           <InputUnit
             type="number" 
-            id="gridGap" 
-            onChange={handleGridGapChange} 
-            defaultValue={gridGap}
+            id="squareSize" 
+            onChange={handleSquareSizeChange}
+            defaultValue={squareSize}
           />
           <InputUnitSpan>mm</InputUnitSpan>
         </InputContainer>
-      </ModifierContainer>
-      <ModifierContainer>
-        <Label htmlFor="squareCount">Cantidad de cuadrados:</Label>
-        <Span>(0 - 999)</Span>
-        <Input
-          type="number" 
-          id="squareCount" 
-          onChange={handleSquareCountChange} 
-          defaultValue={squareCount}
-        />
       </ModifierContainer>
     </Container>
   )
