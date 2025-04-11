@@ -19,19 +19,21 @@ export default function TemplateDownload({ toPDF }: Props) {
 }
 
 const Container = styled.section`
-  
 `
 
 const Label = styled.label`
+  display: block;
   font-size: 1.25rem;
   font-weight: 500;
 
   @media (min-width: 768px) {
+    display: inline-block;
     margin-right: 10px;
   }
 `
 
 const Input = styled.input`
+  display: block;
   font-size: 1.25rem;
   border: none;
   border-radius: 4px;
@@ -45,12 +47,14 @@ const Input = styled.input`
   }
 
   @media (min-width: 768px) {
+    display: inline-block;
     width: 350px;
-    margin-right: 40px;
+    margin-right: 20px;
   }
 `
 
 const DownloadButton = styled.button`
+  display: block;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px;
@@ -64,5 +68,9 @@ const DownloadButton = styled.button`
 
   &:hover {
     background-color: hsl(213, 93%, 57%);
+  }
+
+  @media (min-width: 768px) {
+    display: inline-block;
   }
 `
