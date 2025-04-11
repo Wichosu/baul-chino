@@ -40,6 +40,7 @@ export default function Navbar() {
           <NavLink onClick={closeMenu} href={'/canales'}>Lista de Canales</NavLink>
           <NavLink onClick={closeMenu} href={'/hanzi'}>Escritura de Hanzi</NavLink>
           <NavLink onClick={closeMenu} href={'/plantillas'}>Plantillas</NavLink>
+          <NavLink onClick={closeMenu} href={'/plantillas/generador'}>Generador de Plantillas</NavLink>
         </SideBarContainer>
       </SideBar>
       <Container>
