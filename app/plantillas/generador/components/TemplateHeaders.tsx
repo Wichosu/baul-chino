@@ -1,17 +1,17 @@
 "use client"
 import styled from "styled-components"
+import { useTemplateContext } from "./TemplateContext"
 
 export default function TemplateHeaders() {
+  const { titles } = useTemplateContext()
+
   return (
     <Headers>
       {
-        Array.from({ length: 3 }).map((_, index) => (
-          <Title key={index}></Title>
+        titles.map((title, index) => (
+          <Title key={index} $marginRight={title.marginRight}>{ title.name }</Title>
         ))
       }
-      <Title style={{ marginRight: "10mm" }}>Nombre:</Title>
-      <Title style={{ marginRight: "40mm" }}>Fecha:</Title>
-      <Title style={{ marginRight: "20mm" }}>Calificación:</Title>
     </Headers>
   )
 }
@@ -30,7 +30,9 @@ const Headers = styled.div`
 //   margin-left: auto;
 // `
 
-const Title = styled.h2`
+const Title = styled.h2<{ $marginRight?: number}>`
   margin: 0;
   padding: 0;
+
+  margin-right: ${props => `${props.$marginRight}mm` || `${0}mm`};
 `
