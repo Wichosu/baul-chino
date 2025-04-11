@@ -8,25 +8,72 @@ import { Title as TitleType } from "../TemplateContext"
 export default function TitleForm() {
   const { titles, setTitles } = useTemplateContext()
 
+  const generateUUID = () => {
+    if (typeof window !== "undefined" && window.crypto) {
+      return window.crypto.randomUUID()
+    }
+
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      const r = Math.random() * 16 | 0;
+      const v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+  }
+
   const handleMarginRightChange = (e: React.ChangeEvent<HTMLInputElement>, title: TitleType) => {
     const value = Number(e.target.value)
-    const maxValue = 30
+    const maxValue = 50
     const minValue = 0
 
     if(value <= minValue) {
       e.target.value = minValue.toString()
-      title.marginRight = minValue
+
+      setTitles(titles.map((oldTitle) => {
+        if (oldTitle.uuid === title.uuid) {
+          return { ...oldTitle, marginRight: minValue }
+        }
+
+        return oldTitle
+      }))
+
       return
     }
 
     if(value > maxValue) {
       e.target.value = maxValue.toString()
-      title.marginRight = maxValue
+
+      setTitles(titles.map((oldTitle) => {
+        if (oldTitle.uuid === title.uuid) {
+          return { ...oldTitle, marginRight: maxValue }
+        }
+
+        return oldTitle
+      }))
+
       return
     }
 
     e.target.value = value.toString()
-    title.marginRight = value
+
+    setTitles(titles.map((oldTitle) => {
+      if (oldTitle.uuid === title.uuid) {
+        return { ...oldTitle, marginRight: value }
+      }
+
+      return oldTitle
+    }))
+  }
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>, title: TitleType) => {
+    const value = e.target.value
+
+    setTitles(titles.map((oldTitle) => {
+      if (oldTitle.uuid === title.uuid) {
+        return { ...oldTitle, name: value }
+      }
+
+      return oldTitle
+    }))
   }
 
   return (
@@ -41,7 +88,7 @@ export default function TitleForm() {
               <Input
                 type="text"
                 defaultValue={title.name}
-                onChange={(e) => title.name = e.target.value.trim()}
+                onChange={(e) => handleNameChange(e, title)}
               />
             </ModifierContainer>
             <ModifierContainer>
@@ -58,7 +105,12 @@ export default function TitleForm() {
           </ScrollContainer>
         ))
       }
-      <Button onClick={() => setTitles([...titles, { name: "", marginRight: 0 }])}>Agregar Titulo</Button>
+      <Button
+        onClick={() => setTitles([...titles, { uuid: generateUUID(), name: "", marginRight: 0 }])}
+        $display={titles.length >= 3 ? "none" : "block"}
+      >
+        Agregar Titulo
+      </Button>
     </Container>
   )
 }
@@ -72,8 +124,8 @@ const Title = styled.h3`
   margin-top: 20px;
 `
 
-const Button = styled.button`
-  display: block;
+const Button = styled.button<{ $display?: "none" | "block" }>`
+  display: ${props => props.$display || "block"};
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px;
@@ -91,7 +143,7 @@ const Button = styled.button`
   }
 
   @media (min-width: 768px) {
-    display: inline-block;
+    display: ${props => props.$display || "block"};
   }
 `
 

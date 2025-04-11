@@ -6,6 +6,7 @@ type Props = {
 }
 
 export type Title = {
+  uuid: string
   name: string
   marginRight: number
 }
