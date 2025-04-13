@@ -53,7 +53,12 @@ export default function Navbar() {
         <NavLink href={'/libros-hsk'}>Libros HSK</NavLink>
         <NavLink href={'/canales'}>Lista de Canales</NavLink>
         <NavLink href={'/hanzi'}>Escritura de Hanzi</NavLink>
-        <NavLink href={'/plantillas'}>Plantillas</NavLink>
+        <DropDownMenu>
+          <NavLink href={'/plantillas'}>Plantillas <DownArrow /></NavLink>
+          <DropDownContent>
+            <NavLink href={'/plantillas/generador'}>Generador de Plantillas</NavLink>
+          </DropDownContent>
+        </DropDownMenu>
       </Container>
     </>
   );
@@ -94,6 +99,7 @@ const SideBar = styled.div<{ $styles?: IMenuStyles; }>`
     display: none;
   }
 `
+
 const SideBarContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -102,6 +108,7 @@ const SideBarContainer = styled.div`
   padding-left: 20px;
   padding-right: 20px;
 `
+
 const Figure = styled.figure`
   ${SideBarContainer} & {
     margin-left: auto;
@@ -128,3 +135,41 @@ const NavLink = styled(Link)`
     margin-right: 20px;
   }
 `;
+
+const DropDownContent = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: hsl(0, 0%, 88%);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: none;
+
+  & ${NavLink} {
+    margin: 0;
+  }
+`
+
+const DropDownMenu = styled.div`
+  position: relative;
+
+  & ${NavLink}:hover + ${DropDownContent} {
+    display: block;
+  }
+
+  & ${DropDownContent}:hover {
+    display: block;
+  }
+`
+
+const DownArrow = styled.span`
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 2px;
+  margin-bottom: 5px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+`
