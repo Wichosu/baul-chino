@@ -1,30 +1,39 @@
 "use client"
 import styled from "styled-components"
+import { useTemplateContext } from "./TemplateContext"
 
 type Props = {
-  toPDF: () => void
+  toPDF: (filename: string) => void
 }
 
 export default function TemplateDownload({ toPDF }: Props) {
+  const { filename } = useTemplateContext()
+  
   return (
-    <>
+    <Container>
       <Label>Nombre de tu plantilla: </Label>
-      <Input type="text" placeholder="Escribe el nombre de tu plantilla" />
-      <DownloadButton onClick={toPDF}>Descargar Plantilla</DownloadButton>
-    </>
+      <Input type="text" placeholder="Escribe el nombre de tu plantilla" onChange={(e) => filename.current = e.target.value.trim()} />
+      <DownloadButton onClick={() => toPDF(filename.current)}>Descargar Plantilla</DownloadButton>
+    </Container>
   )
 }
 
+const Container = styled.section`
+`
+
 const Label = styled.label`
+  display: block;
   font-size: 1.25rem;
   font-weight: 500;
 
   @media (min-width: 768px) {
+    display: inline-block;
     margin-right: 10px;
   }
 `
 
 const Input = styled.input`
+  display: block;
   font-size: 1.25rem;
   border: none;
   border-radius: 4px;
@@ -38,11 +47,14 @@ const Input = styled.input`
   }
 
   @media (min-width: 768px) {
-    margin-right: 40px;
+    display: inline-block;
+    width: 350px;
+    margin-right: 20px;
   }
 `
 
 const DownloadButton = styled.button`
+  display: block;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px;
@@ -56,5 +68,9 @@ const DownloadButton = styled.button`
 
   &:hover {
     background-color: hsl(213, 93%, 57%);
+  }
+
+  @media (min-width: 768px) {
+    display: inline-block;
   }
 `

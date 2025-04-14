@@ -3,17 +3,14 @@ import { Ref } from "react";
 import Square from "./Square";
 import TemplateHeaders from "./TemplateHeaders";
 import styled from "styled-components";
+import { useTemplateContext } from "./TemplateContext";
 
 type Props = {
   targetRef: Ref<HTMLDivElement>
 }
 
-//mm units
-const GridGap = 0
-
-const SquareCount = 330
-
 export default function TemplatePreview({ targetRef }: Props) {
+  const { gridGap, squareCount } = useTemplateContext()
 
   return (
     <RelativeContainer>
@@ -21,9 +18,9 @@ export default function TemplatePreview({ targetRef }: Props) {
         <Page>
           <WebsiteUrl>www.baulchino.com</WebsiteUrl>
           <TemplateHeaders />
-          <Grid $gap={GridGap}>
+          <Grid $gap={gridGap}>
             {
-              Array.from({ length: SquareCount }).map((_, index) => (
+              Array.from({ length: squareCount }).map((_, index) => (
                 <Square key={index} />
               ))
             }
