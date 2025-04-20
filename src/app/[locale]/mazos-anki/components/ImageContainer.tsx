@@ -1,10 +1,10 @@
 "use client"
 import styled from "styled-components"
 import Image from "next/image"
-import ankiMenu from "../../images/anki-menu.png"
-import ankiCard from "../../images/anki-card.png"
-import ankiBrowser from "../../images/anki-browser.png"
-import ankiCardFront from "../../images/anki-card-front.png"
+import ankiMenu from "@/src/app/images/anki-menu.png"
+import ankiCard from "@/src/app/images/anki-card.png"
+import ankiBrowser from "@/src/app/images/anki-browser.png"
+import ankiCardFront from "@/src/app/images/anki-card-front.png"
 
 export default function ImageContainer() {
   return (

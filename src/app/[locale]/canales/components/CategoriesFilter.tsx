@@ -3,7 +3,7 @@ import { useContext, useState } from "react"
 import { FilterContext } from "./Filter"
 import FilterButton from "./FilterButton"
 import styled from "styled-components"
-import HorizontalSlide from "@/app/components/animations/HorizontalSlide"
+import HorizontalSlide from "@/src/app/components/animations/HorizontalSlide"
 
 export default function CategoriesFilter() {
   const { FetchedCategories, selectedCategory, setSelectedCategory } = useContext(FilterContext)

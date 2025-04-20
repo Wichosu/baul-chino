@@ -1,4 +1,4 @@
-import Hero from "@/app/components/Hero"
+import Hero from "@/src/app/components/Hero"
 import TemplateGenerator from "./components/TemplateGenerator"
 
 export default function Page() {

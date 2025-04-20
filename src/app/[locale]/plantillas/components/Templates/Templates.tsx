@@ -7,7 +7,7 @@ import templateA12mm from "../../assets/templateA12mm.png";
 import templateA16mm from "../../assets/templateA16mm.png";
 import templateA20mm from "../../assets/templateA20mm.png";
 import { StaticImageData } from "next/image";
-import { createClient } from "@/app/utils/supabase/client";
+import { createClient } from "@/src/app/utils/supabase/client";
 import TemplateSection from "./TemplateSection";
 
 export type TemplateObject = {
