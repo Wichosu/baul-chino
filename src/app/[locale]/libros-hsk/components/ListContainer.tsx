@@ -1,6 +1,6 @@
 "use client"
 import styled from "styled-components";
-import Card from "@/app/components/Card";
+import Card from "@/src/app/components/Card";
 import { StaticImageData } from "next/image";
 import HSK1 from "../../images/hsk1.png"
 import HSK2 from "../../images/hsk2.png"

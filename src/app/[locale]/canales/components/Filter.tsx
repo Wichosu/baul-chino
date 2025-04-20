@@ -1,5 +1,5 @@
 "use client"
-import { createClient } from "@/app/utils/supabase/client";
+import { createClient } from "@/src/app/utils/supabase/client";
 import { ILanguage } from "../interfaces/ILanguage";
 import { IChannel } from "../interfaces/IChannel";
 import { ICategory } from "../interfaces/ICategory";

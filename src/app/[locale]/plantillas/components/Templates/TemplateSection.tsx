@@ -2,8 +2,8 @@
 import styled from "styled-components"
 import TemplateCard from "./TemplateCard"
 import { TemplateObject } from "./Templates"
-import HorizontalSlide from "@/app/components/animations/HorizontalSlide"
-import useShowAnimation from "@/app/hooks/useShowAnimation"
+import HorizontalSlide from "@/src/app/components/animations/HorizontalSlide"
+import useShowAnimation from "@/src/app/hooks/useShowAnimation"
 
 type Props = {
   children: React.ReactNode | string

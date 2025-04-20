@@ -16,6 +16,7 @@
     "@vercel/speed-insights": "^1.2.0",
     "hanzi-writer": "^3.7.2",
     "next": "^15.2.4",
+    "next-intl": "^4.0.2",
     "posthog-js": "^1.232.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
