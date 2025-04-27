@@ -3,12 +3,14 @@ import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 interface IMenuStyles {
   translateX: string
 }
 
 export default function Navbar() {
+  const t = useTranslations('Navbar')
   const [openMenu, setOpenMenu] = useState(false);
 
   const closeMenu = () => {
@@ -34,13 +36,13 @@ export default function Navbar() {
           <Figure onClick={() => setOpenMenu(() => false)}>
             <Image alt="close button" src={'/x.svg'} width={30} height={30} />
           </Figure>
-          <NavLink onClick={closeMenu} href={'/'}>Inicio</NavLink>
-          <NavLink onClick={closeMenu} href={'/mazos-anki'}>Mazos Anki</NavLink>
-          <NavLink onClick={closeMenu} href={'/libros-hsk'}>Libros HSK</NavLink>
-          <NavLink onClick={closeMenu} href={'/canales'}>Lista de Canales</NavLink>
-          <NavLink onClick={closeMenu} href={'/hanzi'}>Escritura de Hanzi</NavLink>
-          <NavLink onClick={closeMenu} href={'/plantillas'}>Plantillas</NavLink>
-          <NavLink onClick={closeMenu} href={'/plantillas/generador'}>Generador de Plantillas</NavLink>
+          <NavLink onClick={closeMenu} href={'/'}>{t('Home')}</NavLink>
+          <NavLink onClick={closeMenu} href={'/mazos-anki'}>{t('AnkiDecks')}</NavLink>
+          <NavLink onClick={closeMenu} href={'/libros-hsk'}>{t('HskBooks')}</NavLink>
+          <NavLink onClick={closeMenu} href={'/canales'}>{t('Channels')}</NavLink>
+          <NavLink onClick={closeMenu} href={'/hanzi'}>{t('Hanzi')}</NavLink>
+          <NavLink onClick={closeMenu} href={'/plantillas'}>{t('Templates')}</NavLink>
+          <NavLink onClick={closeMenu} href={'/plantillas/generador'}>{t('TemplateGenerator')}</NavLink>
         </SideBarContainer>
       </SideBar>
       <Container>
@@ -48,15 +50,15 @@ export default function Navbar() {
         <Figure onClick={() => setOpenMenu(() => true)}>
           <Image alt="menu button" src={'/menu.svg'} width={30} height={30} />
         </Figure>
-        <NavLink href={"/"}>Inicio</NavLink>
-        <NavLink href={"/mazos-anki"}>Mazos Anki</NavLink>
-        <NavLink href={'/libros-hsk'}>Libros HSK</NavLink>
-        <NavLink href={'/canales'}>Lista de Canales</NavLink>
-        <NavLink href={'/hanzi'}>Escritura de Hanzi</NavLink>
+        <NavLink href={"/"}>{t('Home')}</NavLink>
+        <NavLink href={"/mazos-anki"}>{t('AnkiDecks')}</NavLink>
+        <NavLink href={'/libros-hsk'}>{t('HskBooks')}</NavLink>
+        <NavLink href={'/canales'}>{t('Channels')}</NavLink>
+        <NavLink href={'/hanzi'}>{t('Hanzi')}</NavLink>
         <DropDownMenu>
-          <NavLink href={'/plantillas'}>Plantillas <DownArrow /></NavLink>
+          <NavLink href={'/plantillas'}>{t('Templates')} <DownArrow /></NavLink>
           <DropDownContent>
-            <NavLink href={'/plantillas/generador'}>Generador de Plantillas</NavLink>
+            <NavLink href={'/plantillas/generador'}>{t('TemplateGenerator')}</NavLink>
           </DropDownContent>
         </DropDownMenu>
       </Container>

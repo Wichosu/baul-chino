@@ -1,7 +1,7 @@
 import 'server-only'
 import { Metadata } from "next"
 import { cookies } from "next/headers"
-import { createClient } from "../utils/supabase/server"
+import { createClient } from "@/src/app/utils/supabase/server"
 import { cache } from "react"
 import Hero from "../../components/Hero"
 import Filter from "./components/Filter"

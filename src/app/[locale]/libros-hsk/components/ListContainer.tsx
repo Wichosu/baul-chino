@@ -2,12 +2,12 @@
 import styled from "styled-components";
 import Card from "@/src/app/components/Card";
 import { StaticImageData } from "next/image";
-import HSK1 from "../../images/hsk1.png"
-import HSK2 from "../../images/hsk2.png"
-import HSK3 from "../../images/hsk3.png"
-import HSK4 from "../../images/hsk4.png"
-import HSK5 from "../../images/hsk5.jpg"
-import HSK6 from "../../images/hsk6.jpg"
+import HSK1 from "@/src/app/images/hsk1.png"
+import HSK2 from "@/src/app/images/hsk2.png"
+import HSK3 from "@/src/app/images/hsk3.png"
+import HSK4 from "@/src/app/images/hsk4.png"
+import HSK5 from "@/src/app/images/hsk5.jpg"
+import HSK6 from "@/src/app/images/hsk6.jpg"
 
 type Book = {
   name: string,
