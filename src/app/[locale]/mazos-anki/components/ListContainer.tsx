@@ -1,6 +1,7 @@
 "use client"
 import styled from "styled-components";
 import ListItem from "./ListItem";
+import { useTranslations } from "next-intl";
 
 const enAnkiDecks = [
   //EN decks
@@ -43,10 +44,13 @@ const esAnkiDecks = [
 ]
 
 export default function ListContainer() {
+  const t = useTranslations('AnkiDecks.ListContainer')
+
   return (
     <Container>
       <BlockWrapper>
-        <Title>Mazos con traducción al Inglés</Title>
+        <Title>🇬🇧 {t('TitleEn')}</Title>
+        <Description>{t('DescriptionEn')}</Description>
         {
           enAnkiDecks.map((e, index) => (
             <ListItem 
@@ -58,7 +62,8 @@ export default function ListContainer() {
         }
       </BlockWrapper>
       <BlockWrapper>
-        <Title>Mazos con traducción al Español</Title>
+        <Title>🇪🇸 {t('TitleEs')}</Title>
+        <Description>{t('DescriptionEs')}</Description>
         {
           esAnkiDecks.map((e, index) => (
             <ListItem 
@@ -82,6 +87,11 @@ const Container = styled.section`
 
 const Title = styled.h3`
   margin-top: 20px;
+`
+
+const Description = styled.p`
+  margin: 0;
+  padding: 0;
   margin-bottom: 20px;
 `
 

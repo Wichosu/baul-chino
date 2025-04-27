@@ -2,21 +2,27 @@
 import styled from "styled-components"
 import Link from "next/link"
 import Image from "next/image"
+import { useTranslations } from "next-intl"
 
 export default function Downloads() {
+  const t = useTranslations('AnkiDecks.Downloads')
+
   return (
     <Container>
-      <Title>Descarga Anki</Title>
+      <Title>{t('Title')}</Title>
       <Text>
-        Para usar los mazos anki se requiere instalar Anki, puedes descargarlo en:
+        {t('Text')}
       </Text>
+      <Note>
+        {t('Note')}
+      </Note>
       <ButtonLink 
         href={'https://play.google.com/store/apps/details?id=com.ichi2.anki'} 
         target="_blank" 
         $backgroundColor="#65a30d"
       >
         <StyledImage alt="" src={'/android.svg'} width={20} height={20} />
-        Descargar para Android
+        {t('Android')}
       </ButtonLink>
       <ButtonLink 
         href={'https://itunes.apple.com/us/app/ankimobile-flashcards/id373493387'} 
@@ -24,14 +30,14 @@ export default function Downloads() {
         $backgroundColor="#52525b"
       >
         <StyledImage alt="" src={'/iphone.svg'} width={20} height={20} />
-        Descargar para Iphone
+        {t('Iphone')}
       </ButtonLink>
       <ButtonLink 
         href={'https://github.com/ankitects/anki/releases/download/24.11/anki-24.11-windows-qt6.exe'} 
         target="_blank"
       >
         <StyledImage alt="" src={'/windows.svg'} width={20} height={20} />
-        Descargar para Windows 10/11
+        {t('Windows')}
       </ButtonLink>
       <ButtonLink 
         href={'https://github.com/ankitects/anki/releases/download/24.11/anki-24.11-mac-apple-qt6.dmg'} 
@@ -39,7 +45,7 @@ export default function Downloads() {
         $backgroundColor="#525252"
       >
         <StyledImage alt="" src={'/apple.svg'} width={20} height={20} />
-        Descargar para Mac (Apple Silicon)
+        {t('Mac')}
       </ButtonLink>
       <ButtonLink 
         href={'https://github.com/ankitects/anki/releases/download/24.11/anki-24.11-mac-intel-qt6.dmg'} 
@@ -47,7 +53,7 @@ export default function Downloads() {
         $backgroundColor="#525252"
       >
         <StyledImage alt="" src={'/apple.svg'} width={20} height={20} />
-        Descargar para Mac (Intel)
+        {t('MacIntel')}
       </ButtonLink>
       <ButtonLink 
         href={'https://github.com/ankitects/anki/releases/download/24.11/anki-24.11-linux-qt6.tar.zst'} 
@@ -55,7 +61,7 @@ export default function Downloads() {
         $backgroundColor="#475569"
       >
         <StyledImage alt="" src={'/linux.svg'} width={20} height={20} />
-        Descargar para Linux
+        {t('Linux')}
       </ButtonLink>
     </Container>
   )
@@ -76,6 +82,15 @@ const Title = styled.h3`
 const Text = styled.p`
   font-size: 1rem;
 `
+
+const Note = styled.small`
+  font-size: 1rem;
+  color: hsl(217, 20%, 40%);
+  margin: 0;
+  padding: 0;
+  display: block;
+`
+
 const StyledImage = styled(Image)`
   margin-right: 10px;
 

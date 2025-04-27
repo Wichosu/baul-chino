@@ -5,11 +5,14 @@ import ankiMenu from "@/src/app/images/anki-menu.png"
 import ankiCard from "@/src/app/images/anki-card.png"
 import ankiBrowser from "@/src/app/images/anki-browser.png"
 import ankiCardFront from "@/src/app/images/anki-card-front.png"
+import { useTranslations } from "next-intl"
 
 export default function ImageContainer() {
+  const t = useTranslations('AnkiDecks.ImageContainer')
+
   return (
     <Container>
-      <Title>Imagenes Ilustrativas</Title>
+      <Title>{t('Title')}</Title>
       <ImageWrapper>
         <StyledImage alt="Menú de Anki mostrando una lista de mazos" src={ankiMenu} />
       </ImageWrapper>

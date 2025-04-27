@@ -1,10 +1,13 @@
 "use client"
 import styled from "styled-components"
+import { useTranslations } from "next-intl"
 
 export default function Instructions() {
+  const t = useTranslations('AnkiDecks.Instructions')
+
   return (
     <Container>
-      <Title>Como usar Anki</Title>
+      <Title>{t('Title')}</Title>
       <Video 
         src="https://www.youtube.com/embed/rXxrHDEeYIw?si=snY_Cb7Kvg85j3xD" 
         title="¿CÓMO usar ANKI para aprender IDIOMAS? (TUTORIAL para PRINCIPIANTES)" 
