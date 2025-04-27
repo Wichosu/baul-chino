@@ -61,7 +61,48 @@
     }
   },
   "AnkiDecks": {
+    "Metadata": {
+      "Title": "HSK Anki Decks | Complete Vocabulary with Animated Strokes",
+      "Description": "Study decks for all HSK levels (1-6). Each card includes: Chinese character, pinyin, English/Spanish translation, and stroke order GIF. Free download."
+    },
     "HeroTitle": "Anki Decks HSK 1-4",
-    "HeroMessage": "HSK Anki Deck Collection. Each deck contains: Chinese character with pinyin and pronunciation audio. English and Spanish translations. Animated GIF demonstrating proper stroke order"
+    "HeroMessage": "HSK Anki Deck Collection. Each deck contains: Chinese character with pinyin and pronunciation audio. English and Spanish translations. Animated GIF demonstrating proper stroke order",
+    "Downloads": {
+      "Title": "Download Anki",
+      "Text": "To use our HSK decks, first install the Anki app on your device:",
+      "Note": "Note: The iPhone version is paid, while others are free.",
+      "Android": "Android",
+      "Iphone": "iPhone (Paid Version)",
+      "Windows": "Windows 10/11",
+      "Mac": "Mac (Apple Silicon)",
+      "MacIntel": "Mac (Intel)",
+      "Linux": "Linux"
+    },
+    "ListContainer": {
+      "TitleEn": "Anki Decks in English",
+      "DescriptionEn": "Complete decks with English translations",
+      "TitleEs": "Anki Decks in Spanish",
+      "DescriptionEs": "Complete decks with Spanish translations, perfect for Spanish speakers"
+    },
+    "Instructions": {
+      "Title": "How to use Anki?"
+    },
+    "ImageContainer": {
+      "Title": "Illustrative Images"
+    }
+  },
+  "HskBooks": {
+    "Metadata": {
+      "Title": "Free HSK Books | Complete Download (Levels 1-6 PDF)",
+      "Description": "Download all official HSK books for Mandarin learning. Complete materials from HSK 1 to HSK 6, 100% free with no ads."
+    },
+    "HeroTitle": "HSK Books (Levels 1-6)",
+    "HeroMessage1": "Complete free download of all HSK books in PDF. No ads, no middlemen, direct access.",
+    "HeroMessage2": "⚠️ Note: Download time varies depending on your internet connection (high-quality files).",
+    "HeroMessage3": "📁 Access the books:",
+    "HeroLink": "📂 Open in Google Drive",
+    "ListContainer": {
+      "Title": "Download the PDF book with one click"
+    }
   }
 }

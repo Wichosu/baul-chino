@@ -61,7 +61,48 @@
     }
   },
   "AnkiDecks": {
+    "Metadata": {
+      "Title": "Mazos Anki HSK | Vocabulario Completo con Trazos Animados",
+      "Description": "Barajas de estudio para todos los niveles HSK (1-6). Cada tarjeta incluye: carácter chino, pinyin, traducción inglés/español y GIF del orden de trazos. Descarga gratuita."
+    },
     "HeroTitle": "Mazos Anki HSK 1-4",
-    "HeroMessage": "Colección de mazos Anki para vocabulario HSK. Cada mazo incluye: Carácter chino con su pinyin y audio de pronunciación. Traducción en inglés y español. GIF animado mostrando el orden correcto de los trazos"
+    "HeroMessage": "Colección de mazos Anki para vocabulario HSK. Cada mazo incluye: Carácter chino con su pinyin y audio de pronunciación. Traducción en inglés y español. GIF animado mostrando el orden correcto de los trazos",
+    "Downloads": {
+      "Title": "Descargar Anki",
+      "Text": "Para usar nuestros mazos HSK, primero instala la aplicación Anki en tu dispositivo:",
+      "Note": "Nota: La versión para iPhone es de pago, mientras que las demás son gratuitas.",
+      "Android": "Android",
+      "Iphone": "iPhone (Versión Pagada)",
+      "Windows": "Windows 10/11",
+      "Mac": "Mac (Apple Silicon)",
+      "MacIntel": "Mac (Intel)",
+      "Linux": "Linux"
+    },
+    "ListContainer": {
+      "TitleEn": "Mazos Anki en Inglés",
+      "DescriptionEn": "Barajas completas con traducción al inglés",
+      "TitleEs": "Mazos Anki en Español",
+      "DescriptionEs": "Barajas completas con traducción al español"
+    },
+    "Instructions": {
+      "Title": "¿Como usar Anki?"
+    },
+    "ImageContainer": {
+      "Title": "Imágenes ilustrativas"
+    }
+  },
+  "HskBooks": {
+    "Metadata": {
+      "Title": "Libros HSK Gratis | Descarga Completa (Niveles 1-6 en PDF)",
+      "Description": "Descarga todos los libros oficiales HSK para aprender chino mandarín. Material completo desde HSK 1 hasta HSK 6, 100% gratuito y sin publicidad."
+    },
+    "HeroTitle": "Libros HSK (Niveles 1-6)",
+    "HeroMessage1": "Descarga completa y gratuita de todos los libros HSK en PDF. Sin anuncios, sin intermediarios, acceso directo.",
+    "HeroMessage2": "⚠️ Nota: El tiempo de descarga varía según tu conexión a Internet (archivos de alta calidad).",
+    "HeroMessage3": "📁 Acceso a los libros:",
+    "HeroLink": "📂 Abrir en Google Drive",
+    "ListContainer": {
+      "Title": "Descarga el libro en PDF con un solo clic"
+    }
   }
 }

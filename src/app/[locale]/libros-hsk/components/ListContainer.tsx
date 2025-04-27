@@ -8,6 +8,7 @@ import HSK3 from "@/src/app/images/hsk3.png"
 import HSK4 from "@/src/app/images/hsk4.png"
 import HSK5 from "@/src/app/images/hsk5.jpg"
 import HSK6 from "@/src/app/images/hsk6.jpg"
+import { useTranslations } from "next-intl";
 
 type Book = {
   name: string,
@@ -69,9 +70,11 @@ const BookCards = [
 ]
 
 export default function ListContainer() {
+  const t = useTranslations('HskBooks.ListContainer')
+
   return (
     <Container>
-      <Title>Haz click para descargar el libro HSK deseado</Title>
+      <Title>{t('Title')}</Title>
       <BooksContainer>
         {
           BookCards.map((card, index) => (

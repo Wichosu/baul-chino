@@ -5,10 +5,19 @@ import ListContainer from "./components/ListContainer"
 import Instructions from "./components/Instructions"
 import ImageContainer from "./components/ImageContainer"
 import { useTranslations } from "next-intl"
+import { getTranslations } from "next-intl/server"
 
-export const metadata: Metadata = {
-  title: "Colección de mazos anki con vocabulario HSK",
-  description: "Colección de mazos anki con vocabulario HSK. Cada mazo contiene un carácter, su pinyin, traducción en Inglés o Español, y un gif ilustrando la sucesión de trazos."
+export async function generateMetadata({params}: {params: Promise<{locale: string}>}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({locale, namespace: 'AnkiDecks.Metadata'})
+
+  return {
+    title: t('Title'),
+    description: t('Description'),
+    twitter: {
+      card: "summary_large_image"
+    },
+  }
 }
 
 export default function Page() {
