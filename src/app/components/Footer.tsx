@@ -1,6 +1,9 @@
 import Link from "next/link"
+import { useTranslations } from "next-intl"
 
 export default function Footer() {
+  const t = useTranslations('Footer')
+
   return (
       <small style={{
         display: 'block',
@@ -8,9 +11,9 @@ export default function Footer() {
         marginTop: '40px', 
         marginBottom: '40px'
       }}>
-        Más por venir...
+        {t('Message')}
       <br/>
-        Desarrollado por <Link href={"https://github.com/Wichosu"} target="_blank">Luis Miranda (Wicho)</Link>
+        {t('Link')} <Link href={"https://github.com/Wichosu"} target="_blank">{t('Author')}</Link>
       </small>
   )
 }

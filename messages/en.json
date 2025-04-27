@@ -1,6 +1,67 @@
 {
+  "Navbar": {
+    "Home": "Home",
+    "AnkiDecks": "Anki Decks",
+    "HskBooks": "HSK Books",
+    "Channels": "Channels",
+    "Hanzi": "Hanzi Writing",
+    "Templates": "Templates",
+    "TemplateGenerator": "Template Generator"
+  },
+  "Footer": {
+    "Message": "More to come...",
+    "Link": "Developed by",
+    "Author": "Luis Miranda (Wicho)"
+  },
   "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
+    "Metadata": {
+      "Title": "Baúl Chino - Mandarin Learning Resources",
+      "Description": "Specialized learning materials for studying Mandarin Chinese. Interactive lessons, exercises and practice tools."
+    },
+    "HeroTitle": "What is Baúl Chino?",
+    "HeroMessage": "Baúl Chino is your go-to resource for learning Mandarin Chinese. We provide high-quality teaching materials to make your language journey smoother, smarter, and more enjoyable. 好好学习, 天天向上 (Study hard, improve every day!)",
+    "CardsContainer": {
+      "AnkiDecks": {
+        "Title": "Anki Decks HSK 1-4",
+        "ImgAlt": "Anki menu showing a deck list",
+        "Description": "Collection of Anki decks covering HSK 1 to HSK 4 vocabulary",
+        "LinkName": "Anki Decks"
+      },
+      "HskBooks": {
+        "Title": "HSK Books",
+        "ImgAlt": "HSK books from HSK 1 to HSK 6, showing neatly stacked books",
+        "Description": "Download HSK books (Levels 1-6) for free",
+        "LinkName": "HSK Books"
+      },
+      "Channels": {
+        "Title": "Chinese Learning Channels",
+        "ImgAlt": "Collection of 4 images showing YouTube channels that teach Mandarin Chinese in different ways",
+        "Description": "YouTube channels for learning Mandarin Chinese with various teaching styles",
+        "LinkName": "Mandarin Learning Channels"
+      },
+      "Hanzi": {
+        "Title": "Hanzi Writing 汉字",
+        "ImgAlt": "Learn to write Chinese characters: master stroke order and discover radicals",
+        "Description": "Learn to write Chinese characters: master stroke order and discover radicals",
+        "LinkName": "Chinese Stroke Order"
+      },
+      "Templates": {
+        "Title": "Chinese Calligraphy Templates 汉字",
+        "ImgAlt": "Master Chinese character writing with our practice templates",
+        "Description": "Practice stroke order and radicals with downloadable templates. Generate customized exercises for your skill level.",
+        "LinkName": "Chinese Calligraphy Templates"
+      },
+      "TemplateGenerator": {
+        "Title": "Hanzi Practice Template Generator 汉字",
+        "ImgAlt": "Create customized Chinese writing exercises",
+        "Description": "Generate tailored templates to master stroke order and radicals. Ideal for refining your calligraphy skills!",
+        "LinkName": "Hanzi Template Generator"
+      },
+      "GoTo": "Go to"
+    }
+  },
+  "AnkiDecks": {
+    "HeroTitle": "Anki Decks HSK 1-4",
+    "HeroMessage": "HSK Anki Deck Collection. Each deck contains: Chinese character with pinyin and pronunciation audio. English and Spanish translations. Animated GIF demonstrating proper stroke order"
   }
 }

@@ -8,6 +8,7 @@ import hanzi from "../images/hanzi.png"
 import Template from "../images/template20mm.png"
 import templateGenerator from "../images/templateGenerator.png"
 import { StaticImageData } from "next/image"
+import { useTranslations } from "next-intl"
 
 interface Card {
   title: string,
@@ -36,58 +37,60 @@ function createCard(
   }
 }
 
-const cardsList: Card[] = [
-  createCard(
-    'Mazos Anki HSK 1-4',
-    'Menú de Anki mostrando una lista de mazos',
-    ankiHsk,
-    'Colección de mazos Anki con vocabulario del HSK 1 al HSK 4',
-    'mazos-anki',
-    'Mazos Anki'
-  ),
-  createCard(
-    'Libros HSK',
-    'Libros HSK del HSK 1 al HSK 6, los libros se ven ordenados y apilados',
-    hskBooks,
-    'Descarga los libros HSK del 1 al 6 de manera gratuita',
-    '/libros-hsk',
-    'Libros HSK'
-  ),
-  createCard(
-    'Canales de Chino',
-    'Colección de 4 imágenes mostrando canales de YouTube en donde se enseña Chino Mandarín de diferentes formas',
-    chineseChannels,
-    'Colección de canales de YouTube en donde se enseña Chino Mandarín de diferentes formas',
-    '/canales',
-    'Canales de Chino'
-  ),
-  createCard(
-    'Escritura de Hanzi 汉字',
-    'Aprende a escribir chino, conoce el orden de los trazos y sus radicales',
-    hanzi,
-    'Aprende a escribir chino, conoce el orden de los trazos y sus radicales',
-    '/hanzi',
-    'Escritura de Hanzi'
-  ),
-  createCard(
-    'Plantillas de caligrafía de 汉字',
-    'Plantillas para practicar caligrafía de 汉字, como escribir y practicar el orden de los trazos y sus radicales. Variedad de plantillas y generación personalizada',
-    Template,
-    'Plantillas para practicar caligrafía de 汉字, como escribir y practicar el orden de los trazos y sus radicales. Variedad de plantillas y generación personalizada',
-    '/plantillas',
-    'Plantillas'
-  ),
-  createCard(
-    'Generador de Plantillas',
-    'Generador de plantillas para practicar caligrafía de 汉字. Prueba tus habilidades de escritura y practica el orden de los trazos y sus radicales',
-    templateGenerator,
-    'Generador de plantillas para practicar caligrafía de 汉字. Prueba tus habilidades de escritura y practica el orden de los trazos y sus radicales',
-    '/plantillas/generador',
-    'Generador de Plantillas'
-  )
-]
-
 export default function CardsContainer() {
+  const t = useTranslations('HomePage.CardsContainer')
+
+  const cardsList: Card[] = [
+    createCard(
+      t('AnkiDecks.Title'),
+      t('AnkiDecks.ImgAlt'),
+      ankiHsk,
+      t('AnkiDecks.Description'),
+      'mazos-anki',
+      t('AnkiDecks.LinkName')
+    ),
+    createCard(
+      t('HskBooks.Title'),
+      t('HskBooks.ImgAlt'),
+      hskBooks,
+      t('HskBooks.Description'),
+      'libros-hsk',
+      t('HskBooks.LinkName')
+    ),
+    createCard(
+      t('Channels.Title'),
+      t('Channels.ImgAlt'),
+      chineseChannels,
+      t('Channels.Description'),
+      'canales',
+      t('Channels.LinkName'),
+    ),
+    createCard(
+      t('Hanzi.Title'),
+      t('Hanzi.ImgAlt'),
+      hanzi,
+      t('Hanzi.Description'),
+      '/hanzi',
+      t('Hanzi.LinkName'),
+    ),
+    createCard(
+      t('Templates.Title'),
+      t('Templates.ImgAlt'),
+      Template,
+      t('Templates.Description'),
+      '/plantillas',
+      t('Templates.LinkName'),
+    ),
+    createCard(
+      t('TemplateGenerator.Title'),
+      t('TemplateGenerator.ImgAlt'),
+      templateGenerator,
+      t('TemplateGenerator.Description'),
+      '/plantillas/generador',
+      t('TemplateGenerator.LinkName'),
+    )
+  ]
+
   return (
     <Container>
       {
@@ -96,7 +99,7 @@ export default function CardsContainer() {
             <Card.Title>{ e.title }</Card.Title>
             <Card.CardImage img={e.img} imgAlt={e.imgAlt}  />
             <Card.Description>{ e.description }</Card.Description>
-            <Card.Button linkRef={e.linkHref}>Ir a { e.linkName }</Card.Button>
+            <Card.Button linkRef={e.linkHref}>{t('GoTo')} { e.linkName }</Card.Button>
           </Card>
         ))
       }

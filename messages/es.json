@@ -1,6 +1,67 @@
-{
+{  
+  "Navbar": {
+    "Home": "Inicio",
+    "AnkiDecks": "Mazos Anki",
+    "HskBooks": "Libros HSK",
+    "Channels": "Lista de Canales",
+    "Hanzi": "Escritura de Hanzi",
+    "Templates": "Plantillas",
+    "TemplateGenerator": "Generador de Plantillas"
+  },
+  "Footer": {
+    "Message": "Más por venir...",
+    "Link": "Desarrollado por",
+    "Author": "Luis Miranda (Wicho)"
+  },
   "HomePage": {
-    "title": "Hola Mundo!",
-    "about": "Go to the about page"
+    "Metadata": {
+      "Title": "Baúl Chino - Recursos para Aprender Mandarín",
+      "Description": "Material didáctico especializado para aprender Chino Mandarín. Lecciones, ejercicios y herramientas interactivas."
+    },
+    "HeroTitle": "¿Qué es Baúl Chino?",
+    "HeroMessage": "Baúl Chino es tu repositorio educativo especializado en la enseñanza del chino mandarín. Ofrecemos material didáctico de calidad para hacer tu aprendizaje más fácil, efectivo y divertido. 好好学习, 天天向上 (¡Estudia con dedicación y mejora cada día!)",
+    "CardsContainer": {
+      "AnkiDecks": {
+        "Title": "Mazos Anki HSK 1-4",
+        "ImgAlt": "Menú de Anki mostrando una lista de mazos",
+        "Description": "Colección de mazos Anki con vocabulario del HSK 1 al HSK 4",
+        "LinkName": "Mazos Anki"
+      },
+      "HskBooks": {
+        "Title": "Libros HSK",
+        "ImgAlt": "Libros HSK del HSK 1 al HSK 6, los libros se ven ordenados y apilados",
+        "Description": "Descarga los libros HSK del 1 al 6 de manera gratuita",
+        "LinkName": "Libros HSK"
+      },
+      "Channels": {
+        "Title": "Canales de Chino",
+        "ImgAlt": "Colección de 4 imágenes mostrando canales de YouTube en donde se enseña Chino Mandarín de diferentes formas",
+        "Description": "Canales de YouTube para aprender Chino Mandarín con distintos estilos de enseñanza",
+        "LinkName": "Canales para Aprender Chino"
+      },
+      "Hanzi": {
+        "Title": "Escritura de Hanzi 汉字",
+        "ImgAlt": "Aprende a escribir caracteres chinos: domina el orden de trazos y descubre sus radicales",
+        "Description": "Aprende a escribir caracteres chinos: domina el orden de trazos y descubre sus radicales",
+        "LinkName": "Orden de Trazos"
+      },
+      "Templates": {
+        "Title": "Plantillas de Caligrafía China 汉字",
+        "ImgAlt": "Domina el arte de escribir caracteres chinos con nuestras plantillas prácticas",
+        "Description": "Practica el orden de trazos y radicales con plantillas descargables. Genera ejercicios personalizados según tu nivel.",
+        "LinkName": "Plantillas de Caligrafía China"
+      },
+      "TemplateGenerator": {
+        "Title": "Generador de Plantillas de Caligrafía 汉字",
+        "ImgAlt": "Crea ejercicios personalizados para practicar escritura china",
+        "Description": "Genera plantillas adaptadas a tu nivel para dominar el orden de trazos y radicales. ¡Perfecto para perfeccionar tu caligrafía!",
+        "LinkName": "Generador de Plantillas de Hanzi"
+      },
+      "GoTo": "Ir a"
+    }
+  },
+  "AnkiDecks": {
+    "HeroTitle": "Mazos Anki HSK 1-4",
+    "HeroMessage": "Colección de mazos Anki para vocabulario HSK. Cada mazo incluye: Carácter chino con su pinyin y audio de pronunciación. Traducción en inglés y español. GIF animado mostrando el orden correcto de los trazos"
   }
 }

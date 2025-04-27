@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import Hero from "../components/Hero"
+import Hero from "@/src/app/components/Hero"
 import Templates from "./components/Templates/Templates"
 
 export const metadata: Metadata = {
