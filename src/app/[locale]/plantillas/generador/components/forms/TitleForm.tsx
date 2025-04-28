@@ -4,8 +4,10 @@ import { useTemplateContext } from "../TemplateContext"
 import Image from "next/image"
 import DeleteIcon from "../../assets/delete.svg"
 import { Title as TitleType } from "../TemplateContext"
+import { useTranslations } from "next-intl"
 
 export default function TitleForm() {
+  const t = useTranslations('TemplateGenerator.TemplateGenerator.TitleForm')
   const { titles, setTitles } = useTemplateContext()
 
   const generateUUID = () => {
@@ -78,21 +80,22 @@ export default function TitleForm() {
 
   return (
     <Container>
-      <Title>Estilos del Encabezado</Title>
+      <Title>{t('Title')}</Title>
       {
         titles.map((title, index) => (
           <ScrollContainer key={index}>
             <Icon alt="Eliminar Titulo" src={DeleteIcon} onClick={() => setTitles(titles.filter((_, i) => i !== index))} />
             <ModifierContainer>
-              <Label>Nombre:</Label>
+              <Label>{t('Label1')}</Label>
               <Input
                 type="text"
                 defaultValue={title.name}
                 onChange={(e) => handleNameChange(e, title)}
+                placeholder={t('Placeholder1')}
               />
             </ModifierContainer>
             <ModifierContainer>
-              <Label>Margen Derecho:</Label>
+              <Label>{t('Label2')}</Label>
               <InputContainer>
                 <InputUnit
                   type="number"
@@ -109,7 +112,7 @@ export default function TitleForm() {
         onClick={() => setTitles([...titles, { uuid: generateUUID(), name: "", marginRight: 0 }])}
         $display={titles.length >= 3 ? "none" : "block"}
       >
-        Agregar Titulo
+        {t('AddButton')}
       </Button>
     </Container>
   )

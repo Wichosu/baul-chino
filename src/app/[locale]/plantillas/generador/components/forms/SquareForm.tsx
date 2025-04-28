@@ -1,8 +1,10 @@
 "use client"
 import styled from "styled-components"
 import { useTemplateContext } from "../TemplateContext"
+import { useTranslations } from "next-intl"
 
 export default function SquareForm() {
+  const t = useTranslations('TemplateGenerator.TemplateGenerator.SquareForm')
   const { squareSize, setSquareSize } = useTemplateContext()
 
   const handleSquareSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,10 +30,10 @@ export default function SquareForm() {
 
   return (
     <Container>
-      <Title>Estilos del Cuadrado</Title>
+      <Title>{t('Title')}</Title>
       <ModifierContainer>
-        <Label htmlFor="squareSize">Tamaño del cuadrado:</Label>
-        <Span>(10mm - 275mm)</Span>
+        <Label htmlFor="squareSize">{t('Label1')}</Label>
+        <Span>{t('Span1')}</Span>
         <InputContainer>
           <InputUnit
             type="number" 

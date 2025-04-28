@@ -1,8 +1,10 @@
 "use client"
 import styled from "styled-components"
 import { useTemplateContext } from "../TemplateContext"
+import { useTranslations } from "next-intl"
 
 export default function GridForm() {
+  const t = useTranslations('TemplateGenerator.TemplateGenerator.GridForm')
   const { gridGap, squareCount, setGridGap, setSquareCount } = useTemplateContext()
 
   const handleGridGapChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,10 +51,10 @@ export default function GridForm() {
 
   return (
     <Container>
-      <Title>Estilos de la Red</Title>
+      <Title>{t('Title')}</Title>
       <ModifierContainer>
-        <Label htmlFor="gridGap">Distancia entre cuadrados:</Label>
-        <Span>(0mm - 50mm)</Span>
+        <Label htmlFor="gridGap">{t('Label1')}</Label>
+        <Span>{t('Span1')}</Span>
         <InputContainer>
           <InputUnit
             type="number" 
@@ -64,8 +66,8 @@ export default function GridForm() {
         </InputContainer>
       </ModifierContainer>
       <ModifierContainer>
-        <Label htmlFor="squareCount">Cantidad de cuadrados:</Label>
-        <Span>(0 - 999)</Span>
+        <Label htmlFor="squareCount">{t('Label2')}</Label>
+        <Span>{t('Span2')}</Span>
         <Input
           type="number" 
           id="squareCount" 

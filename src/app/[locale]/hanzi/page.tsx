@@ -1,20 +1,35 @@
 import { Metadata } from "next";
 import Hero from "@/src/app/components/Hero";
 import Writer from "./components/Writer";
+import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
-export const metadata: Metadata = {
-  title: "Conoce el orden de los trazos y sus radicales",
-  description: "Herramienta para aprender a escribir chino, conocer el orden de los trazos y sus radicales observando animaciones personalizadas."
+export async function generateMetadata({params}: {params: Promise<{locale: string}>}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({locale, namespace: 'Hanzi.Metadata'})
+
+  return {
+    title: t('Title'),
+    description: t('Description'),
+    twitter: {
+      card: "summary_large_image"
+    },
+  }
 }
 
 export default function Page() {
+  const t = useTranslations('Hanzi')
+
   return (
     <>
-      <Hero title="Escribe Hanzi 汉字">
-        Herramienta para aprender a escribir chino, conocer el orden de los trazos y sus radicales
-        observando animaciones personalizadas.
+      <Hero title={t('HeroTitle')}>
+        <span style={{ display: "block" }}>
+          {t('HeroMessage1')}
+        </span>
         <br />
-        Escribe en la caja de texto y se mostraran tus hanzi 汉字
+        <span style={{ display: "block" }}>
+          {t('HeroMessage2')}
+        </span>
       </Hero>
       <Writer />
     </>

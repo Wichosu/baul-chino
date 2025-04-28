@@ -1,19 +1,21 @@
 "use client"
 import styled from "styled-components"
 import { useTemplateContext } from "./TemplateContext"
+import { useTranslations } from "next-intl"
 
 type Props = {
   toPDF: (filename: string) => void
 }
 
 export default function TemplateDownload({ toPDF }: Props) {
+  const t = useTranslations('TemplateGenerator.TemplateGenerator.TemplateDownload')
   const { filename } = useTemplateContext()
   
   return (
     <Container>
-      <Label>Nombre de tu plantilla: </Label>
-      <Input type="text" placeholder="Escribe el nombre de tu plantilla" onChange={(e) => filename.current = e.target.value.trim()} />
-      <DownloadButton onClick={() => toPDF(filename.current)}>Descargar Plantilla</DownloadButton>
+      <Label>{t('Title')}</Label>
+      <Input type="text" placeholder={t('Placeholder')} onChange={(e) => filename.current = e.target.value.trim()} />
+      <DownloadButton onClick={() => toPDF(filename.current)}>{t('DownloadButton')}</DownloadButton>
     </Container>
   )
 }
