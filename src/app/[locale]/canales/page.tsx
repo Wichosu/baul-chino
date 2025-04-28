@@ -8,10 +8,19 @@ import Filter from "./components/Filter"
 import { ILanguage } from "./interfaces/ILanguage"
 import { ICategory } from "./interfaces/ICategory"
 import { IChannel } from './interfaces/IChannel'
+import { getTranslations } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: "Aprende con contenido en Chino Mandarín",
-  description: "Lista de canales de YouTube con contenido en Chino Mandarín para practicar o aprender."
+export async function generateMetadata({params}: {params: Promise<{locale: string}>}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({locale, namespace: 'Channels.Metadata'})
+
+  return {
+    title: t('Title'),
+    description: t('Description'),
+    twitter: {
+      card: "summary_large_image"
+    },
+  }
 }
 
 const getCategories = cache(async () => {
@@ -62,6 +71,7 @@ const getChannels = cache(async () => {
 })
 
 export default async function Page() {
+  const t = await getTranslations('Channels')
   const categoriesData = getCategories()
   const languagesData = getLanguages()
   const channelsData = getChannels()
@@ -70,10 +80,14 @@ export default async function Page() {
 
   return (
     <>
-      <Hero title="Lista de Canales">
-        Lista de canales de YouTube con contenido en Chino Mandarín para practicar o aprender.
-        Utiliza el filtro para buscar el canal ideal para ti, presiona las categorias que más te 
-        interesan y da click en el titulo para visitar el canal.
+      <Hero title={t('HeroTitle')}>
+        <span style={{display: "block"}}>
+          {t('HeroMessage1')}
+        </span>
+        <br />
+        <span style={{display: "block"}}>
+          {t('HeroMessage2')}
+        </span>
       </Hero>
       <Filter FetchedCategories={categories} FetchedLanguages={languages} FetchedChannels={channels} />
     </>

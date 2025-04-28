@@ -3,14 +3,16 @@ import { useContext } from "react"
 import { FilterContext } from "./Filter"
 import FilterButton from "./FilterButton"
 import styled from "styled-components"
+import { useTranslations } from "next-intl"
 
 export default function LanguageFilter() {
+  const t = useTranslations('Channels.Filter.LanguageFilter')
   const { FetchedLanguages, selectedLanguage, setSelectedLanguage } = useContext(FilterContext)
 
   return (
     <>
       <Title>
-        Idiomas 
+        {t('Title')} 
         { selectedLanguage.length > 0 && <Counter>({ selectedLanguage.length })</Counter> }
       </Title>
       {

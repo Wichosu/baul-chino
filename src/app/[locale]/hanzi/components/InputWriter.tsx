@@ -1,12 +1,15 @@
 "use client"
 import styled from "styled-components"
 import { useState, useEffect } from "react"
+import { useTranslations } from "next-intl"
 
 type Props = {
   renderHanzi: (hanzi: string) => Promise<void>
 }
 
 export default function InputWriter({ renderHanzi }: Props) {
+  const t = useTranslations('Hanzi.Writer.InputWriter')
+
   const [hanzi, setHanzi] = useState<string>('汉字')
 
   useEffect(() => {
@@ -20,7 +23,7 @@ export default function InputWriter({ renderHanzi }: Props) {
         onInput={(e) => {
           setHanzi(e.currentTarget.value)
         }}
-        placeholder="Escribe aquí tus hanzi 汉字" 
+        placeholder={t('Placeholder')}
       />
     </>
   )

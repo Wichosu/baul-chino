@@ -104,5 +104,87 @@
     "ListContainer": {
       "Title": "Download the PDF book with one click"
     }
+  },
+  "Channels": {
+    "Metadata": {
+      "Title": "Mandarin Chinese Learning Channels | Free Resources",
+      "Description": "Curated collection of the best YouTube channels for learning Mandarin Chinese. Perfect for practicing pronunciation, grammar and vocabulary with authentic content."
+    },
+    "HeroTitle": "Mandarin Chinese Learning Channels",
+    "HeroMessage1": "Explore top educational YouTube channels for mastering Mandarin. Filter by category and level to find perfect content for your needs.",
+    "HeroMessage2": "How to use: Select your preferred topics and click any channel to visit.",
+    "Filter": {
+      "Title": "Filters",
+      "ActionButton": "Reset Filters",
+      "LanguageFilter": {
+        "Title": "Languages"
+      },
+      "CategoriesFilter": {
+        "Title": "Categories"
+      }
+    }
+  },
+  "Hanzi": {
+    "Metadata": {
+      "Title": "Chinese Writing | Animated Stroke Order & Radicals",
+      "Description": "Learn to write Chinese characters properly with interactive animated guides. Master stroke order and radicals through personalized exercises."
+    },
+    "HeroTitle": "Master Hanzi Writing 汉字",
+    "HeroMessage1": "Learn to write Chinese characters accurately using our interactive animated guides. Master proper stroke order and understand radical composition.",
+    "HeroMessage2": "Try it now: Type any character in the text box to see its animation.",
+    "Writer": {
+      "InputWriter": {
+        "Placeholder": "Type a Chinese character (汉字)..."
+      }
+    }
+  },
+  "Templates": {
+    "Metadata": {
+      "Title": "Chinese Calligraphy Templates | Practice Hanzi 汉字",
+      "Description": "Download free templates for Chinese writing practice. Master stroke order and radicals with customizable exercises for all skill levels."
+    },
+    "HeroTitle": "Hanzi Practice Templates 汉字",
+    "HeroMessage1": "Refine your Chinese writing with our smart templates. Master stroke order and radicals with level-adaptive exercises.",
+    "HeroMessage2": "How to use: Download pre-made templates. Swipe to explore all options",
+    "Templates": {
+      "Section1": "Basic Templates",
+      "Section2": "Templates with Header",
+      "Download": "Download Template"
+    }
+  },
+  "TemplateGenerator": {
+    "Metadata": {
+      "Title": "Hanzi Template Generator | Chinese Calligraphy Practice 汉字",
+      "Description": "Create customized templates for Chinese character writing. Personalize headers, grid sizes, and select specific characters for targeted practice."
+    },
+    "HeroTitle": "Hanzi Template Generator 汉字",
+    "HeroMessage1": "Create customized exercises to master Chinese writing. Practice specific characters with adjustable stroke order and radical guides.",
+    "HeroMessage2": "Key features: Customize grid format and size. Select characters by HSK level or theme. Save your favorite templates for regular practice",
+    "TemplateGenerator": {
+      "TemplateDownload": {
+        "Title": "Customize your template:",
+        "Placeholder": "File name (ex: My_Hanzi_HSK1)",
+        "DownloadButton": "🖨️ Generate PDF"
+      },
+      "GridForm": {
+        "Title": "Grid Settings",
+        "Label1": "Cell spacing:",
+        "Span1": "(0mm - 50mm)",
+        "Label2": "Number of cells:",
+        "Span2": "(1 - 999)"
+      },
+      "SquareForm": {
+        "Title": "Practice Square Settings",
+        "Label1": "Writing box size:",
+        "Span1": "(10mm - 275mm)"
+      },
+      "TitleForm": {
+        "Title": "Header Layout",
+        "Label1": "Field text:",
+        "Placeholder1": "Ex: Name or Date",
+        "Label2": "Right spacing:",
+        "AddButton": "＋ Add Field"
+      }
+    }
   }
 }

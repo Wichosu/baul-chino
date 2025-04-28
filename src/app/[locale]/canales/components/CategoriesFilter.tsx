@@ -4,8 +4,11 @@ import { FilterContext } from "./Filter"
 import FilterButton from "./FilterButton"
 import styled from "styled-components"
 import HorizontalSlide from "@/src/app/components/animations/HorizontalSlide"
+import { useTranslations } from "next-intl"
 
 export default function CategoriesFilter() {
+  const t = useTranslations('Channels.Filter.CategoriesFilter')
+
   const { FetchedCategories, selectedCategory, setSelectedCategory } = useContext(FilterContext)
   const [showAnimation, setShowAnimation] = useState(true)
 
@@ -15,7 +18,7 @@ export default function CategoriesFilter() {
   return (
     <>
       <Title>
-        Categorías
+        {t('Title')}
         { selectedCategory.length > 0 && <Counter>({ selectedCategory.length })</Counter> }
       </Title>
       <FilterDesktopContainer>

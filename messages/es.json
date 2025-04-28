@@ -104,5 +104,88 @@
     "ListContainer": {
       "Title": "Descarga el libro en PDF con un solo clic"
     }
+  },
+  "Channels": {
+    "Metadata": {
+      "Title": "Canales para Aprender Chino Mandarín | Recursos Gratis",
+      "Description": "Selección de los mejores canales de YouTube para aprender chino mandarín. Ideal para practicar pronunciación, gramática y vocabulario con contenido auténtico."
+    },
+    "HeroTitle": "Canales para Aprender Chino Mandarín",
+    "HeroMessage1": "Descubre los mejores canales educativos de YouTube para dominar el mandarín. Filtra por categoría y nivel para encontrar contenido perfecto para tus necesidades.",
+    "HeroMessage2": "Cómo usar: Selecciona tus temas de interés y haz clic en cualquier canal para visitarlo.",
+    "Filter": {
+      "Title": "Filtros",
+      "ActionButton": "Reiniciar Filtros",
+      "LanguageFilter": {
+        "Title": "Idiomas"
+      },
+      "CategoriesFilter": {
+        "Title": "Categorías"
+      }
+    }
+  },
+  "Hanzi": {
+    "Metadata": {
+      "Title": "Escritura China | Orden de Trazos y Radicales Animados",
+      "Description": "Aprende a escribir caracteres chinos correctamente con guías animadas interactivas. Domina el orden de trazos y radicales con ejercicios personalizados."
+    },
+    "HeroTitle": "Domina la Escritura Hanzi 汉字",
+    "HeroMessage1": "Aprende a escribir caracteres chinos con precisión usando nuestras guías animadas interactivas. Descubre el orden correcto de trazos y el significado de los radicales.",
+    "HeroMessage2": "Prueba ahora: Escribe cualquier carácter en el cuadro de texto y verás su animación.",
+    "Writer": {
+      "InputWriter": {
+        "Placeholder": "Escribe un carácter chino (汉字)..."
+      }
+    }
+  },
+  "Templates": {
+    "Metadata": {
+      "Title": "Plantillas de Caligrafía China | Practica Hanzi 汉字",
+      "Description": "Descarga plantillas gratuitas para practicar escritura china. Domina el orden de trazos y radicales con ejercicios personalizables para todos los niveles."
+    },
+    "HeroTitle": "Plantillas de Práctica Hanzi 汉字",
+    "HeroMessage1": "Perfecciona tu escritura china con nuestras plantillas inteligentes. Domina el orden de trazos y radicales con ejercicios adaptables a tu nivel.",
+    "HeroMessage2": "Cómo usar: Descarga plantillas pre-diseñadas. Desliza para explorar todas las opciones",
+    "Templates": {
+      "Section1": "Plantillas Básicas",
+      "Section2": "Plantillas con Encabezado",
+      "Download": "Descargar Plantilla"
+    }
+  },
+  "TemplateGenerator": {
+    "Metadata": {
+      "Title": "Generador de Plantillas Hanzi | Práctica de Caligrafía 汉字",
+      "Description": "Crea plantillas personalizadas para escribir caracteres chinos. Personaliza encabezados, tamaños de cuadrícula y selecciona caracteres específicos para tu práctica."
+    },
+    "HeroTitle": "Generador de Plantillas Hanzi 汉字",
+    "HeroMessage1": "Crea ejercicios personalizados para dominar la escritura china. Practica caracteres específicos con guías de trazos y radicales adaptables a tu nivel.",
+    "HeroMessage2": "Características principales: Personaliza el formato y tamaño de las cuadrículas. Selecciona caracteres por nivel HSK o temas. Guarda tus plantillas favoritas para práctica recurrente",
+    "TemplateGenerator": {
+      "TemplateDownload": {
+        "Title": "Personaliza tu plantilla:",
+        "Placeholder": "Nombre para tu archivo (ej: Mis_Hanzi_HSK1)",
+        "DownloadButton": "🖨️ Generar PDF"
+      },
+      "GridForm": {
+        "Title": "Configuración de la Cuadrícula",
+        "Label1": "Espaciado entre celdas:",
+        "Span1": "(0mm - 50mm)",
+        "Label2": "Número de celdas:",
+        "Span2": "(1 - 999)"
+      },
+      "SquareForm": {
+        "Title": "Configuración del Cuadrado de Práctica",
+        "Label1": "Tamaño del cuadro de escritura:",
+        "Span1": "(10mm - 275mm)"
+      },
+      "TitleForm": {
+        "Title": "Diseño del Encabezado",
+        "Label1": "Texto del campo:",
+        "Placeholder1": "Ej: Nombre o Fecha",
+        "Label2": "Espaciado derecho:",
+        "AddButton": "＋ Añadir Campo"
+      }
+    }
+
   }
 }

@@ -9,6 +9,7 @@ import templateA20mm from "../../assets/templateA20mm.png";
 import { StaticImageData } from "next/image";
 import { createClient } from "@/src/app/utils/supabase/client";
 import TemplateSection from "./TemplateSection";
+import { useTranslations } from "next-intl";
 
 export type TemplateObject = {
   textAlt: string,
@@ -28,23 +29,25 @@ function createTemplateObject(textAlt: string, img: string | StaticImageData, pd
   }
 }
 
-const TemplatesData = [
-  createTemplateObject("Descargar plantilla 12mm", template12mm, "template12mm.pdf"),
-  createTemplateObject("Descargar plantilla 16mm", template16mm, "template16mm.pdf"),
-  createTemplateObject("Descargar plantilla 20mm", template20mm, "template20mm.pdf"),
-]
-
-const TemplatesTypeAData = [
-  createTemplateObject("Descargar plantilla 12mm", templateA12mm, "templateA12mm.pdf"),
-  createTemplateObject("Descargar plantilla 16mm", templateA16mm, "templateA16mm.pdf"),
-  createTemplateObject("Descargar plantilla 20mm", templateA20mm, "templateA20mm.pdf"),
-]
-
 export default function Templates() {
+  const t = useTranslations('Templates.Templates')
+
+  const TemplatesData = [
+    createTemplateObject(`${t('Download')} 12mm`, template12mm, "template12mm.pdf"),
+    createTemplateObject(`${t('Download')} 16mm`, template16mm, "template16mm.pdf"),
+    createTemplateObject(`${t('Download')} 20mm`, template20mm, "template20mm.pdf"),
+  ]
+
+  const TemplatesTypeAData = [
+    createTemplateObject(`${t('Download')} 12mm`, templateA12mm, "templateA12mm.pdf"),
+    createTemplateObject(`${t('Download')} 16mm`, templateA16mm, "templateA16mm.pdf"),
+    createTemplateObject(`${t('Download')} 20mm`, templateA20mm, "templateA20mm.pdf"),
+  ]
+
   return (
     <Container>
-      <TemplateSection data={TemplatesData}>Plantillas sin Encabezado</TemplateSection>
-      <TemplateSection data={TemplatesTypeAData}>Plantillas con Encabezado</TemplateSection>
+      <TemplateSection data={TemplatesData}>{t('Section1')}</TemplateSection>
+      <TemplateSection data={TemplatesTypeAData}>{t('Section2')}</TemplateSection>
     </Container>
   )
 }

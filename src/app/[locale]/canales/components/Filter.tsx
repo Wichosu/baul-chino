@@ -8,6 +8,7 @@ import { useState, useEffect, createContext, Dispatch, SetStateAction } from "re
 import ChannelsList from "./ChannelsList";
 import LanguageFilters from "./LanguageFilter";
 import CategoriesFilter from "./CategoriesFilter";
+import { useTranslations } from "next-intl";
 
 type Props = {
   FetchedLanguages: ILanguage[],
@@ -42,6 +43,7 @@ export const FilterContext = createContext({
 } as FilterContext)
 
 export default function Filter({ FetchedLanguages, FetchedCategories, FetchedChannels }: Props) {
+  const t = useTranslations('Channels.Filter')
   // Start with empty selection arrays instead of all items selected
   const [selectedLanguage, setSelectedLanguage] = useState<number[]>([])
   const [selectedCategory, setSelectedCategory] = useState<number[]>([])
@@ -135,8 +137,8 @@ export default function Filter({ FetchedLanguages, FetchedCategories, FetchedCha
       setSelectedCategory,
     }}>
       <Container>
-        <Title>Filtros</Title>
-        <ActionButton onClick={cleanFilters} $backgroundColor="#dc2626">Reiniciar Filtros</ActionButton>
+        <Title>{t('Title')}</Title>
+        <ActionButton onClick={cleanFilters} $backgroundColor="#dc2626">{t('ActionButton')}</ActionButton>
         <LanguageFilters />
         <CategoriesFilter />
         <ChannelsList dataChannel={dataChannel} />
