@@ -1,6 +1,7 @@
 {  
   "Navbar": {
     "Home": "Inicio",
+    "Tools": "Herramientas",
     "AnkiDecks": "Mazos Anki",
     "HskBooks": "Libros HSK",
     "Channels": "Lista de Canales",

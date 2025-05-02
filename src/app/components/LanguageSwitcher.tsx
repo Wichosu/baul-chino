@@ -33,21 +33,16 @@ export default function LanguageSwitcher({ className }: { className?: string }) 
 }
 
 const Container = styled.div`
-  display: flex;
-  gap: 8px;
-  align-items: center;
 `
 
 const LanguageButton = styled.button<{ $isActive: boolean }>`
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
   padding: 6px 12px;
   border-radius: 4px;
-  border: 1px solid ${props => props.$isActive ? '#000' : '#ddd'};
-  background-color: ${props => props.$isActive ? '#000' : 'transparent'};
-  color: ${props => props.$isActive ? '#fff' : '#000'};
+  border: 1px solid ${props => props.$isActive ? 'hsl(221, 83%, 53%)' : '#ddd'};
+  background-color: ${props => props.$isActive ? 'hsl(221, 83%, 53%)' : 'transparent'};
+  color: ${props => props.$isActive ? '#fff' : 'hsl(221, 83%, 53%)'};
   cursor: pointer;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background-color: ${props => props.$isActive ? '#000' : '#f5f5f5'};
-  }
 `
