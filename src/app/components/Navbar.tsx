@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 interface IMenuStyles {
   translateX: string
@@ -43,6 +44,7 @@ export default function Navbar() {
           <NavLink onClick={closeMenu} href={'/hanzi'}>{t('Hanzi')}</NavLink>
           <NavLink onClick={closeMenu} href={'/plantillas'}>{t('Templates')}</NavLink>
           <NavLink onClick={closeMenu} href={'/plantillas/generador'}>{t('TemplateGenerator')}</NavLink>
+          <LanguageSwitcherMobile />
         </SideBarContainer>
       </SideBar>
       <Container>
@@ -61,10 +63,23 @@ export default function Navbar() {
             <NavLink href={'/plantillas/generador'}>{t('TemplateGenerator')}</NavLink>
           </DropDownContent>
         </DropDownMenu>
+        <LanguageSwitcherDesktop />
       </Container>
     </>
   );
 }
+
+const LanguageSwitcherMobile = styled(LanguageSwitcher)`
+  margin-top: 20px;
+`
+
+const LanguageSwitcherDesktop = styled(LanguageSwitcher)`
+  display: none;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+`;
 
 const Container = styled.nav`
   display: flex;
