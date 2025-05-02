@@ -1,0 +1,190 @@
+{
+  "Navbar": {
+    "Home": "Home",
+    "AnkiDecks": "Anki Decks",
+    "HskBooks": "HSK Books",
+    "Channels": "Channels",
+    "Hanzi": "Hanzi Writing",
+    "Templates": "Templates",
+    "TemplateGenerator": "Template Generator"
+  },
+  "Footer": {
+    "Message": "More to come...",
+    "Link": "Developed by",
+    "Author": "Luis Miranda (Wicho)"
+  },
+  "HomePage": {
+    "Metadata": {
+      "Title": "Baúl Chino - Mandarin Learning Resources",
+      "Description": "Specialized learning materials for studying Mandarin Chinese. Interactive lessons, exercises and practice tools."
+    },
+    "HeroTitle": "What is Baúl Chino?",
+    "HeroMessage": "Baúl Chino is your go-to resource for learning Mandarin Chinese. We provide high-quality teaching materials to make your language journey smoother, smarter, and more enjoyable. 好好学习, 天天向上 (Study hard, improve every day!)",
+    "CardsContainer": {
+      "AnkiDecks": {
+        "Title": "Anki Decks HSK 1-4",
+        "ImgAlt": "Anki menu showing a deck list",
+        "Description": "Collection of Anki decks covering HSK 1 to HSK 4 vocabulary",
+        "LinkName": "Anki Decks"
+      },
+      "HskBooks": {
+        "Title": "HSK Books",
+        "ImgAlt": "HSK books from HSK 1 to HSK 6, showing neatly stacked books",
+        "Description": "Download HSK books (Levels 1-6) for free",
+        "LinkName": "HSK Books"
+      },
+      "Channels": {
+        "Title": "Chinese Learning Channels",
+        "ImgAlt": "Collection of 4 images showing YouTube channels that teach Mandarin Chinese in different ways",
+        "Description": "YouTube channels for learning Mandarin Chinese with various teaching styles",
+        "LinkName": "Mandarin Learning Channels"
+      },
+      "Hanzi": {
+        "Title": "Hanzi Writing 汉字",
+        "ImgAlt": "Learn to write Chinese characters: master stroke order and discover radicals",
+        "Description": "Learn to write Chinese characters: master stroke order and discover radicals",
+        "LinkName": "Chinese Stroke Order"
+      },
+      "Templates": {
+        "Title": "Chinese Calligraphy Templates 汉字",
+        "ImgAlt": "Master Chinese character writing with our practice templates",
+        "Description": "Practice stroke order and radicals with downloadable templates. Generate customized exercises for your skill level.",
+        "LinkName": "Chinese Calligraphy Templates"
+      },
+      "TemplateGenerator": {
+        "Title": "Hanzi Practice Template Generator 汉字",
+        "ImgAlt": "Create customized Chinese writing exercises",
+        "Description": "Generate tailored templates to master stroke order and radicals. Ideal for refining your calligraphy skills!",
+        "LinkName": "Hanzi Template Generator"
+      },
+      "GoTo": "Go to"
+    }
+  },
+  "AnkiDecks": {
+    "Metadata": {
+      "Title": "HSK Anki Decks | Complete Vocabulary with Animated Strokes",
+      "Description": "Study decks for all HSK levels (1-6). Each card includes: Chinese character, pinyin, English/Spanish translation, and stroke order GIF. Free download."
+    },
+    "HeroTitle": "Anki Decks HSK 1-4",
+    "HeroMessage": "HSK Anki Deck Collection. Each deck contains: Chinese character with pinyin and pronunciation audio. English and Spanish translations. Animated GIF demonstrating proper stroke order",
+    "Downloads": {
+      "Title": "Download Anki",
+      "Text": "To use our HSK decks, first install the Anki app on your device:",
+      "Note": "Note: The iPhone version is paid, while others are free.",
+      "Android": "Android",
+      "Iphone": "iPhone (Paid Version)",
+      "Windows": "Windows 10/11",
+      "Mac": "Mac (Apple Silicon)",
+      "MacIntel": "Mac (Intel)",
+      "Linux": "Linux"
+    },
+    "ListContainer": {
+      "TitleEn": "Anki Decks in English",
+      "DescriptionEn": "Complete decks with English translations",
+      "TitleEs": "Anki Decks in Spanish",
+      "DescriptionEs": "Complete decks with Spanish translations, perfect for Spanish speakers"
+    },
+    "Instructions": {
+      "Title": "How to use Anki?"
+    },
+    "ImageContainer": {
+      "Title": "Illustrative Images"
+    }
+  },
+  "HskBooks": {
+    "Metadata": {
+      "Title": "Free HSK Books | Complete Download (Levels 1-6 PDF)",
+      "Description": "Download all official HSK books for Mandarin learning. Complete materials from HSK 1 to HSK 6, 100% free with no ads."
+    },
+    "HeroTitle": "HSK Books (Levels 1-6)",
+    "HeroMessage1": "Complete free download of all HSK books in PDF. No ads, no middlemen, direct access.",
+    "HeroMessage2": "⚠️ Note: Download time varies depending on your internet connection (high-quality files).",
+    "HeroMessage3": "📁 Access the books:",
+    "HeroLink": "📂 Open in Google Drive",
+    "ListContainer": {
+      "Title": "Download the PDF book with one click"
+    }
+  },
+  "Channels": {
+    "Metadata": {
+      "Title": "Mandarin Chinese Learning Channels | Free Resources",
+      "Description": "Curated collection of the best YouTube channels for learning Mandarin Chinese. Perfect for practicing pronunciation, grammar and vocabulary with authentic content."
+    },
+    "HeroTitle": "Mandarin Chinese Learning Channels",
+    "HeroMessage1": "Explore top educational YouTube channels for mastering Mandarin. Filter by category and level to find perfect content for your needs.",
+    "HeroMessage2": "How to use: Select your preferred topics and click any channel to visit.",
+    "Filter": {
+      "Title": "Filters",
+      "ActionButton": "Reset Filters",
+      "LanguageFilter": {
+        "Title": "Languages"
+      },
+      "CategoriesFilter": {
+        "Title": "Categories"
+      }
+    }
+  },
+  "Hanzi": {
+    "Metadata": {
+      "Title": "Chinese Writing | Animated Stroke Order & Radicals",
+      "Description": "Learn to write Chinese characters properly with interactive animated guides. Master stroke order and radicals through personalized exercises."
+    },
+    "HeroTitle": "Master Hanzi Writing 汉字",
+    "HeroMessage1": "Learn to write Chinese characters accurately using our interactive animated guides. Master proper stroke order and understand radical composition.",
+    "HeroMessage2": "Try it now: Type any character in the text box to see its animation.",
+    "Writer": {
+      "InputWriter": {
+        "Placeholder": "Type a Chinese character (汉字)..."
+      }
+    }
+  },
+  "Templates": {
+    "Metadata": {
+      "Title": "Chinese Calligraphy Templates | Practice Hanzi 汉字",
+      "Description": "Download free templates for Chinese writing practice. Master stroke order and radicals with customizable exercises for all skill levels."
+    },
+    "HeroTitle": "Hanzi Practice Templates 汉字",
+    "HeroMessage1": "Refine your Chinese writing with our smart templates. Master stroke order and radicals with level-adaptive exercises.",
+    "HeroMessage2": "How to use: Download pre-made templates. Swipe to explore all options",
+    "Templates": {
+      "Section1": "Basic Templates",
+      "Section2": "Templates with Header",
+      "Download": "Download Template"
+    }
+  },
+  "TemplateGenerator": {
+    "Metadata": {
+      "Title": "Hanzi Template Generator | Chinese Calligraphy Practice 汉字",
+      "Description": "Create customized templates for Chinese character writing. Personalize headers, grid sizes, and select specific characters for targeted practice."
+    },
+    "HeroTitle": "Hanzi Template Generator 汉字",
+    "HeroMessage1": "Create customized exercises to master Chinese writing. Practice specific characters with adjustable stroke order and radical guides.",
+    "HeroMessage2": "Key features: Customize grid format and size. Select characters by HSK level or theme. Save your favorite templates for regular practice",
+    "TemplateGenerator": {
+      "TemplateDownload": {
+        "Title": "Customize your template:",
+        "Placeholder": "File name (ex: My_Hanzi_HSK1)",
+        "DownloadButton": "🖨️ Generate PDF"
+      },
+      "GridForm": {
+        "Title": "Grid Settings",
+        "Label1": "Cell spacing:",
+        "Span1": "(0mm - 50mm)",
+        "Label2": "Number of cells:",
+        "Span2": "(1 - 999)"
+      },
+      "SquareForm": {
+        "Title": "Practice Square Settings",
+        "Label1": "Writing box size:",
+        "Span1": "(10mm - 275mm)"
+      },
+      "TitleForm": {
+        "Title": "Header Layout",
+        "Label1": "Field text:",
+        "Placeholder1": "Ex: Name or Date",
+        "Label2": "Right spacing:",
+        "AddButton": "＋ Add Field"
+      }
+    }
+  }
+}

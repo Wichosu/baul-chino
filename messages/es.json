@@ -1,0 +1,191 @@
+{  
+  "Navbar": {
+    "Home": "Inicio",
+    "AnkiDecks": "Mazos Anki",
+    "HskBooks": "Libros HSK",
+    "Channels": "Lista de Canales",
+    "Hanzi": "Escritura de Hanzi",
+    "Templates": "Plantillas",
+    "TemplateGenerator": "Generador de Plantillas"
+  },
+  "Footer": {
+    "Message": "Más por venir...",
+    "Link": "Desarrollado por",
+    "Author": "Luis Miranda (Wicho)"
+  },
+  "HomePage": {
+    "Metadata": {
+      "Title": "Baúl Chino - Recursos para Aprender Mandarín",
+      "Description": "Material didáctico especializado para aprender Chino Mandarín. Lecciones, ejercicios y herramientas interactivas."
+    },
+    "HeroTitle": "¿Qué es Baúl Chino?",
+    "HeroMessage": "Baúl Chino es tu repositorio educativo especializado en la enseñanza del chino mandarín. Ofrecemos material didáctico de calidad para hacer tu aprendizaje más fácil, efectivo y divertido. 好好学习, 天天向上 (¡Estudia con dedicación y mejora cada día!)",
+    "CardsContainer": {
+      "AnkiDecks": {
+        "Title": "Mazos Anki HSK 1-4",
+        "ImgAlt": "Menú de Anki mostrando una lista de mazos",
+        "Description": "Colección de mazos Anki con vocabulario del HSK 1 al HSK 4",
+        "LinkName": "Mazos Anki"
+      },
+      "HskBooks": {
+        "Title": "Libros HSK",
+        "ImgAlt": "Libros HSK del HSK 1 al HSK 6, los libros se ven ordenados y apilados",
+        "Description": "Descarga los libros HSK del 1 al 6 de manera gratuita",
+        "LinkName": "Libros HSK"
+      },
+      "Channels": {
+        "Title": "Canales de Chino",
+        "ImgAlt": "Colección de 4 imágenes mostrando canales de YouTube en donde se enseña Chino Mandarín de diferentes formas",
+        "Description": "Canales de YouTube para aprender Chino Mandarín con distintos estilos de enseñanza",
+        "LinkName": "Canales para Aprender Chino"
+      },
+      "Hanzi": {
+        "Title": "Escritura de Hanzi 汉字",
+        "ImgAlt": "Aprende a escribir caracteres chinos: domina el orden de trazos y descubre sus radicales",
+        "Description": "Aprende a escribir caracteres chinos: domina el orden de trazos y descubre sus radicales",
+        "LinkName": "Orden de Trazos"
+      },
+      "Templates": {
+        "Title": "Plantillas de Caligrafía China 汉字",
+        "ImgAlt": "Domina el arte de escribir caracteres chinos con nuestras plantillas prácticas",
+        "Description": "Practica el orden de trazos y radicales con plantillas descargables. Genera ejercicios personalizados según tu nivel.",
+        "LinkName": "Plantillas de Caligrafía China"
+      },
+      "TemplateGenerator": {
+        "Title": "Generador de Plantillas de Caligrafía 汉字",
+        "ImgAlt": "Crea ejercicios personalizados para practicar escritura china",
+        "Description": "Genera plantillas adaptadas a tu nivel para dominar el orden de trazos y radicales. ¡Perfecto para perfeccionar tu caligrafía!",
+        "LinkName": "Generador de Plantillas de Hanzi"
+      },
+      "GoTo": "Ir a"
+    }
+  },
+  "AnkiDecks": {
+    "Metadata": {
+      "Title": "Mazos Anki HSK | Vocabulario Completo con Trazos Animados",
+      "Description": "Barajas de estudio para todos los niveles HSK (1-6). Cada tarjeta incluye: carácter chino, pinyin, traducción inglés/español y GIF del orden de trazos. Descarga gratuita."
+    },
+    "HeroTitle": "Mazos Anki HSK 1-4",
+    "HeroMessage": "Colección de mazos Anki para vocabulario HSK. Cada mazo incluye: Carácter chino con su pinyin y audio de pronunciación. Traducción en inglés y español. GIF animado mostrando el orden correcto de los trazos",
+    "Downloads": {
+      "Title": "Descargar Anki",
+      "Text": "Para usar nuestros mazos HSK, primero instala la aplicación Anki en tu dispositivo:",
+      "Note": "Nota: La versión para iPhone es de pago, mientras que las demás son gratuitas.",
+      "Android": "Android",
+      "Iphone": "iPhone (Versión Pagada)",
+      "Windows": "Windows 10/11",
+      "Mac": "Mac (Apple Silicon)",
+      "MacIntel": "Mac (Intel)",
+      "Linux": "Linux"
+    },
+    "ListContainer": {
+      "TitleEn": "Mazos Anki en Inglés",
+      "DescriptionEn": "Barajas completas con traducción al inglés",
+      "TitleEs": "Mazos Anki en Español",
+      "DescriptionEs": "Barajas completas con traducción al español"
+    },
+    "Instructions": {
+      "Title": "¿Como usar Anki?"
+    },
+    "ImageContainer": {
+      "Title": "Imágenes ilustrativas"
+    }
+  },
+  "HskBooks": {
+    "Metadata": {
+      "Title": "Libros HSK Gratis | Descarga Completa (Niveles 1-6 en PDF)",
+      "Description": "Descarga todos los libros oficiales HSK para aprender chino mandarín. Material completo desde HSK 1 hasta HSK 6, 100% gratuito y sin publicidad."
+    },
+    "HeroTitle": "Libros HSK (Niveles 1-6)",
+    "HeroMessage1": "Descarga completa y gratuita de todos los libros HSK en PDF. Sin anuncios, sin intermediarios, acceso directo.",
+    "HeroMessage2": "⚠️ Nota: El tiempo de descarga varía según tu conexión a Internet (archivos de alta calidad).",
+    "HeroMessage3": "📁 Acceso a los libros:",
+    "HeroLink": "📂 Abrir en Google Drive",
+    "ListContainer": {
+      "Title": "Descarga el libro en PDF con un solo clic"
+    }
+  },
+  "Channels": {
+    "Metadata": {
+      "Title": "Canales para Aprender Chino Mandarín | Recursos Gratis",
+      "Description": "Selección de los mejores canales de YouTube para aprender chino mandarín. Ideal para practicar pronunciación, gramática y vocabulario con contenido auténtico."
+    },
+    "HeroTitle": "Canales para Aprender Chino Mandarín",
+    "HeroMessage1": "Descubre los mejores canales educativos de YouTube para dominar el mandarín. Filtra por categoría y nivel para encontrar contenido perfecto para tus necesidades.",
+    "HeroMessage2": "Cómo usar: Selecciona tus temas de interés y haz clic en cualquier canal para visitarlo.",
+    "Filter": {
+      "Title": "Filtros",
+      "ActionButton": "Reiniciar Filtros",
+      "LanguageFilter": {
+        "Title": "Idiomas"
+      },
+      "CategoriesFilter": {
+        "Title": "Categorías"
+      }
+    }
+  },
+  "Hanzi": {
+    "Metadata": {
+      "Title": "Escritura China | Orden de Trazos y Radicales Animados",
+      "Description": "Aprende a escribir caracteres chinos correctamente con guías animadas interactivas. Domina el orden de trazos y radicales con ejercicios personalizados."
+    },
+    "HeroTitle": "Domina la Escritura Hanzi 汉字",
+    "HeroMessage1": "Aprende a escribir caracteres chinos con precisión usando nuestras guías animadas interactivas. Descubre el orden correcto de trazos y el significado de los radicales.",
+    "HeroMessage2": "Prueba ahora: Escribe cualquier carácter en el cuadro de texto y verás su animación.",
+    "Writer": {
+      "InputWriter": {
+        "Placeholder": "Escribe un carácter chino (汉字)..."
+      }
+    }
+  },
+  "Templates": {
+    "Metadata": {
+      "Title": "Plantillas de Caligrafía China | Practica Hanzi 汉字",
+      "Description": "Descarga plantillas gratuitas para practicar escritura china. Domina el orden de trazos y radicales con ejercicios personalizables para todos los niveles."
+    },
+    "HeroTitle": "Plantillas de Práctica Hanzi 汉字",
+    "HeroMessage1": "Perfecciona tu escritura china con nuestras plantillas inteligentes. Domina el orden de trazos y radicales con ejercicios adaptables a tu nivel.",
+    "HeroMessage2": "Cómo usar: Descarga plantillas pre-diseñadas. Desliza para explorar todas las opciones",
+    "Templates": {
+      "Section1": "Plantillas Básicas",
+      "Section2": "Plantillas con Encabezado",
+      "Download": "Descargar Plantilla"
+    }
+  },
+  "TemplateGenerator": {
+    "Metadata": {
+      "Title": "Generador de Plantillas Hanzi | Práctica de Caligrafía 汉字",
+      "Description": "Crea plantillas personalizadas para escribir caracteres chinos. Personaliza encabezados, tamaños de cuadrícula y selecciona caracteres específicos para tu práctica."
+    },
+    "HeroTitle": "Generador de Plantillas Hanzi 汉字",
+    "HeroMessage1": "Crea ejercicios personalizados para dominar la escritura china. Practica caracteres específicos con guías de trazos y radicales adaptables a tu nivel.",
+    "HeroMessage2": "Características principales: Personaliza el formato y tamaño de las cuadrículas. Selecciona caracteres por nivel HSK o temas. Guarda tus plantillas favoritas para práctica recurrente",
+    "TemplateGenerator": {
+      "TemplateDownload": {
+        "Title": "Personaliza tu plantilla:",
+        "Placeholder": "Nombre para tu archivo (ej: Mis_Hanzi_HSK1)",
+        "DownloadButton": "🖨️ Generar PDF"
+      },
+      "GridForm": {
+        "Title": "Configuración de la Cuadrícula",
+        "Label1": "Espaciado entre celdas:",
+        "Span1": "(0mm - 50mm)",
+        "Label2": "Número de celdas:",
+        "Span2": "(1 - 999)"
+      },
+      "SquareForm": {
+        "Title": "Configuración del Cuadrado de Práctica",
+        "Label1": "Tamaño del cuadro de escritura:",
+        "Span1": "(10mm - 275mm)"
+      },
+      "TitleForm": {
+        "Title": "Diseño del Encabezado",
+        "Label1": "Texto del campo:",
+        "Placeholder1": "Ej: Nombre o Fecha",
+        "Label2": "Espaciado derecho:",
+        "AddButton": "＋ Añadir Campo"
+      }
+    }
+
+  }
+}
