@@ -53,13 +53,19 @@ export default function Navbar() {
           <Image alt="menu button" src={'/menu.svg'} width={30} height={30} />
         </Figure>
         <NavLink href={"/"}>{t('Home')}</NavLink>
-        <NavLink href={"/mazos-anki"}>{t('AnkiDecks')}</NavLink>
         <NavLink href={'/libros-hsk'}>{t('HskBooks')}</NavLink>
-        <NavLink href={'/canales'}>{t('Channels')}</NavLink>
-        <NavLink href={'/hanzi'}>{t('Hanzi')}</NavLink>
         <DropDownMenu>
-          <NavLink href={'/plantillas'}>{t('Templates')} <DownArrow /></NavLink>
+          <NavSpan>{t('Tools')} <DownArrow /></NavSpan>
           <DropDownContent>
+            <NavLink href={"/mazos-anki"}>{t('AnkiDecks')}</NavLink>
+            <NavLink href={'/canales'}>{t('Channels')}</NavLink>
+            <NavLink href={'/hanzi'}>{t('Hanzi')}</NavLink>
+          </DropDownContent>
+        </DropDownMenu>
+        <DropDownMenu>
+          <NavSpan>{t('Templates')} <DownArrow /></NavSpan>
+          <DropDownContent>
+            <NavLink href={'/plantillas'}>{t('Templates')}</NavLink>
             <NavLink href={'/plantillas/generador'}>{t('TemplateGenerator')}</NavLink>
           </DropDownContent>
         </DropDownMenu>
@@ -153,15 +159,26 @@ const NavLink = styled(Link)`
   }
 `;
 
+const NavSpan = styled.span`
+  font-size: 1.25rem;
+  margin-top: 20px;
+  text-decoration: none;
+
+  ${SideBarContainer} & {
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    display: block;
+    margin-right: 20px;
+  }
+`
+
 const DropDownContent = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
   background-color: hsl(0, 0%, 88%);
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
   display: none;
 
   & ${NavLink} {
@@ -172,12 +189,29 @@ const DropDownContent = styled.div`
 const DropDownMenu = styled.div`
   position: relative;
 
+  & ${NavSpan}:hover + ${DropDownContent} {
+    display: block;
+  }
+
   & ${NavLink}:hover + ${DropDownContent} {
     display: block;
   }
 
   & ${DropDownContent}:hover {
     display: block;
+  }
+
+  & ${NavLink} {
+    width: max-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  & ${NavLink}:hover {
+    color: hsl(221, 80%, 50%);
+    background-color: hsl(0, 0%, 70%);
   }
 `
 
