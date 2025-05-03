@@ -37,12 +37,14 @@ const Container = styled.div`
 
 const LanguageButton = styled.button<{ $isActive: boolean }>`
   display: inline-block;
+  font-size: ${props => props.theme.fontSizes.extraSmall};
+  font-weight: ${props => props.theme.fontWeights.normal};
   margin-right: 5px;
   margin-left: 5px;
   padding: 6px 12px;
   border-radius: 4px;
-  border: 1px solid ${props => props.$isActive ? 'hsl(221, 83%, 53%)' : '#ddd'};
-  background-color: ${props => props.$isActive ? 'hsl(221, 83%, 53%)' : 'transparent'};
-  color: ${props => props.$isActive ? '#fff' : 'hsl(221, 83%, 53%)'};
+  border: 1px solid ${props => props.$isActive ? props.theme.colors.blue : props.theme.colors.whiteBackground};
+  background-color: ${props => props.$isActive ? props.theme.colors.blue : props.theme.colors.whiteBackground};
+  color: ${props => props.$isActive ? props.theme.colors.white : props.theme.colors.blue};
   cursor: pointer;
 `

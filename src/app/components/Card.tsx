@@ -14,7 +14,6 @@ export default function Card({ children }: { children: ReactNode }) {
 
 const Container = styled.article`
   width: 100%;
-//  max-width: 80%;
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -27,8 +26,9 @@ function Title({ children }: { children: string }) {
 }
 
 const StyledTitle = styled.h2`
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: ${props => props.theme.fontSizes.extraLarge};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.bold};
 `;
 
 function CardImage({ imgAlt, img }: { imgAlt: string, img: string | StaticImageData }) {
@@ -59,6 +59,9 @@ function Description({ children }: { children: string }) {
 }
 
 const StyledDescription = styled.p`
+  font-size: ${props => props.theme.fontSizes.small};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.normal};
   margin-top: 10px;
   margin-bottom: 10px;
 `;
@@ -79,10 +82,11 @@ const StyledButton = styled(Link)<{ $margin?: boolean}>`
   margin-bottom: ${props => props.$margin ? '10px' : '0px'};
 
   display: block;
+  font-size: ${props => props.theme.fontSizes.small};
   text-align: center;
   width: 100%;
-  background-color: hsl(213, 93%, 67%);
-  color: hsl(0, 0%, 98%);
+  background-color: ${props => props.theme.colors.blue};
+  color: ${props => props.theme.colors.white};
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 6px;
@@ -94,7 +98,7 @@ const StyledButton = styled(Link)<{ $margin?: boolean}>`
   transition: 200ms ease;
 
   &:hover {
-    background-color: hsl(213, 93%, 57%);
+    background-color: ${props => props.theme.colors.blueHover};
   }
 `;
 
