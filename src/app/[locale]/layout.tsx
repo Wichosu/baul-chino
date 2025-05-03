@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react"
 import GlobalStyles from "../GlobalStyles";
 import StyledComponentsRegistry from "../lib/registry";
+import StyledComponentsThemeProvider from "../components/StyledComponentsThemeProvider";
 import { PostHogProvider } from "../providers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
@@ -55,11 +56,13 @@ export default async function RootLayout({
           <PostHogProvider>
             <StyledComponentsRegistry>
               <NextIntlClientProvider>
-                <Navbar />
-                <main>
-                  {children}
-                </main>
-                <Footer />
+                <StyledComponentsThemeProvider>
+                  <Navbar />
+                  <main>
+                    {children}
+                  </main>
+                  <Footer />
+                </StyledComponentsThemeProvider>
               </NextIntlClientProvider>
             </StyledComponentsRegistry>
           </PostHogProvider>
