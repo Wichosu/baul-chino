@@ -7,6 +7,7 @@ declare module 'styled-components' {
       blueHover: string
       white: string
       whiteBackground: string
+      grayBackground: string
       black: string
     }
     fontSizes: {

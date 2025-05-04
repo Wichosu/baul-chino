@@ -40,6 +40,7 @@ export default function SquareForm() {
             id="squareSize" 
             onChange={handleSquareSizeChange}
             defaultValue={squareSize}
+            min={10}
           />
           <InputUnitSpan>mm</InputUnitSpan>
         </InputContainer>
@@ -53,8 +54,9 @@ const Container = styled.section`
 `
 
 const Title = styled.h3`
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: ${props => props.theme.fontSizes.large};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.bold};
   margin-top: 20px;
 `
 
@@ -66,8 +68,9 @@ const ModifierContainer = styled.div`
 `
 
 const Label = styled.label`
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: ${props => props.theme.fontSizes.medium};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.normal};
 
   @media (min-width: 768px) {
     margin-right: 10px;
@@ -75,7 +78,9 @@ const Label = styled.label`
 `
 
 const Span = styled.span`
-  font-size: 0.75rem;
+  font-size: ${props => props.theme.fontSizes.extraSmall};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.light};
   display: block;
 `
 
@@ -83,8 +88,10 @@ const InputContainer = styled.div`
 `
 
 const Input = styled.input`
+  font-size: ${props => props.theme.fontSizes.small};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.normal};
   width: 120px;
-  font-size: 1rem;
   margin-top: 5px;
   margin-bottom: 10px;
   padding-top: 4px;
@@ -105,8 +112,10 @@ const InputUnit = styled(Input)`
 `
 
 const InputUnitSpan = styled.span`
-  font-size: 1rem;
-  background-color: hsl(0, 0%, 85%);
+  font-size: ${props => props.theme.fontSizes.small};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.light};
+  background-color: ${props => props.theme.colors.grayBackground};
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 8px;

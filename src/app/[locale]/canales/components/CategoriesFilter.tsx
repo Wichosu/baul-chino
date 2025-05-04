@@ -70,14 +70,16 @@ export default function CategoriesFilter() {
 }
 
 const Title = styled.summary`
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: ${props => props.theme.fontSizes.medium};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.bold};
   margin-bottom: 10px;
 `
 
 const Counter = styled.span`
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: ${props => props.theme.fontSizes.extraSmall};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.normal};
   margin-left: 10px;
 `
 

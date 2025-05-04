@@ -156,8 +156,9 @@ const Container = styled.section`
 
 const Title = styled.h1`
   display: inline-block;
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: ${props => props.theme.fontSizes.large};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.bold};
   margin-right: 10px;
   margin-bottom: 10px;
 
@@ -175,8 +176,10 @@ const ActionButton = styled.button<{ $backgroundColor?: string}>`
   padding-right: 10px;
   border: none;
   border-radius: 4px;
-  background-color: ${props => props.$backgroundColor || '#2687fd'};
-  color: #fafafa;
+  background-color: ${props => props.$backgroundColor || props.theme.colors.blue};
+  font-size: ${props => props.theme.fontSizes.small};
+  color: ${props => props.theme.colors.white};
+  font-weight: ${props => props.theme.fontWeights.bold};
 
   @media (min-width: 768px) {
     margin-right: 20px
