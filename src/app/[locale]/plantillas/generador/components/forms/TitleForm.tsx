@@ -122,13 +122,18 @@ const Container = styled.section`
 `
 
 const Title = styled.h3`
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: ${props => props.theme.fontSizes.large};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.bold};
   margin-top: 20px;
 `
 
 const Button = styled.button<{ $display?: "none" | "block" }>`
   display: ${props => props.$display || "block"};
+  font-size: ${props => props.theme.fontSizes.small};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.bold};
+  background-color: ${props => props.theme.colors.blue};
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px;
@@ -136,13 +141,12 @@ const Button = styled.button<{ $display?: "none" | "block" }>`
   margin-top: 5px;
   border: none;
   border-radius: 4px;
-  background-color: hsl(213, 93%, 67%);
   color: white;
   cursor: pointer;
   transition: 200ms ease;
 
   &:hover {
-    background-color: hsl(213, 93%, 57%);
+    background-color: ${props => props.theme.colors.blueHover};
   }
 
   @media (min-width: 768px) {
@@ -177,8 +181,9 @@ const Icon = styled(Image)`
 `
 
 const Label = styled.label`
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: ${props => props.theme.fontSizes.medium};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.bold};
 
   @media (min-width: 768px) {
     margin-right: 10px;
@@ -187,8 +192,10 @@ const Label = styled.label`
 
 const Input = styled.input`
   display: block;
+  font-size: ${props => props.theme.fontSizes.small};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.normal};
   width: 120px;
-  font-size: 1rem;
   margin-top: 5px;
   margin-bottom: 10px;
   padding-top: 4px;
@@ -215,8 +222,10 @@ const InputUnit = styled(Input)`
 `
 
 const InputUnitSpan = styled.span`
-  font-size: 1rem;
-  background-color: hsl(0, 0%, 85%);
+  font-size: ${props => props.theme.fontSizes.small};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.light};
+  background-color: ${props => props.theme.colors.grayBackground};
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 8px;

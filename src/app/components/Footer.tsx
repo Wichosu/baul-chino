@@ -9,7 +9,10 @@ export default function Footer() {
         display: 'block',
         textAlign: 'center', 
         marginTop: '40px', 
-        marginBottom: '40px'
+        marginBottom: '40px',
+        fontSize: '16px',
+        fontWeight: '400',
+        color: 'black'
       }}>
         {t('Message')}
       <br/>

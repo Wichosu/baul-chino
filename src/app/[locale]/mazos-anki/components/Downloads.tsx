@@ -58,7 +58,7 @@ export default function Downloads() {
       <ButtonLink 
         href={'https://github.com/ankitects/anki/releases/download/24.11/anki-24.11-linux-qt6.tar.zst'} 
         target="_blank" 
-        $backgroundColor="#475569"
+        $backgroundColor="hsl(0, 0%, 10%)"
       >
         <StyledImage alt="" src={'/linux.svg'} width={20} height={20} />
         {t('Linux')}
@@ -73,19 +73,24 @@ const Container = styled.section`
   margin-top: 20px;
   margin-bottom: 20px;
 `
+
 const Title = styled.h3`
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: ${props => props.theme.fontSizes.medium};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.bold};
   margin-bottom: 10px;
 `
 
 const Text = styled.p`
-  font-size: 1rem;
+  font-size: ${props => props.theme.fontSizes.small};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.normal};
 `
 
 const Note = styled.small`
-  font-size: 1rem;
-  color: hsl(217, 20%, 40%);
+  font-size: ${props => props.theme.fontSizes.extraSmall};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.light};
   margin: 0;
   padding: 0;
   display: block;
@@ -103,8 +108,8 @@ const ButtonLink = styled(Link)<{ $backgroundColor?: string; }>`
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: ${props => props.$backgroundColor || "#5da3f9"};
-  color: #fafafa;
+  background-color: ${props => props.$backgroundColor || props.theme.colors.blue};
+  color: ${props => props.theme.colors.white};
   padding-top: 12px;
   padding-bottom: 12px;
   padding-right: 24px;

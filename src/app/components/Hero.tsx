@@ -28,11 +28,14 @@ const Container = styled.section`
 `;
 
 const Title = styled.h1`
-  font-size: 3rem;
-  font-weight: 500;
+  font-size: ${props => props.theme.fontSizes.extraLarge};
+  font-weight: ${props => props.theme.fontWeights.bold};
+  color: ${props => props.theme.colors.black};
   margin-bottom: 10px;
 `;
 
 const WelcomeMessage = styled.p`
-  font-size: 1rem;
+  font-size: ${props => props.theme.fontSizes.small};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.normal};
 `;

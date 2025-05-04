@@ -10,11 +10,6 @@ interface Props {
   filter: Dispatch<SetStateAction<number[]>>
 }
 
-interface IButton {
-  backgroundColor: string;
-  color: string;
-}
-
 export default function FilterButton({ 
   children,
   id,
@@ -23,7 +18,6 @@ export default function FilterButton({
   const { addIdToFilter, removeIdFromFilter, resetTrigger, setUpTrigger } = useContext(FilterContext)
   //Toggle Filter Buttons
   const [toggleFilter, setToggleFilter] = useState(false);
-  let buttonStyles: IButton
 
   useEffect(() => {
     if (resetTrigger) {
@@ -42,28 +36,19 @@ export default function FilterButton({
     }
   }
 
-  if(toggleFilter) {
-    buttonStyles = {
-      backgroundColor: '#2687fd',
-      color: '#fafafa'
-    }
-  } else {
-    buttonStyles = {
-      backgroundColor: '#e5e5e5',
-      color: '#404040'
-    }
-  }
-
   return (
-    <Button onClick={onClickFilter} $styles={buttonStyles}>
+    <Button onClick={onClickFilter}  $isActive={toggleFilter}>
       { children }
     </Button>
   )
 }
 
-const Button = styled.button<{ $styles?: IButton}>`
+const Button = styled.button<{ $isActive?: boolean}>`
   cursor: pointer;
-  font-size: 1rem;
+  font-size: ${props => props.theme.fontSizes.small};
+  color: ${props => props.$isActive ? props.theme.colors.white : props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.normal};
+  background-color: ${props => props.$isActive? props.theme.colors.blue : props.theme.colors.grayBackground};
   display: inline;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -71,8 +56,6 @@ const Button = styled.button<{ $styles?: IButton}>`
   padding-right: 10px;
   margin-bottom: 10px;
   margin-right: 10px;
-  background-color: ${props => props.$styles?.backgroundColor};
-  color: ${props => props.$styles?.color};
   border: none;
   border-radius: 4px;
   transition: 200ms ease;

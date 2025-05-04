@@ -14,9 +14,17 @@ export default function ListItem({ linkRef, linkName }: Props) {
 }
 
 const Item = styled(Link)`
+  font-size: ${props => props.theme.fontSizes.small};
+  color: ${props => props.theme.colors.blue};
+  font-weight: ${props => props.theme.fontWeights.bold};
   display: block;
   margin-top: 20px;
   margin-bottom: 20px;
   width: fit-content;
-  color: blue;
+  text-decoration: none;
+
+  &:hover {
+    color: ${props => props.theme.colors.blueHover};
+    text-decoration: underline;
+  }
 `
