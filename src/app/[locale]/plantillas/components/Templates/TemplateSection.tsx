@@ -50,6 +50,7 @@ const TemplateWrapper = styled.article`
 `
 
 const TemplateHeader = styled.h2`
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: ${props => props.theme.fontSizes.large};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.bold};
 `

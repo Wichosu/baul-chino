@@ -53,13 +53,19 @@ export default function Navbar() {
           <Image alt="menu button" src={'/menu.svg'} width={30} height={30} />
         </Figure>
         <NavLink href={"/"}>{t('Home')}</NavLink>
-        <NavLink href={"/mazos-anki"}>{t('AnkiDecks')}</NavLink>
         <NavLink href={'/libros-hsk'}>{t('HskBooks')}</NavLink>
-        <NavLink href={'/canales'}>{t('Channels')}</NavLink>
-        <NavLink href={'/hanzi'}>{t('Hanzi')}</NavLink>
         <DropDownMenu>
-          <NavLink href={'/plantillas'}>{t('Templates')} <DownArrow /></NavLink>
+          <NavSpan>{t('Tools')} <DownArrow /></NavSpan>
           <DropDownContent>
+            <NavLink href={"/mazos-anki"}>{t('AnkiDecks')}</NavLink>
+            <NavLink href={'/canales'}>{t('Channels')}</NavLink>
+            <NavLink href={'/hanzi'}>{t('Hanzi')}</NavLink>
+          </DropDownContent>
+        </DropDownMenu>
+        <DropDownMenu>
+          <NavSpan>{t('Templates')} <DownArrow /></NavSpan>
+          <DropDownContent>
+            <NavLink href={'/plantillas'}>{t('Templates')}</NavLink>
             <NavLink href={'/plantillas/generador'}>{t('TemplateGenerator')}</NavLink>
           </DropDownContent>
         </DropDownMenu>
@@ -92,11 +98,11 @@ const Container = styled.nav`
 
 const Title = styled(Link)`
   display: inline;
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: ${props => props.theme.fontSizes.extraLarge};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${Props => Props.theme.fontWeights.bold};
   margin-right: auto;
   text-decoration: none;
-  color: black;
 `;
 
 const SideBar = styled.div<{ $styles?: IMenuStyles; }>`
@@ -106,7 +112,7 @@ const SideBar = styled.div<{ $styles?: IMenuStyles; }>`
   overflow: hidden;
   top: 0;
   left: -100%;
-  background-color: #f5f5f5;
+  background-color: ${props => props.theme.colors.whiteBackground};
   transform: translateX(${props => props.$styles?.translateX});
   transition: 500ms ease;
   width: 100%;
@@ -138,10 +144,15 @@ const Figure = styled.figure`
 
 const NavLink = styled(Link)`
   display: none;
-  color: hsl(221, 83%, 53%);
-  font-size: 1.25rem;
+  color: ${props => props.theme.colors.blue};
+  font-size: ${props => props.theme.fontSizes.small};
+  font-weight: ${props => props.theme.fontWeights.bold};
   margin-top: 20px;
   text-decoration: none;
+
+  &:hover {
+    color: ${props => props.theme.colors.blueHover};
+  }
 
   ${SideBarContainer} & {
     display: block;
@@ -153,15 +164,27 @@ const NavLink = styled(Link)`
   }
 `;
 
+const NavSpan = styled.span`
+  font-size: ${props => props.theme.fontSizes.small};
+  margin-top: 20px;
+  text-decoration: none;
+
+  ${SideBarContainer} & {
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    display: block;
+    margin-right: 20px;
+  }
+`
+
 const DropDownContent = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: hsl(0, 0%, 88%);
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
+  background-color: ${props => props.theme.colors.whiteBackground};
+  box-shadow: ${props => props.theme.shadow};
   display: none;
 
   & ${NavLink} {
@@ -172,12 +195,28 @@ const DropDownContent = styled.div`
 const DropDownMenu = styled.div`
   position: relative;
 
+  & ${NavSpan}:hover + ${DropDownContent} {
+    display: block;
+  }
+
   & ${NavLink}:hover + ${DropDownContent} {
     display: block;
   }
 
   & ${DropDownContent}:hover {
     display: block;
+  }
+
+  & ${NavLink} {
+    width: max-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  & ${NavLink}:hover {
+    color: ${props => props.theme.colors.blueHover};
   }
 `
 

@@ -24,18 +24,29 @@ const Container = styled.article`
 `;
 
 const Title = styled(Link)`
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: ${props => props.theme.fontSizes.medium};
+  color: ${props => props.theme.colors.blue};
+  font-weight: ${props => props.theme.fontWeights.bold};
   text-decoration: none;
-  color: hsl(213, 98%, 45%);
+
+  &:hover {
+    text-decoration: underline;
+    color: ${props => props.theme.colors.blueHover};
+  }
 `;
 
 const Description = styled.p`
+  font-size: ${props => props.theme.fontSizes.small};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.normal};
   margin-top: 10px;
   margin-bottom: 10px;
 `
 
 const Categories = styled.small`
+  font-size: ${props => props.theme.fontSizes.extraSmall};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.light};
   display: block;
   margin-bottom: 5px;
 

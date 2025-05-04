@@ -1,6 +1,7 @@
 {  
   "Navbar": {
     "Home": "Inicio",
+    "Tools": "Herramientas",
     "AnkiDecks": "Mazos Anki",
     "HskBooks": "Libros HSK",
     "Channels": "Lista de Canales",
@@ -162,7 +163,7 @@
     "HeroMessage2": "Características principales: Personaliza el formato y tamaño de las cuadrículas. Selecciona caracteres por nivel HSK o temas. Guarda tus plantillas favoritas para práctica recurrente",
     "TemplateGenerator": {
       "TemplateDownload": {
-        "Title": "Personaliza tu plantilla:",
+        "Title": "Nombra tu plantilla:",
         "Placeholder": "Nombre para tu archivo (ej: Mis_Hanzi_HSK1)",
         "DownloadButton": "🖨️ Generar PDF"
       },
