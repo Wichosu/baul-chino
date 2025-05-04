@@ -7,6 +7,7 @@ const theme: DefaultTheme = {
     blueHover: "hsl(210, 90%, 40%)",
     white: "hsl(0, 0%, 100%)",
     whiteBackground: "hsl(0, 0%, 95%)",
+    grayBackground: "hsl(0, 0%, 85%)",
     black: "hsl(0, 0%, 5%)",
   },
   fontSizes: {

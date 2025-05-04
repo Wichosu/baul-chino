@@ -163,7 +163,7 @@
     "HeroMessage2": "Key features: Customize grid format and size. Select characters by HSK level or theme. Save your favorite templates for regular practice",
     "TemplateGenerator": {
       "TemplateDownload": {
-        "Title": "Customize your template:",
+        "Title": "Name your template:",
         "Placeholder": "File name (ex: My_Hanzi_HSK1)",
         "DownloadButton": "🖨️ Generate PDF"
       },

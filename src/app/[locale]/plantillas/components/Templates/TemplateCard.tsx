@@ -62,8 +62,7 @@ const TextWrapper = styled.div`
   display: flex;
   align-items: center;
   width: fit-content;
-  color: white;
-  background-color: hsl(213, 93%, 67%);
+  background-color: ${props => props.theme.colors.blue};
   margin-top: 5px;
   margin-left: auto;
   margin-right: auto;
@@ -76,11 +75,12 @@ const TextWrapper = styled.div`
   transition: 200ms ease;
 
   ${LinkWrapper}:hover & {
-    background-color: hsl(213, 93%, 57%);
+    background-color: ${props => props.theme.colors.blueHover};
   }
 `
 
 const Span = styled.span`
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: ${props => props.theme.fontSizes.small};
+  color: ${props => props.theme.colors.white};
+  font-weight: ${props => props.theme.fontWeights.bold};
 `

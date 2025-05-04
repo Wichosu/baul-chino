@@ -86,10 +86,16 @@ const Container = styled.section`
 `
 
 const Title = styled.h3`
+  font-size: ${props => props.theme.fontSizes.large};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.bold};
   margin-top: 20px;
 `
 
 const Description = styled.p`
+  font-size: ${props => props.theme.fontSizes.small};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.normal};
   margin: 0;
   padding: 0;
   margin-bottom: 20px;

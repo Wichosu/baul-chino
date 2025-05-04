@@ -25,8 +25,9 @@ const Container = styled.section`
 
 const Label = styled.label`
   display: block;
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: ${props => props.theme.fontSizes.large};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.bold};
 
   @media (min-width: 768px) {
     display: inline-block;
@@ -36,7 +37,9 @@ const Label = styled.label`
 
 const Input = styled.input`
   display: block;
-  font-size: 1.25rem;
+  font-size: ${props => props.theme.fontSizes.small};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.normal};
   border: none;
   border-radius: 4px;
   background-color: transparent;
@@ -57,19 +60,22 @@ const Input = styled.input`
 
 const DownloadButton = styled.button`
   display: block;
+  font-size: ${props => props.theme.fontSizes.small};
+  color: ${props => props.theme.colors.black};
+  font-weight: ${props => props.theme.fontWeights.normal};
+  background-color: ${props => props.theme.colors.blue};
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
   border: none;
   border-radius: 4px;
-  background-color: hsl(213, 93%, 67%);
   color: white;
   cursor: pointer;
   transition: 200ms ease;
 
   &:hover {
-    background-color: hsl(213, 93%, 57%);
+    background-color: ${props => props.theme.colors.blueHover};
   }
 
   @media (min-width: 768px) {
