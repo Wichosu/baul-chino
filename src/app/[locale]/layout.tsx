@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react"
-import GlobalStyles from "../GlobalStyles";
+//import GlobalStyles from "../GlobalStyles";
+import '@/src/styles/globals.css';
 import StyledComponentsRegistry from "../lib/registry";
 import StyledComponentsThemeProvider from "../components/StyledComponentsThemeProvider";
 import { PostHogProvider } from "../providers";
@@ -10,8 +11,9 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/src/i18n/routing";
 import { notFound } from "next/navigation";
-import Navbar from "../components/Navbar";
+import { Navbar } from "@/src/app/components/Navbar";
 import Footer from "../components/Footer";
+import { Container } from "@/src/app/components/Container";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -50,14 +52,16 @@ export default async function RootLayout({
 
   return (
     <>
-      <GlobalStyles />
+      {/* <GlobalStyles /> */}
       <html lang={locale}>
         <body className={montserrat.className}>
           <PostHogProvider>
             <StyledComponentsRegistry>
               <NextIntlClientProvider>
                 <StyledComponentsThemeProvider>
-                  <Navbar />
+                  <Container>
+                    <Navbar />
+                  </Container>
                   <main>
                     {children}
                   </main>

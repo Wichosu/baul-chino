@@ -1,9 +1,10 @@
 'use client'
 import { useLocale } from 'next-intl'
 import { usePathname, useRouter } from '@/src/i18n/navigation'
-import styled from 'styled-components'
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
-export default function LanguageSwitcher({ className }: { className?: string }) {
+export function LanguageSwitcher() {
   const locale = useLocale()
   const router = useRouter()
   const pathname = usePathname()
@@ -18,33 +19,21 @@ export default function LanguageSwitcher({ className }: { className?: string }) 
   }
 
   return (
-    <Container className={className}>
+    <>
       {languages.map((lang) => (
-        <LanguageButton
+        <Button
           key={lang.code}
           onClick={() => handleLanguageChange(lang.code)}
-          $isActive={locale === lang.code}
+          className={
+            cn(
+              `${lang.code === locale ? 'bg-gray-800' : 'bg-gray-400'}`,
+              "cursor-pointer",
+            )
+          }
         >
           {lang.label}
-        </LanguageButton>
+        </Button>
       ))}
-    </Container>
+    </>
   )
 }
-
-const Container = styled.div`
-`
-
-const LanguageButton = styled.button<{ $isActive: boolean }>`
-  display: inline-block;
-  font-size: ${props => props.theme.fontSizes.extraSmall};
-  font-weight: ${props => props.theme.fontWeights.normal};
-  margin-right: 5px;
-  margin-left: 5px;
-  padding: 6px 12px;
-  border-radius: 4px;
-  border: 1px solid ${props => props.$isActive ? props.theme.colors.blue : props.theme.colors.whiteBackground};
-  background-color: ${props => props.$isActive ? props.theme.colors.blue : props.theme.colors.whiteBackground};
-  color: ${props => props.$isActive ? props.theme.colors.white : props.theme.colors.blue};
-  cursor: pointer;
-`
