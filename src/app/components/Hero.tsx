@@ -1,5 +1,3 @@
-"use client"
-import styled from "styled-components"
 import { ReactNode } from "react"
 
 interface Props {
@@ -7,35 +5,15 @@ interface Props {
   children: string | ReactNode
 }
 
-export default function Hero({ title, children }: Props) {
+export function Hero({ title, children }: Props) {
   return (
-    <Container>
-      <Title>
+    <section className="my-6">
+      <h1 className="text-4xl font-medium text-neutral-800 mb-4">
         { title }
-      </Title>
-      <WelcomeMessage>
+      </h1>
+      <p className="text-xl font-normal text-neutral-800">
         { children }
-      </WelcomeMessage>
-    </Container>
+      </p>
+    </section>
   )
 }
-
-const Container = styled.section`
-  width: 85%;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`;
-
-const Title = styled.h1`
-  font-size: ${props => props.theme.fontSizes.extraLarge};
-  font-weight: ${props => props.theme.fontWeights.bold};
-  color: ${props => props.theme.colors.black};
-  margin-bottom: 10px;
-`;
-
-const WelcomeMessage = styled.p`
-  font-size: ${props => props.theme.fontSizes.small};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.normal};
-`;
