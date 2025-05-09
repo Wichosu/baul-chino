@@ -1,231 +1,127 @@
 "use client"
-import styled from "styled-components";
-import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
-import { useTranslations } from "next-intl";
-import LanguageSwitcher from "./LanguageSwitcher";
 
-interface IMenuStyles {
-  translateX: string
+import * as React from "react"
+import Link from "next/link"
+
+import { cn } from "@/lib/utils"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu"
+
+import { useTranslations } from "next-intl"
+
+import { LanguageSwitcher } from "./LanguageSwitcher"
+
+type ListItem = {
+  title: string
+  href: string
+  description: string
 }
 
-export default function Navbar() {
-  const t = useTranslations('Navbar')
-  const [openMenu, setOpenMenu] = useState(false);
-
-  const closeMenu = () => {
-    setOpenMenu(() => false)
+function createListItem(title: string, href: string, description: string): ListItem {
+  return {
+    title,
+    href,
+    description,
   }
+}
 
-  let menuStyles: IMenuStyles
+const tools: ListItem[] = [
+  createListItem("AnkiDecks", "/mazos-anki", "AnkiDecks"),
+  createListItem("HskBooks", "/libros-hsk", "HskBooks"),
+  createListItem("Channels", "/canales", "Channels"),
+  createListItem("Hanzi", "/hanzi", "Hanzi"),
+]
 
-  if(openMenu) {
-    menuStyles = {
-      translateX: "100%",
-    }
-  } else {
-    menuStyles = {
-      translateX: "0",
-    }
-  }
+const templates: ListItem[] = [
+  createListItem("Templates", "/plantillas", "Templates"),
+  createListItem("TemplateGenerator", "/plantillas/generador", "TemplateGenerator"),
+]
+
+export function Navbar() {
+  const t = useTranslations("Navbar")
 
   return (
-    <>
-      <SideBar $styles={menuStyles}>
-        <SideBarContainer>
-          <Figure onClick={() => setOpenMenu(() => false)}>
-            <Image alt="close button" src={'/x.svg'} width={30} height={30} />
-          </Figure>
-          <NavLink onClick={closeMenu} href={'/'}>{t('Home')}</NavLink>
-          <NavLink onClick={closeMenu} href={'/mazos-anki'}>{t('AnkiDecks')}</NavLink>
-          <NavLink onClick={closeMenu} href={'/libros-hsk'}>{t('HskBooks')}</NavLink>
-          <NavLink onClick={closeMenu} href={'/canales'}>{t('Channels')}</NavLink>
-          <NavLink onClick={closeMenu} href={'/hanzi'}>{t('Hanzi')}</NavLink>
-          <NavLink onClick={closeMenu} href={'/plantillas'}>{t('Templates')}</NavLink>
-          <NavLink onClick={closeMenu} href={'/plantillas/generador'}>{t('TemplateGenerator')}</NavLink>
-          <LanguageSwitcherMobile />
-        </SideBarContainer>
-      </SideBar>
-      <Container>
-        <Title href={'/'}>Baúl Chino</Title>
-        <Figure onClick={() => setOpenMenu(() => true)}>
-          <Image alt="menu button" src={'/menu.svg'} width={30} height={30} />
-        </Figure>
-        <NavLink href={"/"}>{t('Home')}</NavLink>
-        <NavLink href={'/libros-hsk'}>{t('HskBooks')}</NavLink>
-        <DropDownMenu>
-          <NavSpan>{t('Tools')} <DownArrow /></NavSpan>
-          <DropDownContent>
-            <NavLink href={"/mazos-anki"}>{t('AnkiDecks')}</NavLink>
-            <NavLink href={'/canales'}>{t('Channels')}</NavLink>
-            <NavLink href={'/hanzi'}>{t('Hanzi')}</NavLink>
-          </DropDownContent>
-        </DropDownMenu>
-        <DropDownMenu>
-          <NavSpan>{t('Templates')} <DownArrow /></NavSpan>
-          <DropDownContent>
-            <NavLink href={'/plantillas'}>{t('Templates')}</NavLink>
-            <NavLink href={'/plantillas/generador'}>{t('TemplateGenerator')}</NavLink>
-          </DropDownContent>
-        </DropDownMenu>
-        <LanguageSwitcherDesktop />
-      </Container>
-    </>
-  );
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <Link href="/">Baúl Chino</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <Link href="/libros-hsk">{t("HskBooks")}</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>{t("Tools")}</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {tools.map((tool) => (
+                <ListItem
+                  key={t(tool.title)}
+                  title={t(tool.title)}
+                  href={tool.href}
+                >
+                  {t(`Descriptions.${tool.description}`)}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>{t("Templates")}</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {templates.map((template) => (
+                <ListItem
+                  key={t(template.title)}
+                  title={t(template.title)}
+                  href={template.href}
+                >
+                  {t(`Descriptions.${template.description}`)}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem className={cn("flex gap-2")}>
+          <LanguageSwitcher />
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+  )
 }
 
-const LanguageSwitcherMobile = styled(LanguageSwitcher)`
-  margin-top: 20px;
-`
-
-const LanguageSwitcherDesktop = styled(LanguageSwitcher)`
-  display: none;
-
-  @media (min-width: 768px) {
-    display: flex;
-  }
-`;
-
-const Container = styled.nav`
-  display: flex;
-  align-items: baseline;
-  width: 85%;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`;
-
-const Title = styled(Link)`
-  display: inline;
-  font-size: ${props => props.theme.fontSizes.extraLarge};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${Props => Props.theme.fontWeights.bold};
-  margin-right: auto;
-  text-decoration: none;
-`;
-
-const SideBar = styled.div<{ $styles?: IMenuStyles; }>`
-  isolation: isolate;
-  z-index: 100;
-  position: fixed;
-  overflow: hidden;
-  top: 0;
-  left: -100%;
-  background-color: ${props => props.theme.colors.whiteBackground};
-  transform: translateX(${props => props.$styles?.translateX});
-  transition: 500ms ease;
-  width: 100%;
-  height: calc(100% + 80px);
-
-  @media (min-width: 768px) {
-    display: none;
-  }
-`
-
-const SideBarContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-`
-
-const Figure = styled.figure`
-  ${SideBarContainer} & {
-    margin-left: auto;
-  }
-
-  @media (min-width: 768px) {
-    display: none;
-  }
-`;
-
-const NavLink = styled(Link)`
-  display: none;
-  color: ${props => props.theme.colors.blue};
-  font-size: ${props => props.theme.fontSizes.small};
-  font-weight: ${props => props.theme.fontWeights.bold};
-  margin-top: 20px;
-  text-decoration: none;
-
-  &:hover {
-    color: ${props => props.theme.colors.blueHover};
-  }
-
-  ${SideBarContainer} & {
-    display: block;
-  }
-
-  @media (min-width: 768px) {
-    display: block;
-    margin-right: 20px;
-  }
-`;
-
-const NavSpan = styled.span`
-  font-size: ${props => props.theme.fontSizes.small};
-  margin-top: 20px;
-  text-decoration: none;
-
-  ${SideBarContainer} & {
-    display: block;
-  }
-
-  @media (min-width: 768px) {
-    display: block;
-    margin-right: 20px;
-  }
-`
-
-const DropDownContent = styled.div`
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: ${props => props.theme.colors.whiteBackground};
-  box-shadow: ${props => props.theme.shadow};
-  display: none;
-
-  & ${NavLink} {
-    margin: 0;
-  }
-`
-
-const DropDownMenu = styled.div`
-  position: relative;
-
-  & ${NavSpan}:hover + ${DropDownContent} {
-    display: block;
-  }
-
-  & ${NavLink}:hover + ${DropDownContent} {
-    display: block;
-  }
-
-  & ${DropDownContent}:hover {
-    display: block;
-  }
-
-  & ${NavLink} {
-    width: max-content;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  & ${NavLink}:hover {
-    color: ${props => props.theme.colors.blueHover};
-  }
-`
-
-const DownArrow = styled.span`
-  border: solid black;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 2px;
-  margin-bottom: 5px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-`
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  )
+})
+ListItem.displayName = "ListItem"
