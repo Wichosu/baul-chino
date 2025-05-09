@@ -61,11 +61,11 @@ export default async function RootLayout({
                 <StyledComponentsThemeProvider>
                   <Container>
                     <Navbar />
+                    <main>
+                      {children}
+                    </main>
+                    <Footer />
                   </Container>
-                  <main>
-                    {children}
-                  </main>
-                  <Footer />
                 </StyledComponentsThemeProvider>
               </NextIntlClientProvider>
             </StyledComponentsRegistry>

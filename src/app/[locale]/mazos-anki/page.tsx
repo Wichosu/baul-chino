@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import Hero from "@/src/app/components/Hero"
+import { Hero } from "@/src/app/components/Hero"
 import Downloads from "./components/Downloads"
 import ListContainer from "./components/ListContainer"
 import Instructions from "./components/Instructions"
