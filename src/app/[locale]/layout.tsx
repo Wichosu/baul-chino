@@ -11,7 +11,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/src/i18n/routing";
 import { notFound } from "next/navigation";
-import { Navbar } from "@/src/app/components/Navbar";
+import { MobileNavbar, Navbar } from "@/src/app/components/Navbar";
 import Footer from "../components/Footer";
 import { Container } from "@/src/app/components/Container";
 
@@ -61,6 +61,7 @@ export default async function RootLayout({
                 <StyledComponentsThemeProvider>
                   <Container>
                     <Navbar />
+                    <MobileNavbar />
                     <main>
                       {children}
                     </main>

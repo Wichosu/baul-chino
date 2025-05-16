@@ -108,8 +108,6 @@ export default function CardsContainer() {
 }
 
 const Container = styled.section`
-  width: 85%;
-  margin: 0 auto;
 
   @media (min-width: 768px) {
     display: grid;
