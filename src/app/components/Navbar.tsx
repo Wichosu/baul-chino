@@ -117,7 +117,7 @@ export function MobileNavbar() {
   
   return (
     <Sheet>
-      <SheetTrigger asChild>
+      <SheetTrigger className={cn("lg:hidden")} asChild>
         <Image alt="Navbar Menu" src="/menu.svg" width={20} height={20} />
       </SheetTrigger>
       <SheetContent>
