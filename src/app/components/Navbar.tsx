@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
+import Image from "next/image"
 
 import { cn } from "@/lib/utils"
 import {
@@ -13,6 +14,17 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+
+import {
+  Sheet,
+  SheetContent,
+  SheetClose,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 import { useTranslations } from "next-intl"
 
@@ -48,7 +60,7 @@ export function Navbar() {
   const t = useTranslations("Navbar")
 
   return (
-    <NavigationMenu>
+    <NavigationMenu className={cn("hidden lg:block")}>
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
@@ -97,6 +109,68 @@ export function Navbar() {
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
+  )
+}
+
+export function MobileNavbar() {
+  const t = useTranslations("Navbar")
+  
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Image alt="Navbar Menu" src="/menu.svg" width={20} height={20} />
+      </SheetTrigger>
+      <SheetContent>
+        <SheetHeader>
+          <SheetClose asChild>
+            <Link href="/">
+              <SheetTitle className="py-4">Baúl chino</SheetTitle>
+            </Link>
+          </SheetClose>
+          <LanguageSwitcher />
+        </SheetHeader>
+        <div>
+          <NavigationMenu>
+            <NavigationMenuList className="flex-col items-start">
+              <ScrollArea className="h-96">
+                {tools.map((tool) => (
+                  <NavigationMenuItem key={tool.title}>
+                    <SheetClose asChild>
+                      <NavigationMenuLink asChild>
+                        <Link 
+                          href={tool.href}
+                          className="block w-full p-2 hover:bg-accent rounded-md"
+                        >
+                          <div className="text-sm font-medium leading-none">{t(tool.title)}</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            {t(`Descriptions.${tool.description}`)}
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </SheetClose>
+                  </NavigationMenuItem>
+                ))}
+                {templates.map((template) => (
+                  <NavigationMenuItem key={template.title}>
+                    <NavigationMenuLink asChild>
+                      <Link
+                        href={template.href}
+                        className="block p-2 hover:bg-accent rounded-md"
+                      >
+                        <div className="text-sm font-medium leading-none">{t(template.title)}</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          {t(`Descriptions.${template.description}`)}
+                        </p>
+                      </Link>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                ))}
+              </ScrollArea>
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
+      </SheetContent>
+    </Sheet>
   )
 }
 
