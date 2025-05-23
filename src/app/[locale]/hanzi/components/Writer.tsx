@@ -1,7 +1,6 @@
 "use client"
 import HanziWriter from "hanzi-writer"
 import { useCallback, useEffect, useRef } from "react"
-import styled from "styled-components"
 import { cleanUpCanvas, createHanziBackground } from "../utils/renderHanziUtils"
 import { createSimpleIme } from "simple-ime"
 import InputWriter from "./InputWriter"
@@ -54,28 +53,9 @@ export default function Writer() {
   }, [])
 
   return (
-    <>
-      <Container>
-        <CanvasDiv ref={canvasRef} />
-        <InputWriter renderHanzi={renderHanzi} />
-      </Container>
-    </>
+    <section>
+      <div ref={canvasRef} className="w-fit mx-auto mb-5 flex flex-wrap gap-5" />
+      <InputWriter renderHanzi={renderHanzi} />
+    </section>
   )
 }
-
-const Container = styled.section`
-  width: 85%;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`;
-
-const CanvasDiv = styled.div`
-  width: fit-content;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-`
-
