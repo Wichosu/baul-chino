@@ -52,9 +52,9 @@ function Content({ children }: { children: ReactNode }) {
   )
 }
 
-function Footer({ children }: { children: ReactNode }) {
+function Footer({ children, className }: { children: ReactNode, className?: string }) {
   return (
-    <CardFooter>
+    <CardFooter className={cn(`${className}`)}>
       { children }
     </CardFooter>
   )
