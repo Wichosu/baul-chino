@@ -1,5 +1,4 @@
 "use client"
-import styled from "styled-components"
 import { useState, useEffect } from "react"
 import { useTranslations } from "next-intl"
 
@@ -17,29 +16,13 @@ export default function InputWriter({ renderHanzi }: Props) {
   }, [renderHanzi, hanzi])
 
   return (
-    <>
-      <Input 
-        type='text' 
-        onInput={(e) => {
-          setHanzi(e.currentTarget.value)
-        }}
-        placeholder={t('Placeholder')}
-      />
-    </>
+    <input
+      type="text"
+      onInput={(e) => {
+        setHanzi(e.currentTarget.value)
+      }}
+      placeholder={t('Placeholder')}
+      className="w-full mb-5 py-1 px-2.5 rounded-lg border border-gray-600 focus:border-gray-900"
+    />
   )
 }
-
-const Input = styled.input`
-  width: 100%;
-  margin-bottom: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 4px;
-  border: solid 1px #333333;
-
-  &:focus {
-    border: none;
-  }
-`
