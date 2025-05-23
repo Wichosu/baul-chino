@@ -1,6 +1,4 @@
-"use client"
-import styled from "styled-components"
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
 import ankiMenu from "@/src/app/images/anki-menu.png"
 import ankiCard from "@/src/app/images/anki-card.png"
 import ankiBrowser from "@/src/app/images/anki-browser.png"
@@ -11,8 +9,8 @@ export default function ImageContainer() {
   const t = useTranslations('AnkiDecks.ImageContainer')
 
   return (
-    <Container>
-      <Title>{t('Title')}</Title>
+    <section>
+      <h3 className="text-3xl text-black font-medium mb-2.5 mt-5">{t('Title')}</h3>
       <ImageWrapper>
         <StyledImage alt="Menú de Anki mostrando una lista de mazos" src={ankiMenu} />
       </ImageWrapper>
@@ -25,31 +23,20 @@ export default function ImageContainer() {
       <ImageWrapper>
         <StyledImage alt="Flashcard mostrando únicamente el carácter 爱" src={ankiCardFront} />
       </ImageWrapper>
-    </Container>
+    </section>
   )
 };
 
-const Container = styled.section`
-  width: 85%;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`
-const Title = styled.h3`
-  font-size: ${props => props.theme.fontSizes.large};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.bold};
-  margin-bottom: 10px;
-`
+function ImageWrapper({ children }: { children: React.ReactNode}) {
+  return (
+    <figure className="inline-block m-5">
+      { children }
+    </figure>
+  )
+}
 
-const ImageWrapper = styled.figure`
-  display: inline-block;
-  max-width: 500px;
-  margin: 20px;
-`
-
-const StyledImage = styled(Image)`
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-`
+function StyledImage({ alt, src }: { alt: string, src: string | StaticImageData }) {
+  return (
+    <Image alt={alt} src={src} width={500} height={500} className="object-contain" />
+  )
+}
