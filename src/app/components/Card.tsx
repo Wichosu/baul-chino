@@ -1,108 +1,61 @@
-"use client"
-import styled from "styled-components";
-import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
-import React, { HTMLAttributeAnchorTarget, ReactNode } from "react";
+import { ReactNode } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { cn } from "@/lib/utils";
 
-export default function Card({ children }: { children: ReactNode }) {
+export function CompoundCard({ children }: { children: ReactNode }) {
   return (
-    <Container>
+    <Card>
       { children }
-    </Container>
-  );
-}
-
-const Container = styled.article`
-  width: 100%;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`;
-
-function Title({ children }: { children: string }) {
-  return (
-    <StyledTitle>{ children }</StyledTitle>
+    </Card>
   )
 }
 
-const StyledTitle = styled.h2`
-  font-size: ${props => props.theme.fontSizes.extraLarge};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.bold};
-`;
+CompoundCard.Header = Header
+CompoundCard.Content = Content
+CompoundCard.Footer = Footer
 
-function CardImage({ imgAlt, img }: { imgAlt: string, img: string | StaticImageData }) {
+function Header({ children }: { children: ReactNode }) {
   return (
-    <ImageContainer>
-      <StyledImage alt={imgAlt} src={img} width={500} height={500} objectFit="contain" />
-    </ImageContainer>
+    <CardHeader>
+      { children }
+    </CardHeader>
   )
 }
 
-const ImageContainer = styled.figure`
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-`
+Header.Title = Title
+Header.Description = Description
 
-const StyledImage = styled(Image)`
-  width: 100%;
-  height: 100%;
-  object-fit: 'contain';
-  aspect-ratio: 1 / 1;
-`;
+function Title({ children, className }: { children: string, className?: string }) {
+  return (
+    <CardTitle className={cn(`${className}`)}>{ children }</CardTitle>
+  )
+}
 
 function Description({ children }: { children: string }) {
   return (
-    <StyledDescription>{ children }</StyledDescription>
+    <CardDescription>{ children }</CardDescription>
   )
 }
 
-const StyledDescription = styled.p`
-  font-size: ${props => props.theme.fontSizes.small};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.normal};
-  margin-top: 10px;
-  margin-bottom: 10px;
-`;
-
-type ButtonOptions = Partial<{
-  margin: boolean,
-  target: HTMLAttributeAnchorTarget
-}>
-
-function Button({ linkRef, children, options }: { linkRef: string, children: ReactNode, options?: ButtonOptions }) {
+function Content({ children }: { children: ReactNode }) {
   return (
-    <StyledButton href={linkRef} $margin={options?.margin} target={options?.target}>{ children }</StyledButton>
+    <CardContent>
+      { children }
+    </CardContent>
   )
 }
 
-const StyledButton = styled(Link)<{ $margin?: boolean}>`
-  margin-top: ${props => props.$margin ? '10px' : '0px'};
-  margin-bottom: ${props => props.$margin ? '10px' : '0px'};
-
-  display: block;
-  font-size: ${props => props.theme.fontSizes.small};
-  text-align: center;
-  width: 100%;
-  background-color: ${props => props.theme.colors.blue};
-  color: ${props => props.theme.colors.white};
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 6px;
-  padding-right: 6px;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  transition: 200ms ease;
-
-  &:hover {
-    background-color: ${props => props.theme.colors.blueHover};
-  }
-`;
-
-Card.Title = Title
-Card.CardImage = CardImage
-Card.Description = Description
-Card.Button = Button
+function Footer({ children }: { children: ReactNode }) {
+  return (
+    <CardFooter>
+      { children }
+    </CardFooter>
+  )
+}
