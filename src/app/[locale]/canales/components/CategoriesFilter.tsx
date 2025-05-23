@@ -2,7 +2,6 @@
 import { useContext, useState } from "react"
 import { FilterContext } from "./Filter"
 import FilterButton from "./FilterButton"
-import styled from "styled-components"
 import HorizontalSlide from "@/src/app/components/animations/HorizontalSlide"
 import { useTranslations } from "next-intl"
 
@@ -17,11 +16,11 @@ export default function CategoriesFilter() {
 
   return (
     <>
-      <Title>
+      <h3 className="text-2xl text-black font-medium mb-2.5">
         {t('Title')}
-        { selectedCategory.length > 0 && <Counter>({ selectedCategory.length })</Counter> }
-      </Title>
-      <FilterDesktopContainer>
+        { selectedCategory.length > 0 && <span className="text-lg text-black font-normal ml-2.5">({ selectedCategory.length })</span> }
+      </h3>
+      <div className="none lg:block">
         {
           FetchedCategories.map((category, index) => (
             <FilterButton 
@@ -33,11 +32,11 @@ export default function CategoriesFilter() {
             </FilterButton>
           ))
         }
-      </FilterDesktopContainer>
-      <FilterContainer onTouchStart={() => setShowAnimation(() => false)}>
+      </div>
+      <div onTouchStart={() => setShowAnimation(() => false)} className="relative isolate lg:hidden">
         { showAnimation && <HorizontalSlide /> }
-        <FilterScrollWrapper>
-          <FilterFlexContainer>
+        <div className="overflow-auto scroll-smooth snap-mandatory snap-x" style={{scrollbarWidth: "none"}}>
+          <div className="flex">
             {
               categoriesOnTop.map((category, index) => (
                 <FilterButton 
@@ -49,8 +48,8 @@ export default function CategoriesFilter() {
                 </FilterButton>
               ))
             }
-          </FilterFlexContainer>
-          <FilterFlexContainer>
+          </div>
+          <div className="flex">
             {
               categoriesOnBottom.map((category, index) => (
                 <FilterButton 
@@ -62,55 +61,9 @@ export default function CategoriesFilter() {
                 </FilterButton>
               ))
             }
-          </FilterFlexContainer>
-        </FilterScrollWrapper>
-      </FilterContainer>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
-
-const Title = styled.summary`
-  font-size: ${props => props.theme.fontSizes.medium};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.bold};
-  margin-bottom: 10px;
-`
-
-const Counter = styled.span`
-  font-size: ${props => props.theme.fontSizes.extraSmall};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.normal};
-  margin-left: 10px;
-`
-
-const FilterDesktopContainer = styled.div`
-  display: none;
-
-  @media (min-width: 768px) {
-    display: block;
-  }
-`
-
-const FilterContainer = styled.div`
-  position: relative;
-  isolation: isolate;
-
-  @media (min-width: 768px) {
-    display: none;
-  }
-`
-
-const FilterScrollWrapper = styled.div`
-  overflow: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`
-
-const FilterFlexContainer = styled.div`
-  display: flex;
-`
