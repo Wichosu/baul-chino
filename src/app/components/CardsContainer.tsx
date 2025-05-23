@@ -107,7 +107,7 @@ export default function CardsContainer() {
               <p className="text-xl text-black font-normal my-2.5">{ e.description }</p>
             </CompoundCard.Content>
             <CompoundCard.Footer>
-              <Button asChild><Link href={e.linkName}>{t('GoTo')} { e.linkName }</Link></Button>
+              <Button asChild><Link href={e.linkHref}>{t('GoTo')} { e.linkName }</Link></Button>
             </CompoundCard.Footer>
           </CompoundCard>
         ))
