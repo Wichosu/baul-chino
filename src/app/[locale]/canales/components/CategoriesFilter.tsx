@@ -20,7 +20,7 @@ export default function CategoriesFilter() {
         {t('Title')}
         { selectedCategory.length > 0 && <span className="text-lg text-black font-normal ml-2.5">({ selectedCategory.length })</span> }
       </h3>
-      <div className="none lg:block">
+      <div className="hidden lg:block">
         {
           FetchedCategories.map((category, index) => (
             <FilterButton 

@@ -3,6 +3,19 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --animate-horizontal-slide: horizontal-slide 1s ease infinite alternate;
+
+  @keyframes horizontal-slide {
+    from {
+      transform: translateX(-100%)
+    }
+    to {
+      transform: translateX(100%)
+    }
+  }
+}
+
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
