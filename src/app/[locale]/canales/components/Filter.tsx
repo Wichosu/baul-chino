@@ -137,7 +137,7 @@ export default function Filter({ FetchedLanguages, FetchedCategories, FetchedCha
     }}>
       <section>
         <h1 className="inline-block text-3xl text-black font-medium my-2.5 lg:mr-10">{t('Title')}</h1>
-        <button onClick={cleanFilters} className="cursor-pointer py-1 px-2.5 border-none rounded-lg bg-red-600 text-xl text-white font-medium lg:mr-5">
+        <button onClick={cleanFilters} className="cursor-pointer py-1 px-2.5 ml-2.5 border-none rounded-lg bg-red-600 text-xl text-white font-medium lg:mr-5">
           {t('ActionButton')}
         </button>
         <LanguageFilters />
