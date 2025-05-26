@@ -1,5 +1,3 @@
-"use client"
-import styled from "styled-components"
 import { useTemplateContext } from "../TemplateContext"
 import { useTranslations } from "next-intl"
 
@@ -29,97 +27,74 @@ export default function SquareForm() {
   }
 
   return (
-    <Container>
-      <Title>{t('Title')}</Title>
+    <section>
+      <h3 className="text-3xl text-black font-medium mt-5">{t('Title')}</h3>
       <ModifierContainer>
         <Label htmlFor="squareSize">{t('Label1')}</Label>
         <Span>{t('Span1')}</Span>
-        <InputContainer>
-          <InputUnit
+        <div>
+          <Input
             type="number" 
             id="squareSize" 
             onChange={handleSquareSizeChange}
             defaultValue={squareSize}
             min={10}
+            className="rounded-r-none"
           />
           <InputUnitSpan>mm</InputUnitSpan>
-        </InputContainer>
+        </div>
       </ModifierContainer>
-    </Container>
+    </section>
   )
 }
 
-const Container = styled.section`
+function ModifierContainer({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="lg:inline-block lg:mr-5">
+      { children }
+    </div>
+  )
+}
 
-`
+function Label({ children, htmlFor }: { children: React.ReactNode, htmlFor: string }) {
+  return (
+    <label className="text-2xl text-black font-normal lg:mr-2.5" htmlFor={htmlFor}>
+      { children }
+    </label>
+  )
+}
 
-const Title = styled.h3`
-  font-size: ${props => props.theme.fontSizes.large};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.bold};
-  margin-top: 20px;
-`
+function Span({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="text-lg text-black font-light block">
+      { children }
+    </span>
+  )
+}
 
-const ModifierContainer = styled.div`
-  @media (min-width: 768px) {
-    display: inline-block;
-    margin-right: 20px;
-  }
-`
+function Input({ className, ...props }: { className?: string } & React.InputHTMLAttributes<HTMLInputElement>) {
+  return (
+    <input
+      className={`
+        text-lg text-black font-normal w-32 mt-2.5 mb-5 py-1 px-2
+        border border-solid border-black rounded-md
+        focus:outline-blue-600 focus:border-transparent
+        ${className}
+      `}
+      {...props}
+    />
+  )
+}
 
-const Label = styled.label`
-  font-size: ${props => props.theme.fontSizes.medium};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.normal};
-
-  @media (min-width: 768px) {
-    margin-right: 10px;
-  }
-`
-
-const Span = styled.span`
-  font-size: ${props => props.theme.fontSizes.extraSmall};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.light};
-  display: block;
-`
-
-const InputContainer = styled.div`
-`
-
-const Input = styled.input`
-  font-size: ${props => props.theme.fontSizes.small};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.normal};
-  width: 120px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 8px;
-  padding-right: 8px;
-  border: 1px solid black;
-  border-radius: 4px;
-
-  &:focus {
-    border-color: transparent;
-  }
-`
-
-const InputUnit = styled(Input)`
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-`
-
-const InputUnitSpan = styled.span`
-  font-size: ${props => props.theme.fontSizes.small};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.light};
-  background-color: ${props => props.theme.colors.grayBackground};
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-`
+function InputUnitSpan({ children }: { children: React.ReactNode }) {
+  return (
+    <span
+      className="
+        text-lg text-black font-light bg-gray-300 py-2 px-2
+        rounded-r-md
+      "
+    >
+      { children }
+    </span>
+  )
+}

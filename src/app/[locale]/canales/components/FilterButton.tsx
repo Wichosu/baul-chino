@@ -1,5 +1,4 @@
 "use client"
-import styled from "styled-components"
 import { useState, useEffect, useContext, Dispatch, SetStateAction } from "react"
 import { ReactNode } from "react"
 import { FilterContext } from "./Filter"
@@ -37,28 +36,16 @@ export default function FilterButton({
   }
 
   return (
-    <Button onClick={onClickFilter}  $isActive={toggleFilter}>
+    <button
+      onClick={onClickFilter}
+      className={`
+        cursor-pointer text-lg font-normal inline py-1 px-2 my-2 mx-1
+        border-none rounded-md transition whitespace-nowrap snap-start
+        ${!toggleFilter && "text-black bg-gray-300"}
+        ${toggleFilter && "text-white bg-blue-600"}
+      `}
+    >
       { children }
-    </Button>
+    </button>
   )
 }
-
-const Button = styled.button<{ $isActive?: boolean}>`
-  cursor: pointer;
-  font-size: ${props => props.theme.fontSizes.small};
-  color: ${props => props.$isActive ? props.theme.colors.white : props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.normal};
-  background-color: ${props => props.$isActive? props.theme.colors.blue : props.theme.colors.grayBackground};
-  display: inline;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  border: none;
-  border-radius: 4px;
-  transition: 200ms ease;
-  white-space: nowrap;
-  scroll-snap-align: start;
-`
