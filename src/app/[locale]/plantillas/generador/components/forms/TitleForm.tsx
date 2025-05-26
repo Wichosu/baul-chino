@@ -1,5 +1,3 @@
-"use client"
-import styled from "styled-components"
 import { useTemplateContext } from "../TemplateContext"
 import Image from "next/image"
 import DeleteIcon from "../../assets/delete.svg"
@@ -79,12 +77,23 @@ export default function TitleForm() {
   }
 
   return (
-    <Container>
-      <Title>{t('Title')}</Title>
+    <section>
+      <h3 className="text-3xl text-black font-medium mt-5">{t('Title')}</h3>
       {
         titles.map((title, index) => (
-          <ScrollContainer key={index}>
-            <Icon alt="Eliminar Titulo" src={DeleteIcon} onClick={() => setTitles(titles.filter((_, i) => i !== index))} />
+          <div
+            key={index}
+            className="flex w-full overflow-x-scroll scroll-smooth snap-mandatory"
+            style={{ scrollbarWidth: "none" }}
+          >
+            <Image
+              alt="Eliminar Titulo"
+              src={DeleteIcon}
+              onClick={() => setTitles(titles.filter((_, i) => i !== index))}
+              width={25}
+              height={25}
+              className="cursor-pointer snap-start self-center mr-5 object-contain aspect-square"
+            />
             <ModifierContainer>
               <Label>{t('Label1')}</Label>
               <Input
@@ -96,140 +105,73 @@ export default function TitleForm() {
             </ModifierContainer>
             <ModifierContainer>
               <Label>{t('Label2')}</Label>
-              <InputContainer>
-                <InputUnit
+              <div className="flex align-baseline">
+                <Input
                   type="number"
                   defaultValue={title.marginRight}
                   onChange={(e) => handleMarginRightChange(e, title)}
+                  className="inline-block rounded-r-none"
                 />
                 <InputUnitSpan>mm</InputUnitSpan>
-              </InputContainer>
+              </div>
             </ModifierContainer>
-          </ScrollContainer>
+          </div>
         ))
       }
-      <Button
+      <button
         onClick={() => setTitles([...titles, { uuid: generateUUID(), name: "", marginRight: 0 }])}
-        $display={titles.length >= 3 ? "none" : "block"}
+        className={`
+          text-lg text-white font-medium bg-blue-600 py-1 px-2 mt-1 border-none
+          rounded-md cursor-pointer transition
+          hover:bg-blue-700
+          ${titles.length >= 3? "none" : "block"}
+        `}
       >
         {t('AddButton')}
-      </Button>
-    </Container>
+      </button>
+    </section>
   )
 }
 
-const Container = styled.section`
-`
+function ModifierContainer({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="inline-block mr-5 snap-start">
+      { children }
+    </div>
+  )
+}
 
-const Title = styled.h3`
-  font-size: ${props => props.theme.fontSizes.large};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.bold};
-  margin-top: 20px;
-`
+function Label({ children }: { children: React.ReactNode }) {
+  return (
+    <label className="text-2xl text-black font-medium lg:mr-2">
+      { children }
+    </label>
+  )
+}
 
-const Button = styled.button<{ $display?: "none" | "block" }>`
-  display: ${props => props.$display || "block"};
-  font-size: ${props => props.theme.fontSizes.small};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.bold};
-  background-color: ${props => props.theme.colors.blue};
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-top: 5px;
-  border: none;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-  transition: 200ms ease;
+function Input({ className,...props }: { className?: string } & React.InputHTMLAttributes<HTMLInputElement>) {
+  return (
+    <input
+      className={`
+        block text-lg text-black font-normal rounded-md w-32 mt-1 mb-2 py-1 px-2
+        border border-solid border-black
+        focus:outline-blue-600 focus:border-transparent
+        ${className}
+      `}
+      {...props}
+    />
+  )
+}
 
-  &:hover {
-    background-color: ${props => props.theme.colors.blueHover};
-  }
-
-  @media (min-width: 768px) {
-    display: ${props => props.$display || "block"};
-  }
-`
-
-const ScrollContainer = styled.div`
-  display: flex;
-  width: 100%;
-  overflow-x: scroll;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-`
-
-const ModifierContainer = styled.div`
-  display: inline-block;
-  margin-right: 20px;
-  scroll-snap-align: start;
-`
-
-const Icon = styled(Image)`
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
-  scroll-snap-align: start;
-  align-self: center;
-  margin-right: 20px;
-  object-fit: contain;
-  aspect-ratio: 1 / 1;
-`
-
-const Label = styled.label`
-  font-size: ${props => props.theme.fontSizes.medium};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.bold};
-
-  @media (min-width: 768px) {
-    margin-right: 10px;
-  }
-`
-
-const Input = styled.input`
-  display: block;
-  font-size: ${props => props.theme.fontSizes.small};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.normal};
-  width: 120px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 8px;
-  padding-right: 8px;
-  border: 1px solid black;
-  border-radius: 4px;
-
-  &:focus {
-    border-color: transparent;
-  }
-`
-
-const InputContainer = styled.div`
-  display: flex;
-  align-items: baseline;
-`
-
-const InputUnit = styled(Input)`
-  display: inline-block;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-`
-
-const InputUnitSpan = styled.span`
-  font-size: ${props => props.theme.fontSizes.small};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.light};
-  background-color: ${props => props.theme.colors.grayBackground};
-  padding-top: 6px;
-  padding-bottom: 6px;
-  padding-left: 8px;
-  padding-right: 8px;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-`
+function InputUnitSpan({ children }: { children: React.ReactNode }) {
+  return (
+    <span
+      className="
+        text-lg text-black font-light bg-gray-300 py-2 px-2
+        rounded-r-md h-full
+      "
+    >
+      { children }
+    </span>
+  )
+}
