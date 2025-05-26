@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react"
-//import GlobalStyles from "../GlobalStyles";
 import '@/src/styles/globals.css';
-import StyledComponentsRegistry from "../lib/registry";
-import StyledComponentsThemeProvider from "../components/StyledComponentsThemeProvider";
 import { PostHogProvider } from "../providers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
@@ -52,13 +49,10 @@ export default async function RootLayout({
 
   return (
     <>
-      {/* <GlobalStyles /> */}
       <html lang={locale}>
         <body className={montserrat.className}>
           <PostHogProvider>
-            <StyledComponentsRegistry>
               <NextIntlClientProvider>
-                <StyledComponentsThemeProvider>
                   <Container>
                     <Navbar />
                     <MobileNavbar />
@@ -67,9 +61,7 @@ export default async function RootLayout({
                     </main>
                     <Footer />
                   </Container>
-                </StyledComponentsThemeProvider>
               </NextIntlClientProvider>
-            </StyledComponentsRegistry>
           </PostHogProvider>
           <Analytics />
           <SpeedInsights />
