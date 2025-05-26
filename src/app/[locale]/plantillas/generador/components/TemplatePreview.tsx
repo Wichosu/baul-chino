@@ -1,8 +1,6 @@
-"use client"
 import { Ref } from "react";
 import Square from "./Square";
 import TemplateHeaders from "./TemplateHeaders";
-import styled from "styled-components";
 import { useTemplateContext } from "./TemplateContext";
 
 type Props = {
@@ -12,70 +10,25 @@ type Props = {
 export default function TemplatePreview({ targetRef }: Props) {
   const { gridGap, squareCount } = useTemplateContext()
 
+  const gridStyles = {
+    gap: `${gridGap}mm`,
+  }
+
   return (
-    <RelativeContainer>
-      <PDF ref={targetRef}>
-        <Page>
-          <WebsiteUrl>www.baulchino.com</WebsiteUrl>
+    <div className="w-full overflow-scroll">
+      <div className="w-fit h-fit mt-5 overflow-hidden border border-solid border-black lg:mx-auto" ref={targetRef}>
+        <div className="flex flex-col gap-[2mm] w-[210mm] h-[297mm] max-w-[210mm] max-h-[297mm]">
+          <span className="m-0 p-0 text-[12pt] text-center">www.baulchino.com</span>
           <TemplateHeaders />
-          <Grid $gap={gridGap}>
+          <div className="w-11/12 mx-auto flex flex-wrap" style={gridStyles}>
             {
               Array.from({ length: squareCount }).map((_, index) => (
                 <Square key={index} />
               ))
             }
-          </Grid>
-        </Page>
-      </PDF>
-    </RelativeContainer>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
-
-const RelativeContainer = styled.div`
-  width: 100%;
-  overflow: scroll;
-`
-
-const PDF = styled.div`
-  width: fit-content;
-  height: fit-content;
-  margin-top: 20px;
-  overflow: hidden;
-  border: 1px solid black;
-
-  @media (min-width: 768px) {
-    margin-left: auto;
-    margin-right: auto;
-  }
-`
-
-const Page = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2mm;
-  width: 210mm;
-  height: 297mm;
-  max-width: 210mm;
-  max-height: 297mm;
-
-  @media (min-width: 768px) {
-    width: 210mm;
-    height: 297mm;
-  }
-`
-
-const Grid = styled.div<{ $gap?: number }>`
-  width: 90%;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: ${props => props.$gap ? `${props.$gap}mm` : `0mm`};
-`
-
-const WebsiteUrl = styled.span`
-  margin: 0;
-  padding: 0;
-  font-size: 12pt;
-  color: #888;
-  text-align: center;
-`
