@@ -3,7 +3,6 @@ import { createClient } from "@/src/app/utils/supabase/client";
 import { ILanguage } from "../interfaces/ILanguage";
 import { IChannel } from "../interfaces/IChannel";
 import { ICategory } from "../interfaces/ICategory";
-import styled from "styled-components"
 import { useState, useEffect, createContext, Dispatch, SetStateAction } from "react";
 import ChannelsList from "./ChannelsList";
 import LanguageFilters from "./LanguageFilter";
@@ -136,52 +135,15 @@ export default function Filter({ FetchedLanguages, FetchedCategories, FetchedCha
       selectedCategory,
       setSelectedCategory,
     }}>
-      <Container>
-        <Title>{t('Title')}</Title>
-        <ActionButton onClick={cleanFilters} $backgroundColor="#dc2626">{t('ActionButton')}</ActionButton>
+      <section>
+        <h1 className="inline-block text-3xl text-black font-medium my-2.5 lg:mr-10">{t('Title')}</h1>
+        <button onClick={cleanFilters} className="cursor-pointer py-1 px-2.5 ml-2.5 border-none rounded-lg bg-red-600 text-xl text-white font-medium lg:mr-5">
+          {t('ActionButton')}
+        </button>
         <LanguageFilters />
         <CategoriesFilter />
         <ChannelsList dataChannel={dataChannel} />
-      </Container>
+      </section>
     </FilterContext.Provider>
   )
 }
-
-const Container = styled.section`
-  width: 85%;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`;
-
-const Title = styled.h1`
-  display: inline-block;
-  font-size: ${props => props.theme.fontSizes.large};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.bold};
-  margin-right: 10px;
-  margin-bottom: 10px;
-
-  @media (min-width: 768px) {
-    display: inline-block;
-    margin-right: 40px;
-  }
-`;
-
-const ActionButton = styled.button<{ $backgroundColor?: string}>`
-  cursor: pointer;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: ${props => props.$backgroundColor || props.theme.colors.blue};
-  font-size: ${props => props.theme.fontSizes.small};
-  color: ${props => props.theme.colors.white};
-  font-weight: ${props => props.theme.fontWeights.bold};
-
-  @media (min-width: 768px) {
-    margin-right: 20px
-  }
-`

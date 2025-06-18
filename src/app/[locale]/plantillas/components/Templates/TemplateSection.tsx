@@ -1,5 +1,4 @@
 "use client"
-import styled from "styled-components"
 import TemplateCard from "./TemplateCard"
 import { TemplateObject } from "./Templates"
 import HorizontalSlide from "@/src/app/components/animations/HorizontalSlide"
@@ -15,8 +14,12 @@ export default function TemplateSection({ children, data }: Props) {
 
   return (
     <>
-      <TemplateHeader>{children}</TemplateHeader>
-      <TemplateWrapper onTouchStart={hideAnimation}>
+      <h2 className="text-3xl text-black font-medium">{children}</h2>
+      <article 
+        onTouchStart={hideAnimation} 
+        className="relative mx-auto flex gap-4 overflow-scroll scroll-smooth snap-mandatory snap-x lg:overflow-visible lg:flex-wrap"
+        style={{ scrollbarWidth: "none" }}
+      >
         { showAnimation && <HorizontalSlide width={40} height={40} /> }
         {
           data.map((templateCard, index) => (
@@ -28,29 +31,7 @@ export default function TemplateSection({ children, data }: Props) {
             />
           ))
         }
-      </TemplateWrapper>
+      </article>
     </>
   )
 }
-
-const TemplateWrapper = styled.article`
-  position: relative;
-  margin: 0 auto;
-  display: flex;
-  gap: 15px;
-  overflow: scroll;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-
-  @media (min-width: 768px) {
-    overflow: visible;
-    flex-wrap: wrap;
-  }
-`
-
-const TemplateHeader = styled.h2`
-  font-size: ${props => props.theme.fontSizes.large};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.bold};
-`

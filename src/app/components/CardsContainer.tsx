@@ -1,6 +1,4 @@
-"use client"
-import styled from "styled-components"
-import Card from "./Card"
+import { CompoundCard } from "./Card"
 import ankiHsk from "../images/anki-menu.png"
 import hskBooks from "../images/hsk-books.png"
 import chineseChannels from "../images/chinese-channels-image.png"
@@ -9,6 +7,9 @@ import Template from "../images/template20mm.png"
 import templateGenerator from "../images/templateGenerator.png"
 import { StaticImageData } from "next/image"
 import { useTranslations } from "next-intl"
+import { Button } from "@/components/ui/button"
+import Image from "next/image"
+import Link from "next/link"
 
 interface Card {
   title: string,
@@ -92,28 +93,25 @@ export default function CardsContainer() {
   ]
 
   return (
-    <Container>
+    <section className="lg:grid lg:grid-cols-2 lg:gap-5 xl:grid-cols-3">
       {
         cardsList.map((e, index) => (
-          <Card key={index}>
-            <Card.Title>{ e.title }</Card.Title>
-            <Card.CardImage img={e.img} imgAlt={e.imgAlt}  />
-            <Card.Description>{ e.description }</Card.Description>
-            <Card.Button linkRef={e.linkHref}>{t('GoTo')} { e.linkName }</Card.Button>
-          </Card>
+          <CompoundCard key={index}>
+            <CompoundCard.Header>
+              <CompoundCard.Header.Title className="text-4xl">{ e.title }</CompoundCard.Header.Title>
+            </CompoundCard.Header>
+            <CompoundCard.Content>
+              <figure className="w-full my-2.5">
+                <Image alt={e.imgAlt} src={e.img} width={500} height={500} className="aspect-square object-contain" />
+              </figure>
+              <p className="text-xl text-black font-normal my-2.5">{ e.description }</p>
+            </CompoundCard.Content>
+            <CompoundCard.Footer>
+              <Button asChild><Link href={e.linkHref}>{t('GoTo')} { e.linkName }</Link></Button>
+            </CompoundCard.Footer>
+          </CompoundCard>
         ))
       }
-    </Container>
+    </section>
   )
 }
-
-const Container = styled.section`
-  width: 85%;
-  margin: 0 auto;
-
-  @media (min-width: 768px) {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: 20px;
-  }
-`;

@@ -2,7 +2,6 @@
 import { useContext } from "react"
 import { FilterContext } from "./Filter"
 import FilterButton from "./FilterButton"
-import styled from "styled-components"
 import { useTranslations } from "next-intl"
 
 export default function LanguageFilter() {
@@ -11,10 +10,10 @@ export default function LanguageFilter() {
 
   return (
     <>
-      <Title>
+      <h3 className="text-2xl text-black font-medium mb-2.5">
         {t('Title')} 
-        { selectedLanguage.length > 0 && <Counter>({ selectedLanguage.length })</Counter> }
-      </Title>
+        { selectedLanguage.length > 0 && <span className="text-lg text-black font-normal ml-2.5">({ selectedLanguage.length })</span> }
+      </h3>
       {
         FetchedLanguages.map((language, index) => (
           <FilterButton 
@@ -29,17 +28,3 @@ export default function LanguageFilter() {
     </>
   )
 }
-
-const Title = styled.summary`
-  font-size: ${props => props.theme.fontSizes.medium};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.bold};
-  margin-bottom: 10px;
-`
-
-const Counter = styled.span`
-  font-size: ${props => props.theme.fontSizes.extraSmall};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.normal};
-  margin-left: 10px;
-`

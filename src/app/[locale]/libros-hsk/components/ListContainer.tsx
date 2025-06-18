@@ -1,6 +1,4 @@
-"use client"
-import styled from "styled-components";
-import Card from "@/src/app/components/Card";
+import { CompoundCard } from "@/src/app/components/Card";
 import { StaticImageData } from "next/image";
 import HSK1 from "@/src/app/images/hsk1.png"
 import HSK2 from "@/src/app/images/hsk2.png"
@@ -9,6 +7,10 @@ import HSK4 from "@/src/app/images/hsk4.png"
 import HSK5 from "@/src/app/images/hsk5.jpg"
 import HSK6 from "@/src/app/images/hsk6.jpg"
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 type Book = {
   name: string,
@@ -73,46 +75,31 @@ export default function ListContainer() {
   const t = useTranslations('HskBooks.ListContainer')
 
   return (
-    <Container>
-      <Title>{t('Title')}</Title>
-      <BooksContainer>
+    <section>
+      <h3 className="text-2xl text-black font-medium my-5">{t('Title')}</h3>
+      <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-3">
         {
           BookCards.map((card, index) => (
-            <Card key={index}>
-              <Card.Title>{ card.name }</Card.Title>
-              <Card.CardImage img={card.img} imgAlt={card.name} />
-              {
-                card.books.map((book, index) => (
-                  <Card.Button key={index} linkRef={book.link} options={{ margin: true, target: '_blank'}}>{ book.name }</Card.Button>
-                ))
-              }
-            </Card>
+            <CompoundCard key={index}>
+              <CompoundCard.Header>
+                <CompoundCard.Header.Title className="text-3xl">{ card.name }</CompoundCard.Header.Title>
+              </CompoundCard.Header>
+              <CompoundCard.Content>
+                <Image src={card.img} width={500} height={500} alt={card.name} className="mx-auto" />
+              </CompoundCard.Content>
+              <CompoundCard.Footer className="flex flex-row flex-wrap gap-4 justify-center">
+                {
+                  card.books.map((book) => (
+                    <Button key={book.name} asChild className={cn("bg-blue-700 hover:bg-blue-800 w-full")}>
+                      <Link href={book.link} target="_blank" className="text-white">{ book.name }</Link>
+                    </Button>
+                  ))
+                }
+              </CompoundCard.Footer>
+            </CompoundCard>
           ))
         }
-      </BooksContainer>
-    </Container>
+      </div>
+    </section>
   )
 };
-
-const Container = styled.section`
-  width: 85%;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`
-
-const Title = styled.h3`
-  font-size: ${props => props.theme.fontSizes.medium};
-  color: ${props => props.theme.colors.black}; 
-  font-weight: ${props => props.theme.fontWeights.bold};
-  margin-top: 20px;
-  margin-bottom: 20px;
-`
-
-const BooksContainer = styled.div`
-  @media (min-width: 768px) {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 60px;
-  }
-`

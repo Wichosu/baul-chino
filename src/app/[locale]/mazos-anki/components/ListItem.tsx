@@ -1,5 +1,3 @@
-"use client"
-import styled from "styled-components";
 import Link from "next/link";
 
 interface Props {
@@ -9,22 +7,11 @@ interface Props {
 
 export default function ListItem({ linkRef, linkName }: Props) {
   return (
-    <Item href={linkRef}>{ linkName }</Item>
+    <Link 
+      href={linkRef} 
+      className="text-xl text-blue-600 font-medium block my-5 w-fit no-underline hover:text-blue-700 hover:underline"
+    >
+      { linkName }
+    </Link>
   )
 }
-
-const Item = styled(Link)`
-  font-size: ${props => props.theme.fontSizes.small};
-  color: ${props => props.theme.colors.blue};
-  font-weight: ${props => props.theme.fontWeights.bold};
-  display: block;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  width: fit-content;
-  text-decoration: none;
-
-  &:hover {
-    color: ${props => props.theme.colors.blueHover};
-    text-decoration: underline;
-  }
-`

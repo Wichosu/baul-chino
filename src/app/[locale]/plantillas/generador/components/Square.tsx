@@ -1,30 +1,22 @@
 "use client"
-import styled from "styled-components"
 import { useTemplateContext } from "./TemplateContext"
 
 export default function Square() {
   const { squareSize } = useTemplateContext()
 
+  const styles = {
+    width: `${squareSize}mm`,
+    height: `${squareSize}mm`,
+  }
+
   return (
-    <SquareContainer $size={squareSize}>
-      <SquareSvg>
+    <div className={`inline-block`} style={styles}>
+      <svg className="w-full h-full border border-solid border-black">
         <line x1={0} y1={`${50}%`} x2={`${100}%`} y2={`${50}%`} stroke="#DDD" />
         <line x1={`${50}%`} y1={0} x2={`${50}%`} y2={`${100}%`} stroke="#DDD" />
         <line x1={0} y1={0} x2={`${100}%`} y2={`${100}%`} stroke="#DDD" />
         <line x1={0} y1={`${100}%`} x2={`${100}%`} y2={0} stroke="#DDD" />
-      </SquareSvg>
-    </SquareContainer>
+      </svg>
+    </div>
   )
 }
-
-const SquareContainer = styled.div<{ $size?: number }>`
-  display: inline-block;
-  width: ${props => props.$size ? `${props.$size}mm` : "20mm"};
-  height: ${props => props.$size ? `${props.$size}mm` : "20mm"};
-`
-
-const SquareSvg = styled.svg`
-  width: 100%;
-  height: 100%;
-  border: 1px solid black;
-`

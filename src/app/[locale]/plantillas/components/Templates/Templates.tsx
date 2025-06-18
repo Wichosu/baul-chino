@@ -1,5 +1,3 @@
-"use client"
-import styled from "styled-components"
 import template12mm from "../../assets/template12mm.png";
 import template16mm from "../../assets/template16mm.png";
 import template20mm from "../../assets/template20mm.png";
@@ -45,16 +43,9 @@ export default function Templates() {
   ]
 
   return (
-    <Container>
+    <section>
       <TemplateSection data={TemplatesData}>{t('Section1')}</TemplateSection>
       <TemplateSection data={TemplatesTypeAData}>{t('Section2')}</TemplateSection>
-    </Container>
+    </section>
   )
 }
-
-const Container = styled.section`
-  width: 85%;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`

@@ -1,4 +1,3 @@
-"use client"
 import { IChannel } from "../interfaces/IChannel"
 import Channel from "./Channel"
 

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Hero from "@/src/app/components/Hero";
+import { Hero } from "@/src/app/components/Hero";
 import Writer from "./components/Writer";
 import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";

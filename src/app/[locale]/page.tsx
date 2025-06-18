@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import Hero from "../components/Hero";
+import { Hero } from "../components/Hero";
 import CardsContainer from "../components/CardsContainer";
 
 export default function Home() {
