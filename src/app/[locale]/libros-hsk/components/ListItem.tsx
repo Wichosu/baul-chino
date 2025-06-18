@@ -1,5 +1,3 @@
-"use client"
-import styled from "styled-components";
 import Link from "next/link";
 
 interface Props {
@@ -9,16 +7,12 @@ interface Props {
 
 export default function ListItem({ linkRef, linkName }: Props) {
   return (
-    <Item href={linkRef} target="_blank">{ linkName }</Item>
+    <Link
+      href={linkRef}
+      target="_blank"
+      className="inline-block my-5 mx-5 w-fit text-blue-600 hover:text-blue-800 transition-colors"
+    >
+      { linkName }
+    </Link>
   )
 }
-
-const Item = styled(Link)`
-  display: inline-block;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  width: fit-content;
-  color: blue;
-`

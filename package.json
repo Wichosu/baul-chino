@@ -10,19 +10,30 @@
     "srv": "ssh srv.us -R 1:localhost:3000"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.13",
+    "@radix-ui/react-navigation-menu": "^1.2.12",
+    "@radix-ui/react-scroll-area": "^1.2.8",
+    "@radix-ui/react-slot": "^1.2.2",
     "@supabase/ssr": "^0.5.2",
     "@supabase/supabase-js": "^2.48.1",
+    "@tailwindcss/postcss": "^4.1.5",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.2.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "hanzi-writer": "^3.7.2",
+    "lucide-react": "^0.508.0",
     "next": "^15.2.4",
     "next-intl": "^4.0.2",
+    "postcss": "^8.5.3",
     "posthog-js": "^1.232.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-to-pdf": "^2.0.0",
     "simple-ime": "^1.1.0",
-    "styled-components": "^6.1.14"
+    "tailwind-merge": "^3.2.0",
+    "tailwindcss": "^4.1.5",
+    "tw-animate-css": "^1.2.9"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

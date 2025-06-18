@@ -7,7 +7,15 @@
     "Channels": "Channels",
     "Hanzi": "Hanzi Writing",
     "Templates": "Templates",
-    "TemplateGenerator": "Template Generator"
+    "TemplateGenerator": "Template Generator",
+    "Descriptions": {
+      "AnkiDecks": "Anki decks covering HSK 1 to HSK 4 vocabulary",
+      "HskBooks": "Download HSK books (Levels 1-6) for free",
+      "Channels": "YouTube channels for learning Mandarin Chinese with various teaching styles",
+      "Hanzi": "Learn to write Chinese characters: master stroke order and discover radicals",
+      "Templates": "Practice stroke order and radicals with downloadable templates",
+      "TemplateGenerator": "Generate customized templates for targeted practice"
+    }
   },
   "Footer": {
     "Message": "More to come...",

@@ -1,5 +1,4 @@
 "use client"
-import styled from "styled-components";
 import { useRef } from "react";
 import generatePDF from "react-to-pdf";
 import TemplateContextProvider from "./TemplateContext";
@@ -17,7 +16,7 @@ export default function TemplateGenerator() {
   }
 
   return (
-    <Container>
+    <section>
       <TemplateContextProvider>
         <TemplateDownload toPDF={toPDF} />
         <GridForm />
@@ -25,14 +24,6 @@ export default function TemplateGenerator() {
         <TitleForm />
         <TemplatePreview targetRef={targetRef} />
       </TemplateContextProvider>
-    </Container>
+    </section>
   )
 }
-
-const Container = styled.section`
-  width: 85%;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`;
-

@@ -1,5 +1,3 @@
-"use client"
-import styled from "styled-components";
 import ListItem from "./ListItem";
 import { useTranslations } from "next-intl";
 
@@ -47,9 +45,9 @@ export default function ListContainer() {
   const t = useTranslations('AnkiDecks.ListContainer')
 
   return (
-    <Container>
+    <section>
       <BlockWrapper>
-        <Title>🇬🇧 {t('TitleEn')}</Title>
+        <Title>{t('TitleEn')}</Title>
         <Description>{t('DescriptionEn')}</Description>
         {
           enAnkiDecks.map((e, index) => (
@@ -62,7 +60,7 @@ export default function ListContainer() {
         }
       </BlockWrapper>
       <BlockWrapper>
-        <Title>🇪🇸 {t('TitleEs')}</Title>
+        <Title>{t('TitleEs')}</Title>
         <Description>{t('DescriptionEs')}</Description>
         {
           esAnkiDecks.map((e, index) => (
@@ -74,34 +72,30 @@ export default function ListContainer() {
           ))
         }
       </BlockWrapper>
-    </Container>
+    </section>
   )
 };
 
-const Container = styled.section`
-  width: 85%;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`
+function BlockWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <article className="inline-block mr-20">
+      { children }
+    </article>
+  )
+}
 
-const Title = styled.h3`
-  font-size: ${props => props.theme.fontSizes.large};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.bold};
-  margin-top: 20px;
-`
+function Title({ children }: { children: string }) {
+  return (
+    <h3 className="text-3xl text-black font-medium mt-5">
+      { children }
+    </h3>
+  )
+}
 
-const Description = styled.p`
-  font-size: ${props => props.theme.fontSizes.small};
-  color: ${props => props.theme.colors.black};
-  font-weight: ${props => props.theme.fontWeights.normal};
-  margin: 0;
-  padding: 0;
-  margin-bottom: 20px;
-`
-
-const BlockWrapper = styled.article`
-  display: inline-block;
-  margin-right: 80px;
-`
+function Description({ children }: { children: string }) {
+  return (
+    <p className="text-xl text-black font-normal m-0 p-0 mb-5">
+      { children }
+    </p>
+  )
+}

@@ -7,7 +7,15 @@
     "Channels": "Lista de Canales",
     "Hanzi": "Escritura de Hanzi",
     "Templates": "Plantillas",
-    "TemplateGenerator": "Generador de Plantillas"
+    "TemplateGenerator": "Generador de Plantillas",
+    "Descriptions": {
+      "AnkiDecks": "Mazos Anki con vocabulario del HSK 1 al HSK 4",
+      "HskBooks": "Descarga los libros HSK del 1 al 6 de manera gratuita",
+      "Channels": "YouTube channels for learning Mandarin Chinese with various teaching styles",
+      "Hanzi": "Aprende a escribir caracteres chinos: domina el orden de trazos y descubre sus radicales",
+      "Templates": "Practica el orden de trazos y radicales con plantillas descargables",
+      "TemplateGenerator": "Genera plantillas adaptadas a tu nivel para perfeccionar tu caligrafía"
+    }
   },
   "Footer": {
     "Message": "Más por venir...",
