@@ -3,6 +3,7 @@ import { Hero } from "@/src/app/components/Hero"
 import Templates from "./components/Templates/Templates"
 import { getTranslations } from "next-intl/server"
 import { useTranslations } from "next-intl"
+import { languageList } from "@/src/app/utils/languages/languageList"
 
 export async function generateMetadata({params}: {params: Promise<{locale: string}>}): Promise<Metadata> {
   const { locale } = await params
@@ -15,6 +16,12 @@ export async function generateMetadata({params}: {params: Promise<{locale: strin
       card: "summary_large_image"
     },
   }
+}
+
+export async function generateStaticParams() {
+  return languageList.map((lang) => ({
+    locale: lang,
+  }));
 }
 
 export default function Page() {
