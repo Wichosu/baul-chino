@@ -6,6 +6,9 @@ import { createSimpleIme } from "simple-ime"
 import InputWriter from "./InputWriter"
 import { SimpleImeInstance } from "simple-ime/dist/src/types"
 
+//TODO: POSSIBLE IMPROVEMENTS FOR PERFORMANCE, WEB VITAL
+//IMPLEMENT LAZY LOADING OR DYNAMIC FOR HANZIWRITER AND SIMPLE IME
+
 interface ISimpleImeInstanceExtended extends SimpleImeInstance {
   chiMode?: boolean
 }
