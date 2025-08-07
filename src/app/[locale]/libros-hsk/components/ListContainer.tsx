@@ -190,6 +190,9 @@ export default function ListContainer() {
         <p>this is a p tag</p>
       </Card>
       <Button type='disabled'>This is a button</Button>
+      <Button type='primary'>This is a button</Button>
+      <Button type='warning'>This is a button</Button>
+      <Button type='delete'>This is a button</Button>
       <div className='grid gap-8 lg:grid-cols-2 xl:grid-cols-3'>
         {BookCards.map((card, index) => (
           <Card as='article' key={index}>

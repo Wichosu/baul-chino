@@ -15,13 +15,6 @@ type Props = {
   children: string | React.ReactNode;
 };
 
-/**
- * DO NOT FORGET THE HOVER
- * DO NOT FORGET THE FOCUS
- * DO NOT FORGET THE ACTIVE
- * DO NOT FORGET THE DISABLED
- * IF DISABLED SHOULD IT BE FOCUSABLE?
- */
 const allowedTags: AllowedTags[] = ['link', 'button'];
 const allowedTypes: AllowedTypes[] = [
   'primary',
@@ -31,16 +24,46 @@ const allowedTypes: AllowedTypes[] = [
 ];
 
 const typeClass: Record<AllowedTypes, string> = {
-  primary: 'bg-blue-600 text-white cursor-pointer',
-  warning: 'bg-yellow-600 text-white cursor-pointer',
-  delete: 'bg-red-600 text-white cursor-pointer',
-  disabled: 'bg-gray-300 text-gray-500 cursor-not-allowed',
+  primary:
+    'bg-blue-700 text-white cursor-pointer transition-all hover:bg-blue-800 focus:bg-blue-800 focus:outline-4 active:bg-blue-900',
+
+  warning:
+    'bg-amber-300 text-black cursor-pointer transition-all hover:bg-amber-400 focus:bg-amber-400 focus:outline-4 active:bg-amber-500',
+
+  delete:
+    'bg-red-700 text-white cursor-pointer transition-all hover:bg-red-800 focus:bg-red-800 focus:outline-4 active:bg-red-900',
+  disabled:
+    'bg-gray-300 text-gray-800 cursor-not-allowed transition-all focus:outline-4 focus:outline-gray-400',
+};
+
+const paddingClass: Record<AllowedScale, string> = {
+  none: 'px-0 py-0',
+  '1': 'px-2 py-1',
+  '2': 'px-4 py-2',
+  '3': 'px-6 py-3',
+};
+
+const marginClass: Record<AllowedScale, string> = {
+  none: 'm-0',
+  '1': 'm-2',
+  '2': 'm-4',
+  '3': 'm-6',
+};
+
+const roundedClass: Record<AllowedScale, string> = {
+  none: 'rounded-none',
+  '1': 'rounded-md',
+  '2': 'rounded-lg',
+  '3': 'rounded-xl',
 };
 
 export default function Button({
   as: Tag = 'button',
   href = '',
   type = 'primary',
+  padding = '2',
+  margin = '1',
+  rounded = '1',
   children,
 }: Props) {
   if (!allowedTags.includes(Tag)) {
@@ -71,13 +94,15 @@ export default function Button({
     throw new Error('href must be a string');
   }
 
-  const className = `${typeClass[type]}`;
+  const className = `${typeClass[type]} ${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]}`;
 
   return Tag === 'link' ? (
     <Link href={href} target='_blank' className={className}>
       {children}
     </Link>
   ) : (
-    <button className={className}>{children}</button>
+    <button className={className} aria-disabled={type === 'disabled'}>
+      {children}
+    </button>
   );
 }
