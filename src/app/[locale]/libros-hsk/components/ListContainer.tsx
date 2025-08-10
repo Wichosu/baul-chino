@@ -1,8 +1,5 @@
-// import { CompoundCard } from '@/src/app/components/Card';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-// import { Button } from '@/components/ui/button';
-// import { cn } from '@/lib/utils';
 import Card from '@/src/app/components/NewCard';
 import Button from '@/src/app/components/Button';
 
@@ -168,18 +165,6 @@ const BookCards = [
 export default function ListContainer() {
   const t = useTranslations('HskBooks.ListContainer');
 
-  /**
-   * <Card as="article" elevation="3">
-   *   <h3>card</h3>
-   *   <figure>
-   *     <Image />
-   *   </figure>
-   *   <button>
-   *     <Link />
-   *   </button>
-   * </Card>
-   */
-
   return (
     <section>
       <h2 className='text-2xl text-black font-medium my-5'>{t('Title')}</h2>
@@ -206,40 +191,6 @@ export default function ListContainer() {
               ))}
             </div>
           </Card>
-          /**
-           * <Button as="link" href="some href" type="link">
-           *   Some text
-           * </Button>
-           */
-          // <CompoundCard key={index}>
-          //   <CompoundCard.Header>
-          //     <CompoundCard.Header.Title className='text-3xl'>
-          //       {card.name}
-          //     </CompoundCard.Header.Title>
-          //   </CompoundCard.Header>
-          //   <CompoundCard.Content>
-          //     <Image
-          //       src={card.img}
-          //       width={500}
-          //       height={500}
-          //       alt={card.name}
-          //       className='mx-auto'
-          //     />
-          //   </CompoundCard.Content>
-          //   <CompoundCard.Footer className='flex flex-row flex-wrap gap-4 justify-center'>
-          //     {card.books.map((book) => (
-          //       <Button
-          //         key={book.name}
-          //         asChild
-          //         className={cn('bg-blue-700 hover:bg-blue-800 w-full')}
-          //       >
-          //         <Link href={book.link} target='_blank' className='text-white'>
-          //           {book.name}
-          //         </Link>
-          //       </Button>
-          //     ))}
-          //   </CompoundCard.Footer>
-          // </CompoundCard>
         ))}
       </div>
     </section>

@@ -4,10 +4,12 @@ import Link from 'next/link';
 type AllowedTags = 'link' | 'button';
 type AllowedTypes = 'primary' | 'warning' | 'delete' | 'disabled';
 type AllowedScale = 'none' | '1' | '2' | '3';
+type AllowedTarget = '_blank' | '_self' | '_parent' | '_top';
 
 type Props = {
   as?: AllowedTags;
   href?: string;
+  target?: AllowedTarget;
   type?: AllowedTypes;
   padding?: AllowedScale;
   margin?: AllowedScale;
@@ -58,6 +60,7 @@ const roundedClass: Record<AllowedScale, string> = {
 export default function Button({
   as: Tag = 'button',
   href = '',
+  target = '_blank',
   type = 'primary',
   padding = '2',
   margin = '1',
@@ -92,10 +95,10 @@ export default function Button({
     throw new Error('href must be a string');
   }
 
-  const className = `${typeClass[type]} ${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]}`;
+  const className = `${typeClass[type]} ${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]} whitespace-nowrap`;
 
   return Tag === 'link' ? (
-    <Link href={href} target='_blank' className={className}>
+    <Link href={href} target={target} className={className}>
       {children}
     </Link>
   ) : (
