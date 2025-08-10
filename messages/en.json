@@ -34,37 +34,37 @@
         "Title": "Anki Decks HSK 1-4",
         "ImgAlt": "Anki menu showing a deck list",
         "Description": "Collection of Anki decks covering HSK 1 to HSK 4 vocabulary",
-        "LinkName": "Anki Decks"
+        "LinkName": "Go to Anki Decks"
       },
       "HskBooks": {
         "Title": "HSK Books",
         "ImgAlt": "HSK books from HSK 1 to HSK 6, showing neatly stacked books",
         "Description": "Download HSK books (Levels 1-6) for free",
-        "LinkName": "HSK Books"
+        "LinkName": "Go to HSK Books"
       },
       "Channels": {
         "Title": "Chinese Learning Channels",
         "ImgAlt": "Collection of 4 images showing YouTube channels that teach Mandarin Chinese in different ways",
         "Description": "YouTube channels for learning Mandarin Chinese with various teaching styles",
-        "LinkName": "Mandarin Learning Channels"
+        "LinkName": "Go to Channels"
       },
       "Hanzi": {
         "Title": "Hanzi Writing 汉字",
         "ImgAlt": "Learn to write Chinese characters: master stroke order and discover radicals",
         "Description": "Learn to write Chinese characters: master stroke order and discover radicals",
-        "LinkName": "Chinese Stroke Order"
+        "LinkName": "Go to Hanzi Writing"
       },
       "Templates": {
         "Title": "Chinese Calligraphy Templates 汉字",
         "ImgAlt": "Master Chinese character writing with our practice templates",
         "Description": "Practice stroke order and radicals with downloadable templates. Generate customized exercises for your skill level.",
-        "LinkName": "Chinese Calligraphy Templates"
+        "LinkName": "Go to Templates"
       },
       "TemplateGenerator": {
         "Title": "Hanzi Practice Template Generator 汉字",
         "ImgAlt": "Create customized Chinese writing exercises",
         "Description": "Generate tailored templates to master stroke order and radicals. Ideal for refining your calligraphy skills!",
-        "LinkName": "Hanzi Template Generator"
+        "LinkName": "Go to Template Generator"
       },
       "GoTo": "Go to"
     }
