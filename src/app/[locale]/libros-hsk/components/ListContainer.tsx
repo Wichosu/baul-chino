@@ -1,7 +1,6 @@
 // import { CompoundCard } from '@/src/app/components/Card';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Link from 'next/link';
 // import { Button } from '@/components/ui/button';
 // import { cn } from '@/lib/utils';
 import Card from '@/src/app/components/NewCard';
@@ -184,19 +183,10 @@ export default function ListContainer() {
   return (
     <section>
       <h2 className='text-2xl text-black font-medium my-5'>{t('Title')}</h2>
-      <Card as='article' elevation='1' border='none'>
-        <h3>title</h3>
-        <button>example button</button>
-        <p>this is a p tag</p>
-      </Card>
-      <Button type='disabled'>This is a button</Button>
-      <Button type='primary'>This is a button</Button>
-      <Button type='warning'>This is a button</Button>
-      <Button type='delete'>This is a button</Button>
       <div className='grid gap-8 lg:grid-cols-2 xl:grid-cols-3'>
         {BookCards.map((card, index) => (
           <Card as='article' key={index}>
-            <h3>{card.name}</h3>
+            <h3 className='text-center text-3xl mb-2'>{card.name}</h3>
             <picture>
               <source srcSet={card.img} width={500} height={500} />
               <Image
@@ -208,16 +198,13 @@ export default function ListContainer() {
                 className='object-contain aspect-square mx-auto'
               />
             </picture>
-            {card.books.map((book, index) => (
-              <Link
-                href={book.link}
-                target='_blank'
-                className='block text-center'
-                key={index}
-              >
-                {book.name}
-              </Link>
-            ))}
+            <div className='flex flex-col text-center mt-2'>
+              {card.books.map((book, index) => (
+                <Button as='link' href={book.link} key={index}>
+                  {book.name}
+                </Button>
+              ))}
+            </div>
           </Card>
           /**
            * <Button as="link" href="some href" type="link">

@@ -25,13 +25,11 @@ const allowedTypes: AllowedTypes[] = [
 
 const typeClass: Record<AllowedTypes, string> = {
   primary:
-    'bg-blue-700 text-white cursor-pointer transition-all hover:bg-blue-800 focus:bg-blue-800 focus:outline-4 active:bg-blue-900',
-
+    'bg-blue-700 text-white cursor-pointer transition-all hover:bg-blue-800 focus:bg-blue-800 focus:outline-4 focus:outline-gray-400 active:bg-blue-900',
   warning:
-    'bg-amber-300 text-black cursor-pointer transition-all hover:bg-amber-400 focus:bg-amber-400 focus:outline-4 active:bg-amber-500',
-
+    'bg-amber-300 text-black cursor-pointer transition-all hover:bg-amber-400 focus:bg-amber-400 focus:outline-4 focus:outline-gray-400 active:bg-amber-500',
   delete:
-    'bg-red-700 text-white cursor-pointer transition-all hover:bg-red-800 focus:bg-red-800 focus:outline-4 active:bg-red-900',
+    'bg-red-700 text-white cursor-pointer transition-all hover:bg-red-800 focus:bg-red-800 focus:outline-4 focus:outline-gray-400 active:bg-red-900',
   disabled:
     'bg-gray-300 text-gray-800 cursor-not-allowed transition-all focus:outline-4 focus:outline-gray-400',
 };
