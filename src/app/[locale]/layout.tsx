@@ -33,7 +33,14 @@ export async function generateMetadata({
     twitter: {
       card: 'summary_large_image',
     },
-    metadataBase: new URL('https://www.baulchino.com/en'),
+    metadataBase: new URL('https://www.baulchino.com/'),
+    alternates: {
+      canonical: '/',
+      languages: {
+        en: '/en',
+        es: '/es',
+      },
+    },
   };
 }
 
