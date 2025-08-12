@@ -20,6 +20,12 @@ export async function generateMetadata({
     twitter: {
       card: 'summary_large_image',
     },
+    alternates: {
+      canonical: '/en',
+      languages: {
+        es: '/es',
+      },
+    },
   };
 }
 
