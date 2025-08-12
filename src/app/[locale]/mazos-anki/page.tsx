@@ -6,7 +6,6 @@ import Instructions from './components/Instructions';
 import ImageContainer from './components/ImageContainer';
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
-import { languageList } from '@/src/app/utils/languages/languageList';
 
 export async function generateMetadata({
   params,
@@ -29,12 +28,6 @@ export async function generateMetadata({
       },
     },
   };
-}
-
-export async function generateStaticParams() {
-  return languageList.map((lang) => ({
-    locale: lang,
-  }));
 }
 
 export default function Page() {

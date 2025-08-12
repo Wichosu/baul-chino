@@ -7,6 +7,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/src/i18n/routing';
+import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { MobileNavbar, Navbar } from '@/src/app/components/Navbar';
 import Footer from '../components/Footer';
@@ -43,6 +44,10 @@ export async function generateMetadata({
   };
 }
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 export default async function RootLayout({
   children,
   params,
@@ -55,6 +60,8 @@ export default async function RootLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+
+  setRequestLocale(locale);
 
   return (
     <>
