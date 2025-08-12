@@ -9,7 +9,6 @@ import { ILanguage } from './interfaces/ILanguage';
 import { ICategory } from './interfaces/ICategory';
 import { IChannel } from './interfaces/IChannel';
 import { getTranslations } from 'next-intl/server';
-import { languageList } from '../../utils/languages/languageList';
 
 export async function generateMetadata({
   params,
@@ -32,12 +31,6 @@ export async function generateMetadata({
       },
     },
   };
-}
-
-export async function generateStaticParams() {
-  return languageList.map((lang) => ({
-    locale: lang,
-  }));
 }
 
 const getCategories = cache(async () => {
