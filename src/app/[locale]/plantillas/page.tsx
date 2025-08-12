@@ -3,7 +3,6 @@ import { Hero } from '@/src/app/components/Hero';
 import Templates from './components/Templates/Templates';
 import { getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import { languageList } from '@/src/app/utils/languages/languageList';
 
 export async function generateMetadata({
   params,
@@ -26,12 +25,6 @@ export async function generateMetadata({
       },
     },
   };
-}
-
-export async function generateStaticParams() {
-  return languageList.map((lang) => ({
-    locale: lang,
-  }));
 }
 
 export default function Page() {
