@@ -6,6 +6,7 @@
     "HskBooks": "HSK Books",
     "Channels": "Channels",
     "Hanzi": "Hanzi Writing",
+    "HskAudios": "HSK Audio Files",
     "Templates": "Templates",
     "TemplateGenerator": "Template Generator",
     "Descriptions": {
@@ -13,6 +14,7 @@
       "HskBooks": "Download HSK books (Levels 1-6) for free",
       "Channels": "YouTube channels for learning Mandarin Chinese with various teaching styles",
       "Hanzi": "Learn to write Chinese characters: master stroke order and discover radicals",
+      "HskAudios": "Listen to HSK audio files from each unit in the HSK textbooks and workbooks",
       "Templates": "Practice stroke order and radicals with downloadable templates",
       "TemplateGenerator": "Generate customized templates for targeted practice"
     }
@@ -53,6 +55,12 @@
         "ImgAlt": "Learn to write Chinese characters: master stroke order and discover radicals",
         "Description": "Learn to write Chinese characters: master stroke order and discover radicals",
         "LinkName": "Go to Hanzi Writing"
+      },
+      "HskAudios": {
+        "Title": "HSK Audio Files",
+        "ImgAlt": "",
+        "Description": "Listen to HSK audio files from each unit in the HSK textbooks and workbooks",
+        "LinkName": "Go to HSK Audio Files"
       },
       "Templates": {
         "Title": "Chinese Calligraphy Templates 汉字",
@@ -195,5 +203,14 @@
         "AddButton": "＋ Add Field"
       }
     }
+  },
+  "HskAudios": {
+    "Metadata": {
+      "Title": "HSK Audio Files | HSK Texbook and Workbook Audios",
+      "Description": "Listen to HSK audio files from each unit in the HSK textbooks and workbooks. Perfect for audio practice and language learning."
+    },
+    "HeroTitle": "Listen to HSK audio files",
+    "HeroMessage1": "Hi, here you can find all audio files from the HSK textbooks and workbooks units. This page aims to help you find the audios for each unit and allow you to practice or do the corresponding exercise.",
+    "HeroMessage2": "Disclaimer: There is a lot of audio files so at the moment I will focuse on HSK 1 and HSK 2 which are the most popular HSK levels, but I will make the effort to bring every audio from all the HSK books in the highest quality posible."
   }
 }

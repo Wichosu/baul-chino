@@ -56,6 +56,15 @@ export default function CardsContainer() {
       t('HskBooks.LinkName')
     ),
     createCard(
+      t('HskAudios.Title'),
+      t('HskAudios.ImgAlt'),
+      '/homepage/hskdisk.avif',
+      '/homepage/hskdisk.jpg',
+      t('HskAudios.Description'),
+      'hsk-audios',
+      t('HskAudios.LinkName')
+    ),
+    createCard(
       t('Channels.Title'),
       t('Channels.ImgAlt'),
       '/homepage/channels.avif',

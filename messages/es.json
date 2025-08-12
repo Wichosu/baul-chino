@@ -6,6 +6,7 @@
     "HskBooks": "Libros HSK",
     "Channels": "Lista de Canales",
     "Hanzi": "Escritura de Hanzi",
+    "HskAudios": "Archivos de Audio HSK",
     "Templates": "Plantillas",
     "TemplateGenerator": "Generador de Plantillas",
     "Descriptions": {
@@ -13,6 +14,7 @@
       "HskBooks": "Descarga los libros HSK del 1 al 6 de manera gratuita",
       "Channels": "YouTube channels for learning Mandarin Chinese with various teaching styles",
       "Hanzi": "Aprende a escribir caracteres chinos: domina el orden de trazos y descubre sus radicales",
+      "HskAudios": "Escucha los audios de los libros HSK Textbook y Workbook",
       "Templates": "Practica el orden de trazos y radicales con plantillas descargables",
       "TemplateGenerator": "Genera plantillas adaptadas a tu nivel para perfeccionar tu caligrafía"
     }
@@ -53,6 +55,12 @@
         "ImgAlt": "Aprende a escribir caracteres chinos: domina el orden de trazos y descubre sus radicales",
         "Description": "Aprende a escribir caracteres chinos: domina el orden de trazos y descubre sus radicales",
         "LinkName": "Ir a Escritura"
+      },
+      "HskAudios": {
+        "Title": "Audios HSK",
+        "ImgAlt": "",
+        "Description": "Escucha los audios de las unidades de los libros Textbook y Workbook de todos los HSK",
+        "LinkName": "Ir a Audios HSK"
       },
       "Templates": {
         "Title": "Plantillas de Caligrafía China 汉字",
@@ -195,5 +203,14 @@
         "AddButton": "＋ Añadir Campo"
       }
     }
+  },
+  "HskAudios": {
+    "Metadata": {
+      "Title": "Audios HSK | Audios HSK Textbook y Workbook",
+      "Description": "Escucha los audios de los libros HSK Textbook y Workbook para practicar y realizar los ejercicios correspondientes. Perfecto para practicar y mejorar tu idioma."
+    },
+    "HeroTitle": "Escucha los Audios HSK",
+    "HeroMessage1": "Buenas, aquí puedes escuchar los audios de los libros HSK Textbook y Workbook. Esta página te ayudará a encontrar los audios de cada unidad y te permitirá practicar o realizar los ejercicios correspondientes.",
+    "HeroMessage2": "Nota: Hay demasiados archivos de audio para los HSK. De momento me enfocare en traer los audios de HSK 1 y 2 que son los más populares, pero hare mi mejor esfuerzo para traer cada uno de los audios de cada libro en la mejor calidad posible."
   }
 }
