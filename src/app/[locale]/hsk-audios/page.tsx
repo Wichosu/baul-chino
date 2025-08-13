@@ -6,14 +6,54 @@ import { Accordion } from 'radix-ui';
 export default function Page() {
   const t = useTranslations('HskAudios');
 
+  /**
+   * My ACCORDION COMPONENT COMSUMPTION
+   * <Accordion type='multiple' defaultValue='' collapsible>
+   *   <AccordionItem>
+   *     <AccordionTrigger>HSK 1</AccordionTrigger>
+   *     <AccordionContent>
+   *       <Accordion>
+   *         <AccordionItem>
+   *           <AccordionTrigger>Unit 1</AccordionItem>
+   *           <AccordionContent>
+   *             <Audio src='/hsk-1-unit-1.mp3' />
+   *             <Audio src='/hsk-1-unit-1.mp3' />
+   *             <Audio src='/hsk-1-unit-1.mp3' />
+   *             <Audio src='/hsk-1-unit-1.mp3' />
+   *             <Audio src='/hsk-1-unit-1.mp3' />
+   *           </AccordionContent>
+   *         </AccordionItem>
+   *       </Accordion>
+   *     </AccordionContent>
+   *   </AccordionItem>
+   * </Accordion>
+   */
+
   return (
     <>
       <Hero title={t('HeroTitle')}>
         <span className='block'>{t('HeroMessage1')}</span>
         <span className='block mt-4'>{t('HeroMessage2')}</span>
       </Hero>
-      <Accordion.Root type='single' defaultValue='' collapsible>
-        <Accordion.Item value='item-1'></Accordion.Item>
+      <Accordion.Root type='single' defaultValue='item-1' collapsible>
+        <Accordion.Item value='item-1'>
+          <Accordion.Header>
+            <Accordion.Trigger>My header trigger</Accordion.Trigger>
+          </Accordion.Header>
+          <Accordion.Content>This is my content</Accordion.Content>
+        </Accordion.Item>
+        <Accordion.Item value='item-2'>
+          <Accordion.Header>
+            <Accordion.Trigger>My header trigger</Accordion.Trigger>
+          </Accordion.Header>
+          <Accordion.Content>This is my content</Accordion.Content>
+        </Accordion.Item>
+        <Accordion.Item value='item-3'>
+          <Accordion.Header>
+            <Accordion.Trigger>My header trigger</Accordion.Trigger>
+          </Accordion.Header>
+          <Accordion.Content>This is my content</Accordion.Content>
+        </Accordion.Item>
       </Accordion.Root>
     </>
   );
