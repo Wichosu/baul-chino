@@ -2,6 +2,11 @@ import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Hero } from '@/src/app/components/Hero';
 import { Accordion } from 'radix-ui';
+import {
+  AccordionRoot,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/src/app/components/Accordion';
 
 export default function Page() {
   const t = useTranslations('HskAudios');
@@ -35,6 +40,19 @@ export default function Page() {
         <span className='block'>{t('HeroMessage1')}</span>
         <span className='block mt-4'>{t('HeroMessage2')}</span>
       </Hero>
+      <AccordionRoot>
+        <AccordionItem value='item-1'>
+          <AccordionTrigger>My header Trigger</AccordionTrigger>
+          <Accordion.Content>This is my content</Accordion.Content>
+        </AccordionItem>
+        <AccordionItem value='item-2'>
+          <AccordionTrigger>My header Trigger</AccordionTrigger>
+          <Accordion.Content>This is my content</Accordion.Content>
+        </AccordionItem>
+      </AccordionRoot>
+      <br />
+      <p>Default accordion:</p>
+      <br />
       <Accordion.Root type='single' defaultValue='item-1' collapsible>
         <Accordion.Item value='item-1'>
           <Accordion.Header>
