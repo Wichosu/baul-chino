@@ -6,6 +6,7 @@ import {
   AccordionRoot,
   AccordionItem,
   AccordionTrigger,
+  AccordionContent,
 } from '@/src/app/components/Accordion';
 
 export default function Page() {
@@ -40,14 +41,22 @@ export default function Page() {
         <span className='block'>{t('HeroMessage1')}</span>
         <span className='block mt-4'>{t('HeroMessage2')}</span>
       </Hero>
-      <AccordionRoot>
+      <AccordionRoot width='lg'>
         <AccordionItem value='item-1'>
           <AccordionTrigger>My header Trigger</AccordionTrigger>
-          <Accordion.Content>This is my content</Accordion.Content>
+          <AccordionContent>This is my content</AccordionContent>
         </AccordionItem>
         <AccordionItem value='item-2'>
           <AccordionTrigger>My header Trigger</AccordionTrigger>
-          <Accordion.Content>This is my content</Accordion.Content>
+          <AccordionContent>This is my content</AccordionContent>
+        </AccordionItem>
+        <AccordionItem value='item-3'>
+          <AccordionTrigger>My header Trigger</AccordionTrigger>
+          <AccordionContent>
+            TThis is my contentThis is my contentThis is my contentThis is my
+            contentThis is my contentThis is my contentThis is my contentThis is
+            my contenthis is my content
+          </AccordionContent>
         </AccordionItem>
       </AccordionRoot>
       <br />
