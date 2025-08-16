@@ -3,18 +3,23 @@ import { Accordion } from 'radix-ui';
 import { ChevronDown } from 'lucide-react';
 
 type AllowedScale = 'none' | '1' | '2' | '3';
+type AllowedWidthScale = 'xs' | 'md' | 'lg' | 'full';
+type AllowedMarginScale = 'none' | '1' | '2' | '3' | 'center';
 
 type AccordionRootProps = {
   type?: 'single' | 'multiple';
   padding?: AllowedScale;
+  margin?: AllowedMarginScale;
   rounded?: AllowedScale;
   elevation?: AllowedScale;
+  width?: AllowedWidthScale;
   children: React.ReactNode;
 };
 
 type AccordionItemProps = {
   value: string;
   padding?: AllowedScale;
+  margin?: AllowedMarginScale;
   rounded?: AllowedScale;
   elevation?: AllowedScale;
   children: React.ReactNode;
@@ -22,10 +27,17 @@ type AccordionItemProps = {
 
 type AccordionTriggerProps = {
   padding?: AllowedScale;
+  margin?: AllowedMarginScale;
   rounded?: AllowedScale;
   elevation?: AllowedScale;
-  width?: number | 'full';
   children: string;
+};
+
+type AccordionContentProps = {
+  padding?: AllowedScale;
+  rounded?: AllowedScale;
+  elevation?: AllowedScale;
+  children: React.ReactNode;
 };
 
 const paddingClass: Record<AllowedScale, string> = {
@@ -33,6 +45,14 @@ const paddingClass: Record<AllowedScale, string> = {
   '1': 'px-2 py-1',
   '2': 'px-4 py-2',
   '3': 'px-6 py-3',
+};
+
+const marginClass: Record<AllowedMarginScale, string> = {
+  none: 'm-0',
+  '1': 'm-2',
+  '2': 'm-4',
+  '3': 'm-6',
+  center: 'mx-auto',
 };
 
 const roundedClass: Record<AllowedScale, string> = {
@@ -49,18 +69,27 @@ const elevationClass: Record<AllowedScale, string> = {
   '3': 'shadow-lg',
 };
 
+const widthClass: Record<AllowedWidthScale, string> = {
+  full: 'w-full',
+  xs: 'w-xs',
+  md: 'w-md',
+  lg: 'w-lg',
+};
+
 export function AccordionRoot({
   type = 'single',
-  padding = '2',
-  rounded = '1',
-  elevation = '1',
+  padding = 'none',
+  margin = 'center',
+  rounded = 'none',
+  elevation = 'none',
+  width = 'full',
   children,
   ...props
 }: AccordionRootProps) {
-  const className = `w-fit ${paddingClass[padding]} ${roundedClass[rounded]} ${elevationClass[elevation]}`;
+  const className = `${widthClass[width]} ${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]} ${elevationClass[elevation]}`;
 
   return (
-    <Accordion.Root type={type} className={className} {...props}>
+    <Accordion.Root type={type} className={className} {...props} collapsible>
       {children}
     </Accordion.Root>
   );
@@ -69,12 +98,13 @@ export function AccordionRoot({
 export function AccordionItem({
   value,
   padding = 'none',
+  margin = '1',
   rounded = 'none',
   elevation = 'none',
   children,
   ...props
 }: AccordionItemProps) {
-  const className = `${paddingClass[padding]} ${roundedClass[rounded]} ${elevationClass[elevation]}`;
+  const className = `${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]} ${elevationClass[elevation]}`;
 
   return (
     <Accordion.Item value={value} className={className} {...props}>
@@ -87,40 +117,39 @@ export function AccordionTrigger({
   padding = '1',
   rounded = 'none',
   elevation = '1',
-  width = 'full',
   children,
 }: AccordionTriggerProps) {
-  const className = `flex justify-between w-${width} ${paddingClass[padding]} ${roundedClass[rounded]} ${elevationClass[elevation]}`;
+  const className = `group flex justify-between w-full ${paddingClass[padding]} ${roundedClass[rounded]} ${elevationClass[elevation]}`;
 
   return (
     <Accordion.Header>
       <Accordion.Trigger className={className}>
-        {children} <ChevronDown />
+        {children}{' '}
+        <ChevronDown
+          aria-hidden
+          className='transition-transform duration-200 ease-out group-data-[state=open]:rotate-180'
+        />
       </Accordion.Trigger>
     </Accordion.Header>
   );
 }
 
-// const AccordionTrigger = React.forwardRef(
-// 	({ children, className, ...props }, forwardedRef) => (
-// 		<Accordion.Header className="flex">
-// 			<Accordion.Trigger
-// 				className={classNames(
-// 					"group flex h-[45px] flex-1 cursor-default items-center justify-between bg-mauve1 px-5 text-[15px] leading-none text-violet11 shadow-[0_1px_0] shadow-mauve6 outline-none hover:bg-mauve2",
-// 					className,
-// 				)}
-// 				{...props}
-// 				ref={forwardedRef}
-// 			>
-// 				{children}
-// 				<ChevronDownIcon
-// 					className="text-violet10 transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)] group-data-[state=open]:rotate-180"
-// 					aria-hidden
-// 				/>
-// 			</Accordion.Trigger>
-// 		</Accordion.Header>
-// 	),
-// );
+//this component should not modify padding and margin
+export function AccordionContent({
+  padding = '2',
+  rounded = 'none',
+  elevation = 'none',
+  children,
+}: AccordionContentProps) {
+  const contentClassName = `overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down`;
+  const divClassName = `${paddingClass[padding]} ${roundedClass[rounded]} ${elevationClass[elevation]}`;
+
+  return (
+    <Accordion.Content className={contentClassName}>
+      <div className={divClassName}>{children}</div>
+    </Accordion.Content>
+  );
+}
 
 // const AccordionContent = React.forwardRef(
 // 	({ children, className, ...props }, forwardedRef) => (
