@@ -14,9 +14,9 @@ import {
   roundedClass,
 } from './Accordion.constants';
 import AccordionThemeProvider from './AccordionThemeProvider';
+import { AccordionSingleProps } from '@radix-ui/react-accordion';
 
 type AccordionRootProps = {
-  type?: 'single' | 'multiple';
   padding?: AllowedScale;
   margin?: AllowedMarginScale;
   rounded?: AllowedScale;
@@ -24,10 +24,9 @@ type AccordionRootProps = {
   width?: AllowedWidthScale;
   theme?: AllowedThemeColors;
   children: React.ReactNode;
-};
+} & AccordionSingleProps;
 
 export function AccordionRoot({
-  type = 'single',
   padding = 'none',
   margin = 'center',
   rounded = 'none',
@@ -41,12 +40,7 @@ export function AccordionRoot({
 
   return (
     <AccordionThemeProvider theme={theme}>
-      <Accordion.Root
-        type={type}
-        className={className}
-        collapsible={true}
-        {...props}
-      >
+      <Accordion.Root className={className} {...props}>
         {children}
       </Accordion.Root>
     </AccordionThemeProvider>

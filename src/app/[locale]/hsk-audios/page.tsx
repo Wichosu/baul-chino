@@ -41,7 +41,12 @@ export default function Page() {
         <span className='block'>{t('HeroMessage1')}</span>
         <span className='block mt-4'>{t('HeroMessage2')}</span>
       </Hero>
-      <AccordionRoot width='full'>
+      <AccordionRoot
+        type='single'
+        defaultValue='item-3'
+        collapsible={true}
+        width='full'
+      >
         <AccordionItem value='item-1'>
           <AccordionTrigger>My header Trigger</AccordionTrigger>
           <AccordionContent>This is my content</AccordionContent>
