@@ -3,6 +3,7 @@ import { Accordion } from 'radix-ui';
 import {
   AllowedMarginScale,
   AllowedScale,
+  AllowedThemeColors,
   AllowedWidthScale,
 } from './Accordion.types';
 import {
@@ -21,6 +22,7 @@ type AccordionRootProps = {
   rounded?: AllowedScale;
   elevation?: AllowedScale;
   width?: AllowedWidthScale;
+  theme?: AllowedThemeColors;
   children: React.ReactNode;
 };
 
@@ -31,13 +33,14 @@ export function AccordionRoot({
   rounded = 'none',
   elevation = 'none',
   width = 'full',
+  theme = 'yellow',
   children,
   ...props
 }: AccordionRootProps) {
   const className = `${widthClass[width]} ${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]} ${elevationClass[elevation]}`;
 
   return (
-    <AccordionThemeProvider theme='yellow'>
+    <AccordionThemeProvider theme={theme}>
       <Accordion.Root type={type} className={className} {...props} collapsible>
         {children}
       </Accordion.Root>
