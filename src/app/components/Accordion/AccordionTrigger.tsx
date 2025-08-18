@@ -1,7 +1,11 @@
 'use client';
 import React from 'react';
 import { Accordion } from 'radix-ui';
-import { AllowedScale, AllowedMarginScale } from './Accordion.types';
+import {
+  AllowedScale,
+  AllowedMarginScale,
+  AllowedThemeColors,
+} from './Accordion.types';
 import {
   paddingClass,
   roundedClass,
@@ -18,6 +22,12 @@ type AccordionTriggerProps = {
   children: string;
 };
 
+const themeColors: Record<AllowedThemeColors, string> = {
+  blue: 'bg-blue-700 hover:bg-blue-800 focus:bg-blue-800 focus:outline-blue-500 text-white',
+  yellow:
+    'bg-yellow-800 hover:bg-yellow-950 focus:bg-yellow-950 focus:outline-yellow-700 text-white',
+};
+
 export function AccordionTrigger({
   padding = '1',
   rounded = '1',
@@ -26,18 +36,14 @@ export function AccordionTrigger({
 }: AccordionTriggerProps) {
   const themeContext = React.useContext(AccordionThemeContext);
 
-  console.log('This is my theme context in trigger', themeContext);
-
   const className = `
     group flex justify-between w-full cursor-pointer transition-colors focus:outline-4 
-    ${paddingClass[padding]} ${roundedClass[rounded]} ${elevationClass[elevation]}
+    ${themeColors[themeContext]} ${paddingClass[padding]} ${roundedClass[rounded]} ${elevationClass[elevation]}
   `;
-
-  const classColorTheme = `text-white bg-yellow-800 hover:bg-yellow-950 focus:bg-yellow-950 focus:outline-yellow-700`;
 
   return (
     <Accordion.Header>
-      <Accordion.Trigger className={`${className} ${classColorTheme}`}>
+      <Accordion.Trigger className={className}>
         {children}{' '}
         <ChevronDown
           aria-hidden

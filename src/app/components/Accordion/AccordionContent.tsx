@@ -1,5 +1,10 @@
+'use client';
 import React from 'react';
-import { AllowedMarginScale, AllowedScale } from './Accordion.types';
+import {
+  AllowedMarginScale,
+  AllowedScale,
+  AllowedThemeColors,
+} from './Accordion.types';
 import {
   paddingClass,
   roundedClass,
@@ -7,6 +12,7 @@ import {
   marginXClass,
 } from './Accordion.constants';
 import { Accordion } from 'radix-ui';
+import { AccordionThemeContext } from './AccordionThemeProvider';
 
 type AccordionContentProps = {
   padding?: AllowedScale;
@@ -16,6 +22,11 @@ type AccordionContentProps = {
   children: React.ReactNode;
 };
 
+const themeColors: Record<AllowedThemeColors, string> = {
+  blue: 'bg-blue-100 text-black',
+  yellow: 'bg-yellow-100 text-black',
+};
+
 export function AccordionContent({
   padding = '2',
   marginX = '1',
@@ -23,10 +34,12 @@ export function AccordionContent({
   elevation = 'none',
   children,
 }: AccordionContentProps) {
+  const themeContext = React.useContext(AccordionThemeContext);
+
   const contentClassName = `overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down`;
+
   const divClassName = `
-    bg-yellow-200 text-black
-    ${paddingClass[padding]} ${marginXClass[marginX]} ${roundedClass[rounded]} ${elevationClass[elevation]}
+    ${themeColors[themeContext]} ${paddingClass[padding]} ${marginXClass[marginX]} ${roundedClass[rounded]} ${elevationClass[elevation]}
   `;
 
   return (
