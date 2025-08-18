@@ -41,7 +41,12 @@ export function AccordionRoot({
 
   return (
     <AccordionThemeProvider theme={theme}>
-      <Accordion.Root type={type} className={className} {...props} collapsible>
+      <Accordion.Root
+        type={type}
+        className={className}
+        collapsible={true}
+        {...props}
+      >
         {children}
       </Accordion.Root>
     </AccordionThemeProvider>
