@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import Link from 'next/link';
 
 type AllowedTags = 'link' | 'button';
@@ -15,7 +15,8 @@ type Props = {
   margin?: AllowedScale;
   rounded?: AllowedScale;
   children: string | React.ReactNode;
-};
+} & HTMLAttributes<HTMLButtonElement> &
+  HTMLAttributes<HTMLAnchorElement>;
 
 const allowedTags: AllowedTags[] = ['link', 'button'];
 const allowedTypes: AllowedTypes[] = [
@@ -66,6 +67,7 @@ export default function Button({
   margin = '1',
   rounded = '1',
   children,
+  ...props
 }: Props) {
   if (!allowedTags.includes(Tag)) {
     throw new Error(
@@ -98,11 +100,15 @@ export default function Button({
   const className = `${typeClass[type]} ${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]} whitespace-nowrap`;
 
   return Tag === 'link' ? (
-    <Link href={href} target={target} className={className}>
+    <Link href={href} target={target} className={className} {...props}>
       {children}
     </Link>
   ) : (
-    <button className={className} aria-disabled={type === 'disabled'}>
+    <button
+      className={className}
+      aria-disabled={type === 'disabled'}
+      {...props}
+    >
       {children}
     </button>
   );
