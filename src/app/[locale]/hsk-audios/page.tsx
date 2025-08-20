@@ -1,39 +1,40 @@
+'use client';
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Hero } from '@/src/app/components/Hero';
-import { Accordion } from 'radix-ui';
 import {
   AccordionRoot,
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
 } from '@/src/app/components/Accordion';
+import { Books } from '@/src/app/constants/hskaudiocollection';
+import Audio from '@/src/app/components/Audio';
 
+/**
+ *  Audio playing
+ * Make audio object to control state
+ * handlePlayingAudio() {
+ *   if (new audio) stop previous audio and play new one
+ * }
+ * <Audio handle={handlePlayingAudio} ... />
+ *   function Audio({...}) {
+ *     <audio onClick={handlePlayingAudio(this audio)}
+ *  }
+ */
 export default function Page() {
   const t = useTranslations('HskAudios');
+  // const [isPlaying, setIsPlaying] = React.useState(false);
+  // const [currentTrack, setCurrentTrack] = React.useState<
+  //   React.RefObject<HTMLAudioElement>
+  // >(null!);
 
-  /**
-   * My ACCORDION COMPONENT COMSUMPTION
-   * <Accordion type='multiple' defaultValue='' collapsible>
-   *   <AccordionItem>
-   *     <AccordionTrigger>HSK 1</AccordionTrigger>
-   *     <AccordionContent>
-   *       <Accordion>
-   *         <AccordionItem>
-   *           <AccordionTrigger>Unit 1</AccordionItem>
-   *           <AccordionContent>
-   *             <Audio src='/hsk-1-unit-1.mp3' />
-   *             <Audio src='/hsk-1-unit-1.mp3' />
-   *             <Audio src='/hsk-1-unit-1.mp3' />
-   *             <Audio src='/hsk-1-unit-1.mp3' />
-   *             <Audio src='/hsk-1-unit-1.mp3' />
-   *           </AccordionContent>
-   *         </AccordionItem>
-   *       </Accordion>
-   *     </AccordionContent>
-   *   </AccordionItem>
-   * </Accordion>
-   */
+  // function handleCurrentTrack(audioRef: React.RefObject<HTMLAudioElement>) {
+  //   setCurrentTrack(audioRef);
+  // }
+
+  // console.log('CURRENT AUDIO TRACK');
+  // console.log({ currentTrack });
 
   return (
     <>
@@ -41,52 +42,29 @@ export default function Page() {
         <span className='block'>{t('HeroMessage1')}</span>
         <span className='block mt-4'>{t('HeroMessage2')}</span>
       </Hero>
-      <AccordionRoot
-        type='single'
-        defaultValue='item-3'
-        collapsible={true}
-        width='full'
-      >
-        <AccordionItem value='item-1'>
-          <AccordionTrigger>My header Trigger</AccordionTrigger>
-          <AccordionContent>This is my content</AccordionContent>
-        </AccordionItem>
-        <AccordionItem value='item-2'>
-          <AccordionTrigger>My header Trigger</AccordionTrigger>
-          <AccordionContent>This is my content</AccordionContent>
-        </AccordionItem>
-        <AccordionItem value='item-3'>
-          <AccordionTrigger>My header Trigger</AccordionTrigger>
-          <AccordionContent>
-            TThis is my contentThis is my contentThis is my contentThis is my
-            contentThis is my contentThis is my contentThis is my contentThis is
-            my contenthis is my content
-          </AccordionContent>
-        </AccordionItem>
+      <AccordionRoot type='single' collapsible={true} width='full'>
+        {Books.map((book, index) => (
+          <AccordionItem value={`book-${index}`} key={`book-${index}`}>
+            <AccordionTrigger>{book.title}</AccordionTrigger>
+            <AccordionContent>
+              <AccordionRoot type='single' collapsible={true} width='full'>
+                {book.units.map((unit, index) => (
+                  <AccordionItem value={`unit-${index}`} key={`unit-${index}`}>
+                    <AccordionTrigger>{unit.title}</AccordionTrigger>
+                    <AccordionContent>
+                      {unit.audioTracks.map((audioTrack, index) => (
+                        <Audio caption={audioTrack.title} key={index}>
+                          <source src={audioTrack.url} type='audio/mp3' />
+                        </Audio>
+                      ))}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </AccordionRoot>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
       </AccordionRoot>
-      <br />
-      <p>Default accordion:</p>
-      <br />
-      <Accordion.Root type='single' defaultValue='item-1' collapsible>
-        <Accordion.Item value='item-1'>
-          <Accordion.Header>
-            <Accordion.Trigger>My header trigger</Accordion.Trigger>
-          </Accordion.Header>
-          <Accordion.Content>This is my content</Accordion.Content>
-        </Accordion.Item>
-        <Accordion.Item value='item-2'>
-          <Accordion.Header>
-            <Accordion.Trigger>My header trigger</Accordion.Trigger>
-          </Accordion.Header>
-          <Accordion.Content>This is my content</Accordion.Content>
-        </Accordion.Item>
-        <Accordion.Item value='item-3'>
-          <Accordion.Header>
-            <Accordion.Trigger>My header trigger</Accordion.Trigger>
-          </Accordion.Header>
-          <Accordion.Content>This is my content</Accordion.Content>
-        </Accordion.Item>
-      </Accordion.Root>
     </>
   );
 }
