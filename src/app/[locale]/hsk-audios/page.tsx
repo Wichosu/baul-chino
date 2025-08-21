@@ -9,7 +9,7 @@ import {
   AccordionContent,
 } from '@/src/app/components/Accordion';
 import { Books } from '@/src/app/constants/hskaudiocollection';
-import Audio from '@/src/app/components/Audio';
+import Audio from '@/src/app/components/Audio/Audio';
 
 /**
  *  Audio playing
