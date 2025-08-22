@@ -58,7 +58,7 @@ const roundedClass: Record<AllowedScale, string> = {
   '3': 'rounded-xl',
 };
 
-export default function Button({
+export function Button({
   as: Tag = 'button',
   href = '',
   target = '_blank',

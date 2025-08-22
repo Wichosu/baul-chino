@@ -1,7 +1,7 @@
-export * from './AccordionRoot';
-export * from './AccordionContent';
-export * from './AccordionItem';
-export * from './AccordionTrigger';
+export { AccordionRoot } from './AccordionRoot';
+export { AccordionContent } from './AccordionContent';
+export { AccordionItem } from './AccordionItem';
+export { AccordionTrigger } from './AccordionTrigger';
 
 /**
  * IDEAS THAT REMAIN:
