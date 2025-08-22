@@ -97,17 +97,17 @@ export function Button({
     throw new Error('href must be a string');
   }
 
-  const className = `${typeClass[type]} ${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]} whitespace-nowrap`;
+  const className = `${props.className} ${typeClass[type]} ${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]} whitespace-nowrap`;
 
   return Tag === 'link' ? (
-    <Link href={href} target={target} className={className} {...props}>
+    <Link {...props} href={href} target={target} className={className}>
       {children}
     </Link>
   ) : (
     <button
+      {...props}
       className={className}
       aria-disabled={type === 'disabled'}
-      {...props}
     >
       {children}
     </button>
