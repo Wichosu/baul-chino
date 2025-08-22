@@ -14,6 +14,7 @@ type Props = {
   padding?: AllowedScale;
   margin?: AllowedScale;
   rounded?: AllowedScale;
+  ref?: React.RefObject<HTMLButtonElement & HTMLAnchorElement>;
   children: string | React.ReactNode;
 } & HTMLAttributes<HTMLButtonElement> &
   HTMLAttributes<HTMLAnchorElement>;
@@ -67,6 +68,7 @@ export function Button({
   margin = '1',
   rounded = '1',
   children,
+  ref,
   ...props
 }: Props) {
   if (!allowedTags.includes(Tag)) {
@@ -100,7 +102,13 @@ export function Button({
   const className = `${props.className} ${typeClass[type]} ${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]} whitespace-nowrap`;
 
   return Tag === 'link' ? (
-    <Link {...props} href={href} target={target} className={className}>
+    <Link
+      {...props}
+      href={href}
+      target={target}
+      className={className}
+      ref={ref}
+    >
       {children}
     </Link>
   ) : (
@@ -108,6 +116,7 @@ export function Button({
       {...props}
       className={className}
       aria-disabled={type === 'disabled'}
+      ref={ref}
     >
       {children}
     </button>
