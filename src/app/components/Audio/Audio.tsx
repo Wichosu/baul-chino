@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import Button from '@/src/app/components/Button';
+import { Button, VolumeButton } from '@/src/app/components/Button';
 import { Play, Pause } from 'lucide-react';
 import { formatSeconds } from '@/src/app/utils/formats';
 
@@ -67,7 +67,28 @@ export default function Audio({
   function onChangeAudioTimeTracker(
     event: React.ChangeEvent<HTMLInputElement>
   ) {
-    setAudioTimeTracker(parseInt(event.target.value));
+    const newAudioTimeTracker = parseInt(event.target.value);
+
+    setIsPlaying(false);
+    setAudioTimeTracker(newAudioTimeTracker);
+
+    audioRef.current.pause();
+    audioRef.current.currentTime = newAudioTimeTracker;
+  }
+
+  function handleMouseClickRelease() {
+    setIsPlaying(true);
+    audioRef.current.play();
+  }
+
+  function handleKeyRelease(event: React.KeyboardEvent) {
+    const key = event.key;
+    const validKeys = ['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'];
+
+    if (validKeys.includes(key)) {
+      setIsPlaying(true);
+      audioRef.current.play();
+    }
   }
 
   // function handleOnClick() {
@@ -85,12 +106,16 @@ export default function Audio({
         {currentTime} / {duration}
       </time>
       <input
+        id='audioTrack'
         type='range'
         min='0'
         max={audioDuration}
         value={audioTimeTracker}
         onChange={onChangeAudioTimeTracker}
+        onMouseUp={handleMouseClickRelease}
+        onKeyUp={handleKeyRelease}
       />
+      <VolumeButton />
       <audio controls ref={audioRef} preload='metadata'>
         {children}
       </audio>

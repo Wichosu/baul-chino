@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { Hero } from '@/src/app/components/Hero';
 import ListContainer from './components/ListContainer';
-import Button from '@/src/app/components/Button';
+import { Button } from '@/src/app/components/Button';
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 

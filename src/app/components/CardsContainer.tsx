@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Card from '@/src/app/components/NewCard';
-import Button from '@/src/app/components/Button';
+import { Button } from '@/src/app/components/Button';
 
 type Card = {
   title: string;
