@@ -9,6 +9,7 @@ import {
   paddingClass,
   roundedClass,
   elevationClass,
+  marginYClass,
   marginXClass,
 } from './Accordion.constants';
 import { Accordion } from 'radix-ui';
@@ -16,6 +17,7 @@ import { AccordionThemeContext } from './AccordionThemeProvider';
 
 type AccordionContentProps = {
   padding?: AllowedScale;
+  marginY?: AllowedMarginScale;
   marginX?: AllowedMarginScale;
   rounded?: AllowedScale;
   elevation?: AllowedScale;
@@ -28,8 +30,9 @@ const themeColors: Record<AllowedThemeColors, string> = {
 };
 
 export function AccordionContent({
-  padding = '2',
-  marginX = '1',
+  padding = 'none',
+  marginY = 'none',
+  marginX = 'none',
   rounded = 'none',
   elevation = 'none',
   children,
@@ -39,7 +42,9 @@ export function AccordionContent({
   const contentClassName = `overflow-hidden duration-500 ease-in-out data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down`;
 
   const divClassName = `
-    ${themeColors[themeContext]} ${paddingClass[padding]} ${marginXClass[marginX]} ${roundedClass[rounded]} ${elevationClass[elevation]}
+    ${themeColors[themeContext]} ${paddingClass[padding]} 
+    ${marginXClass[marginX]} ${marginYClass[marginY]}
+    ${roundedClass[rounded]} ${elevationClass[elevation]}
   `;
 
   return (

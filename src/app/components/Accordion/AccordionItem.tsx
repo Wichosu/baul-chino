@@ -3,7 +3,8 @@ import { Accordion } from 'radix-ui';
 import { AllowedScale, AllowedMarginScale } from './Accordion.types';
 import {
   paddingClass,
-  marginClass,
+  marginYClass,
+  marginXClass,
   roundedClass,
   elevationClass,
 } from './Accordion.constants';
@@ -11,7 +12,8 @@ import {
 type AccordionItemProps = {
   value: string;
   padding?: AllowedScale;
-  margin?: AllowedMarginScale;
+  marginX?: AllowedMarginScale;
+  marginY?: AllowedMarginScale;
   rounded?: AllowedScale;
   elevation?: AllowedScale;
   children: React.ReactNode;
@@ -20,13 +22,18 @@ type AccordionItemProps = {
 export function AccordionItem({
   value,
   padding = 'none',
-  margin = '1',
+  marginY = 'none',
+  marginX = 'none',
   rounded = 'none',
   elevation = 'none',
   children,
   ...props
 }: AccordionItemProps) {
-  const className = `${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]} ${elevationClass[elevation]}`;
+  const className = `
+    ${paddingClass[padding]}
+    ${marginXClass[marginX]} ${marginYClass[marginY]}
+    ${roundedClass[rounded]} ${elevationClass[elevation]}
+  `;
 
   return (
     <Accordion.Item value={value} className={className} {...props}>

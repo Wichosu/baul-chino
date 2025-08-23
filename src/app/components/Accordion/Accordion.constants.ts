@@ -6,9 +6,9 @@ import {
 
 export const paddingClass: Record<AllowedScale, string> = {
   none: 'px-0 py-0',
-  '1': 'px-2 py-1',
-  '2': 'px-4 py-2',
-  '3': 'px-6 py-3',
+  '1': 'px-1 py-0.5 md:px-2 md:py-1',
+  '2': 'px-2 py-1 md:px-4 md:py-2',
+  '3': 'px-3 py-1.5 md:px-6 md:py-3',
 };
 
 export const marginClass: Record<AllowedMarginScale, string> = {
@@ -19,11 +19,19 @@ export const marginClass: Record<AllowedMarginScale, string> = {
   center: 'mx-auto',
 };
 
+export const marginYClass: Record<AllowedMarginScale, string> = {
+  none: 'my-0',
+  '1': 'my-2 md:my-2',
+  '2': 'my-4 md:my-4',
+  '3': 'my-6 md:my-6',
+  center: 'my-auto',
+};
+
 export const marginXClass: Record<AllowedMarginScale, string> = {
   none: 'mx-0',
-  '1': 'mx-2',
-  '2': 'mx-4',
-  '3': 'mx-6',
+  '1': 'mx-1 md:mx-2',
+  '2': 'mx-2 md:mx-4',
+  '3': 'mx-3 md:mx-6',
   center: 'mx-auto',
 };
 

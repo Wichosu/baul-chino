@@ -44,14 +44,22 @@ export default function Page() {
       </Hero>
       <AccordionRoot type='multiple' width='full'>
         {Books.map((book, index) => (
-          <AccordionItem value={`book-${index}`} key={`book-${index}`}>
+          <AccordionItem
+            value={`book-${index}`}
+            marginY='1'
+            key={`book-${index}`}
+          >
             <AccordionTrigger>{book.title}</AccordionTrigger>
-            <AccordionContent>
+            <AccordionContent marginX='1'>
               <AccordionRoot type='multiple' width='full'>
                 {book.units.map((unit, index) => (
-                  <AccordionItem value={`unit-${index}`} key={`unit-${index}`}>
+                  <AccordionItem
+                    value={`unit-${index}`}
+                    marginY='1'
+                    key={`unit-${index}`}
+                  >
                     <AccordionTrigger>{unit.title}</AccordionTrigger>
-                    <AccordionContent>
+                    <AccordionContent padding='2'>
                       {unit.audioTracks.map((audioTrack, index) => (
                         <Audio caption={audioTrack.title} key={index}>
                           <source src={audioTrack.url} type='audio/mp3' />

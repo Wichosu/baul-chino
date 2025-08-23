@@ -121,33 +121,43 @@ export default function Audio({
 
   return (
     <>
-      <figure className='md:hidden flex items-center bg-yellow-200 rounded-md w-fit my-2 py-2 px-4'>
-        <Button type='yellow' onClick={handleButton} margin='none' padding='1'>
-          {audioStatus === 'playing' && <Pause />}
-          {audioStatus === 'pause' && <Play />}
-          {audioStatus === 'finished' && <RotateCcw />}
-        </Button>
-        <figcaption className='mx-2'>{caption}</figcaption>
-        <time className='mr-2'>
-          work on this for small screen
-          {currentTime} / {duration}
-        </time>
-        <input
-          id='audioTrack'
-          type='range'
-          min='0'
-          max={audioDuration}
-          value={audioTimeTracker}
-          onChange={onChangeAudioTimeTracker}
-          onMouseUp={handleMouseClickRelease}
-          onKeyUp={handleKeyRelease}
-          className='accent-yellow-800 mr-2'
-        />
-        <VolumeButton handleVolume={handleVolume} />
+      {/**SMALL SCREEN COMPONENT */}
+      <figure className='md:hidden flex flex-col bg-yellow-200 rounded-md w-fit my-2 py-2 px-2'>
+        <div className='flex'>
+          <figcaption className='mr-2'>{caption}</figcaption>
+          <time>
+            {currentTime} / {duration}
+          </time>
+        </div>
+        <div className='flex'>
+          <Button
+            type='yellow'
+            onClick={handleButton}
+            margin='none'
+            padding='1'
+          >
+            {audioStatus === 'playing' && <Pause />}
+            {audioStatus === 'pause' && <Play />}
+            {audioStatus === 'finished' && <RotateCcw />}
+          </Button>
+          <input
+            id='audioTrack'
+            type='range'
+            min='0'
+            max={audioDuration}
+            value={audioTimeTracker}
+            onChange={onChangeAudioTimeTracker}
+            onMouseUp={handleMouseClickRelease}
+            onKeyUp={handleKeyRelease}
+            className='accent-yellow-800 mx-2'
+          />
+        </div>
         <audio ref={audioRef} preload='metadata'>
           {children}
         </audio>
       </figure>
+
+      {/**BIG SCREEN COMPONENT */}
       <figure className='hidden md:flex items-center bg-yellow-200 rounded-md w-fit my-2 py-2 px-4'>
         <Button type='yellow' onClick={handleButton} margin='none' padding='1'>
           {audioStatus === 'playing' && <Pause />}
@@ -167,7 +177,7 @@ export default function Audio({
           onChange={onChangeAudioTimeTracker}
           onMouseUp={handleMouseClickRelease}
           onKeyUp={handleKeyRelease}
-          className='accent-yellow-800 mr-2'
+          className='accent-yellow-800 rounded focus:outline-4 focus:outline-yellow-700 mr-2'
         />
         <VolumeButton handleVolume={handleVolume} />
         <audio ref={audioRef} preload='metadata'>
