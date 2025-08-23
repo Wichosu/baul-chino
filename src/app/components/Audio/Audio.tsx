@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { Button, VolumeButton } from '@/src/app/components/Button';
-import { Play, Pause } from 'lucide-react';
+import { Play, Pause, RotateCcw } from 'lucide-react';
 import { formatSeconds } from '@/src/app/utils/formats';
 
 type Props = {
@@ -10,6 +10,8 @@ type Props = {
   children: React.ReactNode;
 };
 
+type AudioStatus = 'playing' | 'pause' | 'finished';
+
 //THIS COMPONENT MIGHT CHANGE IN THE FUTURE
 export default function Audio({
   // handleCurrentTrack,
@@ -17,23 +19,29 @@ export default function Audio({
   children,
 }: Props) {
   const audioRef = React.useRef<HTMLAudioElement>(null!);
-  const [isPlaying, setIsPlaying] = React.useState(false);
+  const [audioStatus, setAudioStatus] = React.useState<AudioStatus>('pause');
   const [audioTimeTracker, setAudioTimeTracker] = React.useState(0);
   const [audioDuration, setAudioDuration] = React.useState(0);
 
   const currentTime = formatSeconds(audioTimeTracker, 'mm:ss');
   const duration = formatSeconds(audioDuration, 'mm:ss');
 
-  function handleIsPlaying() {
-    const newIsPlaying = !isPlaying;
-
-    if (newIsPlaying) {
-      audioRef.current.play();
-    } else {
+  function handleButton() {
+    if (audioStatus === 'playing') {
       audioRef.current.pause();
+      setAudioStatus('pause');
     }
 
-    setIsPlaying(newIsPlaying);
+    if (audioStatus === 'pause') {
+      audioRef.current.play();
+      setAudioStatus('playing');
+    }
+
+    if (audioStatus === 'finished') {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play();
+      setAudioStatus('playing');
+    }
   }
 
   //Obtain audio duration from metadata
@@ -54,7 +62,7 @@ export default function Audio({
   //Update the current time of the audio track
   React.useEffect(() => {
     const currentTimeAudioTrack = window.setInterval(() => {
-      if (isPlaying) {
+      if (audioStatus === 'playing') {
         setAudioTimeTracker(audioRef.current.currentTime);
       }
     }, 1000);
@@ -62,14 +70,14 @@ export default function Audio({
     return () => {
       window.clearInterval(currentTimeAudioTrack);
     };
-  }, [isPlaying]);
+  }, [audioStatus]);
 
   function onChangeAudioTimeTracker(
     event: React.ChangeEvent<HTMLInputElement>
   ) {
     const newAudioTimeTracker = parseInt(event.target.value);
 
-    setIsPlaying(false);
+    setAudioStatus('pause');
     setAudioTimeTracker(newAudioTimeTracker);
 
     audioRef.current.pause();
@@ -77,7 +85,7 @@ export default function Audio({
   }
 
   function handleMouseClickRelease() {
-    setIsPlaying(true);
+    setAudioStatus('playing');
     audioRef.current.play();
   }
 
@@ -86,23 +94,40 @@ export default function Audio({
     const validKeys = ['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'];
 
     if (validKeys.includes(key)) {
-      setIsPlaying(true);
+      setAudioStatus('playing');
       audioRef.current.play();
     }
   }
 
-  // function handleOnClick() {
-  //   console.log('clicked audio');
-  //   handleCurrentTrack(audioRef);
-  // }
+  //GET VOLUME AND FUNCTION TO HANDLE VOLUME
+  function handleVolume(volume: number) {
+    audioRef.current.volume = volume;
+  }
+
+  //UPDATE AUDIO STATUS WHEN MEDIA HAS ENDED
+  React.useEffect(() => {
+    function updateAudioStatus() {
+      setAudioStatus('finished');
+    }
+
+    const currentAudioRef = audioRef.current;
+
+    currentAudioRef.addEventListener('ended', updateAudioStatus);
+
+    return () => {
+      currentAudioRef.removeEventListener('ended', updateAudioStatus);
+    };
+  }, []);
 
   return (
-    <figure className='flex items-center'>
-      <Button onClick={handleIsPlaying} margin='none' padding='1'>
-        {isPlaying ? <Pause /> : <Play />}
+    <figure className='flex items-center bg-yellow-200 rounded-md w-fit my-2 py-2 px-4'>
+      <Button type='yellow' onClick={handleButton} margin='none' padding='1'>
+        {audioStatus === 'playing' && <Pause />}
+        {audioStatus === 'pause' && <Play />}
+        {audioStatus === 'finished' && <RotateCcw />}
       </Button>
-      <figcaption>{caption}</figcaption>
-      <time className='mx-2 w-24'>
+      <figcaption className='mx-2'>{caption}</figcaption>
+      <time className='mr-2'>
         {currentTime} / {duration}
       </time>
       <input
@@ -114,9 +139,10 @@ export default function Audio({
         onChange={onChangeAudioTimeTracker}
         onMouseUp={handleMouseClickRelease}
         onKeyUp={handleKeyRelease}
+        className='accent-yellow-800 mr-2'
       />
-      <VolumeButton />
-      <audio controls ref={audioRef} preload='metadata'>
+      <VolumeButton handleVolume={handleVolume} />
+      <audio ref={audioRef} preload='metadata'>
         {children}
       </audio>
     </figure>
