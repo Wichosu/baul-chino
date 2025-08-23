@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from 'react';
 import Link from 'next/link';
 
 type AllowedTags = 'link' | 'button';
-type AllowedTypes = 'primary' | 'warning' | 'delete' | 'disabled';
+type AllowedTypes = 'primary' | 'warning' | 'delete' | 'disabled' | 'yellow';
 type AllowedScale = 'none' | '1' | '2' | '3';
 type AllowedTarget = '_blank' | '_self' | '_parent' | '_top';
 
@@ -25,17 +25,20 @@ const allowedTypes: AllowedTypes[] = [
   'warning',
   'delete',
   'disabled',
+  'yellow',
 ];
 
 const typeClass: Record<AllowedTypes, string> = {
   primary:
-    'bg-blue-700 text-white cursor-pointer transition-all hover:bg-blue-800 focus:bg-blue-800 focus:outline-4 focus:outline-gray-400 active:bg-blue-900',
+    'bg-blue-700 text-white cursor-pointer transition-colors hover:bg-blue-800 focus:bg-blue-800 focus:outline-4 focus:outline-gray-400 active:bg-blue-900',
   warning:
-    'bg-amber-300 text-black cursor-pointer transition-all hover:bg-amber-400 focus:bg-amber-400 focus:outline-4 focus:outline-gray-400 active:bg-amber-500',
+    'bg-amber-300 text-black cursor-pointer transition-colors hover:bg-amber-400 focus:bg-amber-400 focus:outline-4 focus:outline-gray-400 active:bg-amber-500',
   delete:
-    'bg-red-700 text-white cursor-pointer transition-all hover:bg-red-800 focus:bg-red-800 focus:outline-4 focus:outline-gray-400 active:bg-red-900',
+    'bg-red-700 text-white cursor-pointer transition-colors hover:bg-red-800 focus:bg-red-800 focus:outline-4 focus:outline-gray-400 active:bg-red-900',
   disabled:
-    'bg-gray-300 text-gray-800 cursor-not-allowed transition-all focus:outline-4 focus:outline-gray-400',
+    'bg-gray-300 text-gray-800 cursor-not-allowed transition-colors focus:outline-4 focus:outline-gray-400',
+  yellow:
+    'bg-yellow-700 text-white cursor-pointer transition-colors hover:bg-yellow-800 focus:bg-yellow-800 focus:outline-4 focus:ouline-gray-400 active:bg-yellow-900',
 };
 
 const paddingClass: Record<AllowedScale, string> = {
