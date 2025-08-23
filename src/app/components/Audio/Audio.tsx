@@ -5,19 +5,13 @@ import { Play, Pause, RotateCcw } from 'lucide-react';
 import { formatSeconds } from '@/src/app/utils/formats';
 
 type Props = {
-  // handleCurrentTrack: (audioRef: React.RefObject<HTMLAudioElement>) => void;
   caption: string;
   children: React.ReactNode;
 };
 
 type AudioStatus = 'playing' | 'pause' | 'finished';
 
-//THIS COMPONENT MIGHT CHANGE IN THE FUTURE
-export default function Audio({
-  // handleCurrentTrack,
-  caption,
-  children,
-}: Props) {
+export default function Audio({ caption, children }: Props) {
   const audioRef = React.useRef<HTMLAudioElement>(null!);
   const [audioStatus, setAudioStatus] = React.useState<AudioStatus>('pause');
   const [audioTimeTracker, setAudioTimeTracker] = React.useState(0);
