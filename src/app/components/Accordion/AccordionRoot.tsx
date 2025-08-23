@@ -14,7 +14,10 @@ import {
   roundedClass,
 } from './Accordion.constants';
 import AccordionThemeProvider from './AccordionThemeProvider';
-import { AccordionSingleProps } from '@radix-ui/react-accordion';
+import {
+  AccordionMultipleProps,
+  AccordionSingleProps,
+} from '@radix-ui/react-accordion';
 
 type AccordionRootProps = {
   padding?: AllowedScale;
@@ -24,7 +27,7 @@ type AccordionRootProps = {
   width?: AllowedWidthScale;
   theme?: AllowedThemeColors;
   children: React.ReactNode;
-} & AccordionSingleProps;
+} & (AccordionSingleProps | AccordionMultipleProps);
 
 export function AccordionRoot({
   padding = 'none',

@@ -36,7 +36,7 @@ export function AccordionContent({
 }: AccordionContentProps) {
   const themeContext = React.useContext(AccordionThemeContext);
 
-  const contentClassName = `overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down`;
+  const contentClassName = `overflow-hidden duration-500 ease-in-out data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down`;
 
   const divClassName = `
     ${themeColors[themeContext]} ${paddingClass[padding]} ${marginXClass[marginX]} ${roundedClass[rounded]} ${elevationClass[elevation]}
