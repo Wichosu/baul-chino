@@ -42,12 +42,12 @@ export default function Page() {
         <span className='block'>{t('HeroMessage1')}</span>
         <span className='block mt-4'>{t('HeroMessage2')}</span>
       </Hero>
-      <AccordionRoot type='single' collapsible={true} width='full'>
+      <AccordionRoot type='multiple' width='full'>
         {Books.map((book, index) => (
           <AccordionItem value={`book-${index}`} key={`book-${index}`}>
             <AccordionTrigger>{book.title}</AccordionTrigger>
             <AccordionContent>
-              <AccordionRoot type='single' collapsible={true} width='full'>
+              <AccordionRoot type='multiple' width='full'>
                 {book.units.map((unit, index) => (
                   <AccordionItem value={`unit-${index}`} key={`unit-${index}`}>
                     <AccordionTrigger>{unit.title}</AccordionTrigger>
