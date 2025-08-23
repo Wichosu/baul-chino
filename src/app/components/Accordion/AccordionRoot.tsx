@@ -9,7 +9,8 @@ import {
 import {
   widthClass,
   paddingClass,
-  marginClass,
+  marginYClass,
+  marginXClass,
   elevationClass,
   roundedClass,
 } from './Accordion.constants';
@@ -21,7 +22,8 @@ import {
 
 type AccordionRootProps = {
   padding?: AllowedScale;
-  margin?: AllowedMarginScale;
+  marginX?: AllowedMarginScale;
+  marginY?: AllowedMarginScale;
   rounded?: AllowedScale;
   elevation?: AllowedScale;
   width?: AllowedWidthScale;
@@ -31,7 +33,8 @@ type AccordionRootProps = {
 
 export function AccordionRoot({
   padding = 'none',
-  margin = 'center',
+  marginX = 'center',
+  marginY = 'none',
   rounded = 'none',
   elevation = 'none',
   width = 'full',
@@ -39,7 +42,10 @@ export function AccordionRoot({
   children,
   ...props
 }: AccordionRootProps) {
-  const className = `${widthClass[width]} ${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]} ${elevationClass[elevation]}`;
+  const className = `
+    ${widthClass[width]} ${paddingClass[padding]} 
+    ${marginXClass[marginX]} ${marginYClass[marginY]}
+    ${roundedClass[rounded]} ${elevationClass[elevation]}`;
 
   return (
     <AccordionThemeProvider theme={theme}>

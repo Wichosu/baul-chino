@@ -53,11 +53,12 @@ export function VolumeButton({ handleVolume }: Props) {
         min='0'
         max='100'
         className='
-          w-0 -ml-4 transition-all delay-100 duration-500 ease-in-out opacity-0 cursor-pointer accent-yellow-800
+          w-0 -ml-4 opacity-0 rounded cursor-pointer accent-yellow-800
+          will-change-auto transition-all delay-100 duration-500 ease-in-out 
           group-hover:w-24 group-hover:ml-0 group-hover:opacity-100
           group-focus:w-24 group-focus:ml-0 group-focus:opacity-100
           peer-focus:w-24 peer-focus:ml-0 peer-focus:opacity-100
-          focus:w-24 focus:ml-0 focus:opacity-100
+          focus:w-24 focus:ml-0 focus:opacity-100 focus:outline-4 focus:outline-yellow-700
         '
       />
       <div />

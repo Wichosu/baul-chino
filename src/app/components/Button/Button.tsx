@@ -38,7 +38,7 @@ const typeClass: Record<AllowedTypes, string> = {
   disabled:
     'bg-gray-300 text-gray-800 cursor-not-allowed transition-colors focus:outline-4 focus:outline-gray-400',
   yellow:
-    'bg-yellow-700 text-white cursor-pointer transition-colors hover:bg-yellow-800 focus:bg-yellow-800 focus:outline-4 focus:ouline-gray-400 active:bg-yellow-900',
+    'bg-yellow-700 text-white cursor-pointer transition-colors hover:bg-yellow-900 focus:bg-yellow-900 focus:outline-4 focus:outline-yellow-700 active:bg-yellow-950',
 };
 
 const paddingClass: Record<AllowedScale, string> = {
