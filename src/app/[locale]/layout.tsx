@@ -36,7 +36,7 @@ export async function generateMetadata({
     },
     metadataBase: new URL('https://www.baulchino.com/'),
     alternates: {
-      canonical: '/en',
+      canonical: '/',
       languages: {
         es: '/es',
       },
