@@ -185,10 +185,13 @@ export default function ListContainer() {
             </picture>
             <div className='flex flex-col text-center mt-2'>
               {card.books.map((book, index) => (
-                <Button as='link' href={book.link} key={index}>
+                <Button type='yellow' as='link' href={book.link} key={index}>
                   {book.name}
                 </Button>
               ))}
+              <Button type='yellow' as='link' href='/hsk-audios'>
+                {t('ListenAudios')}
+              </Button>
             </div>
           </Card>
         ))}

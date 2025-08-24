@@ -120,7 +120,13 @@ export default function CardsContainer() {
           </picture>
           <p className='text-lg my-2'>{card.description}</p>
           <div className='mx-auto w-fit mt-4'>
-            <Button as='link' href={card.linkHref} target='_self' margin='none'>
+            <Button
+              type='yellow'
+              as='link'
+              href={card.linkHref}
+              target='_self'
+              margin='none'
+            >
               {card.linkName}
             </Button>
           </div>

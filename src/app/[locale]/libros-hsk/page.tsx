@@ -20,7 +20,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
     },
     alternates: {
-      canonical: '/en',
+      canonical: '/',
       languages: {
         es: '/es',
       },
@@ -38,6 +38,7 @@ export default function Page() {
         <span className='block my-4'>{t('HeroMessage2')}</span>
         <span className='block mb-2'>{t('HeroMessage3')}</span>
         <Button
+          type='yellow'
           as='link'
           href='https://drive.google.com/drive/folders/1sokLkXNydcG5jzs-i639_38LU3bzga1f?usp=sharing'
           padding='1'
