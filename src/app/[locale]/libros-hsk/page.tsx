@@ -20,7 +20,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
     },
     alternates: {
-      canonical: '/en',
+      canonical: '/',
       languages: {
         es: '/es',
       },
