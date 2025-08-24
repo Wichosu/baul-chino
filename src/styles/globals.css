@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -8,10 +8,10 @@
 
   @keyframes horizontal-slide {
     from {
-      transform: translateX(-100%)
+      transform: translateX(-100%);
     }
     to {
-      transform: translateX(100%)
+      transform: translateX(100%);
     }
   }
 }

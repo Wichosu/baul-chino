@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Card from '@/src/app/components/NewCard';
-import Button from '@/src/app/components/Button';
+import { Button } from '@/src/app/components/Button';
 
 type Card = {
   title: string;
@@ -54,6 +54,15 @@ export default function CardsContainer() {
       t('HskBooks.Description'),
       'libros-hsk',
       t('HskBooks.LinkName')
+    ),
+    createCard(
+      t('HskAudios.Title'),
+      t('HskAudios.ImgAlt'),
+      '/homepage/hskdisk.avif',
+      '/homepage/hskdisk.jpg',
+      t('HskAudios.Description'),
+      'hsk-audios',
+      t('HskAudios.LinkName')
     ),
     createCard(
       t('Channels.Title'),
