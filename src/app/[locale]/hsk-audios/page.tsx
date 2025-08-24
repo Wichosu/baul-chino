@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Hero } from '@/src/app/components/Hero';
@@ -10,31 +9,34 @@ import {
 } from '@/src/app/components/Accordion';
 import { Books } from '@/src/app/constants/hskaudiocollection';
 import Audio from '@/src/app/components/Audio/Audio';
+import { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 
-/**
- *  Audio playing
- * Make audio object to control state
- * handlePlayingAudio() {
- *   if (new audio) stop previous audio and play new one
- * }
- * <Audio handle={handlePlayingAudio} ... />
- *   function Audio({...}) {
- *     <audio onClick={handlePlayingAudio(this audio)}
- *  }
- */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'HskAudios.Metadata' });
+
+  return {
+    title: t('Title'),
+    description: t('Description'),
+    twitter: {
+      card: 'summary_large_image',
+    },
+    alternates: {
+      canonical: '/en',
+      languages: {
+        es: '/es',
+      },
+    },
+  };
+}
+
 export default function Page() {
   const t = useTranslations('HskAudios');
-  // const [isPlaying, setIsPlaying] = React.useState(false);
-  // const [currentTrack, setCurrentTrack] = React.useState<
-  //   React.RefObject<HTMLAudioElement>
-  // >(null!);
-
-  // function handleCurrentTrack(audioRef: React.RefObject<HTMLAudioElement>) {
-  //   setCurrentTrack(audioRef);
-  // }
-
-  // console.log('CURRENT AUDIO TRACK');
-  // console.log({ currentTrack });
 
   return (
     <>
