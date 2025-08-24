@@ -119,7 +119,8 @@
     "HeroMessage3": "📁 Acceso a los libros:",
     "HeroLink": "📂 Abrir en Google Drive",
     "ListContainer": {
-      "Title": "Descarga el libro en PDF con un solo clic"
+      "Title": "Descarga el libro en PDF con un solo clic",
+      "ListenAudios": "Escucha los audios HSK"
     }
   },
   "Channels": {
