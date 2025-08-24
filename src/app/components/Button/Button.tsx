@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import Link from 'next/link';
 
 type AllowedTags = 'link' | 'button';
-type AllowedTypes = 'primary' | 'warning' | 'delete' | 'disabled';
+type AllowedTypes = 'primary' | 'warning' | 'delete' | 'disabled' | 'yellow';
 type AllowedScale = 'none' | '1' | '2' | '3';
 type AllowedTarget = '_blank' | '_self' | '_parent' | '_top';
 
@@ -14,8 +14,10 @@ type Props = {
   padding?: AllowedScale;
   margin?: AllowedScale;
   rounded?: AllowedScale;
+  ref?: React.RefObject<HTMLButtonElement & HTMLAnchorElement>;
   children: string | React.ReactNode;
-};
+} & HTMLAttributes<HTMLButtonElement> &
+  HTMLAttributes<HTMLAnchorElement>;
 
 const allowedTags: AllowedTags[] = ['link', 'button'];
 const allowedTypes: AllowedTypes[] = [
@@ -23,17 +25,20 @@ const allowedTypes: AllowedTypes[] = [
   'warning',
   'delete',
   'disabled',
+  'yellow',
 ];
 
 const typeClass: Record<AllowedTypes, string> = {
   primary:
-    'bg-blue-700 text-white cursor-pointer transition-all hover:bg-blue-800 focus:bg-blue-800 focus:outline-4 focus:outline-gray-400 active:bg-blue-900',
+    'bg-blue-700 text-white cursor-pointer transition-colors hover:bg-blue-800 focus:bg-blue-800 focus:outline-4 focus:outline-gray-400 active:bg-blue-900',
   warning:
-    'bg-amber-300 text-black cursor-pointer transition-all hover:bg-amber-400 focus:bg-amber-400 focus:outline-4 focus:outline-gray-400 active:bg-amber-500',
+    'bg-amber-300 text-black cursor-pointer transition-colors hover:bg-amber-400 focus:bg-amber-400 focus:outline-4 focus:outline-gray-400 active:bg-amber-500',
   delete:
-    'bg-red-700 text-white cursor-pointer transition-all hover:bg-red-800 focus:bg-red-800 focus:outline-4 focus:outline-gray-400 active:bg-red-900',
+    'bg-red-700 text-white cursor-pointer transition-colors hover:bg-red-800 focus:bg-red-800 focus:outline-4 focus:outline-gray-400 active:bg-red-900',
   disabled:
-    'bg-gray-300 text-gray-800 cursor-not-allowed transition-all focus:outline-4 focus:outline-gray-400',
+    'bg-gray-300 text-gray-800 cursor-not-allowed transition-colors focus:outline-4 focus:outline-gray-400',
+  yellow:
+    'bg-yellow-700 text-white cursor-pointer transition-colors hover:bg-yellow-900 focus:bg-yellow-900 focus:outline-4 focus:outline-yellow-700 active:bg-yellow-950',
 };
 
 const paddingClass: Record<AllowedScale, string> = {
@@ -57,7 +62,7 @@ const roundedClass: Record<AllowedScale, string> = {
   '3': 'rounded-xl',
 };
 
-export default function Button({
+export function Button({
   as: Tag = 'button',
   href = '',
   target = '_blank',
@@ -66,6 +71,8 @@ export default function Button({
   margin = '1',
   rounded = '1',
   children,
+  ref,
+  ...props
 }: Props) {
   if (!allowedTags.includes(Tag)) {
     throw new Error(
@@ -95,14 +102,25 @@ export default function Button({
     throw new Error('href must be a string');
   }
 
-  const className = `${typeClass[type]} ${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]} whitespace-nowrap`;
+  const className = `${props.className} ${typeClass[type]} ${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]} whitespace-nowrap`;
 
   return Tag === 'link' ? (
-    <Link href={href} target={target} className={className}>
+    <Link
+      {...props}
+      href={href}
+      target={target}
+      className={className}
+      ref={ref}
+    >
       {children}
     </Link>
   ) : (
-    <button className={className} aria-disabled={type === 'disabled'}>
+    <button
+      {...props}
+      className={className}
+      aria-disabled={type === 'disabled'}
+      ref={ref}
+    >
       {children}
     </button>
   );

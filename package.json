@@ -10,6 +10,7 @@
     "srv": "ssh srv.us -R 1:localhost:3000"
   },
   "dependencies": {
+    "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-dialog": "^1.1.13",
     "@radix-ui/react-navigation-menu": "^1.2.12",
     "@radix-ui/react-scroll-area": "^1.2.8",
@@ -27,6 +28,7 @@
     "next-intl": "^4.0.2",
     "postcss": "^8.5.3",
     "posthog-js": "^1.232.4",
+    "radix-ui": "^1.4.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-to-pdf": "^2.0.0",
