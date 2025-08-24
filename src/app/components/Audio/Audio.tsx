@@ -159,7 +159,7 @@ export default function Audio({ caption, children }: Props) {
           {audioStatus === 'finished' && <RotateCcw />}
         </Button>
         <figcaption className='mx-2'>{caption}</figcaption>
-        <time className='mr-2'>
+        <time className='w-22 mr-2'>
           {currentTime} / {duration}
         </time>
         <input
