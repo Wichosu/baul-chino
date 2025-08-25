@@ -22,9 +22,9 @@ export async function generateMetadata({
       card: 'summary_large_image',
     },
     alternates: {
-      canonical: '/',
+      canonical: '/mazos-anki',
       languages: {
-        es: '/es',
+        es: '/es/mazos-anki',
       },
     },
   };
