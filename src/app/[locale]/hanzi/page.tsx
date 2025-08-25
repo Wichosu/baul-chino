@@ -19,9 +19,9 @@ export async function generateMetadata({
       card: 'summary_large_image',
     },
     alternates: {
-      canonical: '/',
+      canonical: '/hanzi',
       languages: {
-        es: '/es',
+        es: '/es/hanzi',
       },
     },
   };
