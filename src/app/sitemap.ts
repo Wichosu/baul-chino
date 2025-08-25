@@ -12,6 +12,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/libros-hsk`,
     },
     {
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/hsk-audios`,
+    },
+    {
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/canales`,
     },
     {
