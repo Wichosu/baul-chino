@@ -27,9 +27,9 @@ export async function generateMetadata({
       card: 'summary_large_image',
     },
     alternates: {
-      canonical: '/',
+      canonical: '/hsk-audios',
       languages: {
-        es: '/es',
+        es: '/es/hsk-audios',
       },
     },
   };

@@ -19,9 +19,9 @@ export async function generateMetadata({
       card: 'summary_large_image',
     },
     alternates: {
-      canonical: '/',
+      canonical: '/plantillas',
       languages: {
-        es: '/es',
+        es: '/es/plantillas',
       },
     },
   };

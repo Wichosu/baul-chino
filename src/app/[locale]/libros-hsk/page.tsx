@@ -20,9 +20,9 @@ export async function generateMetadata({
       card: 'summary_large_image',
     },
     alternates: {
-      canonical: '/',
+      canonical: '/libros-hsk',
       languages: {
-        es: '/es',
+        es: '/es/libros-hsk',
       },
     },
   };
