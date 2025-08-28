@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from '@/src/app/components/Accordion';
-import { Books } from '@/src/app/constants/hskaudiocollection';
+import { Books } from '@/src/app/constants/hskaudio/hskaudiocollection';
 import Audio from '@/src/app/components/Audio/Audio';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
@@ -54,15 +54,15 @@ export default function Page() {
             <AccordionTrigger>{book.title}</AccordionTrigger>
             <AccordionContent marginX='1'>
               <AccordionRoot type='multiple' width='full'>
-                {book.units.map((unit, index) => (
+                {book.lessons.map((lesson, index) => (
                   <AccordionItem
                     value={`unit-${index}`}
                     marginY='1'
                     key={`unit-${index}`}
                   >
-                    <AccordionTrigger>{unit.title}</AccordionTrigger>
+                    <AccordionTrigger>{lesson.title}</AccordionTrigger>
                     <AccordionContent padding='2'>
-                      {unit.audioTracks.map((audioTrack, index) => (
+                      {lesson.audioTracks.map((audioTrack, index) => (
                         <Audio caption={audioTrack.title} key={index}>
                           <source src={audioTrack.url} type='audio/mp3' />
                         </Audio>
