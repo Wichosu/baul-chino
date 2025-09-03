@@ -3,12 +3,14 @@ import { hsk1textbook } from './hskaudio.hsk1textbook';
 import { hsk1workbook } from './hskaudio.hsk1workbook';
 import { hsk2textbook } from './hskaudio.hsk2textbook';
 import { hsk2workbook } from './hskaudio.hsk2workbook';
+import { hsk3textbook } from './hskaudio.hsk3textbook';
 
 export const Books: Book[] = [
   hsk1textbook,
   hsk1workbook,
   hsk2textbook,
   hsk2workbook,
+  hsk3textbook,
   // createBook('HSK 2 TEXTBOOK', [
   //   createLesson('Unit 01', [
   //     createAudioTrack('Lesson 02-01', 'hsk1-workbook-0201.mp3', ''),
