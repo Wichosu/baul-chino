@@ -8,11 +8,10 @@ import {
 export const hsk3workbook: Book = createBook('HSK 3 WORKBOOK', [
   createLesson('HSK 3 WORKBOOK - Lesson 01', [
     createAudioTrack(
-      'Lesson 01-01',
+      'Lesson 01',
       'hsk3-workbook-01',
       'pmZgVpOF4SrlXnfvVKi34Y3w0Qra2OzjPehCtZigGfvKBIAD'
     ),
-    createAudioTrack('Lesson 01', 'hsk3-workbook-01', ''),
   ]),
   createLesson('HSK 3 WORKBOOK - Lesson 02', [
     createAudioTrack(
