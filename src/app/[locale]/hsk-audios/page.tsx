@@ -48,7 +48,7 @@ export default function Page() {
         {Books.map((book, index) => (
           <AccordionItem
             value={`book-${index}`}
-            marginY='1'
+            marginY='2'
             key={`book-${index}`}
           >
             <AccordionTrigger>{book.title}</AccordionTrigger>
