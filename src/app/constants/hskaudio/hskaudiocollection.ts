@@ -10,6 +10,9 @@ import { hsk4Aworkbook } from './hskaudio.hsk4Aworkbook';
 import { hsk4Btextbook } from './hskaudio.hsk4Btextbook';
 import { hsk4Bworkbook } from './hskaudio.hsk4Bworkbook';
 import { hsk5Atextbook } from './hskaudio.hsk5Atextbook';
+import { hsk5Aworkbook } from './hskaudio.hsk5Aworkbook';
+import hsk5Btextbook from './hskaudio.hsk5Btextbook.json';
+import hsk5Bworkbook from './hskaudio.hsk5Bworkbook.json';
 
 export const Books: Book[] = [
   hsk1textbook,
@@ -23,6 +26,9 @@ export const Books: Book[] = [
   hsk4Btextbook,
   hsk4Bworkbook,
   hsk5Atextbook,
+  hsk5Aworkbook,
+  hsk5Btextbook,
+  hsk5Bworkbook,
   // createBook('HSK 2 TEXTBOOK', [
   //   createLesson('Unit 01', [
   //     createAudioTrack('Lesson 02-01', 'hsk1-workbook-0201.mp3', ''),
