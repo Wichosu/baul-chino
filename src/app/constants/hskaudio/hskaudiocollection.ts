@@ -13,6 +13,10 @@ import { hsk5Atextbook } from './hskaudio.hsk5Atextbook';
 import { hsk5Aworkbook } from './hskaudio.hsk5Aworkbook';
 import hsk5Btextbook from './hskaudio.hsk5Btextbook.json';
 import hsk5Bworkbook from './hskaudio.hsk5Bworkbook.json';
+import hsk6Atextbook from './hskaudio.hsk6Atextbook.json';
+import hsk6Aworkbook from './hskaudio.hsk6Aworkbook.json';
+import hsk6Btextbook from './hskaudio.hsk6Btextbook.json';
+import hsk6Bworkbook from './hskaudio.hsk6Bworkbook.json';
 
 export const Books: Book[] = [
   hsk1textbook,
@@ -29,34 +33,8 @@ export const Books: Book[] = [
   hsk5Aworkbook,
   hsk5Btextbook,
   hsk5Bworkbook,
-  // createBook('HSK 2 TEXTBOOK', [
-  //   createLesson('Unit 01', [
-  //     createAudioTrack('Lesson 02-01', 'hsk1-workbook-0201.mp3', ''),
-  //     createAudioTrack('Lesson 01-01', 'hsk1-textbook-0101.mp3', ''),
-  //     createAudioTrack('Lesson 01-02', 'hsk1-textbook-0101.mp3', ''),
-  //     createAudioTrack('Lesson 01-03', 'hsk1-textbook-0101.mp3', ''),
-  //     createAudioTrack('Lesson 01-03', 'hsk1-textbook-0101.mp3', ''),
-  //     createAudioTrack('Lesson 01-03', 'hsk1-textbook-0101.mp3', ''),
-  //   ]),
-  //   createLesson('Unit 02', [
-  //     createAudioTrack('Lesson 01-03', 'hsk1-textbook-0101.mp3', ''),
-  //     createAudioTrack('Lesson 01-03', 'hsk1-textbook-0101.mp3', ''),
-  //     createAudioTrack('Lesson 01-03', 'hsk1-textbook-0101.mp3', ''),
-  //     createAudioTrack('Lesson 01-03', 'hsk1-textbook-0101.mp3', ''),
-  //   ]),
-  //   createLesson('Unit 03', [
-  //     createAudioTrack('Lesson 01-03', 'hsk1-textbook-0101.mp3', ''),
-  //     createAudioTrack('Lesson 01-03', 'hsk1-textbook-0101.mp3', ''),
-  //     createAudioTrack('Lesson 01-03', 'hsk1-textbook-0101.mp3', ''),
-  //     createAudioTrack('Lesson 01-03', 'hsk1-textbook-0101.mp3', ''),
-  //   ]),
-  //   createLesson('Unit 04', [
-  //     createAudioTrack('Lesson 01-03', 'hsk1-textbook-0101.mp3', ''),
-  //     createAudioTrack('Lesson 01-03', 'hsk1-textbook-0101.mp3', ''),
-  //     createAudioTrack('Lesson 01-03', 'hsk1-textbook-0101.mp3', ''),
-  //     createAudioTrack('Lesson 01-03', 'hsk1-textbook-0101.mp3', ''),
-  //     createAudioTrack('Lesson 01-03', 'hsk1-textbook-0101.mp3', ''),
-  //     createAudioTrack('Lesson 01-03', 'hsk1-textbook-0101.mp3', ''),
-  //   ]),
-  // ]),
+  hsk6Atextbook,
+  hsk6Aworkbook,
+  hsk6Btextbook,
+  hsk6Bworkbook,
 ];
