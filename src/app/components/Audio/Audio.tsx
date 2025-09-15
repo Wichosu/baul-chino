@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { Button, VolumeButton } from '@/src/app/components/Button';
-import { Play, Pause, RotateCcw } from 'lucide-react';
+import { Play, Pause, RotateCcw, LoaderCircle } from 'lucide-react';
 import { formatSeconds } from '@/src/app/utils/formats';
 
 type Props = {
@@ -9,11 +9,11 @@ type Props = {
   children: React.ReactNode;
 };
 
-type AudioStatus = 'playing' | 'pause' | 'finished';
+type AudioStatus = 'playing' | 'pause' | 'finished' | 'loading';
 
 export default function Audio({ caption, children }: Props) {
   const audioRef = React.useRef<HTMLAudioElement>(null!);
-  const [audioStatus, setAudioStatus] = React.useState<AudioStatus>('pause');
+  const [audioStatus, setAudioStatus] = React.useState<AudioStatus>('loading');
   const [audioTimeTracker, setAudioTimeTracker] = React.useState(0);
   const [audioDuration, setAudioDuration] = React.useState(0);
 
@@ -42,6 +42,7 @@ export default function Audio({ caption, children }: Props) {
   React.useEffect(() => {
     function onLoadedMetadata() {
       setAudioDuration(audioRef.current.duration);
+      setAudioStatus('pause');
     }
 
     const currentAudioRef = audioRef.current;
@@ -130,6 +131,7 @@ export default function Audio({ caption, children }: Props) {
             margin='none'
             padding='1'
           >
+            {audioStatus === 'loading' && <LoaderCircle />}
             {audioStatus === 'playing' && <Pause />}
             {audioStatus === 'pause' && <Play />}
             {audioStatus === 'finished' && <RotateCcw />}
@@ -154,6 +156,9 @@ export default function Audio({ caption, children }: Props) {
       {/**BIG SCREEN COMPONENT */}
       <figure className='hidden md:flex items-center bg-yellow-200 rounded-md w-fit my-2 py-2 px-4'>
         <Button type='yellow' onClick={handleButton} margin='none' padding='1'>
+          {audioStatus === 'loading' && (
+            <LoaderCircle className='animate-spin' />
+          )}
           {audioStatus === 'playing' && <Pause />}
           {audioStatus === 'pause' && <Play />}
           {audioStatus === 'finished' && <RotateCcw />}
