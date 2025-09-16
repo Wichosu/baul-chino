@@ -48,11 +48,11 @@ const BookCards = [
     [
       createBook(
         'HSK-1-TEXTBOOK',
-        'https://drive.google.com/file/d/1mFknn3Br7Agm8grJqe2GljOUzTaEmMG7/view?usp=sharing'
+        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlfpQRxb6UedIATMvN4WYEa10X8Px6gmt35Gju'
       ),
       createBook(
         'HSK-1-WORKBOOK',
-        'https://drive.google.com/file/d/1XNHgGXIqKAUq6W2-bnaF5GB-QKgk34Im/view?usp=sharing'
+        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlnqICRp2i9uJc4gOLBEVtzodXQemjTIxb6SlY'
       ),
     ]
   ),
@@ -64,11 +64,11 @@ const BookCards = [
     [
       createBook(
         'HSK-2-TEXTBOOK',
-        'https://drive.google.com/file/d/1lBEXmHlaOdY65u_f8EfR4Bpj3vbbxG0l/view?usp=sharing'
+        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4Srl288dPpEDSyXihkmPQfr0vjdRonIwVbNGzusg'
       ),
       createBook(
         'HSK-2-WORKBOOK',
-        'https://drive.google.com/file/d/1kcWivHKplSZ6xpyQzv5oTBCMO4jj3zn-/view?usp=sharing'
+        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlyP9pstkB7tDUVmTzWa5fin28J43MPxR91kZ6'
       ),
     ]
   ),
@@ -80,11 +80,11 @@ const BookCards = [
     [
       createBook(
         'HSK-3-TEXTBOOK',
-        'https://drive.google.com/file/d/1xbmulSI8NcEk6VByYajS-P0WMg8T1brn/view?usp=sharing'
+        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlQcuGkb14SFyf85BlhTC1c6wtZJINpVuY3EDo'
       ),
       createBook(
         'HSK-3-WORKBOOK',
-        'https://drive.google.com/file/d/1U4DSrND68LQt_khgPSwyex7TiJPfZPgl/view?usp=sharing'
+        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlhgcvjXnf3rUnmWz5qXpjJIdhaksbMeA7xvP1'
       ),
     ]
   ),
@@ -96,19 +96,19 @@ const BookCards = [
     [
       createBook(
         'HSK-4A-TEXTBOOK',
-        'https://drive.google.com/file/d/17y8Nfq0LWRn7ddF3JgYEQTp0dr-Tulxf/view?usp=sharing'
+        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlgsH6nVEFkGsUQaCdXWO7ou3iFmYHBZMApLxq'
       ),
       createBook(
         'HSK-4A-WORKBOOK',
-        'https://drive.google.com/file/d/19C0GVcYbulG8W2lUp7d3JbVkLQ5SEyV6/view?usp=sharing'
+        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlO4oUjcCRU4rdsfetVKvJP8C6NT1u39wcYbqz'
       ),
       createBook(
         'HSK-4B-TEXTBOOK',
-        'https://drive.google.com/file/d/13pig_-Tw3P0S7lPpmc30LQK8NxUvDT2_/view?usp=sharing'
+        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlgetneQFkGsUQaCdXWO7ou3iFmYHBZMApLxq8'
       ),
       createBook(
         'HSK-4B-WORKBOOK',
-        'https://drive.google.com/file/d/1QvQra8cWsqUguI8Y4XUzV4vdpvLG4_WZ/view?usp=sharing'
+        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrllAGEoFeHM50UaZTLD93wuroWtXgfIQcshY86'
       ),
     ]
   ),
@@ -120,19 +120,19 @@ const BookCards = [
     [
       createBook(
         'HSK-5A-TEXTBOOK',
-        'https://drive.google.com/file/d/1rJ6OvvWSpvuJmmvTArOOJhLyHjNnYGWJ/view?usp=sharing'
+        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4Srl4GTaEu9xbZ0AwPmY1VJH2ofWCidn8aDyNg3G'
       ),
       createBook(
         'HSK-5A-WORKBOOK',
-        'https://drive.google.com/file/d/14QbkzaCUtRttf_QAtOoQKYrDfMiT3fjL/view?usp=sharing'
+        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlatVCrk9G69n1wbW580GxDg23iyutEadrClqV'
       ),
       createBook(
         'HSK-5B-TEXTBOOK',
-        'https://drive.google.com/file/d/1DgC7WQRwqU7u6mYlj7v5XbCd8107u92d/view?usp=sharing'
+        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlUscOCYApa8b0cLnkoHqhDBOsAFuK67fEtdJe'
       ),
       createBook(
         'HSK-5B-WORKBOOK',
-        'https://drive.google.com/file/d/1RF9imDi1_FarkaCJ0R44prJzyu25wIgz/view?usp=sharing'
+        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlQOTx0g14SFyf85BlhTC1c6wtZJINpVuY3EDo'
       ),
     ]
   ),
@@ -144,19 +144,19 @@ const BookCards = [
     [
       createBook(
         'HSK-6A-TEXTBOOK',
-        'https://drive.google.com/file/d/1JrHI-AEyuTe2x9Lp_PHMnApe1dhkvjvQ/view?usp=sharing'
+        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrluJ0fOCHmfNGTF5xtPKRWzgk329eEZJS1nIHl'
       ),
       createBook(
         'HSK-6A-WORKBOOK',
-        'https://drive.google.com/file/d/1urdLjV1Qnsmc2NLvViV_l9bdt6TBNc6O/view?usp=sharing'
+        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrluYogk1HmfNGTF5xtPKRWzgk329eEZJS1nIHl'
       ),
       createBook(
         'HSK-6B-TEXTBOOK',
-        'https://drive.google.com/file/d/1w7KLfxIvNB9H00Zka5Oc2B6tvxW_WTW4/view?usp=sharing'
+        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlA5d3ZkzD68JTVorcF4ZRUl9xpeqYPQbj320X'
       ),
       createBook(
         'HSK-6B-WORKBOOK',
-        'https://drive.google.com/file/d/1bsADrkgkBDR9vkxmHxDM94VYj2YAIZ49/view?usp=sharing'
+        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlfvGVPU6UedIATMvN4WYEa10X8Px6gmt35Gju'
       ),
     ]
   ),
