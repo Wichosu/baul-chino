@@ -91,7 +91,7 @@
       "Android": "Android",
       "Iphone": "iPhone (Versión Pagada)",
       "Windows": "Windows 10/11",
-      "Mac": "Mac (Apple Silicon)",
+      "Mac": "Mac macOS 12+",
       "MacIntel": "Mac (Intel)",
       "Linux": "Linux"
     },
