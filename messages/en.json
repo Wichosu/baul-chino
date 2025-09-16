@@ -91,7 +91,7 @@
       "Android": "Android",
       "Iphone": "iPhone (Paid Version)",
       "Windows": "Windows 10/11",
-      "Mac": "Mac (Apple Silicon)",
+      "Mac": "Mac macOS 12+",
       "MacIntel": "Mac (Intel)",
       "Linux": "Linux"
     },
@@ -99,7 +99,7 @@
       "TitleEn": "Anki Decks in English",
       "DescriptionEn": "Complete decks with English translations",
       "TitleEs": "Anki Decks in Spanish",
-      "DescriptionEs": "Complete decks with Spanish translations, perfect for Spanish speakers"
+      "DescriptionEs": "Complete decks with Spanish translations"
     },
     "Instructions": {
       "Title": "How to use Anki?"
