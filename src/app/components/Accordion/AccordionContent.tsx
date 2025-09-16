@@ -48,8 +48,10 @@ export function AccordionContent({
   `;
 
   return (
-    <Accordion.Content className={contentClassName}>
-      <div className={divClassName}>{children}</div>
+    <Accordion.Content className={contentClassName} asChild>
+      <dd>
+        <div className={divClassName}>{children}</div>
+      </dd>
     </Accordion.Content>
   );
 }
