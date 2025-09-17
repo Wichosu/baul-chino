@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import { Menu } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import {
@@ -27,6 +27,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { useTranslations } from 'next-intl';
 
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { Button } from './Button';
 
 type ListItem = {
   title: string;
@@ -125,7 +126,9 @@ export function MobileNavbar() {
   return (
     <Sheet>
       <SheetTrigger className={cn('lg:hidden')} asChild>
-        <Image alt='Navbar Menu' src='/menu.svg' width={20} height={20} />
+        <Button type='yellow' margin='none' padding='1'>
+          <Menu className='cursor-pointer' />
+        </Button>
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>

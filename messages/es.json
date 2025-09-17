@@ -105,7 +105,11 @@
       "Title": "¿Como usar Anki?"
     },
     "ImageContainer": {
-      "Title": "Imágenes ilustrativas"
+      "Title": "Imágenes ilustrativas",
+      "AnkiMenuAlt": "Menú de Anki mostrando una lista de mazos",
+      "AnkiCardAlt": "Flashcard mostrando los carácteres 不客气, su forma en pinyin, su audio, traducción al español y una animación con la sucesión de trazos",
+      "AnkiBrowserAlt": "Explorador de archivos de Anki, en el se muestran todas las Flashcards presentes en un mazo",
+      "AnkiCardFrontAlt": "Flashcard mostrando únicamente el carácter 爱"
     }
   },
   "HskBooks": {
