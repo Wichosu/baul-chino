@@ -49,8 +49,8 @@ export function AccordionRoot({
 
   return (
     <AccordionThemeProvider theme={theme}>
-      <Accordion.Root className={className} {...props}>
-        {children}
+      <Accordion.Root className={className} asChild {...props}>
+        <dl>{children}</dl>
       </Accordion.Root>
     </AccordionThemeProvider>
   );

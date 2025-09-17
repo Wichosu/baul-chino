@@ -42,14 +42,16 @@ export function AccordionTrigger({
   `;
 
   return (
-    <Accordion.Header>
-      <Accordion.Trigger className={className}>
-        {children}{' '}
-        <ChevronDown
-          aria-hidden
-          className='transition-transform duration-200 ease-out group-data-[state=open]:rotate-180'
-        />
-      </Accordion.Trigger>
+    <Accordion.Header asChild>
+      <dt>
+        <Accordion.Trigger className={className}>
+          {children}
+          <ChevronDown
+            aria-hidden
+            className='transition-transform duration-200 ease-out group-data-[state=open]:rotate-180'
+          />{' '}
+        </Accordion.Trigger>
+      </dt>
     </Accordion.Header>
   );
 }

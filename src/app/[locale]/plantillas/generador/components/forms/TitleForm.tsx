@@ -1,155 +1,175 @@
-import { useTemplateContext } from "../TemplateContext"
-import Image from "next/image"
-import DeleteIcon from "../../assets/delete.svg"
-import { Title as TitleType } from "../TemplateContext"
-import { useTranslations } from "next-intl"
+import { useTemplateContext } from '../TemplateContext';
+import { Title as TitleType } from '../TemplateContext';
+import { useTranslations } from 'next-intl';
+import { X } from 'lucide-react';
+import { Button } from '@/src/app/components/Button';
 
 export default function TitleForm() {
-  const t = useTranslations('TemplateGenerator.TemplateGenerator.TitleForm')
-  const { titles, setTitles } = useTemplateContext()
+  const t = useTranslations('TemplateGenerator.TemplateGenerator.TitleForm');
+  const { titles, setTitles } = useTemplateContext();
 
   const generateUUID = () => {
-    if (typeof window !== "undefined" && window.crypto) {
-      return window.crypto.randomUUID()
+    if (typeof window !== 'undefined' && window.crypto) {
+      return window.crypto.randomUUID();
     }
 
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-      const r = Math.random() * 16 | 0;
-      const v = c === 'x' ? r : (r & 0x3 | 0x8);
-      return v.toString(16);
-    });
-  }
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
+      /[xy]/g,
+      function (c) {
+        const r = (Math.random() * 16) | 0;
+        const v = c === 'x' ? r : (r & 0x3) | 0x8;
+        return v.toString(16);
+      }
+    );
+  };
 
-  const handleMarginRightChange = (e: React.ChangeEvent<HTMLInputElement>, title: TitleType) => {
-    const value = Number(e.target.value)
-    const maxValue = 50
-    const minValue = 0
+  const handleMarginRightChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    title: TitleType
+  ) => {
+    const value = Number(e.target.value);
+    const maxValue = 50;
+    const minValue = 0;
 
-    if(value <= minValue) {
-      e.target.value = minValue.toString()
+    if (value <= minValue) {
+      e.target.value = minValue.toString();
 
-      setTitles(titles.map((oldTitle) => {
+      setTitles(
+        titles.map((oldTitle) => {
+          if (oldTitle.uuid === title.uuid) {
+            return { ...oldTitle, marginRight: minValue };
+          }
+
+          return oldTitle;
+        })
+      );
+
+      return;
+    }
+
+    if (value > maxValue) {
+      e.target.value = maxValue.toString();
+
+      setTitles(
+        titles.map((oldTitle) => {
+          if (oldTitle.uuid === title.uuid) {
+            return { ...oldTitle, marginRight: maxValue };
+          }
+
+          return oldTitle;
+        })
+      );
+
+      return;
+    }
+
+    e.target.value = value.toString();
+
+    setTitles(
+      titles.map((oldTitle) => {
         if (oldTitle.uuid === title.uuid) {
-          return { ...oldTitle, marginRight: minValue }
+          return { ...oldTitle, marginRight: value };
         }
 
-        return oldTitle
-      }))
+        return oldTitle;
+      })
+    );
+  };
 
-      return
-    }
+  const handleNameChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    title: TitleType
+  ) => {
+    const value = e.target.value;
 
-    if(value > maxValue) {
-      e.target.value = maxValue.toString()
-
-      setTitles(titles.map((oldTitle) => {
+    setTitles(
+      titles.map((oldTitle) => {
         if (oldTitle.uuid === title.uuid) {
-          return { ...oldTitle, marginRight: maxValue }
+          return { ...oldTitle, name: value };
         }
 
-        return oldTitle
-      }))
-
-      return
-    }
-
-    e.target.value = value.toString()
-
-    setTitles(titles.map((oldTitle) => {
-      if (oldTitle.uuid === title.uuid) {
-        return { ...oldTitle, marginRight: value }
-      }
-
-      return oldTitle
-    }))
-  }
-
-  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>, title: TitleType) => {
-    const value = e.target.value
-
-    setTitles(titles.map((oldTitle) => {
-      if (oldTitle.uuid === title.uuid) {
-        return { ...oldTitle, name: value }
-      }
-
-      return oldTitle
-    }))
-  }
+        return oldTitle;
+      })
+    );
+  };
 
   return (
     <section>
-      <h3 className="text-3xl text-black font-medium mt-5">{t('Title')}</h3>
-      {
-        titles.map((title, index) => (
-          <div
-            key={index}
-            className="flex w-full overflow-x-scroll scroll-smooth snap-mandatory"
-            style={{ scrollbarWidth: "none" }}
+      <h3 className='text-3xl text-black font-medium mt-5'>{t('Title')}</h3>
+      {titles.map((title, index) => (
+        <div
+          key={index}
+          className='flex w-full overflow-x-scroll scroll-smooth snap-mandatory'
+          style={{ scrollbarWidth: 'none' }}
+        >
+          <Button
+            type='delete'
+            onClick={() => setTitles(titles.filter((_, i) => i !== index))}
+            className='cursor-pointer snap-start self-center mr-5'
+            padding='1'
+            margin='none'
           >
-            <Image
-              alt="Eliminar Titulo"
-              src={DeleteIcon}
-              onClick={() => setTitles(titles.filter((_, i) => i !== index))}
-              width={25}
-              height={25}
-              className="cursor-pointer snap-start self-center mr-5 object-contain aspect-square"
+            <X />
+          </Button>
+          <ModifierContainer>
+            <Label>{t('Label1')}</Label>
+            <Input
+              type='text'
+              defaultValue={title.name}
+              onChange={(e) => handleNameChange(e, title)}
+              placeholder={t('Placeholder1')}
             />
-            <ModifierContainer>
-              <Label>{t('Label1')}</Label>
+          </ModifierContainer>
+          <ModifierContainer>
+            <Label>{t('Label2')}</Label>
+            <div className='flex align-baseline'>
               <Input
-                type="text"
-                defaultValue={title.name}
-                onChange={(e) => handleNameChange(e, title)}
-                placeholder={t('Placeholder1')}
+                type='number'
+                defaultValue={title.marginRight}
+                onChange={(e) => handleMarginRightChange(e, title)}
+                className='inline-block rounded-r-none'
               />
-            </ModifierContainer>
-            <ModifierContainer>
-              <Label>{t('Label2')}</Label>
-              <div className="flex align-baseline">
-                <Input
-                  type="number"
-                  defaultValue={title.marginRight}
-                  onChange={(e) => handleMarginRightChange(e, title)}
-                  className="inline-block rounded-r-none"
-                />
-                <InputUnitSpan>mm</InputUnitSpan>
-              </div>
-            </ModifierContainer>
-          </div>
-        ))
-      }
+              <InputUnitSpan>mm</InputUnitSpan>
+            </div>
+          </ModifierContainer>
+        </div>
+      ))}
       <button
-        onClick={() => setTitles([...titles, { uuid: generateUUID(), name: "", marginRight: 0 }])}
+        onClick={() =>
+          setTitles([
+            ...titles,
+            { uuid: generateUUID(), name: '', marginRight: 0 },
+          ])
+        }
         className={`
           text-lg text-white font-medium bg-blue-600 py-1 px-2 mt-1 border-none
           rounded-md cursor-pointer transition
           hover:bg-blue-700
-          ${titles.length >= 3? "none" : "block"}
+          ${titles.length >= 3 ? 'none' : 'block'}
         `}
       >
         {t('AddButton')}
       </button>
     </section>
-  )
+  );
 }
 
 function ModifierContainer({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="inline-block mr-5 snap-start">
-      { children }
-    </div>
-  )
+  return <div className='inline-block mr-5 snap-start'>{children}</div>;
 }
 
 function Label({ children }: { children: React.ReactNode }) {
   return (
-    <label className="text-2xl text-black font-medium lg:mr-2">
-      { children }
+    <label className='text-2xl text-black font-medium lg:mr-2'>
+      {children}
     </label>
-  )
+  );
 }
 
-function Input({ className,...props }: { className?: string } & React.InputHTMLAttributes<HTMLInputElement>) {
+function Input({
+  className,
+  ...props
+}: { className?: string } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <input
       className={`
@@ -160,18 +180,18 @@ function Input({ className,...props }: { className?: string } & React.InputHTMLA
       `}
       {...props}
     />
-  )
+  );
 }
 
 function InputUnitSpan({ children }: { children: React.ReactNode }) {
   return (
     <span
-      className="
+      className='
         text-lg text-black font-light bg-gray-300 py-2 px-2
         rounded-r-md h-full
-      "
+      '
     >
-      { children }
+      {children}
     </span>
-  )
+  );
 }
