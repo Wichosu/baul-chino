@@ -67,11 +67,11 @@ export default function Card({
     );
   }
 
-  return (
-    <Tag
-      className={`border-gray-200 ${elevationClass[elevation]} ${borderClass[border]} ${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]}`}
-    >
-      {children}
-    </Tag>
-  );
+  const className = `
+    border-gray-200 bg-white
+    ${elevationClass[elevation]} ${borderClass[border]} ${paddingClass[padding]} 
+    ${marginClass[margin]} ${roundedClass[rounded]}
+  `;
+
+  return <Tag className={className}>{children}</Tag>;
 }

@@ -63,10 +63,12 @@ export default async function RootLayout({
 
   setRequestLocale(locale);
 
+  const bodyClassName = `${montserrat.className}`;
+
   return (
     <>
       <html lang={locale}>
-        <body className={montserrat.className}>
+        <body className={bodyClassName}>
           <PostHogProvider>
             <NextIntlClientProvider>
               <Container>
