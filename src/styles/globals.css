@@ -5,6 +5,14 @@
 
 @theme {
   --animate-horizontal-slide: horizontal-slide 1s ease infinite alternate;
+  --animate-enter-from-right: enter-from-right 200ms ease;
+  --animate-enter-from-left: enter-from-left 200ms ease;
+  --animate-exit-to-right: exit-to-right 200ms ease;
+  --animate-exit-to-left: exit-to-left 200ms ease;
+  --animate-scale-in: scale-in 200ms ease;
+  --animate-scale-out: scale-out 200ms ease;
+  --animate-fade-in: fade-in 200ms ease;
+  --animate-fade-out: fade-out 200ms ease;
 
   @keyframes horizontal-slide {
     from {
@@ -12,6 +20,90 @@
     }
     to {
       transform: translateX(100%);
+    }
+  }
+
+  @keyframes enter-from-right {
+    from {
+      opacity: 0;
+      transform: translateX(200px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes enter-from-left {
+    from {
+      opacity: 0;
+      transform: translateX(-200px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes exit-to-right {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(200px);
+    }
+  }
+
+  @keyframes exit-to-left {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-200px);
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: rotateX(-10deg) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: rotateX(0deg) scale(1);
+    }
+  }
+
+  @keyframes scale-out {
+    from {
+      opacity: 1;
+      transform: rotateX(0deg) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: rotateX(-10deg) scale(0.95);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
     }
   }
 }
