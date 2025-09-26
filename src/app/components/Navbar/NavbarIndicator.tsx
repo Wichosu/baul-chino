@@ -10,7 +10,7 @@ export function NavbarIndicator() {
         data-[state=hidden]:animate-fadeOut data-[state=visible]:animate-fadeIn
       '
     >
-      <div className='relative top-[70%] size-2.5 rotate-45 rounded-tl-sm bg-white' />
+      <div className='relative top-[70%] size-3.5 rotate-45 rounded-tl-sm bg-yellow-100' />
     </NavigationMenu.Indicator>
   );
 }
