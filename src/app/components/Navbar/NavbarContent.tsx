@@ -9,8 +9,8 @@ export function NavbarContent({ children }: Props) {
   const contentClassName = `
     absolute left-0 top-0 w-full
     bg-yellow-100
-    data-[motion=from-end]:animate-enterFromRight data-[motion=from-start]:animate-enterFromLeft 
-    data-[motion=to-end]:animate-exitToRight data-[motion=to-start]:animate-exitToLeft 
+    data-[motion=from-end]:animate-enter-from-right data-[motion=from-start]:animate-enter-from-left 
+    data-[motion=to-end]:animate-exit-to-right data-[motion=to-start]:animate-exit-to-right 
     sm:w-auto
   `;
 
