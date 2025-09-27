@@ -7,7 +7,7 @@ export function NavbarIndicator() {
       className='
         top-full z-10 flex h-2.5 items-end justify-center overflow-hidden
         transition-[width,transform_250ms_ease] 
-        data-[state=hidden]:animate-fadeOut data-[state=visible]:animate-fadeIn
+        data-[state=hidden]:animate-fade-out data-[state=visible]:animate-fade-in
       '
     >
       <div className='relative top-[70%] size-3.5 rotate-45 rounded-tl-sm bg-yellow-100' />
