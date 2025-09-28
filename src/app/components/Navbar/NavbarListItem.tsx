@@ -3,7 +3,7 @@ import { NavigationMenu } from 'radix-ui';
 import Link from 'next/link';
 
 type Props = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   title: string;
   href: string;
   forwardedRef?: React.RefObject<HTMLAnchorElement>;
@@ -30,7 +30,7 @@ export function NavbarListItem({ children, title, forwardedRef, href }: Props) {
       <NavigationMenu.Link asChild>
         <Link className={linkClassName} href={href} ref={forwardedRef}>
           <div className={titleClassName}>{title}</div>
-          <p className={descriptionClassName}>{children}</p>
+          {children && <p className={descriptionClassName}>{children}</p>}
         </Link>
       </NavigationMenu.Link>
     </li>

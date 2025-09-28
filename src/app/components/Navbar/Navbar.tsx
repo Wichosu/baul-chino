@@ -7,11 +7,100 @@ import { NavbarList } from './NavbarList';
 import { NavbarRoot } from './NavbarRoot';
 import { NavbarIndicator } from './NavbarIndicator';
 import { NavbarViewport } from './NavbarViewport';
+import { NavbarLink } from './NavbarLink';
+import { useTranslations } from 'next-intl';
+
+type NavItem =
+  | {
+      type: 'trigger';
+      trigger: string;
+      content: NavContent[];
+    }
+  | {
+      type: 'link';
+      href: string;
+      title: string;
+    };
+
+type NavContent = {
+  href: string;
+  title: string;
+  description: string;
+};
+
+function createNavItem(href: string, title: string): NavItem {
+  return {
+    type: 'link',
+    href,
+    title,
+  };
+}
+
+function createNavItemWithContent(
+  trigger: string,
+  content: NavContent[]
+): NavItem {
+  return {
+    type: 'trigger',
+    trigger,
+    content,
+  };
+}
+
+function createNavContent(
+  href: string,
+  title: string,
+  description: string
+): NavContent {
+  return {
+    href,
+    title,
+    description,
+  };
+}
 
 export function Navbar() {
+  const t = useTranslations('Navbar');
+
+  const NavbarItems: NavItem[] = [
+    createNavItem('/libros-hsk', t('HskBooks')),
+    createNavItemWithContent(t('Tools'), [
+      createNavContent(
+        '/mazos-anki',
+        t('AnkiDecks'),
+        t('Descriptions.AnkiDecks')
+      ),
+      createNavContent('/canales', t('Channels'), t('Descriptions.Channels')),
+      createNavContent('/hanzi', t('Hanzi'), t('Descriptions.Hanzi')),
+    ]),
+  ];
+
   return (
     <NavbarRoot>
       <NavbarList>
+        {NavbarItems.map((item, index) => (
+          <NavbarItem key={index}>
+            {item.type === 'link' && (
+              <NavbarLink href={item.href}>{item.title}</NavbarLink>
+            )}
+            {item.type === 'trigger' && (
+              <>
+                <NavbarTrigger>{item.trigger}</NavbarTrigger>
+                <NavbarContent>
+                  {item.content.map((listItem, index) => (
+                    <NavbarListItem
+                      key={index}
+                      href={listItem.href}
+                      title={listItem.title}
+                    >
+                      {listItem.description}
+                    </NavbarListItem>
+                  ))}
+                </NavbarContent>
+              </>
+            )}
+          </NavbarItem>
+        ))}
         <NavbarItem>
           <NavbarTrigger>Learn</NavbarTrigger>
           <NavbarContent>

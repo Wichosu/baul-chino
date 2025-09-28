@@ -10,7 +10,7 @@ export function NavbarTrigger({ children }: Props) {
   const triggerClassName = `
     group flex select-none items-center justify-between gap-0.5 rounded px-3 py-2 
     text-black text-lg font-medium leading-none outline-none 
-    hover:bg-yellow-200 focus:shadow-[0_0_0_2px] focus:shadow-violet7
+    hover:bg-yellow-200 focus:shadow-[0_0_0_2px] 
   `;
 
   const iconClassName = `
@@ -20,7 +20,6 @@ export function NavbarTrigger({ children }: Props) {
 
   return (
     <NavigationMenu.Trigger className={triggerClassName}>
-      <div className='hidden duration-200'></div>
       {children} <ChevronDown className={iconClassName} aria-hidden />
     </NavigationMenu.Trigger>
   );
