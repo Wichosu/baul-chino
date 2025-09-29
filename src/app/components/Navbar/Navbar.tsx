@@ -9,6 +9,7 @@ import { NavbarIndicator } from './NavbarIndicator';
 import { NavbarViewport } from './NavbarViewport';
 import { NavbarLink } from './NavbarLink';
 import { useTranslations } from 'next-intl';
+import { LanguageSwitcher } from '../LanguageSwitcher';
 
 type NavItem =
   | {
@@ -63,21 +64,49 @@ export function Navbar() {
   const t = useTranslations('Navbar');
 
   const NavbarItems: NavItem[] = [
-    createNavItem('/libros-hsk', t('HskBooks')),
-    createNavItemWithContent(t('Tools'), [
+    createNavItemWithContent(t('Hsk'), [
+      createNavContent(
+        '/libros-hsk',
+        t('HskBooks'),
+        t('Descriptions.HskBooks')
+      ),
+      createNavContent(
+        '/hsk-audios',
+        t('HskAudios'),
+        t('Descriptions.HskAudios')
+      ),
       createNavContent(
         '/mazos-anki',
         t('AnkiDecks'),
         t('Descriptions.AnkiDecks')
       ),
+    ]),
+    createNavItemWithContent(t('Tools'), [
       createNavContent('/canales', t('Channels'), t('Descriptions.Channels')),
       createNavContent('/hanzi', t('Hanzi'), t('Descriptions.Hanzi')),
+      createNavContent(
+        '/plantillas',
+        t('Templates'),
+        t('Descriptions.Templates')
+      ),
+      createNavContent(
+        '/plantillas/generador',
+        t('TemplateGenerator'),
+        t('Descriptions.TemplateGenerator')
+      ),
     ]),
   ];
 
   return (
     <NavbarRoot>
       <NavbarList>
+        <NavbarItem>
+          <NavbarLink href='/'>
+            <picture className='w-5'>
+              <img src='/logo.svg' alt={t('LogoAlt')} />
+            </picture>
+          </NavbarLink>
+        </NavbarItem>
         {NavbarItems.map((item, index) => (
           <NavbarItem key={index}>
             {item.type === 'link' && (
@@ -102,65 +131,12 @@ export function Navbar() {
           </NavbarItem>
         ))}
         <NavbarItem>
-          <NavbarTrigger>Learn</NavbarTrigger>
-          <NavbarContent>
-            <NavbarListItem href='https://stitches.dev/' title='Stitches'>
-              CSS-in-JS with best-in-class developer experience.
-            </NavbarListItem>
-            <NavbarListItem href='/colors' title='Colors'>
-              Beautiful, thought-out palettes with auto dark mode.
-            </NavbarListItem>
-            <NavbarListItem href='https://icons.radix-ui.com/' title='Icons'>
-              A crisp set of 15x15 icons, balanced and consistent.
-            </NavbarListItem>
-          </NavbarContent>
+          <div className='flex h-full items-center'>
+            <LanguageSwitcher />
+          </div>
         </NavbarItem>
-
-        <NavbarItem>
-          <NavbarTrigger>Overview</NavbarTrigger>
-          <NavbarContent>
-            <NavbarListItem
-              title='Introduction'
-              href='/primitives/docs/overview/introduction'
-            >
-              Build high-quality, accessible design systems and web apps.
-            </NavbarListItem>
-            <NavbarListItem
-              title='Getting started'
-              href='/primitives/docs/overview/getting-started'
-            >
-              A quick tutorial to get you up and running with Radix Primitives.
-            </NavbarListItem>
-            <NavbarListItem
-              title='Styling'
-              href='/primitives/docs/guides/styling'
-            >
-              Unstyled and compatible with any styling solution.
-            </NavbarListItem>
-            <NavbarListItem
-              title='Animation'
-              href='/primitives/docs/guides/animation'
-            >
-              Use CSS keyframes or any animation library of your choice.
-            </NavbarListItem>
-            <NavbarListItem
-              title='Accessibility'
-              href='/primitives/docs/overview/accessibility'
-            >
-              Tested in a range of browsers and assistive technologies.
-            </NavbarListItem>
-            <NavbarListItem
-              title='Releases'
-              href='/primitives/docs/overview/releases'
-            >
-              Radix Primitives releases and their changelogs.
-            </NavbarListItem>
-          </NavbarContent>
-        </NavbarItem>
-
         <NavbarIndicator />
       </NavbarList>
-
       <NavbarViewport />
     </NavbarRoot>
   );
