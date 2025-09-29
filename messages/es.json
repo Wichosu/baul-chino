@@ -4,11 +4,13 @@
     "Tools": "Herramientas",
     "AnkiDecks": "Mazos Anki",
     "HskBooks": "Libros HSK",
+    "Hsk": "HSK",
     "Channels": "Lista de Canales",
     "Hanzi": "Escritura de Hanzi",
     "HskAudios": "Archivos de Audio HSK",
     "Templates": "Plantillas",
     "TemplateGenerator": "Generador de Plantillas",
+    "LogoAlt": "Logo de baúl chino, es un baúl o cofre de tesoro cerrado, estilo europeo de color café con plateado",
     "Descriptions": {
       "AnkiDecks": "Mazos Anki con vocabulario del HSK 1 al HSK 4",
       "HskBooks": "Descarga los libros HSK del 1 al 6 de manera gratuita",
