@@ -9,7 +9,7 @@ export function NavbarList({ children }: Props) {
   return (
     <NavigationMenu.List
       className='
-        m-0 flex list-none rounded-md bg-yellow-100 p-1 shadow-md
+        m-0 sm:flex list-none rounded-md bg-yellow-100 p-1 shadow-md
       '
     >
       {children}
