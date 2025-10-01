@@ -7,7 +7,7 @@ type Props = {
 
 export function NavbarRoot({ children }: Props) {
   return (
-    <NavigationMenu.Root className='relative z-10 flex w-screen justify-start'>
+    <NavigationMenu.Root className='relative z-10 flex w-full justify-center'>
       {children}
     </NavigationMenu.Root>
   );

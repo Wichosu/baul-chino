@@ -9,7 +9,7 @@ import { getTranslations } from 'next-intl/server';
 import { routing } from '@/src/i18n/routing';
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { MobileNavbar, Navbar } from '@/src/app/components/Navbar';
+import { Navbar } from '@/src/app/components/Navbar/index';
 import Footer from '../components/Footer';
 import { Container } from '@/src/app/components/Container';
 
@@ -73,7 +73,7 @@ export default async function RootLayout({
             <NextIntlClientProvider>
               <Container>
                 <Navbar />
-                <MobileNavbar />
+                {/* <MobileNavbar /> */}
                 <main>{children}</main>
                 <Footer />
               </Container>

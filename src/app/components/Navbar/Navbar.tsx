@@ -29,13 +29,13 @@ type NavContent = {
   description: string;
 };
 
-function createNavItem(href: string, title: string): NavItem {
-  return {
-    type: 'link',
-    href,
-    title,
-  };
-}
+// function createNavItem(href: string, title: string): NavItem {
+//   return {
+//     type: 'link',
+//     href,
+//     title,
+//   };
+// }
 
 function createNavItemWithContent(
   trigger: string,
@@ -108,7 +108,7 @@ export function Navbar() {
           </NavbarLink>
         </NavbarItem>
         {NavbarItems.map((item, index) => (
-          <NavbarItem key={index}>
+          <NavbarItem key={`navitem-${index}`}>
             {item.type === 'link' && (
               <NavbarLink href={item.href}>{item.title}</NavbarLink>
             )}
@@ -118,7 +118,7 @@ export function Navbar() {
                 <NavbarContent>
                   {item.content.map((listItem, index) => (
                     <NavbarListItem
-                      key={index}
+                      key={`navlistitem-${index}`}
                       href={listItem.href}
                       title={listItem.title}
                     >
