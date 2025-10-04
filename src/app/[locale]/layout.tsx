@@ -3,7 +3,6 @@ import { Montserrat } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import '@/src/styles/globals.css';
 import { PostHogProvider } from '../providers';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/src/i18n/routing';
@@ -80,7 +79,6 @@ export default async function RootLayout({
             </NextIntlClientProvider>
           </PostHogProvider>
           <Analytics />
-          <SpeedInsights />
         </body>
       </html>
     </>
