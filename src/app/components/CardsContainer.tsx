@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Card from '@/src/app/components/NewCard';
+import Card from '@/src/app/components/Card';
 import { Button } from '@/src/app/components/Button';
 
 type Card = {
