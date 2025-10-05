@@ -6,12 +6,13 @@ import AudioBigScreen from './AudioBigScreen';
 
 type Props = {
   caption: string;
+  audioUrl: string;
   children: React.ReactNode;
 };
 
 type AudioStatus = 'playing' | 'pause' | 'finished' | 'loading';
 
-export default function Audio({ caption, children }: Props) {
+export default function Audio({ caption, audioUrl, children }: Props) {
   const audioRef = React.useRef<HTMLAudioElement>(null!);
   const [audioStatus, setAudioStatus] = React.useState<AudioStatus>('loading');
   const [audioTimeTracker, setAudioTimeTracker] = React.useState(0);
@@ -121,6 +122,7 @@ export default function Audio({ caption, children }: Props) {
         audioRef={audioRef}
         audioStatus={audioStatus}
         audioTimeTracker={audioTimeTracker}
+        audioUrl={audioUrl}
         caption={caption}
         currentTime={currentTime}
         duration={duration}
@@ -136,6 +138,7 @@ export default function Audio({ caption, children }: Props) {
         audioRef={audioRef}
         audioStatus={audioStatus}
         audioTimeTracker={audioTimeTracker}
+        audioUrl={audioUrl}
         caption={caption}
         currentTime={currentTime}
         duration={duration}

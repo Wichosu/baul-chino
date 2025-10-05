@@ -1,5 +1,9 @@
 import React from 'react';
-import { Button, VolumeButton } from '@/src/app/components/Button';
+import {
+  Button,
+  VolumeButton,
+  DownloadButton,
+} from '@/src/app/components/Button';
 import { Play, Pause, RotateCcw, LoaderCircle } from 'lucide-react';
 
 type AudioStatus = 'playing' | 'pause' | 'finished' | 'loading';
@@ -12,6 +16,7 @@ type Props = {
   handleVolume: (volume: number) => void;
   audioStatus: AudioStatus;
   audioDuration: number;
+  audioUrl: string;
   audioTimeTracker: number;
   onChangeAudioTimeTracker: (
     element: React.ChangeEvent<HTMLInputElement>
@@ -30,6 +35,7 @@ export default function AudioBigScreen({
   duration,
   audioDuration,
   audioTimeTracker,
+  audioUrl,
   onChangeAudioTimeTracker,
   handleMouseClickRelease,
   handleKeyRelease,
@@ -60,6 +66,7 @@ export default function AudioBigScreen({
         onKeyUp={handleKeyRelease}
         className='accent-yellow-800 rounded focus:outline-4 focus:outline-yellow-700 mr-2'
       />
+      <DownloadButton url={audioUrl} filename={caption} />
       <VolumeButton handleVolume={handleVolume} />
       <audio ref={audioRef} preload='metadata'>
         {children}
