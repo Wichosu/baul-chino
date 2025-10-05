@@ -72,7 +72,6 @@ export default async function RootLayout({
             <NextIntlClientProvider>
               <Container>
                 <Navbar />
-                {/* <MobileNavbar /> */}
                 <main>{children}</main>
                 <Footer />
               </Container>
