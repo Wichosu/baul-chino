@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-import { Download } from 'lucide-react';
+import { Download, ArrowBigDownDash, Save } from 'lucide-react';
 import { Button } from './Button';
 import { ButtonProps } from './Button.types';
 
@@ -9,9 +10,15 @@ type Props = {
   children?: React.ReactNode;
 } & Omit<ButtonProps, 'children'>;
 
+type FetchStatus = 'unfetch' | 'fetching' | 'fetched';
+
 export function DownloadButton({ url, filename, ...props }: Props) {
+  const [status, setStatus] = React.useState<FetchStatus>('unfetch');
+
   async function handleClick() {
     try {
+      setStatus('fetching');
+
       const response = await fetch(url);
 
       if (!response.ok) {
@@ -35,6 +42,8 @@ export function DownloadButton({ url, filename, ...props }: Props) {
       a.remove();
 
       URL.revokeObjectURL(blobUrl);
+
+      setStatus('fetched');
     } catch (error) {
       const errorMessage = error as Error;
 
@@ -44,7 +53,9 @@ export function DownloadButton({ url, filename, ...props }: Props) {
 
   return (
     <Button onClick={handleClick} type='yellow' padding='1' {...props}>
-      <Download />
+      {status === 'unfetch' && <Download />}
+      {status === 'fetching' && <ArrowBigDownDash />}
+      {status === 'fetched' && <Save />}
     </Button>
   );
 }
