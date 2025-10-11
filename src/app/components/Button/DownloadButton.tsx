@@ -3,6 +3,7 @@ import React from 'react';
 import { Download, ArrowBigDownDash, Save } from 'lucide-react';
 import { Button } from './Button';
 import { ButtonProps } from './Button.types';
+import { motion } from 'motion/react';
 
 type Props = {
   url: string;
@@ -16,6 +17,8 @@ export function DownloadButton({ url, filename, ...props }: Props) {
   const [status, setStatus] = React.useState<FetchStatus>('unfetch');
 
   async function handleClick() {
+    if (status === 'fetching') return;
+
     try {
       setStatus('fetching');
 
@@ -44,17 +47,35 @@ export function DownloadButton({ url, filename, ...props }: Props) {
       URL.revokeObjectURL(blobUrl);
 
       setStatus('fetched');
-    } catch (error) {
-      const errorMessage = error as Error;
-
-      console.error(errorMessage.message);
+    } catch {
+      setStatus('unfetch');
     }
   }
 
   return (
-    <Button onClick={handleClick} type='yellow' padding='1' {...props}>
+    <Button
+      onClick={handleClick}
+      type='yellow'
+      padding='1'
+      className='overflow-hidden'
+      {...props}
+    >
       {status === 'unfetch' && <Download />}
-      {status === 'fetching' && <ArrowBigDownDash />}
+      {status === 'fetching' && (
+        <motion.div
+          initial={{ translateY: '-100%' }}
+          animate={{ translateY: '120%' }}
+          transition={{
+            type: 'spring',
+            mass: 1,
+            stiffness: 150,
+            damping: 30,
+            repeat: Infinity,
+          }}
+        >
+          <ArrowBigDownDash />
+        </motion.div>
+      )}
       {status === 'fetched' && <Save />}
     </Button>
   );
