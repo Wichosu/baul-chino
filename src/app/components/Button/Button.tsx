@@ -1,26 +1,14 @@
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import Link from 'next/link';
+import {
+  ButtonAllowedScale,
+  ButtonAllowedTags,
+  ButtonAllowedTypes,
+  ButtonProps,
+} from './Button.types';
 
-type AllowedTags = 'link' | 'button';
-type AllowedTypes = 'primary' | 'warning' | 'delete' | 'disabled' | 'yellow';
-type AllowedScale = 'none' | '1' | '2' | '3';
-type AllowedTarget = '_blank' | '_self' | '_parent' | '_top';
-
-type Props = {
-  as?: AllowedTags;
-  href?: string;
-  target?: AllowedTarget;
-  type?: AllowedTypes;
-  padding?: AllowedScale;
-  margin?: AllowedScale;
-  rounded?: AllowedScale;
-  ref?: React.RefObject<HTMLButtonElement & HTMLAnchorElement>;
-  children: string | React.ReactNode;
-} & HTMLAttributes<HTMLButtonElement> &
-  HTMLAttributes<HTMLAnchorElement>;
-
-const allowedTags: AllowedTags[] = ['link', 'button'];
-const allowedTypes: AllowedTypes[] = [
+const allowedTags: ButtonAllowedTags[] = ['link', 'button'];
+const allowedTypes: ButtonAllowedTypes[] = [
   'primary',
   'warning',
   'delete',
@@ -28,7 +16,7 @@ const allowedTypes: AllowedTypes[] = [
   'yellow',
 ];
 
-const typeClass: Record<AllowedTypes, string> = {
+const typeClass: Record<ButtonAllowedTypes, string> = {
   primary:
     'bg-blue-700 text-white cursor-pointer transition-colors hover:bg-blue-800 focus:bg-blue-800 focus:outline-4 focus:outline-gray-400 active:bg-blue-900',
   warning:
@@ -41,21 +29,21 @@ const typeClass: Record<AllowedTypes, string> = {
     'bg-yellow-700 text-white cursor-pointer transition-colors hover:bg-yellow-900 focus:bg-yellow-900 focus:outline-4 focus:outline-yellow-700 active:bg-yellow-950',
 };
 
-const paddingClass: Record<AllowedScale, string> = {
+const paddingClass: Record<ButtonAllowedScale, string> = {
   none: 'px-0 py-0',
   '1': 'px-2 py-1',
   '2': 'px-4 py-2',
   '3': 'px-6 py-3',
 };
 
-const marginClass: Record<AllowedScale, string> = {
+const marginClass: Record<ButtonAllowedScale, string> = {
   none: 'm-0',
   '1': 'm-2',
   '2': 'm-4',
   '3': 'm-6',
 };
 
-const roundedClass: Record<AllowedScale, string> = {
+const roundedClass: Record<ButtonAllowedScale, string> = {
   none: 'rounded-none',
   '1': 'rounded-md',
   '2': 'rounded-lg',
@@ -73,7 +61,7 @@ export function Button({
   children,
   ref,
   ...props
-}: Props) {
+}: ButtonProps) {
   if (!allowedTags.includes(Tag)) {
     throw new Error(
       `Tag ${Tag} is not allowed. The tags that are allowed are: ${allowedTags.join(

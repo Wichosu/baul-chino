@@ -63,7 +63,11 @@ export default function Page() {
                     <AccordionTrigger>{lesson.title}</AccordionTrigger>
                     <AccordionContent padding='2'>
                       {lesson.audioTracks.map((audioTrack, index) => (
-                        <Audio caption={audioTrack.title} key={index}>
+                        <Audio
+                          caption={`${book.title} - ${audioTrack.title}`}
+                          audioUrl={audioTrack.url}
+                          key={index}
+                        >
                           <source src={audioTrack.url} type='audio/mp3' />
                         </Audio>
                       ))}
