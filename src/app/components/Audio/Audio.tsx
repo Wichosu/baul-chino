@@ -122,7 +122,6 @@ export default function Audio({ caption, audioUrl, children }: Props) {
         audioRef={audioRef}
         audioStatus={audioStatus}
         audioTimeTracker={audioTimeTracker}
-        audioUrl={audioUrl}
         caption={caption}
         currentTime={currentTime}
         duration={duration}
