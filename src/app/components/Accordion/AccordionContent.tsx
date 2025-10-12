@@ -45,6 +45,7 @@ export function AccordionContent({
     ${themeColors[themeContext]} ${paddingClass[padding]} 
     ${marginXClass[marginX]} ${marginYClass[marginY]}
     ${roundedClass[rounded]} ${elevationClass[elevation]}
+    text-lg
   `;
 
   return (

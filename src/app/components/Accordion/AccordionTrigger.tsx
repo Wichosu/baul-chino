@@ -38,6 +38,7 @@ export function AccordionTrigger({
 
   const className = `
     group flex justify-between w-full cursor-pointer transition-colors focus:outline-4 
+    text-xl
     ${themeColors[themeContext]} ${paddingClass[padding]} ${roundedClass[rounded]} ${elevationClass[elevation]}
   `;
 
