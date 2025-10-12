@@ -75,8 +75,22 @@
         "ImgAlt": "Create customized Chinese writing exercises",
         "Description": "Generate tailored templates to master stroke order and radicals. Ideal for refining your calligraphy skills!",
         "LinkName": "Go to Template Generator"
+      }
+    },
+    "Q&A": {
+      "Title": "Q&A",
+      "Questions": {
+        "HowMuch": "How much does it cost?",
+        "Why": "Why does baulchino exist?",
+        "Ideas": "How can I propose an idea for a tool or module?",
+        "Errors": "I found an error or annoying behavior."
       },
-      "GoTo": "Go to"
+      "Answers": {
+        "HowMuch": "Nothing, I intend to keep baulchino free of cost, there might be a time when AdSense might be introduced so I can sustain the cost of the website, but it is just an idea for the future.",
+        "Why": "I enjoyed my time learning mandarin, but I did find a lot of resources somewhat scatter and wish for a website that had a range of tools in one place just to take them for quick reference.",
+        "Ideas": "There are surveys popping out from time to time, feel free to submit your ideas there, I do read them and implement most suggestion. You can also send me a message on X.",
+        "Errors": "Please send me a message on X or use a survey to describe the error so I can fix it. Thank you."
+      }
     }
   },
   "AnkiDecks": {
@@ -217,7 +231,7 @@
       "Description": "Listen to HSK audio files from each unit in the HSK textbooks and workbooks. Perfect for audio practice and language learning."
     },
     "HeroTitle": "Listen to HSK audio files",
-    "HeroMessage1": "Hi, here you can find all audio files from the HSK textbooks and workbooks units. This page aims to help you find the audios for each unit and allow you to practice or do the corresponding exercise. You can download the audio by pressing the ⬇️ button (only desktop at the moment)",
+    "HeroMessage1": "Hi, here you can find all audio files from the HSK textbooks and workbooks units. This page aims to help you find the audios for each unit and allow you to practice or do the corresponding exercise. You can download the audio by pressing the ⬇️ button",
     "HeroMessage2": "If you find that an audio is wrong or missing you can notify me via the surveys on this website or a message in X. Thank you"
   }
 }

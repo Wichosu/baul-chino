@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../Button';
+import { Button, DownloadButton } from '../Button';
 import { LoaderCircle, Pause, Play, RotateCcw } from 'lucide-react';
 
 type AudioStatus = 'playing' | 'pause' | 'finished' | 'loading';
@@ -12,6 +12,7 @@ type Props = {
   audioStatus: AudioStatus;
   audioDuration: number;
   audioTimeTracker: number;
+  audioUrl: string;
   onChangeAudioTimeTracker: (
     element: React.ChangeEvent<HTMLInputElement>
   ) => void;
@@ -29,6 +30,7 @@ export default function AudioSmallScreen({
   audioStatus,
   audioDuration,
   audioTimeTracker,
+  audioUrl,
   onChangeAudioTimeTracker,
   handleMouseClickRelease,
   handleKeyRelease,
@@ -43,7 +45,7 @@ export default function AudioSmallScreen({
           {currentTime} / {duration}
         </time>
       </div>
-      <div className='flex'>
+      <div className='flex items-center'>
         <Button type='yellow' onClick={handleButton} margin='none' padding='1'>
           {audioStatus === 'loading' && (
             <LoaderCircle className='animate-spin' />
@@ -63,6 +65,7 @@ export default function AudioSmallScreen({
           onKeyUp={handleKeyRelease}
           className='accent-yellow-800 mx-2'
         />
+        <DownloadButton url={audioUrl} filename={caption} />
       </div>
       <audio ref={audioRef} preload='metadata'>
         {children}
