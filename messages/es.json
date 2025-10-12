@@ -75,8 +75,22 @@
         "ImgAlt": "Crea ejercicios personalizados para practicar escritura china",
         "Description": "Genera plantillas adaptadas a tu nivel para dominar el orden de trazos y radicales. ¡Perfecto para perfeccionar tu caligrafía!",
         "LinkName": "Ir a Generador de Plantillas"
+      }
+    },
+    "Q&A": {
+      "Title": "Preguntas Frecuentes",
+      "Questions": {
+        "HowMuch": "¿Cuánto cuesta?",
+        "Why": "¿Por qué existe baulchino?",
+        "Ideas": "¿Cómo puedo proponer una idea para la página?",
+        "Errors": "Encontré un error, ¿Cómo puedo reportarlo?"
       },
-      "GoTo": "Ir a"
+      "Answers": {
+        "HowMuch": "Nada, pienso mantener baulchino como una página web gratuita. Puede que en el futuro introduzca anuncios para que me sea sustentable, pero sigue siendo una idea.",
+        "Why": "Disfrute mi tiempo aprendiendo mandarín, pero me encontré con recursos o material muy disperso y quería una herramienta que juntara todo en un solo lugar para referencias rápidas.",
+        "Ideas": "Hay encuestas que aparecen de vez en cuando, puedes escribir tus ideas y mandarlas por ese medio, las encuestas las leo personalmente y de ahí obtengo ideas para la página. También me puedes contactar por X.",
+        "Errors": "Por favor envíame un mensaje por X o utiliza una encuesta para describir el error, de esa manera puedo revisar y corregir, gracias."
+      }
     }
   },
   "AnkiDecks": {
@@ -217,7 +231,7 @@
       "Description": "Escucha los audios de los libros HSK Textbook y Workbook para practicar y realizar los ejercicios correspondientes. Perfecto para practicar y mejorar tu idioma"
     },
     "HeroTitle": "Escucha los Audios HSK",
-    "HeroMessage1": "Buenas, aquí puedes escuchar los audios de los libros HSK Textbook y Workbook. Esta página te ayudará a encontrar los audios de cada unidad y te permitirá practicar o realizar los ejercicios correspondientes. Puedes descargar los audios presionando el botón ⬇️ (solo en pc de escritorio de momento)",
+    "HeroMessage1": "Buenas, aquí puedes escuchar los audios de los libros HSK Textbook y Workbook. Esta página te ayudará a encontrar los audios de cada unidad y te permitirá practicar o realizar los ejercicios correspondientes. Puedes descargar los audios presionando el botón ⬇️",
     "HeroMessage2": "Si hay algún audio incorrecto o que falte, puedes hacermelo saber a través de las encuestas en esta página o por un mensaje en X"
   }
 }

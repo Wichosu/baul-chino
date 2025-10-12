@@ -54,4 +54,5 @@ export const widthClass: Record<AllowedWidthScale, string> = {
   xs: 'w-xs',
   md: 'w-md',
   lg: 'w-lg',
+  xl: 'w-full md:w-2xl',
 };
