@@ -8,6 +8,7 @@
     "Channels": "Lista de Canales",
     "Hanzi": "Escritura de Hanzi",
     "HskAudios": "Archivos de Audio HSK",
+    "HskMockTest": "HSK Mock Test",
     "Templates": "Plantillas",
     "TemplateGenerator": "Generador de Plantillas",
     "LogoAlt": "Logo de baúl chino, es un baúl o cofre de tesoro cerrado, estilo europeo de color café con plateado",
@@ -17,6 +18,7 @@
       "Channels": "YouTube channels for learning Mandarin Chinese with various teaching styles",
       "Hanzi": "Aprende a escribir caracteres chinos: domina el orden de trazos y descubre sus radicales",
       "HskAudios": "Escucha los audios de los libros HSK Textbook y Workbook",
+      "HskMockTest": "Haz un mock test HSK en línea o descárgalo para realizarlo de forma presencial",
       "Templates": "Practica el orden de trazos y radicales con plantillas descargables",
       "TemplateGenerator": "Genera plantillas adaptadas a tu nivel para perfeccionar tu caligrafía"
     }
@@ -233,5 +235,14 @@
     "HeroTitle": "Escucha los Audios HSK",
     "HeroMessage1": "Buenas, aquí puedes escuchar los audios de los libros HSK Textbook y Workbook. Esta página te ayudará a encontrar los audios de cada unidad y te permitirá practicar o realizar los ejercicios correspondientes. Puedes descargar los audios presionando el botón ⬇️",
     "HeroMessage2": "Si hay algún audio incorrecto o que falte, puedes hacermelo saber a través de las encuestas en esta página o por un mensaje en X"
+  },
+  "HskMockTest": {
+    "Metadata": {
+      "Title": "Mock Test HSK en línea y para descargar",
+      "Description": "Prueba un mock test HSK en línea o descárgalo para probarlo en persona."
+    },
+    "HeroTitle": "Mock test HSK en línea",
+    "HeroMessage1": "Este sitio busca ayudarte a tener una mejor idea de cómo puede ser un examen HSK. Escoge un nivel y examen de tu interés y se abrirá una versión digital interactiva. Las respuestas y puntuación aparecen una vez que termines y subas tus respuestas.",
+    "HeroMessage2": "Los mock test fueron recopilados de recursos públicos; algunos de ellos son exámenes reales aplicados en 2013. Si tienes algún examen que quieras compartir, por favor contáctame a través de X."
   }
 }
