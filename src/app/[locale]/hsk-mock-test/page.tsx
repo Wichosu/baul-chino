@@ -32,6 +32,76 @@ export async function generateMetadata({
   };
 }
 
+type OnlineSimulatorCard = {
+  title: string;
+  tests: OnlineMockTest[];
+};
+
+type OnlineMockTest = {
+  title: string;
+};
+
+type DownloadableTestCard = {
+  title: string;
+  tests: DownloadableTest[];
+};
+
+type DownloadableTest = {
+  title: string;
+};
+
+function createOnlineSimulatorCard(
+  title: string,
+  tests: OnlineMockTest[]
+): OnlineSimulatorCard {
+  return {
+    title,
+    tests,
+  };
+}
+
+function createOnlineMockTest(title: string): OnlineMockTest {
+  return {
+    title,
+  };
+}
+
+function createDownloadableTestCard(
+  title: string,
+  tests: DownloadableTest[]
+): DownloadableTestCard {
+  return {
+    title,
+    tests,
+  };
+}
+
+function createDownloadableTest(title: string): DownloadableTest {
+  return {
+    title,
+  };
+}
+
+const onlineSimulatorCards = [
+  createOnlineSimulatorCard('HSK 2', [
+    createOnlineMockTest('H21329'),
+    createOnlineMockTest('H21330'),
+    createOnlineMockTest('H21331'),
+    createOnlineMockTest('H21332'),
+    createOnlineMockTest('H21334'),
+  ]),
+];
+
+const downloadableTestCards = [
+  createDownloadableTestCard('HSK 2', [
+    createDownloadableTest('H21329'),
+    createDownloadableTest('H21330'),
+    createDownloadableTest('H21331'),
+    createDownloadableTest('H21332'),
+    createDownloadableTest('H21334'),
+  ]),
+];
+
 export default function Page() {
   const t = useTranslations('HskMockTest');
   return (
@@ -43,66 +113,33 @@ export default function Page() {
       <section>
         <h2 className='text-3xl font-medium'>Online Simulator</h2>
         <div className='flex flex-wrap justify-center'>
-          <Card as='article' padding='3'>
-            <h3 className='text-2xl font-medium text-center'>HSK 1</h3>
-            <div className='flex flex-col'>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-            </div>
-          </Card>
-          <Card as='article' padding='3'>
-            <h3 className='text-2xl font-medium text-center'>HSK 1</h3>
-            <div className='flex flex-col'>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-            </div>
-          </Card>
-          <Card as='article' padding='3'>
-            <h3 className='text-2xl font-medium text-center'>HSK 1</h3>
-            <div className='flex flex-col'>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-            </div>
-          </Card>
-          <Card as='article' padding='3'>
-            <h3 className='text-2xl font-medium text-center'>HSK 1</h3>
-            <div className='flex flex-col'>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-            </div>
-          </Card>
-          <Card as='article' padding='3'>
-            <h3 className='text-2xl font-medium text-center'>HSK 1</h3>
-            <div className='flex flex-col'>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-            </div>
-          </Card>
-          <Card as='article' padding='3'>
-            <h3 className='text-2xl font-medium text-center'>HSK 1</h3>
-            <div className='flex flex-col'>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-              <Button type='yellow'>Mock Test H21329</Button>
-            </div>
-          </Card>
+          {onlineSimulatorCards.map((item) => (
+            <Card key={item.title} as='article' padding='3'>
+              <h3 className='text-2xl font-medium text-center'>{item.title}</h3>
+              <div className='flex flex-col'>
+                {item.tests.map((test) => (
+                  <Button key={test.title} type='yellow'>
+                    Mock Test {test.title}
+                  </Button>
+                ))}
+              </div>
+            </Card>
+          ))}
+        </div>
+        <h2 className='text-3xl font-medium'>Download test with audio file</h2>
+        <div className='flex flex-wrap justify-center'>
+          {downloadableTestCards.map((item) => (
+            <Card key={item.title} as='article' padding='3'>
+              <h3 className='text-2xl font-medium text-center'>{item.title}</h3>
+              <div className='flex flex-col'>
+                {item.tests.map((test) => (
+                  <Button key={test.title} type='yellow'>
+                    Mock Test {test.title}
+                  </Button>
+                ))}
+              </div>
+            </Card>
+          ))}
         </div>
       </section>
     </>
