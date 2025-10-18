@@ -8,6 +8,7 @@
     "Channels": "Channels",
     "Hanzi": "Hanzi Writing",
     "HskAudios": "HSK Audio Files",
+    "HskMockTest": "HSK Mock Test",
     "Templates": "Templates",
     "TemplateGenerator": "Template Generator",
     "LogoAlt": "Baul chino logo, it's a close treasure chest, european style with brown and silver colors",
@@ -17,6 +18,7 @@
       "Channels": "YouTube channels for learning Mandarin Chinese with various teaching styles",
       "Hanzi": "Learn to write Chinese characters: master stroke order and discover radicals",
       "HskAudios": "Listen to HSK audio files from each unit in the HSK textbooks and workbooks",
+      "HskMockTest": "Try an online HSK mock test or download it for in person practice",
       "Templates": "Practice stroke order and radicals with downloadable templates",
       "TemplateGenerator": "Generate customized templates for targeted practice"
     }
@@ -233,5 +235,14 @@
     "HeroTitle": "Listen to HSK audio files",
     "HeroMessage1": "Hi, here you can find all audio files from the HSK textbooks and workbooks units. This page aims to help you find the audios for each unit and allow you to practice or do the corresponding exercise. You can download the audio by pressing the ⬇️ button",
     "HeroMessage2": "If you find that an audio is wrong or missing you can notify me via the surveys on this website or a message in X. Thank you"
+  },
+  "HskMockTest": {
+    "Metadata": {
+      "Title": "HSK Mock Test Online | HSK Mock Test Download",
+      "Description": "Try an online HSK mock test or download it for in-person practice for free."
+    },
+    "HeroTitle": "HSK mock test online",
+    "HeroMessage1": "This page aims to help you get an idea of what an HSK test might be. Pick the HSK level and test you desire, and it will open an interactive digital version of the test. You will be given the results and score when submitting.",
+    "HeroMessage2": "The mock test files were gathered from public resources; some of them are the real exams used back in 2013. If you have a mock test you want to share, please contact me through X."
   }
 }
