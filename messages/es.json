@@ -243,6 +243,9 @@
     },
     "HeroTitle": "Mock test HSK en línea",
     "HeroMessage1": "Este sitio busca ayudarte a tener una mejor idea de cómo puede ser un examen HSK. Escoge un nivel y examen de tu interés y se abrirá una versión digital interactiva. Las respuestas y puntuación aparecen una vez que termines y subas tus respuestas.",
-    "HeroMessage2": "Los mock test fueron recopilados de recursos públicos; algunos de ellos son exámenes reales aplicados en 2013. Si tienes algún examen que quieras compartir, por favor contáctame a través de X."
+    "HeroMessage2": "Los mock test fueron recopilados de recursos públicos; algunos de ellos son exámenes reales aplicados en 2013. Si tienes algún examen que quieras compartir, por favor contáctame a través de X.",
+    "OnlineSimulator": "Simulador en línea",
+    "ComingSoon": "Proximamente...",
+    "DownloadBundles": "Descarga el paquete HSK mock test (examen, respuestas, archivo de audio)"
   }
 }
