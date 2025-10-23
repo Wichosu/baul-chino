@@ -38,7 +38,7 @@
     "CardsContainer": {
       "AnkiDecks": {
         "Title": "Mazos Anki HSK 1-4",
-        "ImgAlt": "Menú de Anki mostrando una lista de mazos",
+        "ImgAlt": "Imagen del menú de Anki mostrando una lista de mazos",
         "Description": "Colección de mazos Anki con vocabulario del HSK 1 al HSK 4",
         "LinkName": "Ir a Mazos Anki"
       },
@@ -56,7 +56,7 @@
       },
       "Hanzi": {
         "Title": "Escritura de Hanzi 汉字",
-        "ImgAlt": "Aprende a escribir caracteres chinos: domina el orden de trazos y descubre sus radicales",
+        "ImgAlt": "Imagen con dos hanzi escritos",
         "Description": "Aprende a escribir caracteres chinos: domina el orden de trazos y descubre sus radicales",
         "LinkName": "Ir a Escritura"
       },
@@ -66,15 +66,21 @@
         "Description": "Escucha los audios de las unidades de los libros Textbook y Workbook de todos los HSK",
         "LinkName": "Ir a Audios HSK"
       },
+      "HskMockTest": {
+        "Title": "Mock Test HSK",
+        "ImgAlt": "Imagen de la caratula de un examen HSK 2",
+        "Description": "Descarga los exámenes HSK o prueba una simulación en línea",
+        "LinkName": "Ir a Mock Test HSK"
+      },
       "Templates": {
         "Title": "Plantillas de Caligrafía China 汉字",
-        "ImgAlt": "Domina el arte de escribir caracteres chinos con nuestras plantillas prácticas",
+        "ImgAlt": "Imagen de una plantilla para practicar trazos",
         "Description": "Practica el orden de trazos y radicales con plantillas descargables. Genera ejercicios personalizados según tu nivel.",
         "LinkName": "Ir a Plantillas"
       },
       "TemplateGenerator": {
         "Title": "Generador de Plantillas de Caligrafía 汉字",
-        "ImgAlt": "Crea ejercicios personalizados para practicar escritura china",
+        "ImgAlt": "Captura de pantalla de la página del generador",
         "Description": "Genera plantillas adaptadas a tu nivel para dominar el orden de trazos y radicales. ¡Perfecto para perfeccionar tu caligrafía!",
         "LinkName": "Ir a Generador de Plantillas"
       }

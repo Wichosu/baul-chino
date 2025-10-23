@@ -66,6 +66,12 @@
         "Description": "Listen to HSK audio files from each unit in the HSK textbooks and workbooks",
         "LinkName": "Go to HSK Audio Files"
       },
+      "HskMockTest": {
+        "Title": "HSK Mock Test",
+        "ImgAlt": "Image of an HSK 2 mock test cover",
+        "Description": "Download HSK mock test bundles or try one in an online simulation",
+        "LinkName": "Go to HSK Mock Test"
+      },
       "Templates": {
         "Title": "Chinese Calligraphy Templates 汉字",
         "ImgAlt": "Master Chinese character writing with our practice templates",
