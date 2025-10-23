@@ -243,6 +243,9 @@
     },
     "HeroTitle": "HSK mock test online",
     "HeroMessage1": "This page aims to help you get an idea of what an HSK test might be. Pick the HSK level and test you desire, and it will open an interactive digital version of the test. You will be given the results and score when submitting.",
-    "HeroMessage2": "The mock test files were gathered from public resources; some of them are the real exams used back in 2013. If you have a mock test you want to share, please contact me through X."
+    "HeroMessage2": "The mock test files were gathered from public resources; some of them are the real exams used back in 2013. If you have a mock test you want to share, please contact me through X.",
+    "OnlineSimulator": "Online simulator",
+    "ComingSoon": "Coming soon...",
+    "DownloadBundles": "Download HSK mock test bundle (exam, answers, audio file)"
   }
 }
