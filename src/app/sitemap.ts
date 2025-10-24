@@ -39,6 +39,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       },
     },
     {
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/hsk-mock-test`,
+      alternates: {
+        languages: {
+          en: `${process.env.NEXT_PUBLIC_BASE_URL}/hsk-mock-test`,
+          es: `${process.env.NEXT_PUBLIC_BASE_URL}/es/hsk-mock-test`,
+        },
+      },
+    },
+    {
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/canales`,
       alternates: {
         languages: {
