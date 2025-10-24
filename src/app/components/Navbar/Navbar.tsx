@@ -76,6 +76,11 @@ export function Navbar() {
         t('Descriptions.HskAudios')
       ),
       createNavContent(
+        '/hsk-mock-test',
+        t('HskMockTest'),
+        t('Descriptions.HskMockTest')
+      ),
+      createNavContent(
         '/mazos-anki',
         t('AnkiDecks'),
         t('Descriptions.AnkiDecks')
