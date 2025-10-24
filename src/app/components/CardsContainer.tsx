@@ -38,15 +38,6 @@ export default function CardsContainer() {
 
   const cardsList: Card[] = [
     createCard(
-      t('AnkiDecks.Title'),
-      t('AnkiDecks.ImgAlt'),
-      '/homepage/anki.avif',
-      '/homepage/anki.jpg',
-      t('AnkiDecks.Description'),
-      'mazos-anki',
-      t('AnkiDecks.LinkName')
-    ),
-    createCard(
       t('HskBooks.Title'),
       t('HskBooks.ImgAlt'),
       '/homepage/hskbooks.avif',
@@ -65,6 +56,15 @@ export default function CardsContainer() {
       t('HskAudios.LinkName')
     ),
     createCard(
+      t('HskMockTest.Title'),
+      t('HskMockTest.ImgAlt'),
+      '/homepage/mocktest.avif',
+      '/homepage/mocktest.jpg',
+      t('HskMockTest.Description'),
+      'hsk-mock-test',
+      t('HskMockTest.LinkName')
+    ),
+    createCard(
       t('Channels.Title'),
       t('Channels.ImgAlt'),
       '/homepage/channels.avif',
@@ -72,6 +72,15 @@ export default function CardsContainer() {
       t('Channels.Description'),
       'canales',
       t('Channels.LinkName')
+    ),
+    createCard(
+      t('AnkiDecks.Title'),
+      t('AnkiDecks.ImgAlt'),
+      '/homepage/anki.avif',
+      '/homepage/anki.jpg',
+      t('AnkiDecks.Description'),
+      'mazos-anki',
+      t('AnkiDecks.LinkName')
     ),
     createCard(
       t('Hanzi.Title'),
