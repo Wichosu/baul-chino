@@ -148,7 +148,8 @@
     "HeroLink": "📂 Abrir en Google Drive",
     "ListContainer": {
       "Title": "Descarga el libro en PDF con un solo clic",
-      "ListenAudios": "Escucha los audios HSK"
+      "ListenAudios": "Escucha los audios HSK",
+      "MockTest": "Descarga los mock tests"
     }
   },
   "Channels": {

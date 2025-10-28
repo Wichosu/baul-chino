@@ -192,6 +192,9 @@ export default function ListContainer() {
               <Button type='yellow' as='link' href='/hsk-audios'>
                 {t('ListenAudios')}
               </Button>
+              <Button type='yellow' as='link' href='/hsk-mock-test'>
+                {t('MockTest')}
+              </Button>
             </div>
           </Card>
         ))}
