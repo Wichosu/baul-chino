@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "srv": "ssh srv.us -R 1:localhost:3000"
+    "srv": "ssh srv.us -R 1:localhost:3000",
+    "gen:types": "npx supabase gen types typescript --project-id zhwlbkthwmoteopxiuga --schema public,mock_test > src/app/types/supabase.ts"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",
