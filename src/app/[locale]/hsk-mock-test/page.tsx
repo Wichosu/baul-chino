@@ -5,8 +5,8 @@ import { useTranslations } from 'next-intl';
 import { Hero } from '../../components/Hero';
 import Card from '../../components/Card';
 import { Button } from '../../components/Button';
-import MockTest from '../../components/MockTest';
 import { MockTestBundles } from '../../constants/hskmocktest/hskmocktestbundles';
+import { MockTestCardFetch } from '../../components/MockTestCardFetch';
 
 export async function generateMetadata({
   params,
@@ -47,20 +47,8 @@ export default function Page() {
         <h2 className='text-3xl font-medium'>{t('OnlineSimulator')}</h2>
         <div className='flex flex-wrap justify-center'>
           <React.Suspense fallback={<p>Loading...</p>}>
-            <MockTest />
+            <MockTestCardFetch />
           </React.Suspense>
-          {/* {onlineSimulatorCards.map((item) => (
-            <Card key={item.title} as='article' padding='3'>
-              <h3 className='text-2xl font-medium text-center'>{item.title}</h3>
-              <div className='flex flex-col'>
-                {item.tests.map((test) => (
-                  <Button key={test.title} type='yellow'>
-                    Mock Test {test.title}
-                  </Button>
-                ))}
-              </div>
-            </Card>
-          ))} */}
         </div>
         <h2 className='text-3xl font-medium'>{t('DownloadBundles')}</h2>
         <div className='flex flex-wrap justify-center'>
