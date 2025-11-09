@@ -54,6 +54,21 @@ export type Database = {
           },
         ]
       }
+      hsk_level: {
+        Row: {
+          id: number
+          level: string
+        }
+        Insert: {
+          id?: number
+          level?: string
+        }
+        Update: {
+          id?: number
+          level?: string
+        }
+        Relationships: []
+      }
       image: {
         Row: {
           alt: string
@@ -252,18 +267,29 @@ export type Database = {
       }
       mock_test: {
         Row: {
+          hsk_level: number | null
           id: string
           name: string
         }
         Insert: {
+          hsk_level?: number | null
           id?: string
           name?: string
         }
         Update: {
+          hsk_level?: number | null
           id?: string
           name?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "mock_test_hsk_level_fkey"
+            columns: ["hsk_level"]
+            isOneToOne: false
+            referencedRelation: "hsk_level"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       phrase_options: {
         Row: {
