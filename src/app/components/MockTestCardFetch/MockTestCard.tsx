@@ -1,7 +1,7 @@
 import React from 'react';
-import Card from '../Card';
-import { Button } from '../Button';
-import { Database } from '../../types/supabase';
+import { Card } from '@/src/app/components/Card';
+import { Button } from '@/src/app/components/Button';
+import { Database } from '@/src/app/types/supabase';
 
 type MockTest = Database['mock_test']['Tables']['mock_test']['Row'];
 type HskLevel = Database['mock_test']['Tables']['hsk_level']['Row'];

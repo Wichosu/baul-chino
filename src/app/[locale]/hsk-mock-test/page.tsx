@@ -2,11 +2,11 @@ import React from 'react';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import { Hero } from '../../components/Hero';
-import Card from '../../components/Card';
-import { Button } from '../../components/Button';
-import { MockTestBundles } from '../../constants/hskmocktest/hskmocktestbundles';
-import { MockTestCardFetch } from '../../components/MockTestCardFetch';
+import { Hero } from '@/src/app/components/Hero';
+import { Card } from '@/src/app/components/Card';
+import { Button } from '@/src/app/components/Button';
+import { MockTestBundles } from '@/src/app/constants/hskmocktest/hskmocktestbundles';
+import { MockTestCardFetch } from '@/src/app/components/MockTestCardFetch';
 
 export async function generateMetadata({
   params,
