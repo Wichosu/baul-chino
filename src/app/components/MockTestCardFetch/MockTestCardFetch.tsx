@@ -1,8 +1,6 @@
 import React from 'react';
 import { createClient } from '../../utils/supabase/server';
 import { cookies } from 'next/headers';
-import Card from '../Card';
-import { Button } from '../Button';
 import { MockTestCard } from './MockTestCard';
 
 export async function MockTestCardFetch() {
@@ -25,22 +23,6 @@ export async function MockTestCardFetch() {
   return (
     <>
       <MockTestCard title='HSK 1' tests={hsk1Tests} />
-      <Card as='article' padding='3'>
-        <h3 className='text-2xl font-medium text-center'>HSK 1</h3>
-        <div className='flex flex-col'>
-          {hsk1Tests?.map(({ id, name }) => (
-            <Button
-              key={id}
-              type='yellow'
-              as='link'
-              href={`/hsk-mock-test/${id}`}
-              target='_self'
-            >
-              {name}
-            </Button>
-          ))}
-        </div>
-      </Card>
     </>
   );
 }
