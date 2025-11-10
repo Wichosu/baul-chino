@@ -7,6 +7,7 @@ import { Card } from '@/src/app/components/Card';
 import { Button } from '@/src/app/components/Button';
 import { MockTestBundles } from '@/src/app/constants/hskmocktest/hskmocktestbundles';
 import { MockTestCardFetch } from '@/src/app/components/MockTestCardFetch';
+import { CardSkeleton } from '@/src/app/components/Card';
 
 export async function generateMetadata({
   params,
@@ -46,7 +47,7 @@ export default function Page() {
       <section>
         <h2 className='text-3xl font-medium'>{t('OnlineSimulator')}</h2>
         <div className='flex flex-wrap justify-center'>
-          <React.Suspense fallback={<p>Loading...</p>}>
+          <React.Suspense fallback={<CardSkeleton height='xs' />}>
             <MockTestCardFetch />
           </React.Suspense>
         </div>
