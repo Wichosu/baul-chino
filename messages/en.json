@@ -254,5 +254,11 @@
     "OnlineSimulator": "Online simulator",
     "ComingSoon": "Coming soon...",
     "DownloadBundles": "Download HSK mock test bundle (exam, answers, audio file)"
+  },
+  "Test": {
+    "Hero": {
+      "listeningTrueFalse": "Listen to the audio and choose between right (green) or not right (red) if the audio is related to its image",
+      "error": "An error has occurred while loading the description. If the test is not showing please refresh the page or try again later."
+    }
   }
 }
