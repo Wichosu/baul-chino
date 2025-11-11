@@ -1,5 +1,5 @@
 import React from 'react';
-import { createClient } from '../../utils/supabase/server';
+import { createClient } from '@/src/app/utils/supabase/server';
 import { cookies } from 'next/headers';
 import { MockTestCard } from './MockTestCard';
 
