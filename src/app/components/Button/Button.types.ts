@@ -6,7 +6,9 @@ export type ButtonAllowedTypes =
   | 'warning'
   | 'delete'
   | 'disabled'
-  | 'yellow';
+  | 'yellow'
+  | 'lightred'
+  | 'lime';
 export type ButtonAllowedScale = 'none' | '1' | '2' | '3';
 export type ButtonAllowedTarget = '_blank' | '_self' | '_parent' | '_top';
 
