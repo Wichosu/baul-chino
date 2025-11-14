@@ -1,3 +1,6 @@
+Need to install the following packages:
+supabase@2.58.5
+Ok to proceed? (y) 
 export type Json =
   | string
   | number
@@ -145,6 +148,13 @@ export type Database = {
         }
         Relationships: [
           {
+            foreignKeyName: "listening_match_image_audio_mockTest_fkey"
+            columns: ["mockTest"]
+            isOneToOne: false
+            referencedRelation: "mock_test"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "listening_match_image_audio_questionType_fkey"
             columns: ["questionType"]
             isOneToOne: false
@@ -218,24 +228,36 @@ export type Database = {
       }
       listening_true_false: {
         Row: {
+          alt: string | null
           answer: boolean
+          audio: string
           id: number
+          image: string
+          imgFallback: string
           mockTest: string
           questionNumber: string
           questionType: number
           sectionType: number
         }
         Insert: {
+          alt?: string | null
           answer: boolean
+          audio: string
           id?: number
+          image: string
+          imgFallback: string
           mockTest: string
           questionNumber?: string
-          questionType: number
-          sectionType: number
+          questionType?: number
+          sectionType?: number
         }
         Update: {
+          alt?: string | null
           answer?: boolean
+          audio?: string
           id?: number
+          image?: string
+          imgFallback?: string
           mockTest?: string
           questionNumber?: string
           questionType?: number

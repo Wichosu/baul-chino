@@ -14,6 +14,8 @@ const allowedTypes: ButtonAllowedTypes[] = [
   'delete',
   'disabled',
   'yellow',
+  'lightred',
+  'lime',
 ];
 
 const typeClass: Record<ButtonAllowedTypes, string> = {
@@ -27,6 +29,9 @@ const typeClass: Record<ButtonAllowedTypes, string> = {
     'bg-gray-300 text-gray-800 cursor-not-allowed transition-colors focus:outline-4 focus:outline-gray-400',
   yellow:
     'bg-yellow-700 text-white cursor-pointer transition-colors hover:bg-yellow-900 focus:bg-yellow-900 focus:outline-4 focus:outline-yellow-700 active:bg-yellow-950',
+  lightred:
+    'bg-red-500 text-white cursor-pointer transition-colors hover:bg-red-600 focus:bg-red-600 focus:outline-4 focus:outline-red-300 active:bg-red-700',
+  lime: 'bg-lime-500 text-white cursor-pointer transition-colors hover:bg-lime-600 focus:bg-lime-600 focus:outline-4 focus:outline-lime-400 active:bg-lime-700',
 };
 
 const paddingClass: Record<ButtonAllowedScale, string> = {
