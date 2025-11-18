@@ -6,6 +6,7 @@ import {
   ButtonAllowedTypes,
   ButtonProps,
 } from './Button.types';
+import { twMerge } from 'tailwind-merge';
 
 const allowedTags: ButtonAllowedTags[] = ['link', 'button'];
 const allowedTypes: ButtonAllowedTypes[] = [
@@ -30,8 +31,8 @@ const typeClass: Record<ButtonAllowedTypes, string> = {
   yellow:
     'bg-yellow-700 text-white cursor-pointer transition-colors hover:bg-yellow-900 focus:bg-yellow-900 focus:outline-4 focus:outline-yellow-700 active:bg-yellow-950',
   lightred:
-    'bg-red-500 text-white cursor-pointer transition-colors hover:bg-red-600 focus:bg-red-600 focus:outline-4 focus:outline-red-300 active:bg-red-700',
-  lime: 'bg-lime-500 text-white cursor-pointer transition-colors hover:bg-lime-600 focus:bg-lime-600 focus:outline-4 focus:outline-lime-400 active:bg-lime-700',
+    'bg-red-500 text-white cursor-pointer transition-colors hover:bg-red-600 focus:bg-red-600 focus:outline-4 focus:outline-red-800 active:bg-red-700',
+  lime: 'bg-lime-500 text-white cursor-pointer transition-colors hover:bg-lime-600 focus:bg-lime-600 focus:outline-4 focus:outline-lime-800 active:bg-lime-700',
 };
 
 const paddingClass: Record<ButtonAllowedScale, string> = {
@@ -95,7 +96,10 @@ export function Button({
     throw new Error('href must be a string');
   }
 
-  const className = `${props.className} ${typeClass[type]} ${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]} whitespace-nowrap`;
+  const className = twMerge(
+    `${typeClass[type]} ${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]} whitespace-nowrap`,
+    props.className
+  );
 
   return Tag === 'link' ? (
     <Link

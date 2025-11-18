@@ -1,33 +1,26 @@
+'use client';
 import React from 'react';
-import { createClient } from '@/src/app/utils/supabase/server';
-import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Audio from '@/src/app/components/Audio/Audio';
-import { Button } from '../Button';
-import { X, Check } from 'lucide-react';
+import { TrueFalseButton } from '@/src/app/components/Button';
+import { Database } from '@/src/app/types/supabase';
+import { HandleListeningTrueFalseAnswer } from './Test.types';
 
 type Props = {
-  test: string;
+  questions: Database['mock_test']['Tables']['listening_true_false']['Row'][];
+  handleListeningTrueFalseAnswer: HandleListeningTrueFalseAnswer;
 };
 
-export async function ListeningTrueFalse({ test }: Props) {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
-
-  const { data: questions } = await supabase
-    .schema('mock_test')
-    .from('listening_true_false')
-    .select('*')
-    .eq('mockTest', test);
-
-  console.log(questions);
-
+export function ListeningTrueFalse({
+  questions,
+  handleListeningTrueFalseAnswer,
+}: Props) {
   return (
     <section>
-      {questions?.map((question) => (
+      {questions?.map((question, index) => (
         <article
           key={question.id}
-          className='flex gap-12 items-center justify-center'
+          className='flex flex-wrap gap-4 lg:gap-12 items-center justify-center'
         >
           <picture className='relative w-32 h-32'>
             <source srcSet={question.image} width={'100%'} />
@@ -42,16 +35,21 @@ export async function ListeningTrueFalse({ test }: Props) {
               className='object-contain'
             />
           </picture>
-          <Audio audioUrl={question.audio} caption={question.questionNumber}>
+          <Audio
+            audioUrl={question.audio}
+            caption={`${question.questionNumber}.-`}
+          >
             <source src={question.audio} />
           </Audio>
           <div>
-            <Button type='lime'>
-              <Check />
-            </Button>
-            <Button type='lightred'>
-              <X />
-            </Button>
+            <TrueFalseButton
+              type='true'
+              onClick={() => handleListeningTrueFalseAnswer(true, index)}
+            />
+            <TrueFalseButton
+              type='false'
+              onClick={() => handleListeningTrueFalseAnswer(false, index)}
+            />
           </div>
         </article>
       ))}
