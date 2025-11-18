@@ -1,5 +1,9 @@
 import React from 'react';
-import { TestHero, ListeningTrueFalse } from '@/src/app/components/Test';
+import {
+  TestHero,
+  TestFetch,
+  ListeningTrueFalseSkeleton,
+} from '@/src/app/components/Test';
 import { HeroSkeleton } from '@/src/app/components/Hero';
 
 export default async function Page({
@@ -14,8 +18,10 @@ export default async function Page({
       <React.Suspense fallback={<HeroSkeleton />}>
         <TestHero test={test} />
       </React.Suspense>
-      <React.Suspense fallback={<div>Loading Listening True False...</div>}>
-        <ListeningTrueFalse test={test} />
+      <React.Suspense
+        fallback={<ListeningTrueFalseSkeleton skeletonItems={5} />}
+      >
+        <TestFetch testId={test} />
       </React.Suspense>
     </>
   );
