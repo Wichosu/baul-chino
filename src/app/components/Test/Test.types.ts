@@ -11,6 +11,11 @@ export type ClientAnswers = {
   listeningTrueFalse: [];
 };
 
+export type Translations = {
+  check: string;
+  x: string;
+};
+
 /**SECTION ANSWER TYPES */
 export type HandleListeningTrueFalseAnswer = (
   answer: boolean,

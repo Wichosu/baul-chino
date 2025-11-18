@@ -6,13 +6,15 @@ import {
   QuestionType,
   Test,
   HandleListeningTrueFalseAnswer,
+  Translations,
 } from './Test.types';
 
 type Props = {
   test: Test;
+  translations: Translations;
 };
 
-export function TestClient({ test }: Props) {
+export function TestClient({ test, translations }: Props) {
   const [currentQuestionType, setCurrentQuestionType] =
     React.useState<QuestionType>(test.flowOrder[0]);
 
@@ -44,6 +46,7 @@ export function TestClient({ test }: Props) {
         <ListeningTrueFalse
           questions={test.listeningTrueFalse}
           handleListeningTrueFalseAnswer={handleListeningTrueFalseAnswer}
+          translations={translations}
         />
       )}
       <div className='w-fit mx-auto'>

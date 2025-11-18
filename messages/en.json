@@ -1,4 +1,8 @@
 {
+  "Icons": {
+    "check": "Answer true",
+    "x": "Answer false"
+  },
   "Navbar": {
     "Home": "Home",
     "Tools": "Tools",

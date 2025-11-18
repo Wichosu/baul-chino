@@ -1,4 +1,8 @@
 {
+  "Icons": {
+    "check": "Responder verdadero",
+    "x": "Responder falso"
+  },
   "Navbar": {
     "Home": "Inicio",
     "Tools": "Herramientas",
