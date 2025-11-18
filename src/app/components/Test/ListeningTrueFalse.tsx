@@ -2,18 +2,20 @@
 import React from 'react';
 import Image from 'next/image';
 import Audio from '@/src/app/components/Audio/Audio';
-import { TrueFalseButton } from '@/src/app/components/Button';
 import { Database } from '@/src/app/types/supabase';
-import { HandleListeningTrueFalseAnswer } from './Test.types';
+import { HandleListeningTrueFalseAnswer, Translations } from './Test.types';
+import { ListeningTrueFalseButtons } from './ListeningTrueFalseButtons';
 
 type Props = {
   questions: Database['mock_test']['Tables']['listening_true_false']['Row'][];
   handleListeningTrueFalseAnswer: HandleListeningTrueFalseAnswer;
+  translations: Translations;
 };
 
 export function ListeningTrueFalse({
   questions,
   handleListeningTrueFalseAnswer,
+  translations,
 }: Props) {
   return (
     <section>
@@ -42,14 +44,19 @@ export function ListeningTrueFalse({
             <source src={question.audio} />
           </Audio>
           <div>
-            <TrueFalseButton
+            <ListeningTrueFalseButtons
+              translations={translations}
+              handleListeningTrueFalseAnswer={handleListeningTrueFalseAnswer}
+              index={index}
+            />
+            {/* <TrueFalseButton
               type='true'
               onClick={() => handleListeningTrueFalseAnswer(true, index)}
             />
             <TrueFalseButton
               type='false'
               onClick={() => handleListeningTrueFalseAnswer(false, index)}
-            />
+            /> */}
           </div>
         </article>
       ))}

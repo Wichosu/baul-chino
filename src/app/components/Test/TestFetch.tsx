@@ -2,13 +2,21 @@ import React from 'react';
 import { cookies } from 'next/headers';
 import { createClient } from '@/src/app/utils/supabase/server';
 import { TestClient } from './TestClient';
-import { Test } from './Test.types';
+import { Test, Translations } from './Test.types';
+import { getTranslations } from 'next-intl/server';
 
 type Props = {
   testId: string;
 };
 
 export async function TestFetch({ testId }: Props) {
+  //translations
+  const t = await getTranslations('Icons');
+  const translations: Translations = {
+    check: t('check'),
+    x: t('x'),
+  };
+
   const cookieStore = cookies();
   const supabase = createClient(cookieStore);
 
@@ -29,7 +37,7 @@ export async function TestFetch({ testId }: Props) {
 
   return (
     <>
-      <TestClient test={test} />
+      <TestClient test={test} translations={translations} />
     </>
   );
 }
