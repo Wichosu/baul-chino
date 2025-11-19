@@ -6,12 +6,12 @@ import {
   QuestionType,
   Test,
   HandleListeningTrueFalseAnswer,
-  Translations,
+  TestTranslations,
 } from './Test.types';
 
 type Props = {
   test: Test;
-  translations: Translations;
+  translations: TestTranslations;
 };
 
 export function TestClient({ test, translations }: Props) {
@@ -38,7 +38,14 @@ export function TestClient({ test, translations }: Props) {
     setListeningTrueFalseAnswers(newListeningTrueFalseAnswers);
   };
 
-  console.log(listeningTrueFalseAnswers);
+  //evaluate user answers with test answers
+  //if true it means correct answer, if false it means incorrect answer
+  const listeningTrueFalseEvaluation = test.listeningTrueFalse.map(
+    (question, index) => question.answer === listeningTrueFalseAnswers[index]
+  );
+
+  console.log({ listeningTrueFalseAnswers });
+  console.log({ listeningTrueFalseEvaluation });
 
   return (
     <>
@@ -46,16 +53,15 @@ export function TestClient({ test, translations }: Props) {
         <ListeningTrueFalse
           questions={test.listeningTrueFalse}
           handleListeningTrueFalseAnswer={handleListeningTrueFalseAnswer}
+          listeningTrueFalseEvaluation={listeningTrueFalseEvaluation}
           translations={translations}
         />
       )}
       <div className='w-fit mx-auto'>
-        <Button type='yellow' className='first-letter:uppercase mr-20'>
-          previous
+        <Button type='yellow' className='md:mr-20'>
+          {translations.previous}
         </Button>
-        <Button type='yellow' className='first-letter:uppercase'>
-          next
-        </Button>
+        <Button type='yellow'>{translations.next}</Button>
       </div>
     </>
   );
