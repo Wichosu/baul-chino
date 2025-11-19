@@ -2,7 +2,7 @@ import React from 'react';
 import { cookies } from 'next/headers';
 import { createClient } from '@/src/app/utils/supabase/server';
 import { TestClient } from './TestClient';
-import { Test, Translations } from './Test.types';
+import { Test, TestTranslations } from './Test.types';
 import { getTranslations } from 'next-intl/server';
 
 type Props = {
@@ -11,10 +11,13 @@ type Props = {
 
 export async function TestFetch({ testId }: Props) {
   //translations
-  const t = await getTranslations('Icons');
-  const translations: Translations = {
-    check: t('check'),
-    x: t('x'),
+  const t = await getTranslations('Test');
+  const translations: TestTranslations = {
+    check: t('Icons.Check'),
+    x: t('Icons.X'),
+    previous: t('Previous'),
+    next: t('Next'),
+    showAnswers: t('ShowAnswers'),
   };
 
   const cookieStore = cookies();

@@ -1,8 +1,4 @@
 {
-  "Icons": {
-    "check": "Answer true",
-    "x": "Answer false"
-  },
   "Navbar": {
     "Home": "Home",
     "Tools": "Tools",
@@ -263,6 +259,13 @@
     "Hero": {
       "listeningTrueFalse": "Listen to the audio and choose between right (green) or not right (red) if the audio is related to its image",
       "error": "An error has occurred while loading the description. If the test is not showing please refresh the page or try again later."
-    }
+    },
+    "Icons": {
+      "Check": "Answer true",
+      "X": "Answer false"
+    },
+    "Previous": "Previous",
+    "Next": "Next",
+    "ShowAnswers": "Show Answers"
   }
 }

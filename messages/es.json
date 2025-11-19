@@ -1,8 +1,4 @@
 {
-  "Icons": {
-    "check": "Responder verdadero",
-    "x": "Responder falso"
-  },
   "Navbar": {
     "Home": "Inicio",
     "Tools": "Herramientas",
@@ -263,6 +259,13 @@
     "Hero": {
       "listeningTrueFalse": "Escucha el audio y escoge entre correcto (verde) o incorrecto (rojo) si el audio coincide con la imagen",
       "error": "An error has occurred while loading the description. If the test is not showing please refresh the page or try again later."
-    }
+    },
+    "Icons": {
+      "Check": "Responder verdadero",
+      "X": "Responder falso"
+    },
+    "Previous": "Anterior",
+    "Next": "Siguiente",
+    "ShowAnswers": "Mostrar Respuestas"
   }
 }
