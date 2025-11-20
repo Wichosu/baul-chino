@@ -2,7 +2,6 @@
 import React from 'react';
 import Image from 'next/image';
 import Audio from '@/src/app/components/Audio/Audio';
-import { Button } from '@/src/app/components/Button';
 import { Database } from '@/src/app/types/supabase';
 import { HandleListeningTrueFalseAnswer, TestTranslations } from './Test.types';
 import { ListeningTrueFalseButtons } from './ListeningTrueFalseButtons';
@@ -10,14 +9,12 @@ import { ListeningTrueFalseButtons } from './ListeningTrueFalseButtons';
 type Props = {
   questions: Database['mock_test']['Tables']['listening_true_false']['Row'][];
   handleListeningTrueFalseAnswer: HandleListeningTrueFalseAnswer;
-  listeningTrueFalseEvaluation: boolean[];
   translations: TestTranslations;
 };
 
 export function ListeningTrueFalse({
   questions,
   handleListeningTrueFalseAnswer,
-  listeningTrueFalseEvaluation,
   translations,
 }: Props) {
   return (
@@ -55,9 +52,6 @@ export function ListeningTrueFalse({
           </div>
         </article>
       ))}
-      <div className='w-fit mx-auto'>
-        <Button type='yellow'>{translations.showAnswers}</Button>
-      </div>
     </section>
   );
 }
