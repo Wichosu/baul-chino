@@ -1,9 +1,6 @@
 import React from 'react';
-import {
-  TestHero,
-  TestFetch,
-  ListeningTrueFalseSkeleton,
-} from '@/src/app/components/Test';
+import { TestHero, TestFetch } from '@/src/app/components/Test';
+import { ListeningTrueFalseSkeleton } from '@/src/app/components/Test/ListeningTrueFalse';
 import { HeroSkeleton } from '@/src/app/components/Hero';
 
 export default async function Page({

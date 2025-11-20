@@ -3,7 +3,10 @@ import React from 'react';
 import Image from 'next/image';
 import Audio from '@/src/app/components/Audio/Audio';
 import { Database } from '@/src/app/types/supabase';
-import { HandleListeningTrueFalseAnswer, TestTranslations } from './Test.types';
+import {
+  HandleListeningTrueFalseAnswer,
+  TestTranslations,
+} from '../Test.types';
 import { ListeningTrueFalseButtons } from './ListeningTrueFalseButtons';
 
 type Props = {

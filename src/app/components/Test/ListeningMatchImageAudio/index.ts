@@ -1,0 +1,1 @@
+export { ListeningMatchImageAudio } from './ListeningMatchImageAudio';
