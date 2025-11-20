@@ -1,6 +1,3 @@
-Need to install the following packages:
-supabase@2.58.5
-Ok to proceed? (y) 
 export type Json =
   | string
   | number
@@ -123,24 +120,36 @@ export type Database = {
       }
       listening_match_image_audio: {
         Row: {
+          alt: Json | null
           answer: Database["public"]["Enums"]["letter_range"]
+          audio: string
           id: number
+          img: string
+          imgFallback: string
           mockTest: string
           questionNumber: string
           questionType: number
           sectionType: number
         }
         Insert: {
+          alt?: Json | null
           answer: Database["public"]["Enums"]["letter_range"]
+          audio: string
           id?: number
+          img: string
+          imgFallback: string
           mockTest: string
           questionNumber?: string
           questionType: number
           sectionType: number
         }
         Update: {
+          alt?: Json | null
           answer?: Database["public"]["Enums"]["letter_range"]
+          audio?: string
           id?: number
+          img?: string
+          imgFallback?: string
           mockTest?: string
           questionNumber?: string
           questionType?: number

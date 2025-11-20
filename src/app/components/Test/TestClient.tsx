@@ -1,9 +1,9 @@
 'use client';
 import React from 'react';
-import { ListeningTrueFalse } from './ListeningTrueFalse';
+import { ListeningTrueFalse } from '@/src/app/components/Test/ListeningTrueFalse';
+import { ListeningMatchImageAudio } from '@/src/app/components/Test/ListeningMatchImageAudio';
 import { Button } from '@/src/app/components/Button';
 import {
-  QuestionType,
   Test,
   HandleListeningTrueFalseAnswer,
   TestTranslations,
@@ -16,14 +16,7 @@ type Props = {
 };
 
 export function TestClient({ test, translations }: Props) {
-  const [currentQuestionType, setCurrentQuestionType] =
-    React.useState<QuestionType>(test.flowOrder[0]);
-
   const [showAnswers, setShowAnswers] = React.useState(false);
-
-  // const [clientAnswers, setClientAnswers] = React.useState<ClientAnswers>({
-  //   listeningTrueFalse: [],
-  // });
 
   const [listeningTrueFalseAnswers, setListeningTrueFalseAnswers] =
     React.useState<boolean[]>(
@@ -47,25 +40,28 @@ export function TestClient({ test, translations }: Props) {
     (question, index) => question.answer === listeningTrueFalseAnswers[index]
   );
 
+  //make sure to add up all questions from test
   const totalQuestions = test.listeningTrueFalse.length;
   let totalScore = 0;
 
+  //make sure to add all section to sumup the score
   listeningTrueFalseEvaluation.map((evaluation) => {
     if (evaluation === true) totalScore += 1;
   });
 
-  console.log({ listeningTrueFalseAnswers });
-  console.log({ listeningTrueFalseEvaluation });
+  console.log(test);
 
   return (
     <>
-      {currentQuestionType === 'listeningTrueFalse' && (
-        <ListeningTrueFalse
-          questions={test.listeningTrueFalse}
-          handleListeningTrueFalseAnswer={handleListeningTrueFalseAnswer}
-          translations={translations}
-        />
-      )}
+      <ListeningTrueFalse
+        questions={test.listeningTrueFalse}
+        handleListeningTrueFalseAnswer={handleListeningTrueFalseAnswer}
+        translations={translations}
+      />
+      <ListeningMatchImageAudio
+        questions={test.listeningMatchImageAudio}
+        translations={translations}
+      />
       <div className='w-fit mx-auto flex flex-col gap-6 items-center'>
         <Button type='yellow' onClick={() => setShowAnswers(true)}>
           {translations.showAnswers}
