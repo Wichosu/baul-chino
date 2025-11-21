@@ -21,7 +21,7 @@ export function ListeningTrueFalse({
   translations,
 }: Props) {
   return (
-    <section>
+    <section className='mb-12'>
       {questions?.map((question, index) => (
         <article
           key={question.id}

@@ -9,13 +9,20 @@ type Props = {
   translations: TestTranslations;
 };
 
+type SelectOptions = Extract<
+  Database['public']['Enums']['letter_range'],
+  'A' | 'B' | 'C'
+>;
+
+const SELECTOPTIONS: SelectOptions[] = ['A', 'B', 'C'];
+
 export function ListeningMatchImageAudio({ questions, translations }: Props) {
   return (
-    <section>
+    <section className='flex flex-col gap-16'>
       {questions.map((question) => (
         <article key={question.id}>
-          <picture>
-            <source src={question.img} />
+          <picture className='block relative w-full h-32 mb-2'>
+            <source src={question.img} width={'100%'} />
             <Image
               src={question.imgFallback}
               alt={
@@ -26,12 +33,19 @@ export function ListeningMatchImageAudio({ questions, translations }: Props) {
               className='object-contain'
             />
           </picture>
-          <Audio
-            audioUrl={question.audio}
-            caption={`${question.questionNumber}.-`}
-          >
-            <source src={question.audio} />
-          </Audio>
+          <div className='flex flex-wrap gap-6 md:gap-12 justify-center'>
+            <Audio
+              audioUrl={question.audio}
+              caption={`${question.questionNumber}.-`}
+            >
+              <source src={question.audio} />
+            </Audio>
+            <select>
+              {SELECTOPTIONS.map((option, index) => (
+                <option key={`option-${index}`}>{option}</option>
+              ))}
+            </select>
+          </div>
         </article>
       ))}
     </section>
