@@ -68,6 +68,13 @@ export default async function RootLayout({
     <>
       <html lang={locale}>
         <body className={bodyClassName}>
+          <script
+            id='adsense-script'
+            async
+            src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9265679045037542'
+            crossOrigin='anonymous'
+            suppressHydrationWarning
+          />
           <PostHogProvider>
             <NextIntlClientProvider>
               <Container>
