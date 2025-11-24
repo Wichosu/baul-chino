@@ -9,6 +9,7 @@ import {
   TestTranslations,
 } from './Test.types';
 import { Check, X } from 'lucide-react';
+import { SelectDemo } from '../Select';
 
 type Props = {
   test: Test;
@@ -124,6 +125,7 @@ export function TestClient({ test, translations }: Props) {
           </>
         )}
       </div>
+      <SelectDemo />
       {/* <div className='w-fit mx-auto'>
         <Button type='yellow' className='md:mr-20'>
           {translations.previous}
