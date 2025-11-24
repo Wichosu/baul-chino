@@ -1,11 +1,13 @@
 import React from 'react';
 import { Select } from 'radix-ui';
 
+type AllowedChildren =
+  | React.ReactElement<typeof Select.ScrollUpButton>
+  | React.ReactElement<typeof Select.Viewport>
+  | React.ReactElement<typeof Select.ScrollDownButton>;
+
 type Props = {
-  children:
-    | React.ReactElement<typeof Select.ScrollUpButton>[]
-    | React.ReactElement<typeof Select.Viewport>[]
-    | React.ReactElement<typeof Select.ScrollDownButton>[];
+  children: AllowedChildren | AllowedChildren[];
 };
 
 export function SelectContent({ children }: Props) {
