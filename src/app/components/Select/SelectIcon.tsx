@@ -1,10 +1,11 @@
 import React from 'react';
 import { Select } from 'radix-ui';
+import { ChevronDown } from 'lucide-react';
 
-type Props = {
-  children: React.ReactNode;
-};
-
-export function SelectIcon({ children }: Props) {
-  return <Select.Icon>{children}</Select.Icon>;
+export function SelectIcon() {
+  return (
+    <Select.Icon>
+      <ChevronDown />
+    </Select.Icon>
+  );
 }

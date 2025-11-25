@@ -21,11 +21,8 @@ import { SelectItem } from './SelectItem';
 
 export const SelectDemo = () => (
   <SelectRoot>
-    <SelectTrigger>
-      <SelectValue placeholder='Select a fruit…' />
-      <SelectIcon>
-        <ChevronDown />
-      </SelectIcon>
+    <SelectTrigger ariaLabel='selected demo'>
+      Select a yummy fruit
     </SelectTrigger>
     <SelectPortal>
       <SelectContent>
