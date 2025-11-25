@@ -1,19 +1,28 @@
 import React from 'react';
 import { Select } from 'radix-ui';
+import { SelectIcon } from './SelectIcon';
+import { SelectValue } from './SelectValue';
 
 type Props = {
-  children:
-    | React.ReactElement<typeof Select.Value>[]
-    | React.ReactElement<typeof Select.Icon>[];
+  children: string;
+  // | React.ReactElement<typeof Select.Icon>[];
+  ariaLabel: string;
 };
 
-export function SelectTrigger({ children }: Props) {
+export function SelectTrigger({ children, ariaLabel }: Props) {
   return (
     <Select.Trigger
-      className='inline-flex h-[35px] items-center justify-center gap-[5px] rounded bg-white px-[15px] text-[13px] leading-none text-violet11 shadow-[0_2px_10px] shadow-black/10 outline-none hover:bg-mauve3 focus:shadow-[0_0_0_2px] focus:shadow-black data-[placeholder]:text-violet9'
-      aria-label='Food'
+      className={`
+      inline-flex h-10 items-center justify-center gap-2 rounded bg-yellow-100 px-4 leading-none text-black shadow-md outline-none 
+      cursor-pointer transition-colors
+      hover:bg-yellow-200 
+      focus:shadow-[0_0_0_2px] focus:shadow-black focus:bg-yellow-200
+      data-placeholder:text-black
+    `}
+      aria-label={ariaLabel}
     >
-      {children}
+      <SelectValue placeholder={children} />
+      <SelectIcon />
     </Select.Trigger>
   );
 }

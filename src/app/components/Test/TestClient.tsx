@@ -54,6 +54,7 @@ export function TestClient({ test, translations }: Props) {
 
   return (
     <>
+      <SelectDemo />
       <ListeningTrueFalse
         questions={test.listeningTrueFalse}
         handleListeningTrueFalseAnswer={handleListeningTrueFalseAnswer}
@@ -125,7 +126,6 @@ export function TestClient({ test, translations }: Props) {
           </>
         )}
       </div>
-      <SelectDemo />
       {/* <div className='w-fit mx-auto'>
         <Button type='yellow' className='md:mr-20'>
           {translations.previous}
