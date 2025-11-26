@@ -1,14 +1,11 @@
 import React from 'react';
 import { Select } from 'radix-ui';
+import { ChevronDown } from 'lucide-react';
 
-type Props = {
-  children: React.ReactNode;
-};
-
-export function SelectScrollDownButton({ children }: Props) {
+export function SelectScrollDownButton() {
   return (
-    <Select.ScrollDownButton className='flex h-[25px] cursor-default items-center justify-center bg-white text-violet11'>
-      {children}
+    <Select.ScrollDownButton className='flex h-6 cursor-default items-center justify-center bg-yellow-50 text-black'>
+      <ChevronDown />
     </Select.ScrollDownButton>
   );
 }

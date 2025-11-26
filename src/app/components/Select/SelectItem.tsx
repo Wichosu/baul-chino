@@ -21,7 +21,11 @@ export function SelectItem({
     <Select.Item
       value={value}
       className={twMerge(
-        'relative flex h-[25px] select-none items-center rounded-[3px] pl-[25px] pr-[35px] text-[13px] leading-none text-violet11 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[disabled]:text-mauve8 data-[highlighted]:text-violet1 data-[highlighted]:outline-none',
+        `
+        relative flex h-7 select-none items-center rounded pl-6 pr-8 leading-none text-black cursor-pointer
+        data-disabled:pointer-events-none data-highlighted:bg-yellow-100 data-disabled:text-gray-500 
+        data-highlighted:text-black data-highlighted:outline-none
+        `,
         className
       )}
       disabled={disabled}

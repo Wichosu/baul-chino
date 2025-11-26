@@ -3,6 +3,13 @@ import { Database } from '@/src/app/types/supabase';
 import { TestTranslations } from '@/src/app/components/Test/Test.types';
 import Image from 'next/image';
 import Audio from '@/src/app/components/Audio/Audio';
+import {
+  SelectRoot,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+} from '@/src/app/components/Select';
+import { Select } from 'radix-ui';
 
 type Props = {
   questions: Database['mock_test']['Tables']['listening_match_image_audio']['Row'][];
@@ -33,18 +40,27 @@ export function ListeningMatchImageAudio({ questions, translations }: Props) {
               className='object-contain'
             />
           </picture>
-          <div className='flex flex-wrap gap-6 md:gap-12 justify-center'>
+          <div className='flex flex-wrap gap-6 md:gap-12 justify-center items-center'>
             <Audio
               audioUrl={question.audio}
               caption={`${question.questionNumber}.-`}
             >
               <source src={question.audio} />
             </Audio>
-            <select>
-              {SELECTOPTIONS.map((option, index) => (
-                <option key={`option-${index}`}>{option}</option>
-              ))}
-            </select>
+            <SelectRoot>
+              <SelectTrigger
+                ariaLabel={`options for question ${question.questionNumber}`}
+              >
+                Choose a letter
+              </SelectTrigger>
+              <SelectContent>
+                {SELECTOPTIONS.map((option) => (
+                  <SelectItem key={option} value={option}>
+                    {option}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </SelectRoot>
           </div>
         </article>
       ))}
