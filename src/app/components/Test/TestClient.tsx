@@ -54,7 +54,6 @@ export function TestClient({ test, translations }: Props) {
 
   return (
     <>
-      <SelectDemo />
       <ListeningTrueFalse
         questions={test.listeningTrueFalse}
         handleListeningTrueFalseAnswer={handleListeningTrueFalseAnswer}

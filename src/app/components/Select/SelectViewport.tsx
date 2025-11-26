@@ -6,5 +6,5 @@ type Props = {
 };
 
 export function SelectViewport({ children }: Props) {
-  return <Select.Viewport className='p-[5px]'>{children}</Select.Viewport>;
+  return <Select.Viewport className='p-2'>{children}</Select.Viewport>;
 }

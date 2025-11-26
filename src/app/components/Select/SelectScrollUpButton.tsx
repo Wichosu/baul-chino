@@ -1,14 +1,11 @@
 import React from 'react';
 import { Select } from 'radix-ui';
+import { ChevronUp } from 'lucide-react';
 
-type Props = {
-  children: React.ReactNode;
-};
-
-export function SelectScrollUpButton({ children }: Props) {
+export function SelectScrollUpButton() {
   return (
-    <Select.ScrollUpButton className='flex h-[25px] cursor-default items-center justify-center bg-white text-violet11'>
-      {children}
+    <Select.ScrollUpButton className='flex h-6 cursor-default items-center justify-center bg-yellow-50 text-black'>
+      <ChevronUp />
     </Select.ScrollUpButton>
   );
 }

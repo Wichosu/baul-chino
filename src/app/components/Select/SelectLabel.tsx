@@ -7,7 +7,7 @@ type Props = {
 
 export function SelectLabel({ children }: Props) {
   return (
-    <Select.Label className='px-[25px] text-xs leading-[25px] text-mauve11'>
+    <Select.Label className='px-6 font-medium leading-6 text-black'>
       {children}
     </Select.Label>
   );
