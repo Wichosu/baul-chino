@@ -1,3 +1,6 @@
+Need to install the following packages:
+supabase@2.63.1
+Ok to proceed? (y) 
 export type Json =
   | string
   | number
@@ -14,46 +17,6 @@ export type Database = {
   }
   mock_test: {
     Tables: {
-      audio: {
-        Row: {
-          audio: string
-          id: number
-          mockTestSection: number
-        }
-        Insert: {
-          audio?: string
-          id?: number
-          mockTestSection: number
-        }
-        Update: {
-          audio?: string
-          id?: number
-          mockTestSection?: number
-        }
-        Relationships: [
-          {
-            foreignKeyName: "audio_mocktestsection_fkey"
-            columns: ["mockTestSection"]
-            isOneToOne: false
-            referencedRelation: "listening_true_false"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "audio_mocktestsection_fkey1"
-            columns: ["mockTestSection"]
-            isOneToOne: false
-            referencedRelation: "listening_select_phrase"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "audio_mocktestsection_fkey2"
-            columns: ["mockTestSection"]
-            isOneToOne: false
-            referencedRelation: "listening_match_image_audio"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       hsk_level: {
         Row: {
           id: number
@@ -69,54 +32,26 @@ export type Database = {
         }
         Relationships: []
       }
-      image: {
+      image_for_listening_match_image_audio_single_image: {
         Row: {
-          alt: string
+          alt: Json | null
           id: number
-          image: string
+          image: string | null
           imageFallback: string | null
-          letter: string
-          mockTestSection: number
         }
         Insert: {
-          alt?: string
+          alt?: Json | null
           id?: number
-          image?: string
+          image?: string | null
           imageFallback?: string | null
-          letter?: string
-          mockTestSection: number
         }
         Update: {
-          alt?: string
+          alt?: Json | null
           id?: number
-          image?: string
+          image?: string | null
           imageFallback?: string | null
-          letter?: string
-          mockTestSection?: number
         }
-        Relationships: [
-          {
-            foreignKeyName: "image_mocktestsection_fkey"
-            columns: ["mockTestSection"]
-            isOneToOne: false
-            referencedRelation: "listening_match_image_audio"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "image_mocktestsection_fkey1"
-            columns: ["mockTestSection"]
-            isOneToOne: false
-            referencedRelation: "listening_select_phrase"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "image_mocktestsection_fkey2"
-            columns: ["mockTestSection"]
-            isOneToOne: false
-            referencedRelation: "listening_true_false"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       listening_match_image_audio: {
         Row: {
@@ -172,6 +107,68 @@ export type Database = {
           },
           {
             foreignKeyName: "listening_match_image_audio_sectionType_fkey"
+            columns: ["sectionType"]
+            isOneToOne: false
+            referencedRelation: "section_type"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      listening_match_image_audio_single_image: {
+        Row: {
+          answer: Database["public"]["Enums"]["letter_range"]
+          audio: string
+          id: number
+          image: number | null
+          mockTest: string
+          questionNumber: string
+          questionType: number
+          sectionType: number
+        }
+        Insert: {
+          answer: Database["public"]["Enums"]["letter_range"]
+          audio: string
+          id?: number
+          image?: number | null
+          mockTest: string
+          questionNumber?: string
+          questionType: number
+          sectionType: number
+        }
+        Update: {
+          answer?: Database["public"]["Enums"]["letter_range"]
+          audio?: string
+          id?: number
+          image?: number | null
+          mockTest?: string
+          questionNumber?: string
+          questionType?: number
+          sectionType?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "listening_match_image_audio_single_image_image_fkey"
+            columns: ["image"]
+            isOneToOne: false
+            referencedRelation: "image_for_listening_match_image_audio_single_image"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "listening_match_image_audio_single_image_mockTest_fkey"
+            columns: ["mockTest"]
+            isOneToOne: false
+            referencedRelation: "mock_test"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "listening_match_image_audio_single_image_questionType_fkey"
+            columns: ["questionType"]
+            isOneToOne: false
+            referencedRelation: "question_type"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "listening_match_image_audio_single_image_sectionType_fkey"
             columns: ["sectionType"]
             isOneToOne: false
             referencedRelation: "section_type"
