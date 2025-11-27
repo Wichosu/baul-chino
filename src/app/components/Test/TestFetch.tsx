@@ -36,6 +36,12 @@ export async function TestFetch({ testId }: Props) {
     .select('*')
     .eq('mockTest', testId);
 
+  const { data: questionsListeningMatchImageAudioSingleImage } = await supabase
+    .schema('mock_test')
+    .from('listening_match_image_audio_single_image')
+    .select('*')
+    .eq('mockTest', testId);
+
   if (!questionsListeningTrueFalse) {
     return (
       <p>
@@ -54,11 +60,21 @@ export async function TestFetch({ testId }: Props) {
     );
   }
 
+  if (!questionsListeningMatchImageAudioSingleImage) {
+    return (
+      <p>
+        No questions found for match image audio single image found. Please
+        refresh or report this
+      </p>
+    );
+  }
+
   const test: Test = {
     level: 'hsk1',
-    flowOrder: ['listeningTrueFalse', 'listeningMatchImageAudio'],
-    listeningTrueFalse: questionsListeningTrueFalse,
-    listeningMatchImageAudio: questionsListeningMatchImageAudio,
+    flowOrder: ['listeningTrueFalse', 'listeningMatchImageAudio', 'listeningMatchImageAudioSingleImage'],
+    listeningTrueFalse: questionsListeningTrueFalse.sort((a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber)),
+    listeningMatchImageAudio: questionsListeningMatchImageAudio.sort((a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber)),
+    listeningMatchImageAudioSingleImage: questionsListeningMatchImageAudioSingleImage.sort((a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber)),
   };
 
   return (
