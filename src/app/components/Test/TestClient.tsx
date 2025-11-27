@@ -7,9 +7,9 @@ import {
   Test,
   HandleListeningTrueFalseAnswer,
   TestTranslations,
+  HandleListeningMatchImageAudioAnswer,
 } from './Test.types';
 import { Check, X } from 'lucide-react';
-import { SelectDemo } from '../Select';
 
 type Props = {
   test: Test;
@@ -24,6 +24,14 @@ export function TestClient({ test, translations }: Props) {
       Array.from({ length: test.listeningTrueFalse.length })
     );
 
+  const [listeningMatchImageAudioAnswers, setListeningMatchImageAudioAnswers] =
+    React.useState<{ answer: string; questionNumber: string }[]>(
+      Array.from({ length: test.listeningMatchImageAudio.length }).map(() => ({
+        answer: '',
+        questionNumber: '',
+      }))
+    );
+
   const handleListeningTrueFalseAnswer: HandleListeningTrueFalseAnswer = (
     answer,
     index
@@ -35,18 +43,41 @@ export function TestClient({ test, translations }: Props) {
     setListeningTrueFalseAnswers(newListeningTrueFalseAnswers);
   };
 
+  const handleListeningMatchImageAudioAnswer: HandleListeningMatchImageAudioAnswer =
+    (answer, index, questionNumber) => {
+      const newListeningMatchImageAudioAnswers = [
+        ...listeningMatchImageAudioAnswers,
+      ];
+
+      newListeningMatchImageAudioAnswers[index].answer = answer;
+      newListeningMatchImageAudioAnswers[index].questionNumber = questionNumber;
+
+      setListeningMatchImageAudioAnswers(newListeningMatchImageAudioAnswers);
+    };
+
   //evaluate user answers with test answers
   //if true it means correct answer, if false it means incorrect answer
   const listeningTrueFalseEvaluation = test.listeningTrueFalse.map(
     (question, index) => question.answer === listeningTrueFalseAnswers[index]
   );
 
+  const listeningMatchImageAudioEvaluation = test.listeningMatchImageAudio.map(
+    (question, index) =>
+      question.answer === listeningMatchImageAudioAnswers[index]?.answer
+  );
+
   //make sure to add up all questions from test
-  const totalQuestions = test.listeningTrueFalse.length;
+  const totalQuestions =
+    test.listeningTrueFalse.length + test.listeningMatchImageAudio.length;
+
   let totalScore = 0;
 
   //make sure to add all section to sumup the score
   listeningTrueFalseEvaluation.map((evaluation) => {
+    if (evaluation === true) totalScore += 1;
+  });
+
+  listeningMatchImageAudioEvaluation.map((evaluation) => {
     if (evaluation === true) totalScore += 1;
   });
 
@@ -61,6 +92,9 @@ export function TestClient({ test, translations }: Props) {
       />
       <ListeningMatchImageAudio
         questions={test.listeningMatchImageAudio}
+        handleListeningMatchImageAudioAnswer={
+          handleListeningMatchImageAudioAnswer
+        }
         translations={translations}
       />
       <div className='w-fit mx-auto flex flex-col gap-6 items-center'>
@@ -79,7 +113,7 @@ export function TestClient({ test, translations }: Props) {
                   {section === 'listeningTrueFalse' && (
                     <>
                       <h3 className='text-2xl mb-4'>Listening True False</h3>
-                      <div className='flex flex-wrap gap-8'>
+                      <div className='flex flex-wrap gap-8 mb-4'>
                         {test.listeningTrueFalse.map((question) => (
                           <p key={question.questionNumber}>
                             {question.questionNumber}
@@ -89,6 +123,21 @@ export function TestClient({ test, translations }: Props) {
                             {question.answer === false && (
                               <X className='inline-block ml-1' />
                             )}
+                          </p>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                  {section === 'listeningMatchImageAudio' && (
+                    <>
+                      <h3 className='text-2xl mb-4'>
+                        Listening Match Image Audio
+                      </h3>
+                      <div className='flex flex-wrap gap-8 mb-4'>
+                        {test.listeningMatchImageAudio.map((question) => (
+                          <p key={question.questionNumber}>
+                            {question.questionNumber}
+                            {question.answer}
                           </p>
                         ))}
                       </div>
@@ -104,7 +153,7 @@ export function TestClient({ test, translations }: Props) {
                   {section === 'listeningTrueFalse' && (
                     <>
                       <h3 className='text-2xl mb-4'>Listening True False</h3>
-                      <div className='flex flex-wrap gap-8'>
+                      <div className='flex flex-wrap gap-8 mb-4'>
                         {listeningTrueFalseAnswers.map((userAnswer, index) => (
                           <p key={`listeningTrueFalse-userAnswer-${index}`}>
                             {index + 1}
@@ -116,6 +165,25 @@ export function TestClient({ test, translations }: Props) {
                             )}
                           </p>
                         ))}
+                      </div>
+                    </>
+                  )}
+                  {section === 'listeningMatchImageAudio' && (
+                    <>
+                      <h3 className='text-2xl mb-4'>
+                        Listening Match Image Audio
+                      </h3>
+                      <div className='flex flex-wrap gap-8 mb-4'>
+                        {listeningMatchImageAudioAnswers.map(
+                          (userAnswer, index) => (
+                            <p
+                              key={`listeningMatchImageAudio-userAnswer-${index}`}
+                            >
+                              {userAnswer?.questionNumber}
+                              {userAnswer?.answer}
+                            </p>
+                          )
+                        )}
                       </div>
                     </>
                   )}

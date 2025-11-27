@@ -26,3 +26,9 @@ export type HandleListeningTrueFalseAnswer = (
   answer: boolean,
   index: number
 ) => void;
+
+export type HandleListeningMatchImageAudioAnswer = (
+  answer: string,
+  index: number,
+  questionNumber: string
+) => void;
