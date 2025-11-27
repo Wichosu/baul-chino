@@ -56,7 +56,7 @@ export async function TestFetch({ testId }: Props) {
 
   const test: Test = {
     level: 'hsk1',
-    flowOrder: ['listeningTrueFalse'],
+    flowOrder: ['listeningTrueFalse', 'listeningMatchImageAudio'],
     listeningTrueFalse: questionsListeningTrueFalse,
     listeningMatchImageAudio: questionsListeningMatchImageAudio,
   };

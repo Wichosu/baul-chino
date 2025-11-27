@@ -1,6 +1,9 @@
 import React from 'react';
 import { Database } from '@/src/app/types/supabase';
-import { TestTranslations } from '@/src/app/components/Test/Test.types';
+import {
+  HandleListeningMatchImageAudioAnswer,
+  TestTranslations,
+} from '@/src/app/components/Test/Test.types';
 import Image from 'next/image';
 import Audio from '@/src/app/components/Audio/Audio';
 import {
@@ -9,10 +12,10 @@ import {
   SelectContent,
   SelectItem,
 } from '@/src/app/components/Select';
-import { Select } from 'radix-ui';
 
 type Props = {
   questions: Database['mock_test']['Tables']['listening_match_image_audio']['Row'][];
+  handleListeningMatchImageAudioAnswer: HandleListeningMatchImageAudioAnswer;
   translations: TestTranslations;
 };
 
@@ -23,10 +26,14 @@ type SelectOptions = Extract<
 
 const SELECTOPTIONS: SelectOptions[] = ['A', 'B', 'C'];
 
-export function ListeningMatchImageAudio({ questions, translations }: Props) {
+export function ListeningMatchImageAudio({
+  questions,
+  handleListeningMatchImageAudioAnswer,
+  translations,
+}: Props) {
   return (
     <section className='flex flex-col gap-16'>
-      {questions.map((question) => (
+      {questions.map((question, index) => (
         <article key={question.id}>
           <picture className='block relative w-full h-32 mb-2'>
             <source src={question.img} width={'100%'} />
@@ -47,7 +54,15 @@ export function ListeningMatchImageAudio({ questions, translations }: Props) {
             >
               <source src={question.audio} />
             </Audio>
-            <SelectRoot>
+            <SelectRoot
+              onValueChange={(value) =>
+                handleListeningMatchImageAudioAnswer(
+                  value,
+                  index,
+                  question.questionNumber
+                )
+              }
+            >
               <SelectTrigger
                 ariaLabel={`options for question ${question.questionNumber}`}
               >

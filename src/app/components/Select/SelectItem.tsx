@@ -23,7 +23,7 @@ export function SelectItem({
       className={twMerge(
         `
         relative flex h-7 select-none items-center rounded pl-6 pr-8 leading-none text-black cursor-pointer
-        data-disabled:pointer-events-none data-highlighted:bg-yellow-100 data-disabled:text-gray-500 
+        data-disabled:pointer-events-none data-highlighted:bg-yellow-200 data-disabled:text-gray-500 
         data-highlighted:text-black data-highlighted:outline-none
         `,
         className
