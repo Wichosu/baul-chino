@@ -39,7 +39,12 @@ export async function TestFetch({ testId }: Props) {
   const { data: questionsListeningMatchImageAudioSingleImage } = await supabase
     .schema('mock_test')
     .from('listening_match_image_audio_single_image')
-    .select('*')
+    .select(
+      `
+      *,
+      image (image, imageFallback)
+      `
+    )
     .eq('mockTest', testId);
 
   if (!questionsListeningTrueFalse) {
@@ -71,10 +76,21 @@ export async function TestFetch({ testId }: Props) {
 
   const test: Test = {
     level: 'hsk1',
-    flowOrder: ['listeningTrueFalse', 'listeningMatchImageAudio', 'listeningMatchImageAudioSingleImage'],
-    listeningTrueFalse: questionsListeningTrueFalse.sort((a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber)),
-    listeningMatchImageAudio: questionsListeningMatchImageAudio.sort((a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber)),
-    listeningMatchImageAudioSingleImage: questionsListeningMatchImageAudioSingleImage.sort((a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber)),
+    flowOrder: [
+      'listeningTrueFalse',
+      'listeningMatchImageAudio',
+      'listeningMatchImageAudioSingleImage',
+    ],
+    listeningTrueFalse: questionsListeningTrueFalse.sort(
+      (a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber)
+    ),
+    listeningMatchImageAudio: questionsListeningMatchImageAudio.sort(
+      (a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber)
+    ),
+    listeningMatchImageAudioSingleImage:
+      questionsListeningMatchImageAudioSingleImage.sort(
+        (a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber)
+      ),
   };
 
   return (

@@ -32,7 +32,7 @@ export function ListeningMatchImageAudio({
   translations,
 }: Props) {
   return (
-    <section className='flex flex-col gap-16'>
+    <section className='flex flex-col gap-16 mb-8'>
       {questions.map((question, index) => (
         <article key={question.id}>
           <picture className='block relative w-full h-32 mb-2'>
