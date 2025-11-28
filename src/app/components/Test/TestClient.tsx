@@ -2,6 +2,7 @@
 import React from 'react';
 import { ListeningTrueFalse } from '@/src/app/components/Test/ListeningTrueFalse';
 import { ListeningMatchImageAudio } from '@/src/app/components/Test/ListeningMatchImageAudio';
+import { ListeningMatchImageAudioSingleImage } from '@/src/app/components/Test/ListeningMatchImageAudioSingleImage';
 import { Button } from '@/src/app/components/Button';
 import {
   Test,
@@ -27,6 +28,14 @@ export function TestClient({ test, translations }: Props) {
   const [listeningMatchImageAudioAnswers, setListeningMatchImageAudioAnswers] =
     React.useState<{ answer: string; questionNumber: string }[]>(
       Array.from({ length: test.listeningMatchImageAudio.length }).map(() => ({
+        answer: '',
+        questionNumber: '',
+      }))
+    );
+
+  const [listeningMatchImageAudioSingleImageAnswers, setListeningMatchImageAudioSingleImageAnswers] =
+    React.useState<{ answer: string; questionNumber: string }[]>(
+      Array.from({ length: test.listeningMatchImageAudioSingleImage.length }).map(() => ({
         answer: '',
         questionNumber: '',
       }))
@@ -97,6 +106,7 @@ export function TestClient({ test, translations }: Props) {
         }
         translations={translations}
       />
+      <ListeningMatchImageAudioSingleImage />
       <div className='w-fit mx-auto flex flex-col gap-6 items-center'>
         <Button type='yellow' onClick={() => setShowAnswers(true)}>
           {translations.showAnswers}
