@@ -3,7 +3,13 @@ import createNextIntlPlugin from 'next-intl/plugin';
 
 const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [new URL('https://71bzg7q54l.ufs.sh/f/**')],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '71bzg7q54l.ufs.sh',
+        pathname: '/f/**',
+      },
+    ],
   },
 };
 
