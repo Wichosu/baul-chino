@@ -29,7 +29,6 @@ const SELECTOPTIONS: SelectOptions[] = ['A', 'B', 'C'];
 export function ListeningMatchImageAudio({
   questions,
   handleListeningMatchImageAudioAnswer,
-  translations,
 }: Props) {
   return (
     <section className='flex flex-col gap-16 mb-8'>
