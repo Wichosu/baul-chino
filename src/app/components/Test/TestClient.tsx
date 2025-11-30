@@ -3,6 +3,7 @@ import React from 'react';
 import { ListeningTrueFalse } from '@/src/app/components/Test/ListeningTrueFalse';
 import { ListeningMatchImageAudio } from '@/src/app/components/Test/ListeningMatchImageAudio';
 import { ListeningMatchImageAudioSingleImage } from '@/src/app/components/Test/ListeningMatchImageAudioSingleImage';
+import { ListeningSelectPhrase } from '@/src/app/components/Test/ListeningSelectPhrase';
 import { Button } from '@/src/app/components/Button';
 import {
   Test,
@@ -146,6 +147,7 @@ export function TestClient({ test, translations }: Props) {
         }
         translations={translations}
       />
+      <ListeningSelectPhrase questions={test.listeningSelectPhrase} />
       <div className='w-fit mx-auto flex flex-col gap-6 items-center'>
         <Button type='yellow' onClick={() => setShowAnswers(true)}>
           {translations.showAnswers}
@@ -292,12 +294,6 @@ export function TestClient({ test, translations }: Props) {
           </>
         )}
       </div>
-      {/* <div className='w-fit mx-auto'>
-        <Button type='yellow' className='md:mr-20'>
-        {translations.previous}
-        </Button>
-        <Button type='yellow'>{translations.next}</Button>
-      </div> */}
     </>
   );
 }
