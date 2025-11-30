@@ -3,7 +3,8 @@ import { Database } from '@/src/app/types/supabase';
 export type QuestionType =
   | 'listeningTrueFalse'
   | 'listeningMatchImageAudio'
-  | 'listeningMatchImageAudioSingleImage';
+  | 'listeningMatchImageAudioSingleImage'
+  | 'listeningSelectPhrase';
 
 export type Test = {
   level: 'hsk1';
@@ -16,12 +17,7 @@ export type Test = {
   > & {
     image: { image: string | null; imageFallback: string | null } | null;
   })[];
-};
-
-export type ClientAnswers = {
-  listeningTrueFalse: [];
-  listeningMatchImageAudio: [];
-  listeningMatchImageAudioSingleImage: [];
+  listeningSelectPhrase: Database['mock_test']['Tables']['listening_select_phrase']['Row'][];
 };
 
 export type TestTranslations = {
@@ -46,6 +42,12 @@ export type HandleListeningMatchImageAudioAnswer = (
 
 export type HandleListeningMatchImageAudioSingleImageAnswer = (
   answer: string,
+  index: number,
+  questionNumber: string
+) => void;
+
+export type HandleListeningSelectPhraseAnswer = (
+  answer: Database['public']['Enums']['letter_range'],
   index: number,
   questionNumber: string
 ) => void;

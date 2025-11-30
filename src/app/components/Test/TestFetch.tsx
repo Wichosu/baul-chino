@@ -47,6 +47,12 @@ export async function TestFetch({ testId }: Props) {
     )
     .eq('mockTest', testId);
 
+  const { data: questionsListeningSelectPhrase } = await supabase
+    .schema('mock_test')
+    .from('listening_select_phrase')
+    .select('*')
+    .eq('mockTest', testId);
+
   if (!questionsListeningTrueFalse) {
     return (
       <p>
@@ -74,6 +80,15 @@ export async function TestFetch({ testId }: Props) {
     );
   }
 
+  if (!questionsListeningSelectPhrase) {
+    return (
+      <p>
+        No questions found for select phrase found. Please refresh or report
+        this
+      </p>
+    );
+  }
+
   const test: Test = {
     level: 'hsk1',
     flowOrder: [
@@ -91,6 +106,9 @@ export async function TestFetch({ testId }: Props) {
       questionsListeningMatchImageAudioSingleImage.sort(
         (a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber)
       ),
+    listeningSelectPhrase: questionsListeningSelectPhrase.sort(
+      (a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber)
+    ),
   };
 
   return (

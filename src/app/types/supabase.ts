@@ -1,6 +1,3 @@
-Need to install the following packages:
-supabase@2.63.1
-Ok to proceed? (y) 
 export type Json =
   | string
   | number
@@ -178,37 +175,39 @@ export type Database = {
       }
       listening_select_phrase: {
         Row: {
-          answer: number
+          answer: Database["public"]["Enums"]["letter_range"]
+          audio: string
           id: number
+          image: string
+          imageFallback: string
           mockTest: string
-          questionNumber: string | null
+          questionNumber: string
           questionType: number
           sectionType: number
         }
         Insert: {
-          answer: number
+          answer: Database["public"]["Enums"]["letter_range"]
+          audio: string
           id?: number
+          image: string
+          imageFallback: string
           mockTest: string
-          questionNumber?: string | null
+          questionNumber?: string
           questionType: number
           sectionType: number
         }
         Update: {
-          answer?: number
+          answer?: Database["public"]["Enums"]["letter_range"]
+          audio?: string
           id?: number
+          image?: string
+          imageFallback?: string
           mockTest?: string
-          questionNumber?: string | null
+          questionNumber?: string
           questionType?: number
           sectionType?: number
         }
         Relationships: [
-          {
-            foreignKeyName: "listening_select_phrase_answer_fkey"
-            columns: ["answer"]
-            isOneToOne: false
-            referencedRelation: "phrase_options"
-            referencedColumns: ["id"]
-          },
           {
             foreignKeyName: "listening_select_phrase_mockTest_fkey"
             columns: ["mockTest"]
@@ -315,32 +314,6 @@ export type Database = {
             columns: ["hsk_level"]
             isOneToOne: false
             referencedRelation: "hsk_level"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      phrase_options: {
-        Row: {
-          id: number
-          mockTestSection: number
-          phrase: string
-        }
-        Insert: {
-          id?: number
-          mockTestSection: number
-          phrase?: string
-        }
-        Update: {
-          id?: number
-          mockTestSection?: number
-          phrase?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "phrase_options_mockTestSection_fkey"
-            columns: ["mockTestSection"]
-            isOneToOne: false
-            referencedRelation: "listening_select_phrase"
             referencedColumns: ["id"]
           },
         ]
