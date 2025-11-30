@@ -11,8 +11,10 @@ import {
   TestTranslations,
   HandleListeningMatchImageAudioAnswer,
   HandleListeningMatchImageAudioSingleImageAnswer,
+  HandleListeningSelectPhraseAnswer,
 } from './Test.types';
 import { Check, X } from 'lucide-react';
+import { Database } from '../../types/supabase';
 
 type Props = {
   test: Test;
@@ -46,6 +48,19 @@ export function TestClient({ test, translations }: Props) {
       })
     )
   );
+
+  const [listeningSelectPhraseAnswers, setListeningSelectPhraseAnswers] =
+    React.useState<
+      {
+        answer: Database['public']['Enums']['letter_range'] | '';
+        questionNumber: Database['mock_test']['Tables']['listening_select_phrase']['Row']['questionNumber'];
+      }[]
+    >(
+      Array.from({ length: test.listeningSelectPhrase.length }).map(() => ({
+        answer: '',
+        questionNumber: '',
+      }))
+    );
 
   const handleListeningTrueFalseAnswer: HandleListeningTrueFalseAnswer = (
     answer,
@@ -85,6 +100,19 @@ export function TestClient({ test, translations }: Props) {
       );
     };
 
+  const handleListeningSelectPhraseAnswers: HandleListeningSelectPhraseAnswer =
+    (answer, index, questionNumber) => {
+      const newListeningMatchSelectPhraseAnswer = [
+        ...listeningSelectPhraseAnswers,
+      ];
+
+      newListeningMatchSelectPhraseAnswer[index].answer = answer;
+      newListeningMatchSelectPhraseAnswer[index].questionNumber =
+        questionNumber;
+
+      setListeningSelectPhraseAnswers(newListeningMatchSelectPhraseAnswer);
+    };
+
   //evaluate user answers with test answers
   //if true it means correct answer, if false it means incorrect answer
   const listeningTrueFalseEvaluation = test.listeningTrueFalse.map(
@@ -103,25 +131,35 @@ export function TestClient({ test, translations }: Props) {
         listeningMatchImageAudioSingleImageAnswers[index]?.answer
     );
 
+  const listeningSelectPhraseEvaluation = test.listeningSelectPhrase.map(
+    (question, index) =>
+      question.answer === listeningSelectPhraseAnswers[index]?.answer
+  );
+
   //make sure to add up all questions from test
   const totalQuestions =
     test.listeningTrueFalse.length +
     test.listeningMatchImageAudio.length +
-    test.listeningMatchImageAudioSingleImage.length;
+    test.listeningMatchImageAudioSingleImage.length +
+    test.listeningSelectPhrase.length;
 
   let totalScore = 0;
 
   //make sure to add all section to sumup the score
   listeningTrueFalseEvaluation.map((evaluation) => {
-    if (evaluation === true) totalScore += 1;
+    if (evaluation) totalScore += 1;
   });
 
   listeningMatchImageAudioEvaluation.map((evaluation) => {
-    if (evaluation === true) totalScore += 1;
+    if (evaluation) totalScore += 1;
   });
 
   listeningMatchImageAudioSingleImageEvaluation.map((evaluation) => {
-    if (evaluation === true) totalScore += 1;
+    if (evaluation) totalScore += 1;
+  });
+
+  listeningSelectPhraseEvaluation.map((evaluation) => {
+    if (evaluation) totalScore += 1;
   });
 
   console.log(test);
@@ -147,7 +185,10 @@ export function TestClient({ test, translations }: Props) {
         }
         translations={translations}
       />
-      <ListeningSelectPhrase questions={test.listeningSelectPhrase} />
+      <ListeningSelectPhrase
+        questions={test.listeningSelectPhrase}
+        handleListeningSelectPhraseAnswers={handleListeningSelectPhraseAnswers}
+      />
       <div className='w-fit mx-auto flex flex-col gap-6 items-center'>
         <Button type='yellow' onClick={() => setShowAnswers(true)}>
           {translations.showAnswers}
@@ -212,6 +253,21 @@ export function TestClient({ test, translations }: Props) {
                                 </p>
                               )
                             )}
+                          </div>
+                        </>
+                      )}
+                      {section === 'listeningSelectPhrase' && (
+                        <>
+                          <h3 className='text-2xl mb-4'>
+                            Listening Select Phrase
+                          </h3>
+                          <div className='flex flex-wrap gap-8 mb-4'>
+                            {test.listeningSelectPhrase.map((question) => (
+                              <p key={question.questionNumber}>
+                                {question.questionNumber}
+                                {question.answer}
+                              </p>
+                            ))}
                           </div>
                         </>
                       )}
@@ -283,6 +339,23 @@ export function TestClient({ test, translations }: Props) {
                                 </p>
                               )
                             )}
+                          </div>
+                        </>
+                      )}
+                      {section === 'listeningSelectPhrase' && (
+                        <>
+                          <h3 className='text-2xl mb-4'>
+                            Listening Select Phrase
+                          </h3>
+                          <div className='flex flex-wrap gap-8 mb-4'>
+                            {listeningSelectPhraseAnswers.map((question) => (
+                              <p
+                                key={`listeningSelectPhrase-userAnswer-${question.questionNumber}`}
+                              >
+                                {question.questionNumber}
+                                {question.answer}
+                              </p>
+                            ))}
                           </div>
                         </>
                       )}
