@@ -25,11 +25,10 @@ const SELECTOPTIONS: SelectOptions[] = ['A', 'B', 'C', 'D', 'E', 'F'];
 export function ListeningMatchImageAudioSingleImage({
   questions,
   handleListeningMatchImageAudioSingleImageAnswer,
-  translations,
 }: Props) {
   return (
     <>
-      <section className='flex flex-col gap-8'>
+      <section className='flex flex-col gap-8 mb-8'>
         <picture className='block relative w-full h-96'>
           <source src={questions[0]?.image?.image ?? ''} width={'100%'} />
           <Image

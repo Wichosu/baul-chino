@@ -49,5 +49,5 @@ export type HandleListeningMatchImageAudioSingleImageAnswer = (
 export type HandleListeningSelectPhraseAnswer = (
   answer: Database['public']['Enums']['letter_range'],
   index: number,
-  questionNumber: string
+  questionNumber: Database['mock_test']['Tables']['listening_select_phrase']['Row']['questionNumber']
 ) => void;

@@ -95,6 +95,7 @@ export async function TestFetch({ testId }: Props) {
       'listeningTrueFalse',
       'listeningMatchImageAudio',
       'listeningMatchImageAudioSingleImage',
+      'listeningSelectPhrase',
     ],
     listeningTrueFalse: questionsListeningTrueFalse.sort(
       (a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber)
