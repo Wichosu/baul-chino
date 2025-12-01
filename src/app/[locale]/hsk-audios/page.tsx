@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslations } from 'next-intl';
 import { Hero } from '@/src/app/components/Hero';
 import {
   AccordionRoot,
@@ -9,10 +10,7 @@ import {
 import { Books } from '@/src/app/constants/hskaudio/hskaudiocollection';
 import Audio from '@/src/app/components/Audio/Audio';
 import { Metadata } from 'next';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { hasLocale } from 'next-intl';
-import { routing } from '@/src/i18n/routing';
-import { notFound } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata({
   params,
@@ -37,24 +35,8 @@ export async function generateMetadata({
   };
 }
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-
-  setRequestLocale(locale);
-
-  const t = await getTranslations('HskAudios');
+export default function Page() {
+  const t = useTranslations('HskAudios');
 
   return (
     <>

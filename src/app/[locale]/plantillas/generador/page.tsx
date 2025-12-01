@@ -1,10 +1,8 @@
 import { Hero } from '@/src/app/components/Hero';
 import TemplateGenerator from './components/TemplateGenerator';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
-import { hasLocale } from 'next-intl';
-import { routing } from '@/src/i18n/routing';
-import { notFound } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 export async function generateMetadata({
   params,
@@ -32,24 +30,8 @@ export async function generateMetadata({
   };
 }
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-
-  setRequestLocale(locale);
-
-  const t = await getTranslations('TemplateGenerator');
+export default function Page() {
+  const t = useTranslations('TemplateGenerator');
 
   return (
     <>
