@@ -2,10 +2,8 @@ import { Metadata } from 'next';
 import { Hero } from '@/src/app/components/Hero';
 import ListContainer from './components/ListContainer';
 import { Button } from '@/src/app/components/Button';
-import { hasLocale } from 'next-intl';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { routing } from '@/src/i18n/routing';
-import { notFound } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata({
   params,
@@ -30,24 +28,8 @@ export async function generateMetadata({
   };
 }
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-
-  setRequestLocale(locale);
-
-  const t = await getTranslations('HskBooks');
+export default function Page() {
+  const t = useTranslations('HskBooks');
 
   return (
     <>
