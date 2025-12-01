@@ -50,6 +50,10 @@ export default function Audio({ caption, audioUrl, children }: Props) {
 
     currentAudioRef.addEventListener('loadedmetadata', onLoadedMetadata);
 
+    if (currentAudioRef.readyState > 0) {
+      onLoadedMetadata();
+    }
+
     return () => {
       currentAudioRef.removeEventListener('loadedmetadata', onLoadedMetadata);
     };

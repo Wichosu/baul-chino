@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import { Hero } from '../components/Hero';
 import CardsContainer from '../components/CardsContainer';
 import {
@@ -7,9 +6,29 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from '../components/Accordion';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { hasLocale } from 'next-intl';
+import { routing } from '@/src/i18n/routing';
+import { notFound } from 'next/navigation';
 
-export default function Home() {
-  const t = useTranslations('HomePage');
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+
+  const t = await getTranslations('HomePage');
 
   return (
     <>

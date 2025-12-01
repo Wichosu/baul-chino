@@ -254,5 +254,39 @@
     "OnlineSimulator": "Simulador en línea",
     "ComingSoon": "Proximamente...",
     "DownloadBundles": "Descarga el paquete HSK mock test (examen, respuestas, archivo de audio)"
+  },
+  "Test": {
+    "Hero": {
+      "listeningTrueFalse": "Escucha el audio y escoge entre correcto (verde) o incorrecto (rojo) si el audio coincide con la imagen",
+      "error": "An error has occurred while loading the description. If the test is not showing please refresh the page or try again later."
+    },
+    "Titles": {
+      "listeningTrueFalse": "Listening Verdadero o Falso",
+      "listeningMatchImageAudio": "Listening Selecciona la imagen",
+      "listeningMatchImageAudioSingleImage": "Listening Selecciona la imagen",
+      "listeningSelectPhrase": "Listening Selecciona la Frase"
+    },
+    "Descriptions": {
+      "listeningTrueFalse": "Escucha el audio y escoge entre correcto (verde) o incorrecto (rojo) si el audio coincide con la imagen",
+      "listeningMatchImageAudio": "Escucha el audio y escoge la opción correcta relacionada con la imagen",
+      "listeningMatchImageAudioSingleImage": "Escucha el audio y escoge la opción correcta relacionada con la imagen",
+      "listeningSelectPhrase": "Escucha el audio y escoge la frase correcta relacionada con la imagen"
+    },
+    "Answers": {
+      "Score": "Puntuación Total",
+      "Test": "Respuestas del Test",
+      "Your": "Tus Respuestas",
+      "listeningTrueFalse": "Listening Verdadero o Falso",
+      "listeningMatchImageAudio": "Listening Selecciona la imagen",
+      "listeningMatchImageAudioSingleImage": "Listening Selecciona la imagen",
+      "listeningSelectPhrase": "Listening Selecciona la Frase"
+    },
+    "Icons": {
+      "Check": "Responder verdadero",
+      "X": "Responder falso"
+    },
+    "Previous": "Anterior",
+    "Next": "Siguiente",
+    "ShowAnswers": "Mostrar Respuestas"
   }
 }
