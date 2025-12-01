@@ -21,6 +21,27 @@ export type Test = {
 };
 
 export type TestTranslations = {
+  Titles: {
+    listeningTrueFalse: string;
+    listeningMatchImageAudio: string;
+    listeningMatchImageAudioSingleImage: string;
+    listeningSelectPhrase: string;
+  };
+  Descriptions: {
+    listeningTrueFalse: string;
+    listeningMatchImageAudio: string;
+    listeningMatchImageAudioSingleImage: string;
+    listeningSelectPhrase: string;
+  };
+  Answers: {
+    score: string;
+    test: string;
+    your: string;
+    listeningTrueFalse: string;
+    listeningMatchImageAudio: string;
+    listeningMatchImageAudioSingleImage: string;
+    listeningSelectPhrase: string;
+  };
   check: string;
   x: string;
   previous: string;

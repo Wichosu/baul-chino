@@ -22,6 +22,12 @@ export function ListeningTrueFalse({
 }: Props) {
   return (
     <section className='mb-12'>
+      <h2 className='text-3xl font-medium text-center mb-2'>
+        {translations.Titles.listeningTrueFalse}
+      </h2>
+      <p className='text-xl text-justify w-fit mx-auto mb-6'>
+        {translations.Descriptions.listeningTrueFalse}
+      </p>
       {questions?.map((question, index) => (
         <article
           key={question.id}

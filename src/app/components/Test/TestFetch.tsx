@@ -13,6 +13,33 @@ export async function TestFetch({ testId }: Props) {
   //translations
   const t = await getTranslations('Test');
   const translations: TestTranslations = {
+    Titles: {
+      listeningTrueFalse: t('Titles.listeningTrueFalse'),
+      listeningMatchImageAudio: t('Titles.listeningMatchImageAudio'),
+      listeningMatchImageAudioSingleImage: t(
+        'Titles.listeningMatchImageAudioSingleImage'
+      ),
+      listeningSelectPhrase: t('Titles.listeningSelectPhrase'),
+    },
+    Descriptions: {
+      listeningTrueFalse: t('Descriptions.listeningTrueFalse'),
+      listeningMatchImageAudio: t('Descriptions.listeningMatchImageAudio'),
+      listeningMatchImageAudioSingleImage: t(
+        'Descriptions.listeningMatchImageAudioSingleImage'
+      ),
+      listeningSelectPhrase: t('Descriptions.listeningSelectPhrase'),
+    },
+    Answers: {
+      score: t('Answers.Score'),
+      test: t('Answers.Test'),
+      your: t('Answers.Your'),
+      listeningTrueFalse: t('Answers.listeningTrueFalse'),
+      listeningMatchImageAudio: t('Answers.listeningMatchImageAudio'),
+      listeningMatchImageAudioSingleImage: t(
+        'Answers.listeningMatchImageAudioSingleImage'
+      ),
+      listeningSelectPhrase: t('Answers.listeningSelectPhrase'),
+    },
     check: t('Icons.Check'),
     x: t('Icons.X'),
     previous: t('Previous'),
