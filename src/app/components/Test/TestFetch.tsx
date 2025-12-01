@@ -1,6 +1,5 @@
 import React from 'react';
-import { cookies } from 'next/headers';
-import { createClient } from '@/src/app/utils/supabase/server';
+import { createStaticClient } from '@/src/app/utils/supabase/server';
 import { TestClient } from './TestClient';
 import { Test, TestTranslations } from './Test.types';
 import { getTranslations } from 'next-intl/server';
@@ -47,8 +46,7 @@ export async function TestFetch({ testId }: Props) {
     showAnswers: t('ShowAnswers'),
   };
 
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = createStaticClient();
 
   //Getting the data from my postgresql db :D
   const { data: questionsListeningTrueFalse } = await supabase
