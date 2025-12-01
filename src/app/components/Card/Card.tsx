@@ -50,7 +50,7 @@ const roundedClass: Record<AllowedScale, string> = {
   '3': 'rounded-xl',
 };
 
-export default function Card({
+export function Card({
   as: Tag = 'div',
   children,
   elevation = '1',

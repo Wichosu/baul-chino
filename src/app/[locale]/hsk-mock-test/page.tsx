@@ -2,10 +2,12 @@ import React from 'react';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import { Hero } from '../../components/Hero';
-import Card from '../../components/Card';
-import { Button } from '../../components/Button';
-import { MockTestBundles } from '../../constants/hskmocktest/hskmocktestbundles';
+import { Hero } from '@/src/app/components/Hero';
+import { Card } from '@/src/app/components/Card';
+import { Button } from '@/src/app/components/Button';
+import { MockTestBundles } from '@/src/app/constants/hskmocktest/hskmocktestbundles';
+import { MockTestCardFetch } from '@/src/app/components/MockTestCardFetch';
+import { CardSkeleton } from '@/src/app/components/Card';
 
 export async function generateMetadata({
   params,
@@ -33,43 +35,9 @@ export async function generateMetadata({
   };
 }
 
-// type OnlineSimulatorCard = {
-//   title: string;
-//   tests: OnlineMockTest[];
-// };
-
-// type OnlineMockTest = {
-//   title: string;
-// };
-
-// function createOnlineSimulatorCard(
-//   title: string,
-//   tests: OnlineMockTest[]
-// ): OnlineSimulatorCard {
-//   return {
-//     title,
-//     tests,
-//   };
-// }
-
-// function createOnlineMockTest(title: string): OnlineMockTest {
-//   return {
-//     title,
-//   };
-// }
-
-// const onlineSimulatorCards = [
-//   createOnlineSimulatorCard('HSK 2', [
-//     createOnlineMockTest('H21329'),
-//     createOnlineMockTest('H21330'),
-//     createOnlineMockTest('H21331'),
-//     createOnlineMockTest('H21332'),
-//     createOnlineMockTest('H21334'),
-//   ]),
-// ];
-
 export default function Page() {
   const t = useTranslations('HskMockTest');
+
   return (
     <>
       <Hero title={t('HeroTitle')}>
@@ -78,22 +46,10 @@ export default function Page() {
       </Hero>
       <section>
         <h2 className='text-3xl font-medium'>{t('OnlineSimulator')}</h2>
-        <div>
-          <h3 className='my-6 text-2xl font-medium text-center'>
-            {t('ComingSoon')}
-          </h3>
-          {/* {onlineSimulatorCards.map((item) => (
-            <Card key={item.title} as='article' padding='3'>
-              <h3 className='text-2xl font-medium text-center'>{item.title}</h3>
-              <div className='flex flex-col'>
-                {item.tests.map((test) => (
-                  <Button key={test.title} type='yellow'>
-                    Mock Test {test.title}
-                  </Button>
-                ))}
-              </div>
-            </Card>
-          ))} */}
+        <div className='flex flex-wrap justify-center'>
+          <React.Suspense fallback={<CardSkeleton height='xs' />}>
+            <MockTestCardFetch />
+          </React.Suspense>
         </div>
         <h2 className='text-3xl font-medium'>{t('DownloadBundles')}</h2>
         <div className='flex flex-wrap justify-center'>
