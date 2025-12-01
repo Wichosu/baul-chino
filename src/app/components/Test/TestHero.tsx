@@ -1,6 +1,5 @@
 import React from 'react';
-import { createClient } from '@/src/app/utils/supabase/server';
-import { cookies } from 'next/headers';
+import { createStaticClient } from '@/src/app/utils/supabase/server';
 import { Hero } from '@/src/app/components/Hero';
 import { getTranslations } from 'next-intl/server';
 
@@ -11,8 +10,7 @@ type Props = {
 export async function TestHero({ test }: Props) {
   const t = await getTranslations('Test.Hero');
 
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = createStaticClient();
 
   const { data: testData } = await supabase
     .schema('mock_test')

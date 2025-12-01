@@ -1,7 +1,8 @@
 import 'server-only';
+
+export const dynamic = 'force-static';
 import { Metadata } from 'next';
-import { cookies } from 'next/headers';
-import { createClient } from '@/src/app/utils/supabase/server';
+import { createStaticClient } from '@/src/app/utils/supabase/server';
 import { cache } from 'react';
 import { Hero } from '../../components/Hero';
 import Filter from './components/Filter';
@@ -34,8 +35,7 @@ export async function generateMetadata({
 }
 
 const getCategories = cache(async () => {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = createStaticClient();
 
   const { data } = await supabase.from('category').select('*');
 
@@ -43,8 +43,7 @@ const getCategories = cache(async () => {
 });
 
 const getLanguages = cache(async () => {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = createStaticClient();
 
   const { data } = await supabase.from('language').select('*');
 
@@ -52,8 +51,7 @@ const getLanguages = cache(async () => {
 });
 
 const getChannels = cache(async () => {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = createStaticClient();
 
   const { data } = await supabase.from('channel').select(`
       *,
