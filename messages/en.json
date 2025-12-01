@@ -260,6 +260,27 @@
       "listeningTrueFalse": "Listen to the audio and choose between right (green) or not right (red) if the audio is related to its image",
       "error": "An error has occurred while loading the description. If the test is not showing please refresh the page or try again later."
     },
+    "Titles": {
+      "listeningTrueFalse": "Listening True False",
+      "listeningMatchImageAudio": "Listening Match Image Audio",
+      "listeningMatchImageAudioSingleImage": "Listening Match Image Audio Single Image",
+      "listeningSelectPhrase": "Listening Select Phrase"
+    },
+    "Descriptions": {
+      "listeningTrueFalse": "Listen to the audio and choose between right (green) or not right (red) if the audio is related to its image",
+      "listeningMatchImageAudio": "Listen to the audio and choose the correct option related to the image",
+      "listeningMatchImageAudioSingleImage": "Listen to the audio and choose the correct option related to the image",
+      "listeningSelectPhrase": "Listen to the audio and choose the correct phrase related to the image"
+    },
+    "Answers": {
+      "Score": "Total score",
+      "Test": "Test Answers",
+      "Your": "Your Answers",
+      "listeningTrueFalse": "Listening True False",
+      "listeningMatchImageAudio": "Listening Match Image Audio",
+      "listeningMatchImageAudioSingleImage": "Listening Match Image Audio Single Image",
+      "listeningSelectPhrase": "Listening Select Phrase"
+    },
     "Icons": {
       "Check": "Answer true",
       "X": "Answer false"

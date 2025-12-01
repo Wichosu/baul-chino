@@ -25,11 +25,18 @@ const SELECTOPTIONS: SelectOptions[] = ['A', 'B', 'C', 'D', 'E', 'F'];
 export function ListeningMatchImageAudioSingleImage({
   questions,
   handleListeningMatchImageAudioSingleImageAnswer,
+  translations,
 }: Props) {
   return (
     <>
-      <section className='flex flex-col gap-8 mb-8'>
-        <picture className='block relative w-full h-96'>
+      <section className='mb-8'>
+        <h2 className='text-3xl font-medium text-center mb-2'>
+          {translations.Titles.listeningMatchImageAudioSingleImage}
+        </h2>
+        <p className='text-xl text-justify w-fit mx-auto mb-6'>
+          {translations.Descriptions.listeningMatchImageAudioSingleImage}
+        </p>
+        <picture className='block relative w-full h-96 mb-4'>
           <source src={questions[0]?.image?.image ?? ''} width={'100%'} />
           <Image
             src={questions[0]?.image?.imageFallback ?? ''}
@@ -41,38 +48,43 @@ export function ListeningMatchImageAudioSingleImage({
             className='object-contain'
           />
         </picture>
-        {questions.map((question, index) => (
-          <article
-            key={question.id}
-            className='flex gap-6 items-center justify-center'
-          >
-            <Audio audioUrl={question.audio} caption={question.questionNumber}>
-              <source src={question.audio} />
-            </Audio>
-            <SelectRoot
-              onValueChange={(value) =>
-                handleListeningMatchImageAudioSingleImageAnswer(
-                  value,
-                  index,
-                  question.questionNumber
-                )
-              }
+        <div className='flex flex-col gap-8'>
+          {questions.map((question, index) => (
+            <article
+              key={question.id}
+              className='flex flex-wrap gap-6 items-center justify-center'
             >
-              <SelectTrigger
-                ariaLabel={`options for question ${question.questionNumber}`}
+              <Audio
+                audioUrl={question.audio}
+                caption={question.questionNumber}
               >
-                Choose a letter
-              </SelectTrigger>
-              <SelectContent>
-                {SELECTOPTIONS.map((option) => (
-                  <SelectItem key={option} value={option}>
-                    {option}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </SelectRoot>
-          </article>
-        ))}
+                <source src={question.audio} />
+              </Audio>
+              <SelectRoot
+                onValueChange={(value) =>
+                  handleListeningMatchImageAudioSingleImageAnswer(
+                    value,
+                    index,
+                    question.questionNumber
+                  )
+                }
+              >
+                <SelectTrigger
+                  ariaLabel={`options for question ${question.questionNumber}`}
+                >
+                  Choose a letter
+                </SelectTrigger>
+                <SelectContent>
+                  {SELECTOPTIONS.map((option) => (
+                    <SelectItem key={option} value={option}>
+                      {option}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </SelectRoot>
+            </article>
+          ))}
+        </div>
       </section>
     </>
   );

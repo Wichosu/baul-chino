@@ -162,8 +162,6 @@ export function TestClient({ test, translations }: Props) {
     if (evaluation) totalScore += 1;
   });
 
-  console.log(test);
-
   return (
     <>
       <ListeningTrueFalse
@@ -188,6 +186,7 @@ export function TestClient({ test, translations }: Props) {
       <ListeningSelectPhrase
         questions={test.listeningSelectPhrase}
         handleListeningSelectPhraseAnswers={handleListeningSelectPhraseAnswers}
+        translations={translations}
       />
       <div className='w-fit mx-auto flex flex-col gap-6 items-center'>
         <Button type='yellow' onClick={() => setShowAnswers(true)}>
@@ -196,18 +195,20 @@ export function TestClient({ test, translations }: Props) {
         {showAnswers && (
           <>
             <p className='text-xl italic'>
-              Total score: {totalScore} / {totalQuestions}
+              {translations.Answers.score}: {totalScore} / {totalQuestions}
             </p>
             <div className='flex flex-wrap gap-12'>
               <div>
-                <h2 className='text-3xl font-medium'>Test Answers</h2>
+                <h2 className='text-3xl font-medium'>
+                  {translations.Answers.test}
+                </h2>
                 <div>
                   {test.flowOrder.map((section) => (
                     <div key={section}>
                       {section === 'listeningTrueFalse' && (
                         <>
                           <h3 className='text-2xl mb-4'>
-                            Listening True False
+                            {translations.Answers.listeningTrueFalse}
                           </h3>
                           <div className='flex flex-wrap gap-8 mb-4'>
                             {test.listeningTrueFalse.map((question) => (
@@ -227,7 +228,7 @@ export function TestClient({ test, translations }: Props) {
                       {section === 'listeningMatchImageAudio' && (
                         <>
                           <h3 className='text-2xl mb-4'>
-                            Listening Match Image Audio
+                            {translations.Answers.listeningMatchImageAudio}
                           </h3>
                           <div className='flex flex-wrap gap-8 mb-4'>
                             {test.listeningMatchImageAudio.map((question) => (
@@ -242,7 +243,10 @@ export function TestClient({ test, translations }: Props) {
                       {section === 'listeningMatchImageAudioSingleImage' && (
                         <>
                           <h3 className='text-2xl mb-4'>
-                            Listening Match Image Audio Single Image
+                            {
+                              translations.Answers
+                                .listeningMatchImageAudioSingleImage
+                            }
                           </h3>
                           <div className='flex flex-wrap gap-8 mb-4'>
                             {test.listeningMatchImageAudioSingleImage.map(
@@ -259,7 +263,7 @@ export function TestClient({ test, translations }: Props) {
                       {section === 'listeningSelectPhrase' && (
                         <>
                           <h3 className='text-2xl mb-4'>
-                            Listening Select Phrase
+                            {translations.Answers.listeningSelectPhrase}
                           </h3>
                           <div className='flex flex-wrap gap-8 mb-4'>
                             {test.listeningSelectPhrase.map((question) => (
@@ -276,14 +280,16 @@ export function TestClient({ test, translations }: Props) {
                 </div>
               </div>
               <div>
-                <h2 className='text-3xl font-medium'>Your Answers</h2>
+                <h2 className='text-3xl font-medium'>
+                  {translations.Answers.your}
+                </h2>
                 <div>
                   {test.flowOrder.map((section) => (
                     <div key={section}>
                       {section === 'listeningTrueFalse' && (
                         <>
                           <h3 className='text-2xl mb-4'>
-                            Listening True False
+                            {translations.Answers.listeningTrueFalse}
                           </h3>
                           <div className='flex flex-wrap gap-8 mb-4'>
                             {listeningTrueFalseAnswers.map(
@@ -307,7 +313,7 @@ export function TestClient({ test, translations }: Props) {
                       {section === 'listeningMatchImageAudio' && (
                         <>
                           <h3 className='text-2xl mb-4'>
-                            Listening Match Image Audio
+                            {translations.Answers.listeningMatchImageAudio}
                           </h3>
                           <div className='flex flex-wrap gap-8 mb-4'>
                             {listeningMatchImageAudioAnswers.map(
@@ -326,7 +332,10 @@ export function TestClient({ test, translations }: Props) {
                       {section === 'listeningMatchImageAudioSingleImage' && (
                         <>
                           <h3 className='text-2xl mb-4'>
-                            Listening Match Image Audio Single Image
+                            {
+                              translations.Answers
+                                .listeningMatchImageAudioSingleImage
+                            }
                           </h3>
                           <div className='flex flex-wrap gap-8 mb-4'>
                             {listeningMatchImageAudioSingleImageAnswers.map(
@@ -345,17 +354,19 @@ export function TestClient({ test, translations }: Props) {
                       {section === 'listeningSelectPhrase' && (
                         <>
                           <h3 className='text-2xl mb-4'>
-                            Listening Select Phrase
+                            {translations.Answers.listeningSelectPhrase}
                           </h3>
                           <div className='flex flex-wrap gap-8 mb-4'>
-                            {listeningSelectPhraseAnswers.map((question) => (
-                              <p
-                                key={`listeningSelectPhrase-userAnswer-${question.questionNumber}`}
-                              >
-                                {question.questionNumber}
-                                {question.answer}
-                              </p>
-                            ))}
+                            {listeningSelectPhraseAnswers.map(
+                              (question, index) => (
+                                <p
+                                  key={`listeningSelectPhrase-userAnswer-${question.questionNumber}-${index}`}
+                                >
+                                  {question.questionNumber}
+                                  {question.answer}
+                                </p>
+                              )
+                            )}
                           </div>
                         </>
                       )}
