@@ -1,3 +1,4 @@
+export const dynamic = 'force-static';
 import { Metadata } from 'next';
 import { Hero } from '@/src/app/components/Hero';
 import Templates from './components/Templates/Templates';

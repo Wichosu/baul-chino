@@ -1,3 +1,4 @@
+export const dynamic = 'force-static';
 import { Hero } from '@/src/app/components/Hero';
 import TemplateGenerator from './components/TemplateGenerator';
 import { getTranslations } from 'next-intl/server';

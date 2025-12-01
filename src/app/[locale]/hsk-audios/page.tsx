@@ -1,3 +1,4 @@
+export const dynamic = 'force-static';
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Hero } from '@/src/app/components/Hero';
