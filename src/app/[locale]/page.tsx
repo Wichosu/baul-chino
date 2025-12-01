@@ -1,6 +1,4 @@
 import { useTranslations } from 'next-intl';
-
-export const dynamic = 'force-static';
 import { Hero } from '../components/Hero';
 import CardsContainer from '../components/CardsContainer';
 import {

@@ -1,9 +1,11 @@
 import React from 'react';
-import { createStaticClient } from '@/src/app/utils/supabase/server';
+import { createClient } from '@/src/app/utils/supabase/server';
+import { cookies } from 'next/headers';
 import { MockTestCard } from './MockTestCard';
 
 export async function MockTestCardFetch() {
-  const supabase = createStaticClient();
+  const cookieStore = cookies();
+  const supabase = createClient(cookieStore);
 
   const { data: tests } = await supabase
     .schema('mock_test')
