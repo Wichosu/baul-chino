@@ -3,12 +3,15 @@ import React from 'react';
 import { Button } from '@/src/app/components/Button';
 import { Check, X } from 'lucide-react';
 import { VisuallyHidden } from '@/src/app/components/VisuallyHidden';
-import { HandleListeningTrueFalseAnswer, Translations } from '../Test.types';
+import {
+  HandleListeningTrueFalseAnswer,
+  TestTranslations,
+} from '../Test.types';
 
 type states = 'initial' | 'greenSelected' | 'redSelected';
 
 type Props = {
-  translations: Translations;
+  translations: TestTranslations;
   handleListeningTrueFalseAnswer: HandleListeningTrueFalseAnswer;
   index: number;
 };
