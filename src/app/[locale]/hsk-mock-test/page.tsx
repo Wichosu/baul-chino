@@ -1,7 +1,5 @@
 import React from 'react';
 import { Metadata } from 'next';
-
-export const dynamic = 'force-static';
 import { getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { Hero } from '@/src/app/components/Hero';
