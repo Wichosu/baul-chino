@@ -48,11 +48,11 @@ const BookCards = [
     [
       createBook(
         'HSK-1-TEXTBOOK',
-        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlfpQRxb6UedIATMvN4WYEa10X8Px6gmt35Gju'
+        'https://cdn.baulchino.com/hsk-books/HSK-1-Textbook.pdf'
       ),
       createBook(
         'HSK-1-WORKBOOK',
-        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlnqICRp2i9uJc4gOLBEVtzodXQemjTIxb6SlY'
+        'https://cdn.baulchino.com/hsk-books/HSK-1-Workbook.pdf'
       ),
     ]
   ),
@@ -64,11 +64,11 @@ const BookCards = [
     [
       createBook(
         'HSK-2-TEXTBOOK',
-        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4Srl288dPpEDSyXihkmPQfr0vjdRonIwVbNGzusg'
+        'https://cdn.baulchino.com/hsk-books/HSK-2-Textbook.pdf'
       ),
       createBook(
         'HSK-2-WORKBOOK',
-        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlyP9pstkB7tDUVmTzWa5fin28J43MPxR91kZ6'
+        'https://cdn.baulchino.com/hsk-books/HSK-2-Workbook.pdf'
       ),
     ]
   ),
@@ -80,11 +80,11 @@ const BookCards = [
     [
       createBook(
         'HSK-3-TEXTBOOK',
-        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlQcuGkb14SFyf85BlhTC1c6wtZJINpVuY3EDo'
+        'https://cdn.baulchino.com/hsk-books/HSK-3-Textbook.pdf'
       ),
       createBook(
         'HSK-3-WORKBOOK',
-        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlhgcvjXnf3rUnmWz5qXpjJIdhaksbMeA7xvP1'
+        'https://cdn.baulchino.com/hsk-books/HSK-3-Workbook.pdf'
       ),
     ]
   ),
@@ -96,19 +96,19 @@ const BookCards = [
     [
       createBook(
         'HSK-4A-TEXTBOOK',
-        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlgsH6nVEFkGsUQaCdXWO7ou3iFmYHBZMApLxq'
+        'https://cdn.baulchino.com/hsk-books/HSK-4A-Textbook.pdf'
       ),
       createBook(
         'HSK-4A-WORKBOOK',
-        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlO4oUjcCRU4rdsfetVKvJP8C6NT1u39wcYbqz'
+        'https://cdn.baulchino.com/hsk-books/HSK-4A-Workbook.pdf'
       ),
       createBook(
         'HSK-4B-TEXTBOOK',
-        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlgetneQFkGsUQaCdXWO7ou3iFmYHBZMApLxq8'
+        'https://cdn.baulchino.com/hsk-books/HSK-4B-Textbook.pdf'
       ),
       createBook(
         'HSK-4B-WORKBOOK',
-        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrllAGEoFeHM50UaZTLD93wuroWtXgfIQcshY86'
+        'https://cdn.baulchino.com/hsk-books/HSK-4B-Workbook.pdf'
       ),
     ]
   ),
@@ -120,19 +120,19 @@ const BookCards = [
     [
       createBook(
         'HSK-5A-TEXTBOOK',
-        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4Srl4GTaEu9xbZ0AwPmY1VJH2ofWCidn8aDyNg3G'
+        'https://cdn.baulchino.com/hsk-books/HSK-5A-Textbook.pdf'
       ),
       createBook(
         'HSK-5A-WORKBOOK',
-        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlatVCrk9G69n1wbW580GxDg23iyutEadrClqV'
+        'https://cdn.baulchino.com/hsk-books/HSK-5A-Workbook.pdf'
       ),
       createBook(
         'HSK-5B-TEXTBOOK',
-        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlUscOCYApa8b0cLnkoHqhDBOsAFuK67fEtdJe'
+        'https://cdn.baulchino.com/hsk-books/HSK-5B-Textbook.pdf'
       ),
       createBook(
         'HSK-5B-WORKBOOK',
-        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlQOTx0g14SFyf85BlhTC1c6wtZJINpVuY3EDo'
+        'https://cdn.baulchino.com/hsk-books/HSK-5B-Workbook.pdf'
       ),
     ]
   ),
@@ -144,19 +144,19 @@ const BookCards = [
     [
       createBook(
         'HSK-6A-TEXTBOOK',
-        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrluJ0fOCHmfNGTF5xtPKRWzgk329eEZJS1nIHl'
+        'https://cdn.baulchino.com/hsk-books/HSK-6A-Textbook.pdf'
       ),
       createBook(
         'HSK-6A-WORKBOOK',
-        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrluYogk1HmfNGTF5xtPKRWzgk329eEZJS1nIHl'
+        'https://cdn.baulchino.com/hsk-books/HSK-6A-Workbook.pdf'
       ),
       createBook(
         'HSK-6B-TEXTBOOK',
-        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlA5d3ZkzD68JTVorcF4ZRUl9xpeqYPQbj320X'
+        'https://cdn.baulchino.com/hsk-books/HSK-6B-Textbook.pdf'
       ),
       createBook(
         'HSK-6B-WORKBOOK',
-        'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlfvGVPU6UedIATMvN4WYEa10X8Px6gmt35Gju'
+        'https://cdn.baulchino.com/hsk-books/HSK-6B-Workbook.pdf'
       ),
     ]
   ),
