@@ -65,13 +65,6 @@ export default async function RootLayout({
           <PostHogProvider>
             <NextIntlClientProvider>
               <Container>
-                <p className='text-center text-xl mb-4 font-medium bg-red-100 rounded shadow-md'>
-                  baulchino will have maintenance from 2025-12-06 to 2025-12-07,
-                  expect some issues.
-                  <br />
-                  baulchino tendra mantenimiento del 6 al 7 de diciembre, se
-                  pueden presentar problemas.
-                </p>
                 <Navbar />
                 <main>{children}</main>
                 <Footer />
