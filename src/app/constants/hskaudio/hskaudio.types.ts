@@ -31,10 +31,8 @@ export function createLesson(title: string, audioTracks: AudioTrack[]): Lesson {
 export function createAudioTrack(
   title: string,
   filename: string,
-  filekey: string
+  url: string
 ): AudioTrack {
-  const url = `https://${process.env.NEXT_PUBLIC_UPLOADTHING_APP_ID}.ufs.sh/f/${filekey}`;
-
   return {
     title,
     filename,
