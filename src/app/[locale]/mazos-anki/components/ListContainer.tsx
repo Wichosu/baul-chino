@@ -5,19 +5,19 @@ const enAnkiDecks = [
   //EN decks
   {
     name: 'EN-HSK-1',
-    link: 'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlyE1Iw0kB7tDUVmTzWa5fin28J43MPxR91kZ6',
+    link: 'https://cdn.baulchino.com/anki-decks/EN-HSK-1.apkg',
   },
   {
     name: 'EN-HSK-2',
-    link: 'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlnYlVwYp2i9uJc4gOLBEVtzodXQemjTIxb6Sl',
+    link: 'https://cdn.baulchino.com/anki-decks/EN-HSK-2.apkg',
   },
   {
     name: 'EN-HSK-3',
-    link: 'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlC5i8hLg4Nl8DfCykJj0hU1AWL2waumV7eSQs',
+    link: 'https://cdn.baulchino.com/anki-decks/EN-HSK-3.apkg',
   },
   {
     name: 'EN-HSK-4A',
-    link: 'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlrjM8xTZJ0BOapDSC138ZnuKRx56mwreEqjVh',
+    link: 'https://cdn.baulchino.com/anki-decks/EN-HSK-4A.apkg',
   },
 ];
 
@@ -25,19 +25,19 @@ const esAnkiDecks = [
   //ES decks
   {
     name: 'ES-HSK-1',
-    link: 'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlCJuYTpMg4Nl8DfCykJj0hU1AWL2waumV7eSQ',
+    link: 'https://cdn.baulchino.com/anki-decks/ES-HSK-1.apkg',
   },
   {
     name: 'ES-HSK-2',
-    link: 'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlAmGcJAzD68JTVorcF4ZRUl9xpeqYPQbj320X',
+    link: 'https://cdn.baulchino.com/anki-decks/ES-HSK-2.apkg',
   },
   {
     name: 'ES-HSK-3',
-    link: 'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlOk5bcdCRU4rdsfetVKvJP8C6NT1u39wcYbqz',
+    link: 'https://cdn.baulchino.com/anki-decks/ES-HSK-3.apkg',
   },
   {
     name: 'ES-HSK-4A',
-    link: 'https://71bzg7q54l.ufs.sh/f/pmZgVpOF4SrlatAmTs2G69n1wbW580GxDg23iyutEadrClqV',
+    link: 'https://cdn.baulchino.com/anki-decks/ES-HSK-4A.apkg',
   },
 ];
 
