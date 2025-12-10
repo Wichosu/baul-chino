@@ -6,8 +6,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '71bzg7q54l.ufs.sh',
-        pathname: '/f/**',
+        hostname: 'cdn.baulchino.com',
+        pathname: '/hsk-mock-tests/**',
       },
     ],
   },
