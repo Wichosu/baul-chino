@@ -8,6 +8,7 @@ import { getTranslations } from 'next-intl/server';
 import { Navbar } from '@/src/app/components/Navbar/index';
 import Footer from '../components/Footer';
 import { Container } from '@/src/app/components/Container';
+import Script from 'next/script';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -54,14 +55,15 @@ export default async function RootLayout({
   return (
     <>
       <html lang={locale}>
-        <body className={bodyClassName}>
-          <script
-            id='adsense-script'
-            async
-            src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9265679045037542'
-            crossOrigin='anonymous'
-            suppressHydrationWarning
+        <head>
+          <Script
+            id='umami-script'
+            defer
+            src='https://umami.baulchino.com/script.js'
+            data-website-id='6726258b-d029-423b-8c9c-8576880c89ec'
           />
+        </head>
+        <body className={bodyClassName}>
           <PostHogProvider>
             <NextIntlClientProvider>
               <Container>
@@ -72,6 +74,19 @@ export default async function RootLayout({
             </NextIntlClientProvider>
           </PostHogProvider>
           <Analytics />
+          <Script type='text/javascript'>
+            {`
+              (() => {
+                const name = 'outbound-link-click';
+                document.querySelectorAll('a').forEach(a => {
+                  if (a.host !== window.location.host && !a.getAttribute('data-umami-event')) {
+                    a.setAttribute('data-umami-event', name);
+                    a.setAttribute('data-umami-event-url', a.href);
+                  }
+                });
+              })();
+            `}
+          </Script>
         </body>
       </html>
     </>
