@@ -24,7 +24,7 @@
     }
   },
   "Footer": {
-    "Message": "Más por venir. Puedes sugerir tus ideas en las encuestas.",
+    "Message": "Más por venir. Puedes sugerir tus ideas a través de los iconos de las redes sociales, elige tu favorito y haz click para contactarme",
     "Link": "Desarrollado por",
     "Author": "Wichosu"
   },
@@ -94,10 +94,10 @@
         "Errors": "Encontré un error, ¿Cómo puedo reportarlo?"
       },
       "Answers": {
-        "HowMuch": "Nada, pienso mantener baulchino como una página web gratuita. Puede que en el futuro introduzca anuncios para que me sea sustentable, pero sigue siendo una idea.",
+        "HowMuch": "Nada, pienso mantener baulchino como una página web gratuita. Mi plan es mantener cada característica gratuita, incluso las futuras y las sugeridas siempre y cuando sea factible.",
         "Why": "Disfrute mi tiempo aprendiendo mandarín, pero me encontré con recursos o material muy disperso y quería una herramienta que juntara todo en un solo lugar para referencias rápidas.",
-        "Ideas": "Hay encuestas que aparecen de vez en cuando, puedes escribir tus ideas y mandarlas por ese medio, las encuestas las leo personalmente y de ahí obtengo ideas para la página. También me puedes contactar por X.",
-        "Errors": "Por favor envíame un mensaje por X o utiliza una encuesta para describir el error, de esa manera puedo revisar y corregir, gracias."
+        "Ideas": "Puedes sugerir tus ideas a través de los iconos de las redes sociales, elige tu favorito y haz click para contactarme",
+        "Errors": "Por favor envíame un mensaje via los iconos de las redes sociales, elige tu favorito y haz click para contactarme, por favor describe el error para que pueda corregirlo. Puede que tarde en responder, pero leo todos los mensajes. Gracias."
       }
     }
   },
