@@ -15,7 +15,6 @@
     "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.87.1",
     "@tailwindcss/postcss": "^4.1.18",
-    "@vercel/analytics": "^1.6.1",
     "hanzi-writer": "^3.7.3",
     "lucide-react": "^0.561.0",
     "motion": "^12.23.26",
