@@ -95,7 +95,7 @@ export default function TitleForm() {
 
   return (
     <section>
-      <h3 className='text-3xl text-black font-medium mt-5'>{t('Title')}</h3>
+      <h2 className='text-3xl text-black font-medium mt-5'>{t('Title')}</h2>
       {titles.map((title, index) => (
         <div
           key={index}
@@ -112,19 +112,23 @@ export default function TitleForm() {
             <X />
           </Button>
           <ModifierContainer>
-            <Label>{t('Label1')}</Label>
+            <Label htmlFor={`name-${title.uuid}`}>{t('Label1')}</Label>
             <Input
               type='text'
+              id={`name-${title.uuid}`}
+              name={`name-${title.uuid}`}
               defaultValue={title.name}
               onChange={(e) => handleNameChange(e, title)}
               placeholder={t('Placeholder1')}
             />
           </ModifierContainer>
           <ModifierContainer>
-            <Label>{t('Label2')}</Label>
+            <Label htmlFor={`marginRight-${title.uuid}`}>{t('Label2')}</Label>
             <div className='flex align-baseline'>
               <Input
                 type='number'
+                id={`marginRight-${title.uuid}`}
+                name={`marginRight-${title.uuid}`}
                 defaultValue={title.marginRight}
                 onChange={(e) => handleMarginRightChange(e, title)}
                 className='inline-block rounded-r-none'
@@ -158,9 +162,18 @@ function ModifierContainer({ children }: { children: React.ReactNode }) {
   return <div className='inline-block mr-5 snap-start'>{children}</div>;
 }
 
-function Label({ children }: { children: React.ReactNode }) {
+function Label({
+  children,
+  htmlFor,
+}: {
+  children: React.ReactNode;
+  htmlFor: string;
+}) {
   return (
-    <label className='text-2xl text-black font-medium lg:mr-2'>
+    <label
+      className='text-2xl text-black font-medium lg:mr-2'
+      htmlFor={htmlFor}
+    >
       {children}
     </label>
   );
