@@ -288,5 +288,23 @@
     "Previous": "Anterior",
     "Next": "Siguiente",
     "ShowAnswers": "Mostrar Respuestas"
+  },
+  "Components": {
+    "Audio": {
+      "Loading": "El audio está cargando",
+      "Pause": "Pausar audio",
+      "Play": "Reproducir audio",
+      "Finished": "Audio finalizado, haz click para reiniciar"
+    },
+    "DownloadButton": {
+      "Download": "Descargar",
+      "Fetching": "Descargando",
+      "Fetched": "Descargado"
+    },
+    "VolumeButton": {
+      "Mute": "Silenciar",
+      "Unmute": "Activar sonido",
+      "Volume": "Volumen"
+    }
   }
 }

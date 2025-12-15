@@ -4,6 +4,8 @@ import { Download, ArrowBigDownDash, Save } from 'lucide-react';
 import { Button } from './Button';
 import { ButtonProps } from './Button.types';
 import { motion } from 'motion/react';
+import { VisuallyHidden } from '@/src/app/components/VisuallyHidden';
+import { useTranslations } from 'next-intl';
 
 type Props = {
   url: string;
@@ -14,6 +16,8 @@ type Props = {
 type FetchStatus = 'unfetch' | 'fetching' | 'fetched';
 
 export function DownloadButton({ url, filename, ...props }: Props) {
+  const t = useTranslations('Components.DownloadButton');
+
   const [status, setStatus] = React.useState<FetchStatus>('unfetch');
 
   async function handleClick() {
@@ -60,7 +64,12 @@ export function DownloadButton({ url, filename, ...props }: Props) {
       className='overflow-hidden'
       {...props}
     >
-      {status === 'unfetch' && <Download />}
+      {status === 'unfetch' && (
+        <>
+          <Download />
+          <VisuallyHidden>{t('Download')}</VisuallyHidden>
+        </>
+      )}
       {status === 'fetching' && (
         <motion.div
           initial={{ translateY: '-100%' }}
@@ -74,9 +83,15 @@ export function DownloadButton({ url, filename, ...props }: Props) {
           }}
         >
           <ArrowBigDownDash />
+          <VisuallyHidden>{t('Fetching')}</VisuallyHidden>
         </motion.div>
       )}
-      {status === 'fetched' && <Save />}
+      {status === 'fetched' && (
+        <>
+          <Save />
+          <VisuallyHidden>{t('Fetched')}</VisuallyHidden>
+        </>
+      )}
     </Button>
   );
 }

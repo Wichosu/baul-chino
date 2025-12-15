@@ -3,6 +3,8 @@ import React from 'react';
 import { formatSeconds } from '@/src/app/utils/formats';
 import AudioSmallScreen from './AudioSmallScreen';
 import AudioBigScreen from './AudioBigScreen';
+import { useTranslations } from 'next-intl';
+import { Translation } from './Audio.types';
 
 type Props = {
   caption: string;
@@ -20,6 +22,15 @@ export default function Audio({ caption, audioUrl, children }: Props) {
 
   const currentTime = formatSeconds(audioTimeTracker, 'mm:ss');
   const duration = formatSeconds(audioDuration, 'mm:ss');
+
+  const t = useTranslations('Components.Audio');
+
+  const translations: Translation = {
+    play: t('Play'),
+    pause: t('Pause'),
+    finished: t('Finished'),
+    loading: t('Loading'),
+  };
 
   function handleButton() {
     if (audioStatus === 'playing') {
@@ -134,6 +145,7 @@ export default function Audio({ caption, audioUrl, children }: Props) {
         handleKeyRelease={handleKeyRelease}
         handleMouseClickRelease={handleMouseClickRelease}
         onChangeAudioTimeTracker={onChangeAudioTimeTracker}
+        translations={translations}
       >
         {children}
       </AudioSmallScreen>
@@ -151,6 +163,7 @@ export default function Audio({ caption, audioUrl, children }: Props) {
         handleMouseClickRelease={handleMouseClickRelease}
         handleVolume={handleVolume}
         onChangeAudioTimeTracker={onChangeAudioTimeTracker}
+        translations={translations}
       >
         {children}
       </AudioBigScreen>
