@@ -1,13 +1,14 @@
-import { MetadataRoute } from "next";
+import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        userAgent: "*",
-        allow: "/"
-      }
+        userAgent: '*',
+        allow: '/',
+        disallow: '/api',
+      },
     ],
-    sitemap: `${process.env.NEXT_PUBLIC_BASE_URL}/sitemap.xml`
-  }
+    sitemap: 'https://www.baulchino.com/sitemap.xml',
+  };
 }
