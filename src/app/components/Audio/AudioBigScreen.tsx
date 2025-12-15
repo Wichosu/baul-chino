@@ -5,6 +5,8 @@ import {
   DownloadButton,
 } from '@/src/app/components/Button';
 import { Play, Pause, RotateCcw, LoaderCircle } from 'lucide-react';
+import { VisuallyHidden } from '@/src/app/components/VisuallyHidden';
+import { Translation } from './Audio.types';
 
 type AudioStatus = 'playing' | 'pause' | 'finished' | 'loading';
 
@@ -25,6 +27,7 @@ type Props = {
   handleKeyRelease: (event: React.KeyboardEvent) => void;
   audioRef: React.RefObject<HTMLAudioElement>;
   children: React.ReactNode;
+  translations: Translation;
 };
 
 export default function AudioBigScreen({
@@ -42,14 +45,35 @@ export default function AudioBigScreen({
   handleVolume,
   audioRef,
   children,
+  translations,
 }: Props) {
   return (
     <figure className='hidden md:flex items-center bg-yellow-200 rounded-md w-fit my-2 py-2 px-4'>
       <Button type='yellow' onClick={handleButton} margin='none' padding='1'>
-        {audioStatus === 'loading' && <LoaderCircle className='animate-spin' />}
-        {audioStatus === 'playing' && <Pause />}
-        {audioStatus === 'pause' && <Play />}
-        {audioStatus === 'finished' && <RotateCcw />}
+        {audioStatus === 'loading' && (
+          <>
+            <LoaderCircle className='animate-spin' />
+            <VisuallyHidden>Audio is loading</VisuallyHidden>
+          </>
+        )}
+        {audioStatus === 'playing' && (
+          <>
+            <Pause />
+            <VisuallyHidden>{translations.pause}</VisuallyHidden>
+          </>
+        )}
+        {audioStatus === 'pause' && (
+          <>
+            <Play />
+            <VisuallyHidden>{translations.play}</VisuallyHidden>
+          </>
+        )}
+        {audioStatus === 'finished' && (
+          <>
+            <RotateCcw />
+            <VisuallyHidden>{translations.finished}</VisuallyHidden>
+          </>
+        )}
       </Button>
       <figcaption className='mx-2'>{caption}</figcaption>
       <time className='w-24 mr-2'>

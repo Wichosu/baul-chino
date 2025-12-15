@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button, DownloadButton } from '../Button';
 import { LoaderCircle, Pause, Play, RotateCcw } from 'lucide-react';
+import { Translation } from './Audio.types';
+import { VisuallyHidden } from '@/src/app/components/VisuallyHidden';
 
 type AudioStatus = 'playing' | 'pause' | 'finished' | 'loading';
 
@@ -20,6 +22,7 @@ type Props = {
   handleKeyRelease: (event: React.KeyboardEvent) => void;
   audioRef: React.RefObject<HTMLAudioElement>;
   children: React.ReactNode;
+  translations: Translation;
 };
 
 export default function AudioSmallScreen({
@@ -36,6 +39,7 @@ export default function AudioSmallScreen({
   handleKeyRelease,
   audioRef,
   children,
+  translations,
 }: Props) {
   return (
     <figure className='md:hidden flex flex-col bg-yellow-200 rounded-md w-fit my-2 py-2 px-2'>
@@ -48,11 +52,29 @@ export default function AudioSmallScreen({
       <div className='flex items-center'>
         <Button type='yellow' onClick={handleButton} margin='none' padding='1'>
           {audioStatus === 'loading' && (
-            <LoaderCircle className='animate-spin' />
+            <>
+              <LoaderCircle className='animate-spin' />
+              <VisuallyHidden>{translations.loading}</VisuallyHidden>
+            </>
           )}
-          {audioStatus === 'playing' && <Pause />}
-          {audioStatus === 'pause' && <Play />}
-          {audioStatus === 'finished' && <RotateCcw />}
+          {audioStatus === 'playing' && (
+            <>
+              <Pause />
+              <VisuallyHidden>{translations.pause}</VisuallyHidden>
+            </>
+          )}
+          {audioStatus === 'pause' && (
+            <>
+              <Play />
+              <VisuallyHidden>{translations.play}</VisuallyHidden>
+            </>
+          )}
+          {audioStatus === 'finished' && (
+            <>
+              <RotateCcw />
+              <VisuallyHidden>{translations.finished}</VisuallyHidden>
+            </>
+          )}
         </Button>
         <input
           id='audioTrack'
