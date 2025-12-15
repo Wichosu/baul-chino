@@ -1,44 +1,51 @@
-"use client"
-import { createContext, useContext, useState, useRef, Dispatch, SetStateAction, ReactNode, RefObject } from "react"
+'use client';
+import {
+  createContext,
+  useContext,
+  useState,
+  useRef,
+  Dispatch,
+  SetStateAction,
+  ReactNode,
+  RefObject,
+} from 'react';
 
 type Props = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
 export type Title = {
-  uuid: string
-  name: string
-  marginRight: number
-}
+  uuid: string;
+  name: string;
+  marginRight: number;
+};
 
 type TemplateContext = {
-  filename: RefObject<string>
-  gridGap: number
-  squareCount: number
-  squareSize: number
-  titles: Array<Title>
-  setGridGap: Dispatch<SetStateAction<number>>
-  setSquareCount: Dispatch<SetStateAction<number>>
-  setSquareSize: Dispatch<SetStateAction<number>>
-  setTitles: Dispatch<SetStateAction<Array<Title>>>
-}
+  filename: RefObject<string>;
+  gridGap: number;
+  squareCount: number;
+  squareSize: number;
+  titles: Array<Title>;
+  setGridGap: Dispatch<SetStateAction<number>>;
+  setSquareCount: Dispatch<SetStateAction<number>>;
+  setSquareSize: Dispatch<SetStateAction<number>>;
+  setTitles: Dispatch<SetStateAction<Array<Title>>>;
+};
 
-const TemplateContext = createContext<TemplateContext | null>(null)
+const TemplateContext = createContext<TemplateContext | null>(null);
 
 export default function TemplateContextProvider({ children }: Props) {
-  const [gridGap, setGridGap] = useState(0)
+  const [gridGap, setGridGap] = useState(0);
 
-  const [squareCount, setSquareCount] = useState(330)
-  const [squareSize, setSquareSize] = useState(12)
+  const [squareCount, setSquareCount] = useState(330);
+  const [squareSize, setSquareSize] = useState(12);
 
-  const filename = useRef('')
+  const filename = useRef('');
 
-  const [titles, setTitles] = useState<Title[]>([])
-
-  console.log(titles)
+  const [titles, setTitles] = useState<Title[]>([]);
 
   return (
-    <TemplateContext.Provider 
+    <TemplateContext.Provider
       value={{
         filename,
         gridGap,
@@ -48,20 +55,22 @@ export default function TemplateContextProvider({ children }: Props) {
         setGridGap,
         setSquareCount,
         setSquareSize,
-        setTitles
+        setTitles,
       }}
     >
       {children}
     </TemplateContext.Provider>
-  )
+  );
 }
 
 export function useTemplateContext() {
-  const context = useContext(TemplateContext)
+  const context = useContext(TemplateContext);
 
   if (!context) {
-    throw new Error("useTemplateContext must be used within a TemplateContextProvider")
+    throw new Error(
+      'useTemplateContext must be used within a TemplateContextProvider'
+    );
   }
 
-  return context
+  return context;
 }
