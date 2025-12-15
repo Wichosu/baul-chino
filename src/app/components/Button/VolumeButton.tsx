@@ -2,12 +2,16 @@
 import React from 'react';
 import { Button } from './Button';
 import { Volume, Volume1, Volume2, VolumeOff } from 'lucide-react';
+import { VisuallyHidden } from '@/src/app/components/VisuallyHidden';
+import { useTranslations } from 'next-intl';
 
 type Props = {
   handleVolume: (volume: number) => void;
 };
 
 export function VolumeButton({ handleVolume }: Props) {
+  const t = useTranslations('Components.VolumeButton');
+
   const [volume, setVolume] = React.useState(100);
   const prevVolume = React.useRef(100);
 
@@ -43,7 +47,13 @@ export function VolumeButton({ handleVolume }: Props) {
         {volume >= 60 && <Volume2 />}
         {volume >= 20 && volume < 60 && <Volume1 />}
         {volume >= 1 && volume < 20 && <Volume />}
-        {volume < 1 && <VolumeOff />}
+        {volume < 1 && (
+          <>
+            <VolumeOff />
+            <VisuallyHidden>{t('Unmute')}</VisuallyHidden>
+          </>
+        )}
+        {volume > 0 && <VisuallyHidden>{t('Mute')}</VisuallyHidden>}
       </Button>
       <input
         id='audioVolume'
@@ -52,6 +62,9 @@ export function VolumeButton({ handleVolume }: Props) {
         type='range'
         min='0'
         max='100'
+        aria-label={`${t('Volume')} ${volume}%`}
+        aria-valuemax={100}
+        aria-valuemin={0}
         className='
           w-0 -ml-4 opacity-0 rounded cursor-pointer accent-yellow-800
           will-change-auto transition-all delay-100 duration-500 ease-in-out 
