@@ -13,6 +13,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { hasLocale } from 'next-intl';
 import { routing } from '@/src/i18n/routing';
 import { notFound } from 'next/navigation';
+import { Button } from '../../components/Button';
 
 export async function generateMetadata({
   params,
@@ -60,7 +61,15 @@ export default async function Page({
     <>
       <Hero title={t('HeroTitle')}>
         <span className='block'>{t('HeroMessage1')}</span>
-        <span className='block mt-4'>{t('HeroMessage2')}</span>
+        <span className='block my-4'>{t('HeroMessage2')}</span>
+        <Button
+          as='link'
+          href='/hsk-audios-download'
+          type='yellow'
+          margin='none'
+        >
+          {t('DownloadButton')}
+        </Button>
       </Hero>
       <AccordionRoot type='multiple' width='full'>
         {Books.map((book, index) => (
