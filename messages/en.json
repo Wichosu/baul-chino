@@ -24,7 +24,7 @@
     }
   },
   "Footer": {
-    "Message": "More to come. You can suggest your ideas in the surveys.",
+    "Message": "More to come. You can suggest your ideas via the media icons below, choose your favorite and click it to reach me out",
     "Link": "Developed by",
     "Author": "Wichosu"
   },
@@ -94,10 +94,10 @@
         "Errors": "I found an error or annoying behavior."
       },
       "Answers": {
-        "HowMuch": "Nothing, I intend to keep baulchino free of cost, there might be a time when AdSense might be introduced so I can sustain the cost of the website, but it is just an idea for the future.",
+        "HowMuch": "Nothing, I intend to keep baulchino free of cost, my plan is to keep every feature free of cost, including the ones in the future and proposed ones as long as it is feasible.",
         "Why": "I enjoyed my time learning mandarin, but I did find a lot of resources somewhat scatter and wish for a website that had a range of tools in one place just to take them for quick reference.",
-        "Ideas": "There are surveys popping out from time to time, feel free to submit your ideas there, I do read them and implement most suggestion. You can also send me a message on X.",
-        "Errors": "Please send me a message on X or use a survey to describe the error so I can fix it. Thank you."
+        "Ideas": "You can suggest your ideas via the media icons at the bottom of the page, choose your favorite and click it to reach me out",
+        "Errors": "Please send me a message via the media icons at the bottom of the page, choose your favorite and click it to reach me out, please describe the error so I can fix it. I might reply later, but I do read all messages. Thank you."
       }
     }
   },
