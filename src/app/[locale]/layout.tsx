@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
-import { Analytics } from '@vercel/analytics/react';
 import '@/src/styles/globals.css';
 import { PostHogProvider } from '../providers';
 import { NextIntlClientProvider } from 'next-intl';
@@ -73,7 +72,6 @@ export default async function RootLayout({
               </Container>
             </NextIntlClientProvider>
           </PostHogProvider>
-          <Analytics />
           <Script type='text/javascript'>
             {`
               (() => {
