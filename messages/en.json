@@ -68,6 +68,12 @@
         "Description": "Listen to HSK audio files from each unit in the HSK textbooks and workbooks",
         "LinkName": "Go to HSK Audio Files"
       },
+      "HskAudiosDownload": {
+        "Title": "Download all HSK audio files",
+        "ImgAlt": "pending",
+        "Description": "Download all HSK audio files from every HSK textbook and workbooks",
+        "LinkName": "Go to Download all HSK audio files"
+      },
       "HskMockTest": {
         "Title": "HSK Mock Test",
         "ImgAlt": "Image of an HSK 2 mock test cover",
