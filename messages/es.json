@@ -8,6 +8,7 @@
     "Channels": "Lista de Canales",
     "Hanzi": "Escritura de Hanzi",
     "HskAudios": "Archivos de Audio HSK",
+    "HskAudiosDownload": "Descarga todos los audios de los libros HSK",
     "HskMockTest": "HSK Mock Test",
     "Templates": "Plantillas",
     "TemplateGenerator": "Generador de Plantillas",
@@ -18,6 +19,7 @@
       "Channels": "YouTube channels for learning Mandarin Chinese with various teaching styles",
       "Hanzi": "Aprende a escribir caracteres chinos: domina el orden de trazos y descubre sus radicales",
       "HskAudios": "Escucha los audios de los libros HSK Textbook y Workbook",
+      "HskAudiosDownload": "Descarga todos los audios de cada libro HSK Textbook y Workbook",
       "HskMockTest": "Haz un mock test HSK en línea o descárgalo para realizarlo de forma presencial",
       "Templates": "Practica el orden de trazos y radicales con plantillas descargables",
       "TemplateGenerator": "Genera plantillas adaptadas a tu nivel para perfeccionar tu caligrafía"
