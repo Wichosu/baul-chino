@@ -8,6 +8,7 @@
     "Channels": "Lista de Canales",
     "Hanzi": "Escritura de Hanzi",
     "HskAudios": "Archivos de Audio HSK",
+    "HskAudiosDownload": "Descarga todos los audios de los libros HSK",
     "HskMockTest": "HSK Mock Test",
     "Templates": "Plantillas",
     "TemplateGenerator": "Generador de Plantillas",
@@ -17,7 +18,8 @@
       "HskBooks": "Descarga los libros HSK del 1 al 6 de manera gratuita",
       "Channels": "YouTube channels for learning Mandarin Chinese with various teaching styles",
       "Hanzi": "Aprende a escribir caracteres chinos: domina el orden de trazos y descubre sus radicales",
-      "HskAudios": "Escucha los audios de los libros HSK Textbook y Workbook",
+      "HskAudios": "Escucha los audios de los libros HSK Textbook y Workbook de todas las unidades",
+      "HskAudiosDownload": "Descarga todos los audios de los libros HSK Textbook y Workbook",
       "HskMockTest": "Haz un mock test HSK en línea o descárgalo para realizarlo de forma presencial",
       "Templates": "Practica el orden de trazos y radicales con plantillas descargables",
       "TemplateGenerator": "Genera plantillas adaptadas a tu nivel para perfeccionar tu caligrafía"
@@ -65,6 +67,12 @@
         "ImgAlt": "Disco del libro de texto hsk 1",
         "Description": "Escucha los audios de las unidades de los libros Textbook y Workbook de todos los HSK",
         "LinkName": "Ir a Audios HSK"
+      },
+      "HskAudiosDownload": {
+        "Title": "Descargar todos los audios de los libros HSK",
+        "ImgAlt": "pendiente",
+        "Description": "Descarga todos los audios de los libros HSK Textbook y Workbook",
+        "LinkName": "Ir a Descargar todos los audios de los libros HSK"
       },
       "HskMockTest": {
         "Title": "Mock Test HSK",
@@ -241,7 +249,19 @@
     },
     "HeroTitle": "Escucha los Audios HSK",
     "HeroMessage1": "Buenas, aquí puedes escuchar los audios de los libros HSK Textbook y Workbook. Esta página te ayudará a encontrar los audios de cada unidad y te permitirá practicar o realizar los ejercicios correspondientes. Puedes descargar los audios presionando el botón ⬇️",
-    "HeroMessage2": "Si hay algún audio incorrecto o que falte, puedes hacermelo saber a través de las encuestas en esta página o por un email a wichosubuilds@gmail.com"
+    "HeroMessage2": "Si hay algún audio incorrecto o que falte, puedes hacermelo saber a través de las encuestas en esta página o por un email a wichosubuilds@gmail.com",
+    "DownloadButton": "Descargar los audios del libro en un solo archivo zip"
+  },
+  "HskAudiosDownload": {
+    "Metadata": {
+      "Title": "Descargar Audios HSK | Paquetes de Audio Completos",
+      "Description": "Descarga colecciones completas de archivos de audio HSK en formato ZIP. Todos los audios de los libros de texto y cuadernos organizados por nivel HSK para práctica sin conexión."
+    },
+    "HeroTitle": "Descargar Audios HSK",
+    "HeroMessage": "Descarga paquetes de audio completos para cada nivel HSK. Cada archivo ZIP contiene todas las pistas de audio de los libros de texto y cuadernos, organizados para un fácil acceso y práctica sin conexión.",
+    "SectionTitle": "Descarga todos los audios de un libro HSK",
+    "DownloadButton": "Descargar ZIP",
+    "GoToHskAudios": "Escuchar Audios HSK ahora"
   },
   "HskMockTest": {
     "Metadata": {
