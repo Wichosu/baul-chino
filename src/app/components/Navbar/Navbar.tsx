@@ -76,6 +76,11 @@ export function Navbar() {
         t('Descriptions.HskAudios')
       ),
       createNavContent(
+        '/hsk-audios-download',
+        t('HskAudiosDownload'),
+        t('Descriptions.HskAudiosDownload')
+      ),
+      createNavContent(
         '/hsk-mock-test',
         t('HskMockTest'),
         t('Descriptions.HskMockTest')

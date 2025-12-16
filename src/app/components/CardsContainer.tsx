@@ -65,6 +65,15 @@ export default function CardsContainer() {
       t('HskMockTest.LinkName')
     ),
     createCard(
+      t('HskAudiosDownload.Title'),
+      t('HskAudiosDownload.ImgAlt'),
+      '/homepage/hskdownload.avif',
+      '/homepage/hskdownload.jpg',
+      t('HskAudiosDownload.Description'),
+      'hsk-audios-download',
+      t('HskAudiosDownload.LinkName')
+    ),
+    createCard(
       t('Channels.Title'),
       t('Channels.ImgAlt'),
       '/homepage/channels.avif',

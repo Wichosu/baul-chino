@@ -531,19 +531,19 @@ export const hsk3textbook: Book = createBook('HSK 3 TEXTBOOK', [
       'https://cdn.baulchino.com/hsk-books-audios/hsk3-textbook-audios/lesson-20/hsk3-textbook-2002.mp3'
     ),
     createAudioTrack(
-      'Lesson 20-05-01',
-      'hsk3-textbook-200501',
-      'https://cdn.baulchino.com/hsk-books-audios/hsk3-textbook-audios/lesson-20/hsk3-textbook-200501.mp3'
+      'Lesson 20-03',
+      'hsk3-textbook-2003',
+      'https://cdn.baulchino.com/hsk-books-audios/hsk3-textbook-audios/lesson-20/hsk3-textbook-2003.mp3'
     ),
     createAudioTrack(
-      'Lesson 20-05-02',
-      'hsk3-textbook-200502',
-      'https://cdn.baulchino.com/hsk-books-audios/hsk3-textbook-audios/lesson-20/hsk3-textbook-200502.mp3'
+      'Lesson 20-04',
+      'hsk3-textbook-2004',
+      'https://cdn.baulchino.com/hsk-books-audios/hsk3-textbook-audios/lesson-20/hsk3-textbook-2004.mp3'
     ),
     createAudioTrack(
-      'Lesson 20-05-03',
-      'hsk3-textbook-200503',
-      'https://cdn.baulchino.com/hsk-books-audios/hsk3-textbook-audios/lesson-20/hsk3-textbook-200503.mp3'
+      'Lesson 20-05',
+      'hsk3-textbook-2005',
+      'https://cdn.baulchino.com/hsk-books-audios/hsk3-textbook-audios/lesson-20/hsk3-textbook-2005.mp3'
     ),
   ]),
 ]);
