@@ -260,7 +260,8 @@
     "HeroTitle": "Download HSK Audio Files",
     "HeroMessage": "Download complete audio packs for each HSK level. Each ZIP file contains all audio tracks from the textbooks and workbooks, organized for easy offline access and practice.",
     "SectionTitle": "Download all audios from a HSK book",
-    "DownloadButton": "Download ZIP"
+    "DownloadButton": "Download ZIP",
+    "GoToHskAudios": "Listen HSK Audio Files now"
   },
   "HskMockTest": {
     "Metadata": {

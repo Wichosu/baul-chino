@@ -66,7 +66,10 @@ export default async function Page({
   return (
     <>
       <Hero title={t('HeroTitle')}>
-        <span className='block'>{t('HeroMessage')}</span>
+        <span className='block mb-4'>{t('HeroMessage')}</span>
+        <Button as='link' href='/hsk-audios' type='yellow' margin='none'>
+          {t('GoToHskAudios')}
+        </Button>
       </Hero>
       <section className='my-8'>
         <h2 className='text-3xl font-medium text-neutral-800 mb-6'>
