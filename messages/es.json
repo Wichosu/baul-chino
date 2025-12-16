@@ -260,7 +260,8 @@
     "HeroTitle": "Descargar Audios HSK",
     "HeroMessage": "Descarga paquetes de audio completos para cada nivel HSK. Cada archivo ZIP contiene todas las pistas de audio de los libros de texto y cuadernos, organizados para un fácil acceso y práctica sin conexión.",
     "SectionTitle": "Descarga todos los audios de un libro HSK",
-    "DownloadButton": "Descargar ZIP"
+    "DownloadButton": "Descargar ZIP",
+    "GoToHskAudios": "Escuchar Audios HSK ahora"
   },
   "HskMockTest": {
     "Metadata": {
