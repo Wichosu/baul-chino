@@ -18,8 +18,8 @@
       "HskBooks": "Descarga los libros HSK del 1 al 6 de manera gratuita",
       "Channels": "YouTube channels for learning Mandarin Chinese with various teaching styles",
       "Hanzi": "Aprende a escribir caracteres chinos: domina el orden de trazos y descubre sus radicales",
-      "HskAudios": "Escucha los audios de los libros HSK Textbook y Workbook",
-      "HskAudiosDownload": "Descarga todos los audios de cada libro HSK Textbook y Workbook",
+      "HskAudios": "Escucha los audios de los libros HSK Textbook y Workbook de todas las unidades",
+      "HskAudiosDownload": "Descarga todos los audios de los libros HSK Textbook y Workbook",
       "HskMockTest": "Haz un mock test HSK en línea o descárgalo para realizarlo de forma presencial",
       "Templates": "Practica el orden de trazos y radicales con plantillas descargables",
       "TemplateGenerator": "Genera plantillas adaptadas a tu nivel para perfeccionar tu caligrafía"
@@ -67,6 +67,12 @@
         "ImgAlt": "Disco del libro de texto hsk 1",
         "Description": "Escucha los audios de las unidades de los libros Textbook y Workbook de todos los HSK",
         "LinkName": "Ir a Audios HSK"
+      },
+      "HskAudiosDownload": {
+        "Title": "Descargar todos los audios de los libros HSK",
+        "ImgAlt": "pendiente",
+        "Description": "Descarga todos los audios de los libros HSK Textbook y Workbook",
+        "LinkName": "Ir a Descargar todos los audios de los libros HSK"
       },
       "HskMockTest": {
         "Title": "Mock Test HSK",
