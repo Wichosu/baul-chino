@@ -98,6 +98,7 @@ export default async function Page({
                     margin='none'
                     padding='2'
                     rounded='1'
+                    target='_self'
                   >
                     {file.title}
                   </Button>
