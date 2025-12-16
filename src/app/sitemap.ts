@@ -83,5 +83,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
       },
     },
+    {
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/hsk-audios-download`,
+      alternates: {
+        languages: {
+          en: `${process.env.NEXT_PUBLIC_BASE_URL}/hsk-audios-download`,
+          es: `${process.env.NEXT_PUBLIC_BASE_URL}/es/hsk-audios-download`,
+        },
+      },
+    },
   ];
 }
