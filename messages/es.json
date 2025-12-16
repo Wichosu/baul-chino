@@ -244,6 +244,16 @@
     "HeroMessage2": "Si hay algún audio incorrecto o que falte, puedes hacermelo saber a través de las encuestas en esta página o por un email a wichosubuilds@gmail.com",
     "DownloadButton": "Descargar los audios del libro en un solo archivo zip"
   },
+  "HskAudiosDownload": {
+    "Metadata": {
+      "Title": "Descargar Audios HSK | Paquetes de Audio Completos",
+      "Description": "Descarga colecciones completas de archivos de audio HSK en formato ZIP. Todos los audios de los libros de texto y cuadernos organizados por nivel HSK para práctica sin conexión."
+    },
+    "HeroTitle": "Descargar Audios HSK",
+    "HeroMessage": "Descarga paquetes de audio completos para cada nivel HSK. Cada archivo ZIP contiene todas las pistas de audio de los libros de texto y cuadernos, organizados para un fácil acceso y práctica sin conexión.",
+    "SectionTitle": "Descarga todos los audios de un libro HSK",
+    "DownloadButton": "Descargar ZIP"
+  },
   "HskMockTest": {
     "Metadata": {
       "Title": "Mock Test HSK en línea y para descargar",
