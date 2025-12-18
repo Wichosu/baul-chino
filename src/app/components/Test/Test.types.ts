@@ -4,7 +4,8 @@ export type QuestionType =
   | 'listeningTrueFalse'
   | 'listeningMatchImageAudio'
   | 'listeningMatchImageAudioSingleImage'
-  | 'listeningSelectPhrase';
+  | 'listeningSelectPhrase'
+  | 'readingTrueFalse';
 
 export type Test = {
   level: 'hsk1';
@@ -18,6 +19,7 @@ export type Test = {
     image: { image: string | null; imageFallback: string | null } | null;
   })[];
   listeningSelectPhrase: Database['mock_test']['Tables']['listening_select_phrase']['Row'][];
+  readingTrueFalse: Database['mock_test']['Tables']['reading_true_false']['Row'][];
 };
 
 export type TestTranslations = {
@@ -26,12 +28,14 @@ export type TestTranslations = {
     listeningMatchImageAudio: string;
     listeningMatchImageAudioSingleImage: string;
     listeningSelectPhrase: string;
+    readingTrueFalse: string;
   };
   Descriptions: {
     listeningTrueFalse: string;
     listeningMatchImageAudio: string;
     listeningMatchImageAudioSingleImage: string;
     listeningSelectPhrase: string;
+    readingTrueFalse: string;
   };
   Answers: {
     score: string;
@@ -41,6 +45,7 @@ export type TestTranslations = {
     listeningMatchImageAudio: string;
     listeningMatchImageAudioSingleImage: string;
     listeningSelectPhrase: string;
+    readingTrueFalse: string;
   };
   check: string;
   x: string;
@@ -71,4 +76,10 @@ export type HandleListeningSelectPhraseAnswer = (
   answer: Database['public']['Enums']['letter_range'],
   index: number,
   questionNumber: Database['mock_test']['Tables']['listening_select_phrase']['Row']['questionNumber']
+) => void;
+
+export type HandleReadingTrueFalseAnswer = (
+  answer: boolean,
+  index: number,
+  questionNumber: Database['mock_test']['Tables']['reading_true_false']['Row']['questionNumber']
 ) => void;
