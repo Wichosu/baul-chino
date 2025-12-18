@@ -20,6 +20,7 @@ export async function TestFetch({ testId }: Props) {
         'Titles.listeningMatchImageAudioSingleImage'
       ),
       listeningSelectPhrase: t('Titles.listeningSelectPhrase'),
+      readingTrueFalse: t('Titles.readingTrueFalse'),
     },
     Descriptions: {
       listeningTrueFalse: t('Descriptions.listeningTrueFalse'),
@@ -28,6 +29,7 @@ export async function TestFetch({ testId }: Props) {
         'Descriptions.listeningMatchImageAudioSingleImage'
       ),
       listeningSelectPhrase: t('Descriptions.listeningSelectPhrase'),
+      readingTrueFalse: t('Descriptions.readingTrueFalse'),
     },
     Answers: {
       score: t('Answers.Score'),
@@ -39,6 +41,7 @@ export async function TestFetch({ testId }: Props) {
         'Answers.listeningMatchImageAudioSingleImage'
       ),
       listeningSelectPhrase: t('Answers.listeningSelectPhrase'),
+      readingTrueFalse: t('Answers.readingTrueFalse'),
     },
     check: t('Icons.Check'),
     x: t('Icons.X'),
@@ -80,6 +83,12 @@ export async function TestFetch({ testId }: Props) {
     .select('*')
     .eq('mockTest', testId);
 
+  const { data: questionsReadingTrueFalse } = await supabase
+    .schema('mock_test')
+    .from('reading_true_false')
+    .select('*')
+    .eq('mockTest', testId);
+
   if (!questionsListeningTrueFalse) {
     return (
       <p>
@@ -116,6 +125,15 @@ export async function TestFetch({ testId }: Props) {
     );
   }
 
+  if (!questionsReadingTrueFalse) {
+    return (
+      <p>
+        No questions found for reading true false found. Please refresh or
+        report this
+      </p>
+    );
+  }
+
   const test: Test = {
     level: 'hsk1',
     flowOrder: [
@@ -123,6 +141,7 @@ export async function TestFetch({ testId }: Props) {
       'listeningMatchImageAudio',
       'listeningMatchImageAudioSingleImage',
       'listeningSelectPhrase',
+      'readingTrueFalse',
     ],
     listeningTrueFalse: questionsListeningTrueFalse.sort(
       (a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber)
@@ -135,6 +154,9 @@ export async function TestFetch({ testId }: Props) {
         (a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber)
       ),
     listeningSelectPhrase: questionsListeningSelectPhrase.sort(
+      (a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber)
+    ),
+    readingTrueFalse: questionsReadingTrueFalse.sort(
       (a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber)
     ),
   };
