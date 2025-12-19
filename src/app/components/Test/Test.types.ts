@@ -5,7 +5,13 @@ export type QuestionType =
   | 'listeningMatchImageAudio'
   | 'listeningMatchImageAudioSingleImage'
   | 'listeningSelectPhrase'
-  | 'readingTrueFalse';
+  | 'readingTrueFalse'
+  | 'readingMatchImage';
+
+export type SelectOptions = Extract<
+  Database['public']['Enums']['letter_range'],
+  'A' | 'B' | 'C' | 'D' | 'E' | 'F'
+>;
 
 export type Test = {
   level: 'hsk1';
@@ -20,6 +26,16 @@ export type Test = {
   })[];
   listeningSelectPhrase: Database['mock_test']['Tables']['listening_select_phrase']['Row'][];
   readingTrueFalse: Database['mock_test']['Tables']['reading_true_false']['Row'][];
+  readingMatchImage: (Omit<
+    Database['mock_test']['Tables']['reading_match_image']['Row'],
+    'image'
+  > & {
+    image: {
+      image: string | null;
+      imageFallback: string | null;
+      alt: string | null;
+    } | null;
+  })[];
 };
 
 export type TestTranslations = {
@@ -29,6 +45,7 @@ export type TestTranslations = {
     listeningMatchImageAudioSingleImage: string;
     listeningSelectPhrase: string;
     readingTrueFalse: string;
+    readingMatchImage: string;
   };
   Descriptions: {
     listeningTrueFalse: string;
@@ -36,6 +53,7 @@ export type TestTranslations = {
     listeningMatchImageAudioSingleImage: string;
     listeningSelectPhrase: string;
     readingTrueFalse: string;
+    readingMatchImage: string;
   };
   Answers: {
     score: string;
@@ -46,6 +64,7 @@ export type TestTranslations = {
     listeningMatchImageAudioSingleImage: string;
     listeningSelectPhrase: string;
     readingTrueFalse: string;
+    readingMatchImage: string;
   };
   check: string;
   x: string;
@@ -82,4 +101,10 @@ export type HandleReadingTrueFalseAnswer = (
   answer: boolean,
   index: number,
   questionNumber: Database['mock_test']['Tables']['reading_true_false']['Row']['questionNumber']
+) => void;
+
+export type HandleReadingMatchImageAnswer = (
+  answer: Database['public']['Enums']['letter_range'] | '',
+  index: number,
+  questionNumber: Database['mock_test']['Tables']['reading_match_image']['Row']['questionNumber']
 ) => void;

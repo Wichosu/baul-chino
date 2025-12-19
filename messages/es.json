@@ -285,14 +285,16 @@
       "listeningMatchImageAudio": "Listening Selecciona la imagen",
       "listeningMatchImageAudioSingleImage": "Listening Selecciona la imagen",
       "listeningSelectPhrase": "Listening Selecciona la Frase",
-      "readingTrueFalse": "Reading Verdadero o Falso"
+      "readingTrueFalse": "Reading Verdadero o Falso",
+      "readingMatchImage": "Reading Selecciona la Imagen"
     },
     "Descriptions": {
       "listeningTrueFalse": "Escucha el audio y escoge entre correcto (verde) o incorrecto (rojo) si el audio coincide con la imagen",
       "listeningMatchImageAudio": "Escucha el audio y escoge la opción correcta relacionada con la imagen",
       "listeningMatchImageAudioSingleImage": "Escucha el audio y escoge la opción correcta relacionada con la imagen",
       "listeningSelectPhrase": "Escucha el audio y escoge la frase correcta relacionada con la imagen",
-      "readingTrueFalse": "Lee el texto y escoge entre correcto (verde) o incorrecto (rojo) si el texto coincide con la imagen"
+      "readingTrueFalse": "Lee la palabra y escoge entre correcto (verde) o incorrecto (rojo) si la palabra coincide con la imagen",
+      "readingMatchImage": "Lee la frase y escoge la opción correcta relacionada con la imagen"
     },
     "Answers": {
       "Score": "Puntuación Total",
@@ -302,7 +304,8 @@
       "listeningMatchImageAudio": "Listening Selecciona la imagen",
       "listeningMatchImageAudioSingleImage": "Listening Selecciona la imagen",
       "listeningSelectPhrase": "Listening Selecciona la Frase",
-      "readingTrueFalse": "Reading Verdadero o Falso"
+      "readingTrueFalse": "Reading Verdadero o Falso",
+      "readingMatchImage": "Reading Selecciona la Imagen"
     },
     "Icons": {
       "Check": "Responder verdadero",

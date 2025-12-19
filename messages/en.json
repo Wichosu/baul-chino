@@ -285,14 +285,16 @@
       "listeningMatchImageAudio": "Listening Match Image Audio",
       "listeningMatchImageAudioSingleImage": "Listening Match Image Audio Single Image",
       "listeningSelectPhrase": "Listening Select Phrase",
-      "readingTrueFalse": "Reading True False"
+      "readingTrueFalse": "Reading True False",
+      "readingMatchImage": "Reading Match Image"
     },
     "Descriptions": {
       "listeningTrueFalse": "Listen to the audio and choose between right (green) or not right (red) if the audio is related to its image",
       "listeningMatchImageAudio": "Listen to the audio and choose the correct option related to the image",
       "listeningMatchImageAudioSingleImage": "Listen to the audio and choose the correct option related to the image",
       "listeningSelectPhrase": "Listen to the audio and choose the correct phrase related to the image",
-      "readingTrueFalse": "Read the text and choose between right (green) or not right (red) if the text is related to its image"
+      "readingTrueFalse": "Read the word and choose between right (green) or not right (red) if the word is related to its image",
+      "readingMatchImage": "Read the sentence and choose the correct option related to the image"
     },
     "Answers": {
       "Score": "Total score",
@@ -302,7 +304,8 @@
       "listeningMatchImageAudio": "Listening Match Image Audio",
       "listeningMatchImageAudioSingleImage": "Listening Match Image Audio Single Image",
       "listeningSelectPhrase": "Listening Select Phrase",
-      "readingTrueFalse": "Reading True False"
+      "readingTrueFalse": "Reading True False",
+      "readingMatchImage": "Reading Match Image"
     },
     "Icons": {
       "Check": "Answer true",

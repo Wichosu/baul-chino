@@ -21,6 +21,7 @@ export async function TestFetch({ testId }: Props) {
       ),
       listeningSelectPhrase: t('Titles.listeningSelectPhrase'),
       readingTrueFalse: t('Titles.readingTrueFalse'),
+      readingMatchImage: t('Titles.readingMatchImage'),
     },
     Descriptions: {
       listeningTrueFalse: t('Descriptions.listeningTrueFalse'),
@@ -30,6 +31,7 @@ export async function TestFetch({ testId }: Props) {
       ),
       listeningSelectPhrase: t('Descriptions.listeningSelectPhrase'),
       readingTrueFalse: t('Descriptions.readingTrueFalse'),
+      readingMatchImage: t('Descriptions.readingMatchImage'),
     },
     Answers: {
       score: t('Answers.Score'),
@@ -42,6 +44,7 @@ export async function TestFetch({ testId }: Props) {
       ),
       listeningSelectPhrase: t('Answers.listeningSelectPhrase'),
       readingTrueFalse: t('Answers.readingTrueFalse'),
+      readingMatchImage: t('Answers.readingMatchImage'),
     },
     check: t('Icons.Check'),
     x: t('Icons.X'),
@@ -89,6 +92,17 @@ export async function TestFetch({ testId }: Props) {
     .select('*')
     .eq('mockTest', testId);
 
+  const { data: questionsReadingMatchImage } = await supabase
+    .schema('mock_test')
+    .from('reading_match_image')
+    .select(
+      `
+      *,
+      image (image, imageFallback)
+      `
+    )
+    .eq('mockTest', testId);
+
   if (!questionsListeningTrueFalse) {
     return (
       <p>
@@ -134,6 +148,15 @@ export async function TestFetch({ testId }: Props) {
     );
   }
 
+  if (!questionsReadingMatchImage) {
+    return (
+      <p>
+        No questions found for reading match image found. Please refresh or
+        report this
+      </p>
+    );
+  }
+
   const test: Test = {
     level: 'hsk1',
     flowOrder: [
@@ -142,6 +165,7 @@ export async function TestFetch({ testId }: Props) {
       'listeningMatchImageAudioSingleImage',
       'listeningSelectPhrase',
       'readingTrueFalse',
+      'readingMatchImage',
     ],
     listeningTrueFalse: questionsListeningTrueFalse.sort(
       (a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber)
@@ -159,6 +183,22 @@ export async function TestFetch({ testId }: Props) {
     readingTrueFalse: questionsReadingTrueFalse.sort(
       (a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber)
     ),
+    readingMatchImage: questionsReadingMatchImage
+      .sort((a, b) => parseInt(a.questionNumber) - parseInt(b.questionNumber))
+      .map((question) => ({
+        ...question,
+        image: question.image
+          ? {
+              image: question.image.image,
+              imageFallback: question.image.imageFallback,
+              alt: 'If I have not place an alt tag here please report this. I do plan on supporting alt tags for screen reader users',
+            }
+          : {
+              image: 'Error fetching image please refresh the page',
+              imageFallback: 'Error fetching image please refresh the page',
+              alt: 'Error fetching image alt text please refresh the page',
+            },
+      })),
   };
 
   return (
