@@ -43,25 +43,31 @@ export function ReadingMatchImage({
       <p className='text-xl text-justify w-fit mx-auto mb-6'>
         {translations.Descriptions.readingMatchImage}
       </p>
-      <div className='flex flex-wrap gap-8 mb-4'>
+      <picture className='block relative w-full h-96 mb-4'>
+        <source src={questions[0].image?.image ?? ''} width={'100%'} />
+        <Image
+          src={questions[0].image?.imageFallback ?? ''}
+          alt={
+            questions[0].image?.alt ??
+            'Error fetching image alt text please refresh the page'
+          }
+          fill
+          className='object-contain'
+        />
+      </picture>
+      <div className='flex flex-col gap-8 mb-4 max-w-2xl mx-auto'>
         {questions.map((question, index) => (
-          <article key={question.id}>
-            <p className='text-xl'>{question.questionNumber}</p>
-            <picture
-              className='block relative w-full h-32 mb-2'
-              key={question.id}
-            >
-              <source src={question.image?.image ?? ''} width={'100%'} />
-              <Image
-                src={question.image?.imageFallback ?? ''}
-                alt={
-                  question.image?.alt ??
-                  'Error fetching image alt text please refresh the page'
-                }
-                fill
-                className='object-contain'
-              />
-            </picture>
+          <article
+            key={question.id}
+            className='flex items-center justify-between'
+          >
+            <div className='flex gap-4 items-center'>
+              <p className='text-xl'>{question.questionNumber}.</p>
+              <div>
+                <p>{question.sentencePinyin}</p>
+                <p>{question.sentenceHanzi}</p>
+              </div>
+            </div>
             <SelectRoot
               onValueChange={(value) =>
                 handleReadingMatchImageAnswer(
