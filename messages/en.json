@@ -277,20 +277,27 @@
   },
   "Test": {
     "Hero": {
-      "listeningTrueFalse": "Listen to the audio and choose between right (green) or not right (red) if the audio is related to its image",
+      "title": "HSK Online Simulator Demo",
+      "message": "This page aims to help you get an idea of what an HSK test might be.",
+      "message2": "Disclaimer: This is a demo, not the real test. It is incomplete and will be updated gradually with more questions and features for every HSK level",
+      "message3": "Please send feedback to wichosubuilds@gmail.com or any of the media icons at the bottom of the page. I will also add a survey to the page to gather feedback soon.",
       "error": "An error has occurred while loading the description. If the test is not showing please refresh the page or try again later."
     },
     "Titles": {
       "listeningTrueFalse": "Listening True False",
       "listeningMatchImageAudio": "Listening Match Image Audio",
       "listeningMatchImageAudioSingleImage": "Listening Match Image Audio Single Image",
-      "listeningSelectPhrase": "Listening Select Phrase"
+      "listeningSelectPhrase": "Listening Select Phrase",
+      "readingTrueFalse": "Reading True False",
+      "readingMatchImage": "Reading Match Image"
     },
     "Descriptions": {
       "listeningTrueFalse": "Listen to the audio and choose between right (green) or not right (red) if the audio is related to its image",
       "listeningMatchImageAudio": "Listen to the audio and choose the correct option related to the image",
       "listeningMatchImageAudioSingleImage": "Listen to the audio and choose the correct option related to the image",
-      "listeningSelectPhrase": "Listen to the audio and choose the correct phrase related to the image"
+      "listeningSelectPhrase": "Listen to the audio and choose the correct phrase related to the image",
+      "readingTrueFalse": "Read the word and choose between right (green) or not right (red) if the word is related to its image",
+      "readingMatchImage": "Read the sentence and choose the correct option related to the image"
     },
     "Answers": {
       "Score": "Total score",
@@ -299,7 +306,9 @@
       "listeningTrueFalse": "Listening True False",
       "listeningMatchImageAudio": "Listening Match Image Audio",
       "listeningMatchImageAudioSingleImage": "Listening Match Image Audio Single Image",
-      "listeningSelectPhrase": "Listening Select Phrase"
+      "listeningSelectPhrase": "Listening Select Phrase",
+      "readingTrueFalse": "Reading True False",
+      "readingMatchImage": "Reading Match Image"
     },
     "Icons": {
       "Check": "Answer true",

@@ -12,9 +12,13 @@ import {
   HandleListeningMatchImageAudioAnswer,
   HandleListeningMatchImageAudioSingleImageAnswer,
   HandleListeningSelectPhraseAnswer,
+  HandleReadingTrueFalseAnswer,
+  HandleReadingMatchImageAnswer,
 } from './Test.types';
 import { Check, X } from 'lucide-react';
-import { Database } from '../../types/supabase';
+import { Database } from '@/src/app/types/supabase';
+import { ReadingTrueFalse } from '@/src/app/components/Test/ReadingTrueFalse';
+import { ReadingMatchImage } from '@/src/app/components/Test/ReadingMatchImage';
 
 type Props = {
   test: Test;
@@ -57,6 +61,31 @@ export function TestClient({ test, translations }: Props) {
       }[]
     >(
       Array.from({ length: test.listeningSelectPhrase.length }).map(() => ({
+        answer: '',
+        questionNumber: '',
+      }))
+    );
+
+  const [readingTrueFalseAnswers, setReadingTrueFalseAnswers] = React.useState<
+    {
+      answer: boolean;
+      questionNumber: Database['mock_test']['Tables']['reading_true_false']['Row']['questionNumber'];
+    }[]
+  >(
+    Array.from({ length: test.readingTrueFalse.length }).map(() => ({
+      answer: false,
+      questionNumber: '',
+    }))
+  );
+
+  const [readingMatchImageAnswers, setReadingMatchImageAnswers] =
+    React.useState<
+      {
+        answer: Database['public']['Enums']['letter_range'] | '';
+        questionNumber: Database['mock_test']['Tables']['reading_match_image']['Row']['questionNumber'];
+      }[]
+    >(
+      Array.from({ length: test.readingMatchImage.length }).map(() => ({
         answer: '',
         questionNumber: '',
       }))
@@ -113,6 +142,32 @@ export function TestClient({ test, translations }: Props) {
       setListeningSelectPhraseAnswers(newListeningMatchSelectPhraseAnswer);
     };
 
+  const handleReadingTrueFalseAnswer: HandleReadingTrueFalseAnswer = (
+    answer,
+    index,
+    questionNumber
+  ) => {
+    const newReadingTrueFalseAnswers = [...readingTrueFalseAnswers];
+
+    newReadingTrueFalseAnswers[index].answer = answer;
+    newReadingTrueFalseAnswers[index].questionNumber = questionNumber;
+
+    setReadingTrueFalseAnswers(newReadingTrueFalseAnswers);
+  };
+
+  const handleReadingMatchImageAnswer: HandleReadingMatchImageAnswer = (
+    answer,
+    index,
+    questionNumber
+  ) => {
+    const newReadingMatchImageAnswers = [...readingMatchImageAnswers];
+
+    newReadingMatchImageAnswers[index].answer = answer;
+    newReadingMatchImageAnswers[index].questionNumber = questionNumber;
+
+    setReadingMatchImageAnswers(newReadingMatchImageAnswers);
+  };
+
   //evaluate user answers with test answers
   //if true it means correct answer, if false it means incorrect answer
   const listeningTrueFalseEvaluation = test.listeningTrueFalse.map(
@@ -136,12 +191,24 @@ export function TestClient({ test, translations }: Props) {
       question.answer === listeningSelectPhraseAnswers[index]?.answer
   );
 
+  const readingTrueFalseEvaluation = test.readingTrueFalse.map(
+    (question, index) =>
+      question.answer === readingTrueFalseAnswers[index]?.answer
+  );
+
+  const readingMatchImageEvaluation = test.readingMatchImage.map(
+    (question, index) =>
+      question.answer === readingMatchImageAnswers[index]?.answer
+  );
+
   //make sure to add up all questions from test
   const totalQuestions =
     test.listeningTrueFalse.length +
     test.listeningMatchImageAudio.length +
     test.listeningMatchImageAudioSingleImage.length +
-    test.listeningSelectPhrase.length;
+    test.listeningSelectPhrase.length +
+    test.readingTrueFalse.length +
+    test.readingMatchImage.length;
 
   let totalScore = 0;
 
@@ -159,6 +226,14 @@ export function TestClient({ test, translations }: Props) {
   });
 
   listeningSelectPhraseEvaluation.map((evaluation) => {
+    if (evaluation) totalScore += 1;
+  });
+
+  readingTrueFalseEvaluation.map((evaluation) => {
+    if (evaluation) totalScore += 1;
+  });
+
+  readingMatchImageEvaluation.map((evaluation) => {
     if (evaluation) totalScore += 1;
   });
 
@@ -186,6 +261,16 @@ export function TestClient({ test, translations }: Props) {
       <ListeningSelectPhrase
         questions={test.listeningSelectPhrase}
         handleListeningSelectPhraseAnswers={handleListeningSelectPhraseAnswers}
+        translations={translations}
+      />
+      <ReadingTrueFalse
+        questions={test.readingTrueFalse}
+        handleReadingTrueFalseAnswer={handleReadingTrueFalseAnswer}
+        translations={translations}
+      />
+      <ReadingMatchImage
+        questions={test.readingMatchImage}
+        handleReadingMatchImageAnswer={handleReadingMatchImageAnswer}
         translations={translations}
       />
       <div className='w-fit mx-auto flex flex-col gap-6 items-center'>
@@ -267,6 +352,41 @@ export function TestClient({ test, translations }: Props) {
                           </h3>
                           <div className='flex flex-wrap gap-8 mb-4'>
                             {test.listeningSelectPhrase.map((question) => (
+                              <p key={question.questionNumber}>
+                                {question.questionNumber}
+                                {question.answer}
+                              </p>
+                            ))}
+                          </div>
+                        </>
+                      )}
+                      {section === 'readingTrueFalse' && (
+                        <>
+                          <h3 className='text-2xl mb-4'>
+                            {translations.Answers.readingTrueFalse}
+                          </h3>
+                          <div className='flex flex-wrap gap-8 mb-4'>
+                            {test.readingTrueFalse.map((question) => (
+                              <p key={question.questionNumber}>
+                                {question.questionNumber}
+                                {question.answer === true && (
+                                  <Check className='inline-block ml-1' />
+                                )}
+                                {question.answer === false && (
+                                  <X className='inline-block ml-1' />
+                                )}
+                              </p>
+                            ))}
+                          </div>
+                        </>
+                      )}
+                      {section === 'readingMatchImage' && (
+                        <>
+                          <h3 className='text-2xl mb-4'>
+                            {translations.Answers.readingMatchImage}
+                          </h3>
+                          <div className='flex flex-wrap gap-8 mb-4'>
+                            {test.readingMatchImage.map((question) => (
                               <p key={question.questionNumber}>
                                 {question.questionNumber}
                                 {question.answer}
@@ -364,6 +484,47 @@ export function TestClient({ test, translations }: Props) {
                                 >
                                   {question.questionNumber}
                                   {question.answer}
+                                </p>
+                              )
+                            )}
+                          </div>
+                        </>
+                      )}
+                      {section === 'readingTrueFalse' && (
+                        <>
+                          <h3 className='text-2xl mb-4'>
+                            {translations.Answers.readingTrueFalse}
+                          </h3>
+                          <div className='flex flex-wrap gap-8 mb-4'>
+                            {readingTrueFalseAnswers.map(
+                              (userAnswer, index) => (
+                                <p key={`readingTrueFalse-userAnswer-${index}`}>
+                                  {userAnswer.questionNumber}
+                                  {userAnswer.answer === true && (
+                                    <Check className='inline-block ml-1' />
+                                  )}
+                                  {userAnswer.answer === false && (
+                                    <X className='inline-block ml-1' />
+                                  )}
+                                </p>
+                              )
+                            )}
+                          </div>
+                        </>
+                      )}
+                      {section === 'readingMatchImage' && (
+                        <>
+                          <h3 className='text-2xl mb-4'>
+                            {translations.Answers.readingMatchImage}
+                          </h3>
+                          <div className='flex flex-wrap gap-8 mb-4'>
+                            {readingMatchImageAnswers.map(
+                              (userAnswer, index) => (
+                                <p
+                                  key={`readingMatchImage-userAnswer-${index}`}
+                                >
+                                  {userAnswer.questionNumber}
+                                  {userAnswer.answer}
                                 </p>
                               )
                             )}

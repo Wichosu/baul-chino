@@ -10,7 +10,7 @@ export type Database = {
   // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "12.2.3 (519615d)"
+    PostgrestVersion: "14.1"
   }
   mock_test: {
     Tables: {
@@ -47,6 +47,27 @@ export type Database = {
           id?: number
           image?: string | null
           imageFallback?: string | null
+        }
+        Relationships: []
+      }
+      image_for_reading_match_image: {
+        Row: {
+          alt: Json | null
+          id: number
+          image: string
+          imageFallback: string
+        }
+        Insert: {
+          alt?: Json | null
+          id?: number
+          image?: string
+          imageFallback?: string
+        }
+        Update: {
+          alt?: Json | null
+          id?: number
+          image?: string
+          imageFallback?: string
         }
         Relationships: []
       }
@@ -335,6 +356,129 @@ export type Database = {
           name?: string
         }
         Relationships: []
+      }
+      reading_match_image: {
+        Row: {
+          answer: Database["public"]["Enums"]["letter_range"]
+          id: number
+          image: number
+          mockTest: string
+          questionNumber: string
+          questionType: number
+          sectionType: number
+          sentenceHanzi: string
+          sentencePinyin: string
+        }
+        Insert: {
+          answer: Database["public"]["Enums"]["letter_range"]
+          id?: number
+          image: number
+          mockTest?: string
+          questionNumber: string
+          questionType: number
+          sectionType: number
+          sentenceHanzi?: string
+          sentencePinyin?: string
+        }
+        Update: {
+          answer?: Database["public"]["Enums"]["letter_range"]
+          id?: number
+          image?: number
+          mockTest?: string
+          questionNumber?: string
+          questionType?: number
+          sectionType?: number
+          sentenceHanzi?: string
+          sentencePinyin?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reading_match_image_image_fkey"
+            columns: ["image"]
+            isOneToOne: false
+            referencedRelation: "image_for_reading_match_image"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "reading_match_image_mockTest_fkey"
+            columns: ["mockTest"]
+            isOneToOne: false
+            referencedRelation: "mock_test"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "reading_match_image_questionType_fkey"
+            columns: ["questionType"]
+            isOneToOne: false
+            referencedRelation: "question_type"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "reading_match_image_sectionType_fkey"
+            columns: ["sectionType"]
+            isOneToOne: false
+            referencedRelation: "section_type"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      reading_true_false: {
+        Row: {
+          alt: string | null
+          answer: boolean
+          id: number
+          image: string
+          imageFallback: string
+          mockTest: string
+          questionNumber: string
+          questionType: number
+          sectionType: number
+        }
+        Insert: {
+          alt?: string | null
+          answer: boolean
+          id?: number
+          image: string
+          imageFallback: string
+          mockTest?: string
+          questionNumber?: string
+          questionType: number
+          sectionType: number
+        }
+        Update: {
+          alt?: string | null
+          answer?: boolean
+          id?: number
+          image?: string
+          imageFallback?: string
+          mockTest?: string
+          questionNumber?: string
+          questionType?: number
+          sectionType?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reading_true_false_mockTest_fkey"
+            columns: ["mockTest"]
+            isOneToOne: false
+            referencedRelation: "mock_test"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "reading_true_false_questionType_fkey"
+            columns: ["questionType"]
+            isOneToOne: false
+            referencedRelation: "question_type"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "reading_true_false_sectionType_fkey"
+            columns: ["sectionType"]
+            isOneToOne: false
+            referencedRelation: "section_type"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       section_type: {
         Row: {

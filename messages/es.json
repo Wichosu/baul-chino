@@ -277,20 +277,27 @@
   },
   "Test": {
     "Hero": {
-      "listeningTrueFalse": "Escucha el audio y escoge entre correcto (verde) o incorrecto (rojo) si el audio coincide con la imagen",
-      "error": "An error has occurred while loading the description. If the test is not showing please refresh the page or try again later."
+      "title": "Simulador de Examen HSK en Línea Demo",
+      "message": "Este sitio busca ayudarte a tener una mejor idea de cómo puede ser un examen HSK.",
+      "message2": "Advertencia: Este es un demo, no el examen real. Está incompleto y se actualizará gradualmente con más preguntas y características para cada nivel HSK",
+      "message3": "Por favor envía tus comentarios a wichosubuilds@gmail.com o a través de cualquiera de los iconos de las redes sociales al final de la página. También agregaré una encuesta a la página para recopilar comentarios pronto.",
+      "error": "Ocurrió un error al cargar la descripción. Si el examen no se muestra, por favor actualiza la página o intenta nuevamente más tarde."
     },
     "Titles": {
       "listeningTrueFalse": "Listening Verdadero o Falso",
       "listeningMatchImageAudio": "Listening Selecciona la imagen",
       "listeningMatchImageAudioSingleImage": "Listening Selecciona la imagen",
-      "listeningSelectPhrase": "Listening Selecciona la Frase"
+      "listeningSelectPhrase": "Listening Selecciona la Frase",
+      "readingTrueFalse": "Reading Verdadero o Falso",
+      "readingMatchImage": "Reading Selecciona la Imagen"
     },
     "Descriptions": {
       "listeningTrueFalse": "Escucha el audio y escoge entre correcto (verde) o incorrecto (rojo) si el audio coincide con la imagen",
       "listeningMatchImageAudio": "Escucha el audio y escoge la opción correcta relacionada con la imagen",
       "listeningMatchImageAudioSingleImage": "Escucha el audio y escoge la opción correcta relacionada con la imagen",
-      "listeningSelectPhrase": "Escucha el audio y escoge la frase correcta relacionada con la imagen"
+      "listeningSelectPhrase": "Escucha el audio y escoge la frase correcta relacionada con la imagen",
+      "readingTrueFalse": "Lee la palabra y escoge entre correcto (verde) o incorrecto (rojo) si la palabra coincide con la imagen",
+      "readingMatchImage": "Lee la frase y escoge la opción correcta relacionada con la imagen"
     },
     "Answers": {
       "Score": "Puntuación Total",
@@ -299,7 +306,9 @@
       "listeningTrueFalse": "Listening Verdadero o Falso",
       "listeningMatchImageAudio": "Listening Selecciona la imagen",
       "listeningMatchImageAudioSingleImage": "Listening Selecciona la imagen",
-      "listeningSelectPhrase": "Listening Selecciona la Frase"
+      "listeningSelectPhrase": "Listening Selecciona la Frase",
+      "readingTrueFalse": "Reading Verdadero o Falso",
+      "readingMatchImage": "Reading Selecciona la Imagen"
     },
     "Icons": {
       "Check": "Responder verdadero",
