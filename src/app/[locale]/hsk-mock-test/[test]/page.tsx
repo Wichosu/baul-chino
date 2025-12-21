@@ -1,7 +1,7 @@
 import React from 'react';
-import { TestHero, TestFetch } from '@/src/app/components/Test';
+import { TestFetch } from '@/src/app/components/Test/TestFetch';
 import { ListeningTrueFalseSkeleton } from '@/src/app/components/Test/ListeningTrueFalse';
-import { HeroSkeleton } from '@/src/app/components/Hero';
+import { TestHero } from '@/src/app/components/Test/TestHero';
 
 export default async function Page({
   params,
@@ -12,9 +12,7 @@ export default async function Page({
 
   return (
     <>
-      <React.Suspense fallback={<HeroSkeleton />}>
-        <TestHero test={test} />
-      </React.Suspense>
+      <TestHero />
       <React.Suspense
         fallback={<ListeningTrueFalseSkeleton skeletonItems={5} />}
       >

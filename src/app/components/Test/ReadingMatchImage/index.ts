@@ -1,0 +1,1 @@
+export { ReadingMatchImage } from './ReadingMatchImage';
