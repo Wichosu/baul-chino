@@ -18,7 +18,7 @@ import {
 import { Check, X } from 'lucide-react';
 import { Database } from '@/src/app/types/supabase';
 import { ReadingTrueFalse } from '@/src/app/components/Test/ReadingTrueFalse';
-import { ReadingMatchImage } from './ReadingMatchImage/ReadingMatchImage';
+import { ReadingMatchImage } from '@/src/app/components/Test/ReadingMatchImage';
 
 type Props = {
   test: Test;
