@@ -54,6 +54,10 @@ const BookCards = [
         'HSK-1-WORKBOOK',
         'https://cdn.baulchino.com/hsk-books/HSK-1-Workbook.pdf'
       ),
+      createBook(
+        'HSK-1-WORKBOOK-ANSWERS',
+        'https://cdn.baulchino.com/hsk-books-answers/hsk1-workbook-answers.pdf'
+      ),
     ]
   ),
   createCard(
