@@ -1,6 +1,6 @@
 import React from 'react';
 
-type AllowedTags = 'div' | 'figure' | 'section' | 'article';
+type AllowedTags = 'div' | 'figure' | 'section' | 'article' | 'li';
 type AllowedScale = 'none' | '1' | '2' | '3';
 
 type Props = {
@@ -13,7 +13,13 @@ type Props = {
   rounded?: AllowedScale;
 };
 
-const allowedTags: AllowedTags[] = ['div', 'figure', 'section', 'article'];
+const allowedTags: AllowedTags[] = [
+  'div',
+  'figure',
+  'section',
+  'article',
+  'li',
+];
 
 const elevationClass: Record<AllowedScale, string> = {
   none: '',
