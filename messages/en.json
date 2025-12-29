@@ -318,6 +318,12 @@
     "Next": "Next",
     "ShowAnswers": "Show Answers"
   },
+  "About": {
+    "Metadata": {
+      "Title": "About baulchino and it's maintainer",
+      "Description": "Brief explanation of why baulchino exists and what the maintainer Wichosu aims to do with it."
+    }
+  },
   "Components": {
     "Audio": {
       "Loading": "Audio is loading",

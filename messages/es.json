@@ -318,6 +318,12 @@
     "Next": "Siguiente",
     "ShowAnswers": "Mostrar Respuestas"
   },
+  "About": {
+    "Metadata": {
+      "Title": "sobre baulchino y la persona que lo mantiene",
+      "Description": "Breve explicación sobre porque existe baulchino y las metas de Wichosu con el sitio."
+    }
+  },
   "Components": {
     "Audio": {
       "Loading": "El audio está cargando",
