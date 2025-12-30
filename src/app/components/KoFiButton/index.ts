@@ -1,0 +1,1 @@
+export { KoFiButton } from './KoFiButton';
