@@ -6,6 +6,7 @@ import { routing } from '@/src/i18n/routing';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { RoadmapItem } from '@/src/app/components/Roadmap';
+import { KoFiButton } from '@/src/app/components/KoFiButton';
 
 export async function generateMetadata({
   params,
@@ -68,22 +69,21 @@ export default async function Page({
             Wichosu (2025-12-11)
           </figcaption>
         </figure>
-        <article className='text-lg'>
-          <h2 className='text-3xl text-center font-medium'>Who am I?</h2>
+        <article className='text-lg my-4'>
+          <h2 className='text-3xl text-center font-medium mb-2'>Who am I?</h2>
           <div className='max-w-xl mx-auto'>
             <p>
-              Well, in case you ever wonder who is behind this website let me
-              introduce myself. I'm Luis (aka Wichosu), I'm a software developer
-              and from 2023 to 2024 I studied a bit of Chinese Mandarin in a
-              local language school from my town.
+              Hi! If you've ever wondered who's behind this website let me
+              introduce myself. I'm Luis (aka Wichosu), a software developer and
+              between 2023 and 2024 I studied Mandarin Chinese in a local
+              language school in my hometown.
             </p>
             <br />
             <p>
-              I had an amazing experience and got motivated to build some sort
-              of software to help other people learn Mandarin, getting
-              inspiration from other creators and websites I came with the idea
-              of baulchino in January 2025, with time I added more features and
-              well it's a project in constant evolution.
+              That experience motivated me to build software to help people
+              learn Mandarin. Inspired by other creators and websites, I came up
+              with the idea for Baulchino in January 2025. Over time, I’ve added
+              more features, and it has become a project in constant evolution.
             </p>
           </div>
         </article>
@@ -129,6 +129,7 @@ export default async function Page({
                 One of the most requested features and one of my most excited to
                 work on.
               </p>
+              <br />
               <p>
                 The phonetic table will be split in two, first maybe buttons
                 with only vowels and their tones, and then the table with all
@@ -136,6 +137,28 @@ export default async function Page({
               </p>
             </RoadmapItem>
           </ul>
+        </article>
+        <article>
+          <h2 className='text-3xl text-center font-medium mb-2'>
+            Support the project
+          </h2>
+          <div className='max-w-xl mx-auto text-lg'>
+            <p className='mb-4'>
+              If you’d like to support the project, you can do so by donating on
+              Ko-fi. There’s absolutely no obligation — Baulchino will remain
+              available regardless — but any support is truly appreciated and
+              helps keep the project growing.
+            </p>
+            <p>
+              The emails and comments I receive have been a great source of
+              motivation, and I’m sincerely grateful for all of you. Knowing
+              that Baulchino is helping you work toward your goals means more to
+              me than anything else. Thank you for visiting and using Baulchino.
+            </p>
+            <div className='w-fit mx-auto'>
+              <KoFiButton />
+            </div>
+          </div>
         </article>
       </section>
     </>
