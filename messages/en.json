@@ -12,6 +12,9 @@
     "HskMockTest": "HSK Mock Test",
     "Templates": "Templates",
     "TemplateGenerator": "Template Generator",
+    "About": "About",
+    "Roadmap": "Roadmap",
+    "Support": "Support Baulchino",
     "LogoAlt": "Baul chino logo, it's a close treasure chest, european style with brown and silver colors",
     "Descriptions": {
       "AnkiDecks": "Anki decks covering HSK 1 to HSK 4 vocabulary",
@@ -22,7 +25,10 @@
       "HskAudiosDownload": "Download all HSK audio files from every HSK textbook and workbooks",
       "HskMockTest": "Try an online HSK mock test or download it for in person practice",
       "Templates": "Practice stroke order and radicals with downloadable templates",
-      "TemplateGenerator": "Generate customized templates for targeted practice"
+      "TemplateGenerator": "Generate customized templates for targeted practice",
+      "About": "Information about the author and Baulchino",
+      "Roadmap": "Future plans for Baulchino",
+      "Support": "Ways to support Baulchino"
     }
   },
   "Footer": {
