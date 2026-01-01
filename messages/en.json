@@ -324,6 +324,12 @@
       "Description": "Brief explanation of why baulchino exists and what the maintainer Wichosu aims to do with it."
     }
   },
+  "Roadmap": {
+    "Metadata": {
+      "Title": "Baulchino future plans",
+      "Description": "Future plans for baulchino, you can suggest your ideas via email or any of the media icons at the bottom of the page."
+    }
+  },
   "Components": {
     "Audio": {
       "Loading": "Audio is loading",
