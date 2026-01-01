@@ -87,57 +87,6 @@ export default async function Page({
             </p>
           </div>
         </article>
-        <article className='my-4'>
-          <h2 className='text-3xl text-center font-medium mb-2'>
-            Baulchino Roadmap
-          </h2>
-          <p className='text-lg text-center mb-2'>
-            Here you can find what I'm currently working on and some future
-            plans:
-          </p>
-          <ul className='flex flex-wrap gap-4 w-fit mx-auto'>
-            <RoadmapItem title='HSK Mock Test Simulator' status='in-progress'>
-              <p>
-                A mock test simulator for the HSK (HSK 1-6) exams. It allows you
-                to practice the HSK exams and get a feel for the format and
-                difficulty of the exams.
-              </p>
-              <br />
-              <p>
-                I already made some progress with this feature, but I do find it
-                challenging to implement, you can check out my progress in the
-                HSK Mock Test page of this site.
-              </p>
-            </RoadmapItem>
-            <RoadmapItem
-              title='HSK Workbook and Textbook answers'
-              status='pending'
-            >
-              <p>
-                I got a request to submit an answer sheet like with all answers
-                from HSK books. I think it's a good idea and so far only release
-                the PDF file with answers to HSK 1 workbook.
-              </p>
-              <br />
-              <p>
-                Although I'm interested in eventually making a PDF with answers
-                for every book in the HSK series.
-              </p>
-            </RoadmapItem>
-            <RoadmapItem title='Phonetic Table' status='pending'>
-              <p>
-                One of the most requested features and one of my most excited to
-                work on.
-              </p>
-              <br />
-              <p>
-                The phonetic table will be split in two, first maybe buttons
-                with only vowels and their tones, and then the table with all
-                consonants and their tones.{' '}
-              </p>
-            </RoadmapItem>
-          </ul>
-        </article>
         <article>
           <h2 className='text-3xl text-center font-medium mb-2'>
             Support the project

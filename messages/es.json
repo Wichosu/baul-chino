@@ -320,8 +320,14 @@
   },
   "About": {
     "Metadata": {
-      "Title": "sobre baulchino y la persona que lo mantiene",
-      "Description": "Breve explicación sobre porque existe baulchino y las metas de Wichosu con el sitio."
+      "Title": "Sobre Baulchino y la persona que lo mantiene",
+      "Description": "Breve explicación sobre porque existe Baulchino y las metas de Wichosu con el sitio."
+    }
+  },
+  "Roadmap": {
+    "Metadata": {
+      "Title": "Planes futuros de Baulchino",
+      "Description": "Planes futuros para Baulchino, puedes sugerir tus ideas a través de correo electrónico o cualquier de los iconos de las redes sociales al final de la página."
     }
   },
   "Components": {
