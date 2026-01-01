@@ -92,5 +92,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
       },
     },
+    {
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/support`,
+      alternates: {
+        languages: {
+          en: `${process.env.NEXT_PUBLIC_BASE_URL}/support`,
+          es: `${process.env.NEXT_PUBLIC_BASE_URL}/es/support`,
+        },
+      },
+    },
+    {
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/about`,
+      alternates: {
+        languages: {
+          en: `${process.env.NEXT_PUBLIC_BASE_URL}/about`,
+          es: `${process.env.NEXT_PUBLIC_BASE_URL}/es/about`,
+        },
+      },
+    },
+    {
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/roadmap`,
+      alternates: {
+        languages: {
+          en: `${process.env.NEXT_PUBLIC_BASE_URL}/roadmap`,
+          es: `${process.env.NEXT_PUBLIC_BASE_URL}/es/roadmap`,
+        },
+      },
+    },
   ];
 }
