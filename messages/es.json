@@ -330,6 +330,12 @@
       "Description": "Planes futuros para Baulchino, puedes sugerir tus ideas a través de correo electrónico o cualquier de los iconos de las redes sociales al final de la página."
     }
   },
+  "Support": {
+    "Metadata": {
+      "Title": "Apoya Baulchino",
+      "Description": "Apoya Baulchino, puedes sugerir tus ideas via email o cualquier de los iconos de las redes sociales al final de la página."
+    }
+  },
   "Components": {
     "Audio": {
       "Loading": "El audio está cargando",

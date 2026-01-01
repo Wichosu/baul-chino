@@ -87,28 +87,6 @@ export default async function Page({
             </p>
           </div>
         </article>
-        <article>
-          <h2 className='text-3xl text-center font-medium mb-2'>
-            Support the project
-          </h2>
-          <div className='max-w-xl mx-auto text-lg'>
-            <p className='mb-4'>
-              If you’d like to support the project, you can do so by donating on
-              Ko-fi. There’s absolutely no obligation — Baulchino will remain
-              available regardless — but any support is truly appreciated and
-              helps keep the project growing.
-            </p>
-            <p>
-              The emails and comments I receive have been a great source of
-              motivation, and I’m sincerely grateful for all of you. Knowing
-              that Baulchino is helping you work toward your goals means more to
-              me than anything else. Thank you for visiting and using Baulchino.
-            </p>
-            <div className='w-fit mx-auto'>
-              <KoFiButton />
-            </div>
-          </div>
-        </article>
       </section>
     </>
   );

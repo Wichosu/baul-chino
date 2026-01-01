@@ -326,8 +326,14 @@
   },
   "Roadmap": {
     "Metadata": {
-      "Title": "Baulchino future plans",
+      "Title": "Future plans for baulchino",
       "Description": "Future plans for baulchino, you can suggest your ideas via email or any of the media icons at the bottom of the page."
+    }
+  },
+  "Support": {
+    "Metadata": {
+      "Title": "Support Baulchino",
+      "Description": "Support Baulchino, you can suggest your ideas via email or any of the media icons at the bottom of the page."
     }
   },
   "Components": {
