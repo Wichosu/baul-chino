@@ -105,6 +105,11 @@ export function Navbar() {
         t('Descriptions.TemplateGenerator')
       ),
     ]),
+    createNavItemWithContent(t('About'), [
+      createNavContent('/about', t('About'), t('Descriptions.About')),
+      createNavContent('/roadmap', t('Roadmap'), t('Descriptions.Roadmap')),
+      createNavContent('/support', t('Support'), t('Descriptions.Support')),
+    ]),
   ];
 
   return (

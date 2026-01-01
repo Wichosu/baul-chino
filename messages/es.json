@@ -12,7 +12,10 @@
     "HskMockTest": "HSK Mock Test",
     "Templates": "Plantillas",
     "TemplateGenerator": "Generador de Plantillas",
-    "LogoAlt": "Logo de baúl chino, es un baúl o cofre de tesoro cerrado, estilo europeo de color café con plateado",
+    "About": "Acerca de",
+    "Roadmap": "Roadmap de Baulchino",
+    "Support": "Apoya Baulchino",
+    "LogoAlt": "Logo de Baulchino, es un baúl o cofre de tesoro cerrado, estilo europeo de color café con plateado",
     "Descriptions": {
       "AnkiDecks": "Mazos Anki con vocabulario del HSK 1 al HSK 4",
       "HskBooks": "Descarga los libros HSK del 1 al 6 de manera gratuita",
@@ -22,7 +25,10 @@
       "HskAudiosDownload": "Descarga todos los audios de los libros HSK Textbook y Workbook",
       "HskMockTest": "Haz un mock test HSK en línea o descárgalo para realizarlo de forma presencial",
       "Templates": "Practica el orden de trazos y radicales con plantillas descargables",
-      "TemplateGenerator": "Genera plantillas adaptadas a tu nivel para perfeccionar tu caligrafía"
+      "TemplateGenerator": "Genera plantillas adaptadas a tu nivel para perfeccionar tu caligrafía",
+      "About": "Información sobre el autor y Baulchino",
+      "Roadmap": "Planes a futuro de Baulchino",
+      "Support": "Formas de apoyar a Baulchino"
     }
   },
   "Footer": {
