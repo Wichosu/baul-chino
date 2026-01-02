@@ -326,21 +326,47 @@
   },
   "About": {
     "Metadata": {
-      "Title": "About baulchino and it's maintainer",
-      "Description": "Brief explanation of why baulchino exists and what the maintainer Wichosu aims to do with it."
-    }
+      "Title": "About Baulchino and it's maintainer",
+      "Description": "Brief explanation of why Baulchino exists and what the maintainer Wichosu aims to do with it."
+    },
+    "Title": "About me and this website",
+    "Altfigcaption": "A photo of Wichosu (baulchino maintainer)",
+    "Figcaption": "Wichosu (2025-12-11)",
+    "Subtitle": "Who am I?",
+    "Paragraph1": "Hi! If you've ever wondered who's behind this website let me introduce myself. I'm Luis (aka Wichosu), a software developer and between 2023 and 2024 I studied Mandarin Chinese in a local language school in my hometown.",
+    "Paragraph2": "That experience motivated me to build software to help people learn Mandarin. Inspired by other creators and websites, I came up with the idea for Baulchino in January 2025. Over time, I’ve added more features, and it has become a project in constant evolution."
   },
   "Roadmap": {
     "Metadata": {
-      "Title": "Future plans for baulchino",
-      "Description": "Future plans for baulchino, you can suggest your ideas via email or any of the media icons at the bottom of the page."
+      "Title": "Future plans for Baulchino",
+      "Description": "Future plans for Baulchino, you can suggest your ideas via email or any of the media icons at the bottom of the page."
+    },
+    "Title": "Baulchino Roadmap",
+    "Paragraph": "Here you can find what I'm currently working on and some future plans.",
+    "Card1": {
+      "Title": "HSK Mock Test Simulator",
+      "Paragraph1": "A mock test simulator for the HSK (HSK 1-6) exams. It allows you to practice the HSK exams and get a feel for the format and difficulty of the exams.",
+      "Paragraph2": "I already made some progress with this feature, but I do find it challenging to implement, you can check out my progress in the HSK Mock Test page of this site."
+    },
+    "Card2": {
+      "Title": "HSK Workbook and Textbook answers",
+      "Paragraph1": "I got a request to submit an answer sheet with all answers from the HSK books. I think it's a good idea and so far only release the PDF file with answers to HSK 1 workbook.",
+      "Paragraph2": "Although I'm interested in eventually making a PDF with answers for every book in the HSK series."
+    },
+    "Card3": {
+      "Title": "Phonetic Table",
+      "Paragraph1": "One of the most requested features and one of my most excited to work on.",
+      "Paragraph2": "The phonetic table will be split in two, first maybe buttons with only vowels and their tones, and then the table with all consonants and their tones."
     }
   },
   "Support": {
     "Metadata": {
       "Title": "Support Baulchino",
       "Description": "Support Baulchino, you can suggest your ideas via email or any of the media icons at the bottom of the page."
-    }
+    },
+    "Title": "Support the project",
+    "Paragraph1": "If you’d like to support the project, you can do so by donating on Ko-fi. There’s absolutely no obligation — Baulchino will remain available regardless — but any support is truly appreciated and helps keep the project growing.",
+    "Paragraph2": "The emails and comments I receive have been a great source of motivation, and I’m sincerely grateful for all of you. Knowing that Baulchino is helping you work toward your goals means more to me than anything else. Thank you for visiting and using Baulchino."
   },
   "Components": {
     "Audio": {
@@ -358,6 +384,12 @@
       "Mute": "Mute",
       "Unmute": "Unmute",
       "Volume": "Volume "
+    },
+    "RoadmapItem": {
+      "CurrentStatus": "Current Status:",
+      "InProgress": "In Progress",
+      "Pending": "Pending",
+      "Completed": "Completed"
     }
   }
 }

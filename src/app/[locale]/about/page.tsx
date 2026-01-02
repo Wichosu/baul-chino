@@ -53,38 +53,28 @@ export default async function Page({
   return (
     <>
       <section>
-        <h1 className='text-center text-4xl font-medium my-8'>
-          About me and this website
-        </h1>
+        <h1 className='text-center text-4xl font-medium my-8'>{t('Title')}</h1>
         <figure className='w-fit mx-auto'>
           <picture className='block rounded overflow-hidden'>
             <Image
               src={'/about/wichosu.jpeg'}
-              alt='A photo of Wichosu (baulchino maintainer)'
+              alt={t('Altfigcaption')}
               width={'250'}
               height={'250'}
             />
           </picture>
           <figcaption className='text-center font-medium pt-1 bg-yellow-100 rounded'>
-            Wichosu (2025-12-11)
+            {t('Figcaption')}
           </figcaption>
         </figure>
         <article className='text-lg my-4'>
-          <h2 className='text-3xl text-center font-medium mb-2'>Who am I?</h2>
+          <h2 className='text-3xl text-center font-medium mb-2'>
+            {t('Subtitle')}
+          </h2>
           <div className='max-w-xl mx-auto'>
-            <p>
-              Hi! If you've ever wondered who's behind this website let me
-              introduce myself. I'm Luis (aka Wichosu), a software developer and
-              between 2023 and 2024 I studied Mandarin Chinese in a local
-              language school in my hometown.
-            </p>
+            <p>{t('Paragraph1')}</p>
             <br />
-            <p>
-              That experience motivated me to build software to help people
-              learn Mandarin. Inspired by other creators and websites, I came up
-              with the idea for Baulchino in January 2025. Over time, I’ve added
-              more features, and it has become a project in constant evolution.
-            </p>
+            <p>{t('Paragraph2')}</p>
           </div>
         </article>
       </section>
