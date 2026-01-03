@@ -12,7 +12,10 @@
     "HskMockTest": "HSK Mock Test",
     "Templates": "Plantillas",
     "TemplateGenerator": "Generador de Plantillas",
-    "LogoAlt": "Logo de baúl chino, es un baúl o cofre de tesoro cerrado, estilo europeo de color café con plateado",
+    "About": "Acerca de",
+    "Roadmap": "Roadmap de Baulchino",
+    "Support": "Apoya Baulchino",
+    "LogoAlt": "Logo de Baulchino, es un baúl o cofre de tesoro cerrado, estilo europeo de color café con plateado",
     "Descriptions": {
       "AnkiDecks": "Mazos Anki con vocabulario del HSK 1 al HSK 4",
       "HskBooks": "Descarga los libros HSK del 1 al 6 de manera gratuita",
@@ -22,7 +25,10 @@
       "HskAudiosDownload": "Descarga todos los audios de los libros HSK Textbook y Workbook",
       "HskMockTest": "Haz un mock test HSK en línea o descárgalo para realizarlo de forma presencial",
       "Templates": "Practica el orden de trazos y radicales con plantillas descargables",
-      "TemplateGenerator": "Genera plantillas adaptadas a tu nivel para perfeccionar tu caligrafía"
+      "TemplateGenerator": "Genera plantillas adaptadas a tu nivel para perfeccionar tu caligrafía",
+      "About": "Información sobre el autor y Baulchino",
+      "Roadmap": "Planes a futuro de Baulchino",
+      "Support": "Formas de apoyar a Baulchino"
     }
   },
   "Footer": {
@@ -318,6 +324,50 @@
     "Next": "Siguiente",
     "ShowAnswers": "Mostrar Respuestas"
   },
+  "About": {
+    "Metadata": {
+      "Title": "Sobre Baulchino y la persona que lo mantiene",
+      "Description": "Breve explicación sobre porque existe Baulchino y las metas de Wichosu con el sitio."
+    },
+    "Title": "Sobre Baulchino y la persona que lo mantiene",
+    "Altfigcaption": "Fotografía de Wichosu (mantenedor de Baulchino)",
+    "Figcaption": "Wichosu (2025-12-11)",
+    "Subtitle": "¿Quién soy?",
+    "Paragraph1": "Hola! Si alguna vez te has preguntado quién está detrás de este sitio web, permíteme presentarme. Soy Luis (también conocido como Wichosu), un desarrollador de software y entre 2023 y 2024 estudié Chino Mandarín en una escuela de idiomas local en mi ciudad.",
+    "Paragraph2": "Esa experiencia me motivó a construir software para ayudar a las personas a aprender Chino Mandarín. Inspirado por otros creadores y sitios web, surgió la idea de Baulchino en enero de 2025. Con el tiempo, he agregado más características y se ha convertido en un proyecto en constante evolución."
+  },
+  "Roadmap": {
+    "Metadata": {
+      "Title": "Planes futuros de Baulchino",
+      "Description": "Planes futuros para Baulchino, puedes sugerir tus ideas a través de correo electrónico o cualquier de los iconos de las redes sociales al final de la página."
+    },
+    "Title": "Roadmap de Baulchino",
+    "Paragraph": "Aquí puedes encontrar lo que estoy trabajando actualmente y algunos planes futuros.",
+    "Card1": {
+      "Title": "Simulador de Exámenes HSK",
+      "Paragraph1": "Un simulador para los exámenes HSK (HSK 1-6). Permite practicar los exámenes HSK y obtener una idea del formato y dificultad de los exámenes.",
+      "Paragraph2": "Ya he hecho algunos avances con este módulo, pero lo encuentro desafiante, puedes revisar mi progreso en la página de HSK Mock Test de este sitio."
+    },
+    "Card2": {
+      "Title": "Respuestas de los libros de texto HSK",
+      "Paragraph1": "Se me pidió que subiera PDFs con respuestas de todos los libros de texto HSK. Creo que es una buena idea y hasta ahora solo he liberado el archivo PDF con respuestas al workbook HSK 1.",
+      "Paragraph2": "Aunque estoy interesado en eventualmente hacer un PDF con respuestas para cada libro en la serie HSK."
+    },
+    "Card3": {
+      "Title": "Tabla Fonética",
+      "Paragraph1": "Una de las características más solicitadas y una de las que más me gustaría trabajar.",
+      "Paragraph2": "La tabla fonética se dividirá en dos, primero botones con solo vocales y sus tonos, y luego la tabla con todas las consonantes y sus tonos."
+    }
+  },
+  "Support": {
+    "Metadata": {
+      "Title": "Apoya Baulchino",
+      "Description": "Apoya Baulchino, puedes sugerir tus ideas via email o cualquier de los iconos de las redes sociales al final de la página."
+    },
+    "Title": "Apoya el proyecto",
+    "Paragraph1": "Si te gustaría apoyar el proyecto, puedes hacerlo donando en Ko-fi. No hay obligación alguna — Baulchino permanecerá disponible sin importar lo que pase — pero cualquier apoyo es verdaderamente apreciado y ayuda a mantener el proyecto creciendo.",
+    "Paragraph2": "Los correos electrónicos y los comentarios que recibo han sido una gran fuente de motivación, y estoy sinceramente agradecido por todos ustedes. Saber que Baulchino los está ayudando a trabajar hacia sus metas significa mucho para mí. Gracias por visitar y usar Baulchino."
+  },
   "Components": {
     "Audio": {
       "Loading": "El audio está cargando",
@@ -334,6 +384,12 @@
       "Mute": "Silenciar",
       "Unmute": "Activar sonido",
       "Volume": "Volumen"
+    },
+    "RoadmapItem": {
+      "CurrentStatus": "Estatus Actual:",
+      "InProgress": "En Progreso",
+      "Pending": "Pendiente",
+      "Completed": "Completado"
     }
   }
 }
