@@ -365,8 +365,10 @@
       "Description": "Support Baulchino, you can suggest your ideas via email or any of the media icons at the bottom of the page."
     },
     "Title": "Support the project",
-    "Paragraph1": "If you’d like to support the project, you can do so by donating on Ko-fi. There’s absolutely no obligation — Baulchino will remain available regardless — but any support is truly appreciated and helps keep the project growing.",
-    "Paragraph2": "The emails and comments I receive have been a great source of motivation, and I’m sincerely grateful for all of you. Knowing that Baulchino is helping you work toward your goals means more to me than anything else. Thank you for visiting and using Baulchino."
+    "Paragraph1": "If you’d like to support the project, you can do so by donating on Ko-fi or contributing to the project on GitHub. There’s absolutely no obligation — Baulchino will remain available regardless — but any support is truly appreciated and helps keep the project growing.",
+    "Paragraph2": "The emails and comments I receive have been a great source of motivation, and I’m sincerely grateful for all of you. Knowing that Baulchino is helping you work toward your goals means more to me than anything else. Thank you for visiting and using Baulchino.",
+    "Paragraph3": "By donating any amount you will be added to the list of supporters downbelow.",
+    "Paragraph4": "Many thanks to the supporters of Baulchino"
   },
   "Components": {
     "Audio": {
