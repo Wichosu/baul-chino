@@ -75,6 +75,8 @@ export default async function Page({
             <p>{t('Paragraph1')}</p>
             <br />
             <p>{t('Paragraph2')}</p>
+            <br />
+            <p>{t('Paragraph3')}</p>
           </div>
         </article>
       </section>
