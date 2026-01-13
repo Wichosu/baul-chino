@@ -97,6 +97,14 @@
         "ImgAlt": "Captura de pantalla de la página del generador",
         "Description": "Genera plantillas adaptadas a tu nivel para dominar el orden de trazos y radicales. ¡Perfecto para perfeccionar tu caligrafía!",
         "LinkName": "Ir a Generador de Plantillas"
+      },
+      "About": {
+        "Title": "Acerca de",
+        "ImgAlt": "Imagen de un corazón rojo",
+        "Description": "Aqui puedes encontrar información sobre el autor y Baulchino",
+        "LinkNameAbout": "Ir a Acerca de",
+        "LinkNameRoadmap": "Ir a Roadmap",
+        "LinkNameSupport": "Ir a Soporte"
       }
     },
     "Q&A": {

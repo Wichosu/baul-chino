@@ -97,6 +97,14 @@
         "ImgAlt": "Create customized Chinese writing exercises",
         "Description": "Generate tailored templates to master stroke order and radicals. Ideal for refining your calligraphy skills!",
         "LinkName": "Go to Template Generator"
+      },
+      "About": {
+        "Title": "About",
+        "ImgAlt": "pending",
+        "Description": "Here you can find information about the author and Baulchino",
+        "LinkNameAbout": "Go to About",
+        "LinkNameRoadmap": "Go to Roadmap",
+        "LinkNameSupport": "Go to Support"
       }
     },
     "Q&A": {
