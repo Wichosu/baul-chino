@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { Card } from '@/src/app/components/Card';
 import { Button } from '@/src/app/components/Button';
+import { Heart } from 'lucide-react';
 
 type Card = {
   title: string;
@@ -150,6 +151,42 @@ export default function CardsContainer() {
           </div>
         </Card>
       ))}
+      <Card as='article'>
+        <h2 className='text-3xl text-center font-medium'>{t('About.Title')}</h2>
+        <picture>
+          <Heart className='mx-auto' fill='red' size={150} />
+        </picture>
+        <p className='text-lg my-2'>{t('About.Description')}</p>
+        <div className='flex flex-col gap-2 items-center mx-auto w-fit mt-4'>
+          <Button
+            type='yellow'
+            as='link'
+            href='/about'
+            target='_self'
+            margin='none'
+          >
+            {t('About.LinkNameAbout')}
+          </Button>
+          <Button
+            type='yellow'
+            as='link'
+            href='/roadmap'
+            target='_self'
+            margin='none'
+          >
+            {t('About.LinkNameRoadmap')}
+          </Button>
+          <Button
+            type='yellow'
+            as='link'
+            href='/support'
+            target='_self'
+            margin='none'
+          >
+            {t('About.LinkNameSupport')}
+          </Button>
+        </div>
+      </Card>
     </section>
   );
 }

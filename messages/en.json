@@ -97,6 +97,14 @@
         "ImgAlt": "Create customized Chinese writing exercises",
         "Description": "Generate tailored templates to master stroke order and radicals. Ideal for refining your calligraphy skills!",
         "LinkName": "Go to Template Generator"
+      },
+      "About": {
+        "Title": "About",
+        "ImgAlt": "pending",
+        "Description": "Here you can find information about the author and Baulchino",
+        "LinkNameAbout": "Go to About",
+        "LinkNameRoadmap": "Go to Roadmap",
+        "LinkNameSupport": "Go to Support"
       }
     },
     "Q&A": {
@@ -334,7 +342,8 @@
     "Figcaption": "Wichosu (2025-12-11)",
     "Subtitle": "Who am I?",
     "Paragraph1": "Hi! If you've ever wondered who's behind this website let me introduce myself. I'm Luis (aka Wichosu), a software developer and between 2023 and 2024 I studied Mandarin Chinese in a local language school in my hometown.",
-    "Paragraph2": "That experience motivated me to build software to help people learn Mandarin. Inspired by other creators and websites, I came up with the idea for Baulchino in January 2025. Over time, I’ve added more features, and it has become a project in constant evolution."
+    "Paragraph2": "That experience motivated me to build software to help people learn Mandarin. Inspired by other creators and websites, I came up with the idea for Baulchino in January 2025. Over time, I’ve added more features, and it has become a project in constant evolution.",
+    "Paragraph3": "If you are building any software and need advice or want to share your experience, feel free to contact me, I don't charge for advice or anything."
   },
   "Roadmap": {
     "Metadata": {
@@ -365,8 +374,10 @@
       "Description": "Support Baulchino, you can suggest your ideas via email or any of the media icons at the bottom of the page."
     },
     "Title": "Support the project",
-    "Paragraph1": "If you’d like to support the project, you can do so by donating on Ko-fi. There’s absolutely no obligation — Baulchino will remain available regardless — but any support is truly appreciated and helps keep the project growing.",
-    "Paragraph2": "The emails and comments I receive have been a great source of motivation, and I’m sincerely grateful for all of you. Knowing that Baulchino is helping you work toward your goals means more to me than anything else. Thank you for visiting and using Baulchino."
+    "Paragraph1": "If you’d like to support the project, you can do so by donating on Ko-fi or contributing to the project on GitHub. There’s absolutely no obligation — Baulchino will remain available regardless — but any support is truly appreciated and helps keep the project growing.",
+    "Paragraph2": "The emails and comments I receive have been a great source of motivation, and I’m sincerely grateful for all of you. Knowing that Baulchino is helping you work toward your goals means more to me than anything else. Thank you for visiting and using Baulchino.",
+    "Paragraph3": "By donating any amount you will be added to the list of supporters downbelow.",
+    "Paragraph4": "Many thanks to the supporters of Baulchino"
   },
   "Components": {
     "Audio": {
