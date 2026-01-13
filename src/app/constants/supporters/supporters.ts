@@ -6,4 +6,7 @@ export const supporters: Supporter[] = [
   {
     name: 'Star',
   },
+  {
+    name: 'Leo',
+  },
 ];
