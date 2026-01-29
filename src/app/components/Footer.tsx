@@ -13,6 +13,16 @@ export default function Footer() {
         <br />
         {t('Link')} {t('Author')}
       </small>
+      <p className='text-center text-lg font-normal text-black'>
+        {t('PersonalWebsite')}{' '}
+        <Link
+          href={'https://wichosu.com'}
+          target='_blank'
+          className='text-blue-600 hover:text-blue-700'
+        >
+          wichosu.com
+        </Link>
+      </p>
       <div className='w-fit mx-auto flex flex-wrap items-center justify-center mt-2 gap-4'>
         <Link href={'https://x.com/Wichosu198437'} target='_blank'>
           <svg
