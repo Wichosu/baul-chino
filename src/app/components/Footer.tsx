@@ -13,7 +13,7 @@ export default function Footer() {
         <br />
         {t('Link')} {t('Author')}
       </small>
-      <div className='w-fit mx-auto flex flex-wrap items-center mt-2 gap-4'>
+      <div className='w-fit mx-auto flex flex-wrap items-center justify-center mt-2 gap-4'>
         <Link href={'https://x.com/Wichosu198437'} target='_blank'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
