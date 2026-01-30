@@ -10,6 +10,7 @@ import { NavbarViewport } from './NavbarViewport';
 import { NavbarLink } from './NavbarLink';
 import { useTranslations } from 'next-intl';
 import { LanguageSwitcher } from '../LanguageSwitcher';
+import { KoFiButton } from '../KoFiButton';
 
 type NavItem =
   | {
@@ -39,7 +40,7 @@ type NavContent = {
 
 function createNavItemWithContent(
   trigger: string,
-  content: NavContent[]
+  content: NavContent[],
 ): NavItem {
   return {
     type: 'trigger',
@@ -51,7 +52,7 @@ function createNavItemWithContent(
 function createNavContent(
   href: string,
   title: string,
-  description: string
+  description: string,
 ): NavContent {
   return {
     href,
@@ -68,27 +69,27 @@ export function Navbar() {
       createNavContent(
         '/libros-hsk',
         t('HskBooks'),
-        t('Descriptions.HskBooks')
+        t('Descriptions.HskBooks'),
       ),
       createNavContent(
         '/hsk-audios',
         t('HskAudios'),
-        t('Descriptions.HskAudios')
+        t('Descriptions.HskAudios'),
       ),
       createNavContent(
         '/hsk-audios-download',
         t('HskAudiosDownload'),
-        t('Descriptions.HskAudiosDownload')
+        t('Descriptions.HskAudiosDownload'),
       ),
       createNavContent(
         '/hsk-mock-test',
         t('HskMockTest'),
-        t('Descriptions.HskMockTest')
+        t('Descriptions.HskMockTest'),
       ),
       createNavContent(
         '/mazos-anki',
         t('AnkiDecks'),
-        t('Descriptions.AnkiDecks')
+        t('Descriptions.AnkiDecks'),
       ),
     ]),
     createNavItemWithContent(t('Tools'), [
@@ -97,12 +98,12 @@ export function Navbar() {
       createNavContent(
         '/plantillas',
         t('Templates'),
-        t('Descriptions.Templates')
+        t('Descriptions.Templates'),
       ),
       createNavContent(
         '/plantillas/generador',
         t('TemplateGenerator'),
-        t('Descriptions.TemplateGenerator')
+        t('Descriptions.TemplateGenerator'),
       ),
     ]),
     createNavItemWithContent(t('About'), [
@@ -149,6 +150,9 @@ export function Navbar() {
           <div className='flex h-full items-center'>
             <LanguageSwitcher />
           </div>
+        </NavbarItem>
+        <NavbarItem>
+          <KoFiButton />
         </NavbarItem>
         <NavbarIndicator />
       </NavbarList>

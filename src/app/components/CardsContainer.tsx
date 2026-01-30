@@ -21,7 +21,7 @@ function createCard(
   imgFallback: string,
   description: string,
   linkHref: string,
-  linkName: string
+  linkName: string,
 ): Card {
   return {
     title,
@@ -45,7 +45,7 @@ export default function CardsContainer() {
       '/homepage/hskbooks.jpg',
       t('HskBooks.Description'),
       'libros-hsk',
-      t('HskBooks.LinkName')
+      t('HskBooks.LinkName'),
     ),
     createCard(
       t('HskAudios.Title'),
@@ -54,7 +54,7 @@ export default function CardsContainer() {
       '/homepage/hskdisk.jpg',
       t('HskAudios.Description'),
       'hsk-audios',
-      t('HskAudios.LinkName')
+      t('HskAudios.LinkName'),
     ),
     createCard(
       t('HskMockTest.Title'),
@@ -63,7 +63,7 @@ export default function CardsContainer() {
       '/homepage/mocktest.jpg',
       t('HskMockTest.Description'),
       'hsk-mock-test',
-      t('HskMockTest.LinkName')
+      t('HskMockTest.LinkName'),
     ),
     createCard(
       t('HskAudiosDownload.Title'),
@@ -72,7 +72,7 @@ export default function CardsContainer() {
       '/homepage/hskdownload.jpg',
       t('HskAudiosDownload.Description'),
       'hsk-audios-download',
-      t('HskAudiosDownload.LinkName')
+      t('HskAudiosDownload.LinkName'),
     ),
     createCard(
       t('Channels.Title'),
@@ -81,7 +81,7 @@ export default function CardsContainer() {
       '/homepage/channels.jpg',
       t('Channels.Description'),
       'canales',
-      t('Channels.LinkName')
+      t('Channels.LinkName'),
     ),
     createCard(
       t('AnkiDecks.Title'),
@@ -90,7 +90,7 @@ export default function CardsContainer() {
       '/homepage/anki.jpg',
       t('AnkiDecks.Description'),
       'mazos-anki',
-      t('AnkiDecks.LinkName')
+      t('AnkiDecks.LinkName'),
     ),
     createCard(
       t('Hanzi.Title'),
@@ -99,7 +99,7 @@ export default function CardsContainer() {
       '/homepage/hanzi.png',
       t('Hanzi.Description'),
       '/hanzi',
-      t('Hanzi.LinkName')
+      t('Hanzi.LinkName'),
     ),
     createCard(
       t('Templates.Title'),
@@ -108,7 +108,7 @@ export default function CardsContainer() {
       '/homepage/template20mm.jpg',
       t('Templates.Description'),
       '/plantillas',
-      t('Templates.LinkName')
+      t('Templates.LinkName'),
     ),
     createCard(
       t('TemplateGenerator.Title'),
@@ -117,7 +117,7 @@ export default function CardsContainer() {
       '/homepage/templateGenerator.jpg',
       t('TemplateGenerator.Description'),
       '/plantillas/generador',
-      t('TemplateGenerator.LinkName')
+      t('TemplateGenerator.LinkName'),
     ),
   ];
 
@@ -145,6 +145,7 @@ export default function CardsContainer() {
               href={card.linkHref}
               target='_self'
               margin='none'
+              className='block whitespace-normal text-center'
             >
               {card.linkName}
             </Button>

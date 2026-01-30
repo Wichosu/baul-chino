@@ -67,6 +67,7 @@ export default async function Page({
           href='/hsk-audios-download'
           type='yellow'
           margin='none'
+          className='block whitespace-normal w-fit'
         >
           {t('DownloadButton')}
         </Button>
