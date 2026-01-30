@@ -28,7 +28,7 @@ function createCard(
   img: string,
   alt: string,
   fallbackImg: string,
-  books: Book[]
+  books: Book[],
 ): Card {
   return {
     name: name,
@@ -48,17 +48,17 @@ const BookCards = [
     [
       createBook(
         'HSK-1-TEXTBOOK',
-        'https://cdn.baulchino.com/hsk-books/HSK-1-Textbook.pdf'
+        'https://cdn.baulchino.com/hsk-books/HSK-1-Textbook.pdf',
       ),
       createBook(
         'HSK-1-WORKBOOK',
-        'https://cdn.baulchino.com/hsk-books/HSK-1-Workbook.pdf'
+        'https://cdn.baulchino.com/hsk-books/HSK-1-Workbook.pdf',
       ),
       createBook(
         'HSK-1-WORKBOOK-ANSWERS',
-        'https://cdn.baulchino.com/hsk-books-answers/hsk1-workbook-answers.pdf'
+        'https://cdn.baulchino.com/hsk-books-answers/hsk1-workbook-answers.pdf',
       ),
-    ]
+    ],
   ),
   createCard(
     'HSK-2',
@@ -68,13 +68,13 @@ const BookCards = [
     [
       createBook(
         'HSK-2-TEXTBOOK',
-        'https://cdn.baulchino.com/hsk-books/HSK-2-Textbook.pdf'
+        'https://cdn.baulchino.com/hsk-books/HSK-2-Textbook.pdf',
       ),
       createBook(
         'HSK-2-WORKBOOK',
-        'https://cdn.baulchino.com/hsk-books/HSK-2-Workbook.pdf'
+        'https://cdn.baulchino.com/hsk-books/HSK-2-Workbook.pdf',
       ),
-    ]
+    ],
   ),
   createCard(
     'HSK-3',
@@ -84,13 +84,13 @@ const BookCards = [
     [
       createBook(
         'HSK-3-TEXTBOOK',
-        'https://cdn.baulchino.com/hsk-books/HSK-3-Textbook.pdf'
+        'https://cdn.baulchino.com/hsk-books/HSK-3-Textbook.pdf',
       ),
       createBook(
         'HSK-3-WORKBOOK',
-        'https://cdn.baulchino.com/hsk-books/HSK-3-Workbook.pdf'
+        'https://cdn.baulchino.com/hsk-books/HSK-3-Workbook.pdf',
       ),
-    ]
+    ],
   ),
   createCard(
     'HSK-4',
@@ -100,21 +100,21 @@ const BookCards = [
     [
       createBook(
         'HSK-4A-TEXTBOOK',
-        'https://cdn.baulchino.com/hsk-books/HSK-4A-Textbook.pdf'
+        'https://cdn.baulchino.com/hsk-books/HSK-4A-Textbook.pdf',
       ),
       createBook(
         'HSK-4A-WORKBOOK',
-        'https://cdn.baulchino.com/hsk-books/HSK-4A-Workbook.pdf'
+        'https://cdn.baulchino.com/hsk-books/HSK-4A-Workbook.pdf',
       ),
       createBook(
         'HSK-4B-TEXTBOOK',
-        'https://cdn.baulchino.com/hsk-books/HSK-4B-Textbook.pdf'
+        'https://cdn.baulchino.com/hsk-books/HSK-4B-Textbook.pdf',
       ),
       createBook(
         'HSK-4B-WORKBOOK',
-        'https://cdn.baulchino.com/hsk-books/HSK-4B-Workbook.pdf'
+        'https://cdn.baulchino.com/hsk-books/HSK-4B-Workbook.pdf',
       ),
-    ]
+    ],
   ),
   createCard(
     'HSK-5',
@@ -124,21 +124,21 @@ const BookCards = [
     [
       createBook(
         'HSK-5A-TEXTBOOK',
-        'https://cdn.baulchino.com/hsk-books/HSK-5A-Textbook.pdf'
+        'https://cdn.baulchino.com/hsk-books/HSK-5A-Textbook.pdf',
       ),
       createBook(
         'HSK-5A-WORKBOOK',
-        'https://cdn.baulchino.com/hsk-books/HSK-5A-Workbook.pdf'
+        'https://cdn.baulchino.com/hsk-books/HSK-5A-Workbook.pdf',
       ),
       createBook(
         'HSK-5B-TEXTBOOK',
-        'https://cdn.baulchino.com/hsk-books/HSK-5B-Textbook.pdf'
+        'https://cdn.baulchino.com/hsk-books/HSK-5B-Textbook.pdf',
       ),
       createBook(
         'HSK-5B-WORKBOOK',
-        'https://cdn.baulchino.com/hsk-books/HSK-5B-Workbook.pdf'
+        'https://cdn.baulchino.com/hsk-books/HSK-5B-Workbook.pdf',
       ),
-    ]
+    ],
   ),
   createCard(
     'HSK-6',
@@ -148,21 +148,21 @@ const BookCards = [
     [
       createBook(
         'HSK-6A-TEXTBOOK',
-        'https://cdn.baulchino.com/hsk-books/HSK-6A-Textbook.pdf'
+        'https://cdn.baulchino.com/hsk-books/HSK-6A-Textbook.pdf',
       ),
       createBook(
         'HSK-6A-WORKBOOK',
-        'https://cdn.baulchino.com/hsk-books/HSK-6A-Workbook.pdf'
+        'https://cdn.baulchino.com/hsk-books/HSK-6A-Workbook.pdf',
       ),
       createBook(
         'HSK-6B-TEXTBOOK',
-        'https://cdn.baulchino.com/hsk-books/HSK-6B-Textbook.pdf'
+        'https://cdn.baulchino.com/hsk-books/HSK-6B-Textbook.pdf',
       ),
       createBook(
         'HSK-6B-WORKBOOK',
-        'https://cdn.baulchino.com/hsk-books/HSK-6B-Workbook.pdf'
+        'https://cdn.baulchino.com/hsk-books/HSK-6B-Workbook.pdf',
       ),
-    ]
+    ],
   ),
 ];
 
@@ -172,7 +172,7 @@ export default function ListContainer() {
   return (
     <section>
       <h2 className='text-2xl text-black font-medium my-5'>{t('Title')}</h2>
-      <div className='grid gap-8 lg:grid-cols-2 xl:grid-cols-3'>
+      <div className='grid gap-2 justify-center lg:gap-8 lg:grid-cols-2 xl:grid-cols-3'>
         {BookCards.map((card, index) => (
           <Card as='article' key={index}>
             <h3 className='text-center text-3xl mb-2'>{card.name}</h3>
