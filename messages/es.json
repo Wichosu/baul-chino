@@ -15,10 +15,12 @@
     "About": "Acerca de",
     "Roadmap": "Roadmap de Baulchino",
     "Support": "Apoya Baulchino",
+    "NewHskBooks2026": "Nuevos Libros HSK 3.0",
     "LogoAlt": "Logo de Baulchino, es un baúl o cofre de tesoro cerrado, estilo europeo de color café con plateado",
     "Descriptions": {
       "AnkiDecks": "Mazos Anki con vocabulario del HSK 1 al HSK 4",
       "HskBooks": "Descarga los libros HSK del 1 al 6 de manera gratuita",
+      "NewHskBooks2026": "Descarga los nuevos libros HSK 3.0 lanzados en 2026",
       "Channels": "YouTube channels for learning Mandarin Chinese with various teaching styles",
       "Hanzi": "Aprende a escribir caracteres chinos: domina el orden de trazos y descubre sus radicales",
       "HskAudios": "Escucha los audios de los libros HSK Textbook y Workbook de todas las unidades",
@@ -56,6 +58,12 @@
         "ImgAlt": "Libros HSK del HSK 1 al HSK 6, los libros se ven ordenados y apilados",
         "Description": "Descarga los libros HSK del 1 al 6 de manera gratuita",
         "LinkName": "Ir a Libros HSK"
+      },
+      "NewHskBooks2026": {
+        "Title": "Nuevos Libros HSK 3.0 (2026)",
+        "ImgAlt": "Portada de los nuevos libros HSK 3.0 lanzados en 2026",
+        "Description": "Descarga los nuevos libros HSK 3.0 lanzados en 2026. Currículo actualizado para el aprendizaje moderno del mandarín.",
+        "LinkName": "Ir a Nuevos Libros HSK 3.0"
       },
       "Channels": {
         "Title": "Canales de Chino",
@@ -173,6 +181,24 @@
       "Title": "Descarga el libro en PDF con un solo clic",
       "ListenAudios": "Escucha los audios HSK",
       "MockTest": "Descarga los mock tests"
+    }
+  },
+  "NewHskBooks2026": {
+    "Metadata": {
+      "Title": "Nuevos Libros HSK 3.0 2026 | Descarga Gratuita",
+      "Description": "Descarga los nuevos libros HSK 3.0 lanzados en 2026. Descarga gratuita en PDF sin anuncios ni cuenta requerida. Currículo actualizado para el aprendizaje moderno del mandarín."
+    },
+    "HeroTitle": "Nuevos Libros HSK 3.0",
+    "HeroMessage1": "Estos son los nuevos libros HSK 3.0, lanzados en 2026. Descarga gratis, sin anuncios ni cuenta requerida.",
+    "HeroMessage2": "Actualmente tengo disponible el primer libro, pero intentaré subir el resto lo antes posible. Si tienes más libros, por favor compártelos conmigo para que podamos compartirlos con la comunidad.",
+    "BookCards": {
+      "Title": "Libros Disponibles",
+      "HSK1": {
+        "Title": "Nuevo HSK 3.0 Nivel 1",
+        "Alt": "Portada del libro Nuevo HSK 3.0 Nivel 1",
+        "Textbook": "HSK 3.0 Nivel 1 - Textbook",
+        "Workbook": "HSK 3.0 Nivel 1 - Workbook No Disponible"
+      }
     }
   },
   "Channels": {

@@ -15,10 +15,12 @@
     "About": "About",
     "Roadmap": "Roadmap",
     "Support": "Support Baulchino",
+    "NewHskBooks2026": "New HSK 3.0 Books",
     "LogoAlt": "Baul chino logo, it's a close treasure chest, european style with brown and silver colors",
     "Descriptions": {
       "AnkiDecks": "Anki decks covering HSK 1 to HSK 4 vocabulary",
       "HskBooks": "Download HSK books (HSK 1-6) for free",
+      "NewHskBooks2026": "Download the new HSK 3.0 books released in 2026",
       "Channels": "YouTube channels for learning Mandarin Chinese with various teaching styles",
       "Hanzi": "Learn to write Chinese characters: master stroke order and discover radicals",
       "HskAudios": "Listen to HSK audio files from each unit in the HSK textbooks and workbooks",
@@ -56,6 +58,12 @@
         "ImgAlt": "HSK books from HSK 1 to HSK 6, showing neatly stacked books",
         "Description": "Download HSK books (Levels 1-6) for free",
         "LinkName": "Go to HSK Books"
+      },
+      "NewHskBooks2026": {
+        "Title": "New HSK 3.0 Books (2026)",
+        "ImgAlt": "Cover of the new HSK 3.0 books released in 2026",
+        "Description": "Download the new HSK 3.0 books released in 2026. Updated curriculum for modern Mandarin learning.",
+        "LinkName": "Go to New HSK 3.0 Books"
       },
       "Channels": {
         "Title": "Chinese Learning Channels",
@@ -173,6 +181,24 @@
       "Title": "Download the PDF book with one click",
       "ListenAudios": "Listen to HSK audios",
       "MockTest": "Download mock tests"
+    }
+  },
+  "NewHskBooks2026": {
+    "Metadata": {
+      "Title": "New HSK 3.0 Books 2026 | Free Download",
+      "Description": "Download the new HSK 3.0 books released in 2026. Free PDF downloads with no ads or account required. Updated curriculum for modern Mandarin learning."
+    },
+    "HeroTitle": "New HSK 3.0 Books",
+    "HeroMessage1": "These are the new HSK 3.0 books, released in 2026. Download for free, no ads or account required.",
+    "HeroMessage2": "I currently have the first book available, but I will try to upload the rest as soon as possible. If you have more books, please share them with me so we can share them with the community.",
+    "BookCards": {
+      "Title": "Available Books",
+      "HSK1": {
+        "Title": "New HSK 3.0 Level 1",
+        "Alt": "Cover of New HSK 3.0 Level 1 book",
+        "Textbook": "HSK 3.0 Level 1 - Textbook",
+        "Workbook": "HSK 3.0 Level 1 - Workbook Not Available"
+      }
     }
   },
   "Channels": {
