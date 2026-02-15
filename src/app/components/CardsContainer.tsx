@@ -48,6 +48,15 @@ export default function CardsContainer() {
       t('HskBooks.LinkName'),
     ),
     createCard(
+      t('NewHskBooks2026.Title'),
+      t('NewHskBooks2026.ImgAlt'),
+      '/newhskbooks/new-hsk-1.avif',
+      '/newhskbooks/new-hsk-1.png',
+      t('NewHskBooks2026.Description'),
+      'new-hsk-books-2026',
+      t('NewHskBooks2026.LinkName'),
+    ),
+    createCard(
       t('HskAudios.Title'),
       t('HskAudios.ImgAlt'),
       '/homepage/hskdisk.avif',
