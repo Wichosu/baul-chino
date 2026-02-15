@@ -72,6 +72,11 @@ export function Navbar() {
         t('Descriptions.HskBooks'),
       ),
       createNavContent(
+        '/new-hsk-books-2026',
+        t('NewHskBooks2026'),
+        t('Descriptions.NewHskBooks2026'),
+      ),
+      createNavContent(
         '/hsk-audios',
         t('HskAudios'),
         t('Descriptions.HskAudios'),
