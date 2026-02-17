@@ -24,8 +24,10 @@ export function BookCard({
   downloadLinks,
 }: BookCardProps) {
   return (
-    <Card as='article' elevation='3'>
-      <h3 className='text-center text-3xl mb-2'>{title}</h3>
+    <Card as='article' elevation='3' margin='none'>
+      <h3 className='text-center text-xl sm:text-2xl md:text-3xl mb-2 px-2'>
+        {title}
+      </h3>
       <picture>
         {fallbackImage && <source srcSet={image} width={500} height={500} />}
         <Image
@@ -34,12 +36,18 @@ export function BookCard({
           width={500}
           height={500}
           loading='lazy'
-          className='object-contain aspect-square mx-auto'
+          className='object-contain aspect-square mx-auto w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px]'
         />
       </picture>
-      <div className='flex flex-col text-center mt-2'>
+      <div className='flex flex-col text-center mt-2 gap-2 px-2'>
         {downloadLinks.map((link, index) => (
-          <Button type='yellow' as='link' href={link.url} key={index}>
+          <Button
+            type='yellow'
+            as='link'
+            href={link.url}
+            key={index}
+            className='whitespace-normal'
+          >
             {link.name}
           </Button>
         ))}
