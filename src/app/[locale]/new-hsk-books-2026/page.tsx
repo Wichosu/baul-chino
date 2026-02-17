@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { Hero } from '../../components/Hero';
-import { BookCard } from './components/BookCard';
+import { BookCard } from '../../components/Card';
 import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/src/i18n/routing';
@@ -83,7 +83,7 @@ export default async function Page({
         <h2 className='text-2xl text-black font-medium my-5'>
           {t('BookCards.Title')}
         </h2>
-        <div className='grid gap-2 justify-center lg:gap-8 lg:grid-cols-2 xl:grid-cols-3'>
+        <div className='grid grid-cols-1 gap-4 justify-center sm:gap-6 lg:gap-8 lg:grid-cols-2 xl:grid-cols-3'>
           {books.map((book) => (
             <BookCard
               key={book.title}
