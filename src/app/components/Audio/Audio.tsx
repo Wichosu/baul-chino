@@ -32,7 +32,7 @@ export default function Audio({ caption, audioUrl, children }: Props) {
     loading: t('Loading'),
   };
 
-  function handleButton() {
+  function handlePlayButtonClick() {
     if (audioStatus === 'playing') {
       audioRef.current.pause();
       setAudioStatus('pause');
@@ -102,11 +102,32 @@ export default function Audio({ caption, audioUrl, children }: Props) {
 
   function handleKeyRelease(event: React.KeyboardEvent) {
     const key = event.key;
-    const validKeys = ['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'];
+    const validMovementKeys = ['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'];
 
-    if (validKeys.includes(key)) {
+    if (validMovementKeys.includes(key)) {
       setAudioStatus('playing');
       audioRef.current.play();
+    } else if (key === ' ') {
+      event.preventDefault();
+      handlePlayButtonClick();
+    }
+  }
+
+  function handlePlayButtonKeyRelease(event: React.KeyboardEvent) {
+    const key = event.key;
+
+    if (key === 'ArrowRight' || key === 'ArrowLeft') {
+      event.preventDefault();
+
+      const step = key === 'ArrowRight' ? 1 : -1;
+
+      const newTime = Math.min(
+        Math.max(audioRef.current.currentTime + step, 0),
+        audioRef.current.duration
+      );
+
+      audioRef.current.currentTime = newTime;
+      setAudioTimeTracker(newTime);
     }
   }
 
@@ -141,8 +162,9 @@ export default function Audio({ caption, audioUrl, children }: Props) {
         caption={caption}
         currentTime={currentTime}
         duration={duration}
-        handleButton={handleButton}
-        handleKeyRelease={handleKeyRelease}
+        handlePlayButtonClick={handlePlayButtonClick}
+        handleKeyRelease={handlePlayButtonKeyRelease}
+        handlePlayButtonKeyRelease={handlePlayButtonKeyRelease}
         handleMouseClickRelease={handleMouseClickRelease}
         onChangeAudioTimeTracker={onChangeAudioTimeTracker}
         translations={translations}
@@ -158,8 +180,9 @@ export default function Audio({ caption, audioUrl, children }: Props) {
         caption={caption}
         currentTime={currentTime}
         duration={duration}
-        handleButton={handleButton}
+        handlePlayButtonClick={handlePlayButtonClick}
         handleKeyRelease={handleKeyRelease}
+        handlePlayButtonKeyRelease={handlePlayButtonKeyRelease}
         handleMouseClickRelease={handleMouseClickRelease}
         handleVolume={handleVolume}
         onChangeAudioTimeTracker={onChangeAudioTimeTracker}
