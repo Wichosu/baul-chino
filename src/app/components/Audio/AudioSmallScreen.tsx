@@ -10,7 +10,7 @@ type Props = {
   caption: string;
   currentTime: string;
   duration: string;
-  handleButton: () => void;
+  handlePlayButtonClick: () => void;
   audioStatus: AudioStatus;
   audioDuration: number;
   audioTimeTracker: number;
@@ -20,6 +20,7 @@ type Props = {
   ) => void;
   handleMouseClickRelease: () => void;
   handleKeyRelease: (event: React.KeyboardEvent) => void;
+  handlePlayButtonKeyRelease: (event: React.KeyboardEvent) => void;
   audioRef: React.RefObject<HTMLAudioElement>;
   children: React.ReactNode;
   translations: Translation;
@@ -29,7 +30,7 @@ export default function AudioSmallScreen({
   caption,
   currentTime,
   duration,
-  handleButton,
+  handlePlayButtonClick,
   audioStatus,
   audioDuration,
   audioTimeTracker,
@@ -37,6 +38,7 @@ export default function AudioSmallScreen({
   onChangeAudioTimeTracker,
   handleMouseClickRelease,
   handleKeyRelease,
+  handlePlayButtonKeyRelease,
   audioRef,
   children,
   translations,
@@ -50,7 +52,7 @@ export default function AudioSmallScreen({
         </time>
       </div>
       <div className='flex items-center'>
-        <Button type='yellow' onClick={handleButton} margin='none' padding='1'>
+        <Button type='yellow' onClick={handlePlayButtonClick} onKeyUp={handlePlayButtonKeyRelease} margin='none' padding='1'>
           {audioStatus === 'loading' && (
             <>
               <LoaderCircle className='animate-spin' />
@@ -84,7 +86,7 @@ export default function AudioSmallScreen({
           value={audioTimeTracker}
           onChange={onChangeAudioTimeTracker}
           onMouseUp={handleMouseClickRelease}
-          onKeyUp={handleKeyRelease}
+          onKeyDown={handleKeyRelease}
           className='accent-yellow-800 mx-2'
         />
         <DownloadButton url={audioUrl} filename={caption} />
