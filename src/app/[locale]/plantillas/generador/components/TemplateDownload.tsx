@@ -1,5 +1,6 @@
 import { useTemplateContext } from './TemplateContext';
 import { useTranslations } from 'next-intl';
+import { Button } from '@/src/app/components/Button';
 
 type Props = {
   toPDF: (filename: string) => void;
@@ -7,7 +8,7 @@ type Props = {
 
 export default function TemplateDownload({ toPDF }: Props) {
   const t = useTranslations(
-    'TemplateGenerator.TemplateGenerator.TemplateDownload'
+    'TemplateGenerator.TemplateGenerator.TemplateDownload',
   );
   const { filename } = useTemplateContext();
 
@@ -33,16 +34,13 @@ export default function TemplateDownload({ toPDF }: Props) {
           lg:inline-block lg:mr-2.5 lg:w-96 focus:outline-blue-600
         '
       />
-      <button
+      <Button
         onClick={() => toPDF(filename.current)}
-        className='
-          block text-xl text-white font-normal bg-blue-600 py-1 px-2 
-          border-none rounded-md cursor-pointer transition hover:bg-blue-700
-          lg:inline-block
-        '
+        type='yellow'
+        className='text-lg font-medium'
       >
         {t('DownloadButton')}
-      </button>
+      </Button>
     </section>
   );
 }

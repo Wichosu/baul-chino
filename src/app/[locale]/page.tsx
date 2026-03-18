@@ -10,6 +10,8 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { hasLocale } from 'next-intl';
 import { routing } from '@/src/i18n/routing';
 import { notFound } from 'next/navigation';
+import { supporters } from '@/src/app/constants/supporters/supporters';
+import { Chip } from '@/src/app/components/Chip';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -34,6 +36,21 @@ export default async function Page({
     <>
       <Hero title={t('HeroTitle')}>{t('HeroMessage')}</Hero>
       <CardsContainer />
+      <section className='grid gap-4 my-8'>
+        <h2 className='text-center text-4xl font-medium'>
+          Supporters and Contributors
+        </h2>
+        <p className='text-center text-lg max-w-3xl mx-auto'>
+          I want to give a huge shoutout to all the people who have supported me
+          on this journey. You can appear in this section by donation or
+          contributing to the project.
+        </p>
+        <div className='flex flex-wrap gap-2 justify-center'>
+          {supporters.map((supporter, index) => (
+            <Chip key={supporter.name + index}>{supporter.name}</Chip>
+          ))}
+        </div>
+      </section>
       <section>
         <h2 className='text-center text-4xl font-medium'>{t('Q&A.Title')}</h2>
         <AccordionRoot type='single' width='xl'>
