@@ -19,13 +19,13 @@ export default function TitleForm() {
         const r = (Math.random() * 16) | 0;
         const v = c === 'x' ? r : (r & 0x3) | 0x8;
         return v.toString(16);
-      }
+      },
     );
   };
 
   const handleMarginRightChange = (
     e: React.ChangeEvent<HTMLInputElement>,
-    title: TitleType
+    title: TitleType,
   ) => {
     const value = Number(e.target.value);
     const maxValue = 50;
@@ -41,7 +41,7 @@ export default function TitleForm() {
           }
 
           return oldTitle;
-        })
+        }),
       );
 
       return;
@@ -57,7 +57,7 @@ export default function TitleForm() {
           }
 
           return oldTitle;
-        })
+        }),
       );
 
       return;
@@ -72,13 +72,13 @@ export default function TitleForm() {
         }
 
         return oldTitle;
-      })
+      }),
     );
   };
 
   const handleNameChange = (
     e: React.ChangeEvent<HTMLInputElement>,
-    title: TitleType
+    title: TitleType,
   ) => {
     const value = e.target.value;
 
@@ -89,7 +89,7 @@ export default function TitleForm() {
         }
 
         return oldTitle;
-      })
+      }),
     );
   };
 
@@ -138,22 +138,20 @@ export default function TitleForm() {
           </ModifierContainer>
         </div>
       ))}
-      <button
+      <Button
         onClick={() =>
           setTitles([
             ...titles,
             { uuid: generateUUID(), name: '', marginRight: 0 },
           ])
         }
-        className={`
-          text-lg text-white font-medium bg-blue-600 py-1 px-2 mt-1 border-none
+        className={`text-lg text-white font-medium py-1 px-2 mt-1 border-none
           rounded-md cursor-pointer transition
-          hover:bg-blue-700
-          ${titles.length >= 3 ? 'none' : 'block'}
-        `}
+          ${titles.length >= 3 ? 'none' : 'block'}`}
+        type='yellow'
       >
         {t('AddButton')}
-      </button>
+      </Button>
     </section>
   );
 }

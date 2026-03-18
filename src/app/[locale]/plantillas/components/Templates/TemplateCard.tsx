@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import { Download } from 'lucide-react';
+import { Button } from '@/src/app/components/Button';
 
 type Props = {
   textAlt: string;
@@ -28,15 +28,15 @@ export default function TemplateCard({
           className='aspect-square object-contain'
         />
       </picture>
-      <Link
+      <Button
+        as='link'
         href={pdfUrl}
-        download
-        target='_blank'
-        className='flex items-center w-fit bg-blue-600 mt-1 mx-auto py-2.5 px-5 border-none rounded-lg transition hover:bg-blue-700'
+        type='yellow'
+        className='flex items-center w-fit mx-auto text-lg'
       >
-        <span className='text-xl text-white font-medium'>{textAlt}</span>
+        {textAlt}
         <Download className='ml-2 text-white' />
-      </Link>
+      </Button>
     </article>
   );
 }
