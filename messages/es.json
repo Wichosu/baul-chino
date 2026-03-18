@@ -260,7 +260,7 @@
       "TemplateDownload": {
         "Title": "Nombra tu plantilla:",
         "Placeholder": "Nombre para tu archivo (ej: Mis_Hanzi_HSK1)",
-        "DownloadButton": "🖨️ Generar PDF"
+        "DownloadButton": "Generar PDF"
       },
       "GridForm": {
         "Title": "Configuración de la Cuadrícula",
