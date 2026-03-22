@@ -21,7 +21,7 @@ type Props = {
   audioUrl: string;
   audioTimeTracker: number;
   onChangeAudioTimeTracker: (
-    element: React.ChangeEvent<HTMLInputElement>
+    element: React.ChangeEvent<HTMLInputElement>,
   ) => void;
   handleMouseClickRelease: () => void;
   handleKeyRelease: (event: React.KeyboardEvent) => void;
@@ -51,7 +51,13 @@ export default function AudioBigScreen({
 }: Props) {
   return (
     <figure className='hidden md:flex items-center bg-yellow-200 rounded-md w-fit my-2 py-2 px-4'>
-      <Button type='yellow' onClick={handlePlayButtonClick} onKeyUp={handlePlayButtonKeyRelease} margin='none' padding='1'>
+      <Button
+        type='yellow'
+        onClick={handlePlayButtonClick}
+        onKeyUp={handlePlayButtonKeyRelease}
+        margin='none'
+        padding='1'
+      >
         {audioStatus === 'loading' && (
           <>
             <LoaderCircle className='animate-spin' />

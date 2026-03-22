@@ -21,4 +21,7 @@ export const supporters: Supporter[] = [
   {
     name: 'Noxor11',
   },
+  {
+    name: 'Juan Manuel',
+  },
 ];
