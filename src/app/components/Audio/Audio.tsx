@@ -84,7 +84,7 @@ export default function Audio({ caption, audioUrl, children }: Props) {
   }, [audioStatus]);
 
   function onChangeAudioTimeTracker(
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) {
     const newAudioTimeTracker = parseInt(event.target.value);
 
@@ -102,7 +102,12 @@ export default function Audio({ caption, audioUrl, children }: Props) {
 
   function handleKeyRelease(event: React.KeyboardEvent) {
     const key = event.key;
-    const validMovementKeys = ['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'];
+    const validMovementKeys = [
+      'ArrowRight',
+      'ArrowLeft',
+      'ArrowUp',
+      'ArrowDown',
+    ];
 
     if (validMovementKeys.includes(key)) {
       setAudioStatus('playing');
@@ -123,7 +128,7 @@ export default function Audio({ caption, audioUrl, children }: Props) {
 
       const newTime = Math.min(
         Math.max(audioRef.current.currentTime + step, 0),
-        audioRef.current.duration
+        audioRef.current.duration,
       );
 
       audioRef.current.currentTime = newTime;
