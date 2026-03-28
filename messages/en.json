@@ -198,6 +198,18 @@
         "Alt": "Cover of New HSK 3.0 Level 1 book",
         "Textbook": "HSK 3.0 Level 1 - Textbook",
         "Workbook": "HSK 3.0 Level 1 - Workbook Not Available"
+      },
+      "HSK2": {
+        "Title": "New HSK 3.0 Level 2",
+        "Alt": "Cover of New HSK 3.0 Level 2 book",
+        "Textbook": "HSK 3.0 Level 2 - Textbook",
+        "Workbook": "HSK 3.0 Level 2 - Workbook Not Available"
+      },
+      "HSK3": {
+        "Title": "New HSK 3.0 Level 3",
+        "Alt": "Cover of New HSK 3.0 Level 3 book",
+        "Textbook": "HSK 3.0 Level 3 - Textbook",
+        "Workbook": "HSK 3.0 Level 3 - Workbook Not Available"
       }
     }
   },
