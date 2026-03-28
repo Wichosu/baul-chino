@@ -58,16 +58,36 @@ export default async function Page({
     {
       title: t('BookCards.HSK1.Title'),
       image: '/newhskbooks/new-hsk-1.avif',
-      fallbackImage: '/newhskbooks/new-hsk-1.jpg',
+      fallbackImage: '/newhskbooks/new-hsk-1.png',
       alt: t('BookCards.HSK1.Alt'),
       downloadLinks: [
         {
           name: t('BookCards.HSK1.Textbook'),
           url: 'https://cdn.baulchino.com/new-hsk-books/hsk-course-1.pdf',
         },
+      ],
+    },
+    {
+      title: t('BookCards.HSK2.Title'),
+      image: '/newhskbooks/new-hsk-2.avif',
+      fallbackImage: '/newhskbooks/new-hsk-2.png',
+      alt: t('BookCards.HSK2.Alt'),
+      downloadLinks: [
         {
-          name: t('BookCards.HSK1.Workbook'),
-          url: 'https://cdn.baulchino.com/new-hsk-books/hsk-course-1.pdf',
+          name: t('BookCards.HSK2.Textbook'),
+          url: 'https://cdn.baulchino.com/new-hsk-books/hsk-course-2.pdf',
+        },
+      ],
+    },
+    {
+      title: t('BookCards.HSK3.Title'),
+      image: '/newhskbooks/new-hsk-3.avif',
+      fallbackImage: '/newhskbooks/new-hsk-3.png',
+      alt: t('BookCards.HSK3.Alt'),
+      downloadLinks: [
+        {
+          name: t('BookCards.HSK3.Textbook'),
+          url: 'https://cdn.baulchino.com/new-hsk-books/hsk-course-3.pdf',
         },
       ],
     },
