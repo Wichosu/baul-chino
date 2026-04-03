@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from '@/src/app/components/Accordion';
-import { Books } from '@/src/app/constants/hskaudio/hskaudiocollection';
+import { Books } from '@/src/app/constants/newhskaudio2026/newhskaudiocollection';
 import Audio from '@/src/app/components/Audio/Audio';
 import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
