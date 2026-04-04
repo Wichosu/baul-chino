@@ -66,6 +66,15 @@ export default function CardsContainer() {
       t('HskAudios.LinkName'),
     ),
     createCard(
+      t('NewHskAudios2026.Title'),
+      t('NewHskAudios2026.ImgAlt'),
+      '/newhskbooks/new-hsk-1.avif',
+      '/newhskbooks/new-hsk-1.png',
+      t('NewHskAudios2026.Description'),
+      'new-hsk-audios-2026',
+      t('NewHskAudios2026.LinkName'),
+    ),
+    createCard(
       t('HskMockTest.Title'),
       t('HskMockTest.ImgAlt'),
       '/homepage/mocktest.avif',

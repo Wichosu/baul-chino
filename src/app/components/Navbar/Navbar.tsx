@@ -72,11 +72,6 @@ export function Navbar() {
         t('Descriptions.HskBooks'),
       ),
       createNavContent(
-        '/new-hsk-books-2026',
-        t('NewHskBooks2026'),
-        t('Descriptions.NewHskBooks2026'),
-      ),
-      createNavContent(
         '/hsk-audios',
         t('HskAudios'),
         t('Descriptions.HskAudios'),
@@ -95,6 +90,18 @@ export function Navbar() {
         '/mazos-anki',
         t('AnkiDecks'),
         t('Descriptions.AnkiDecks'),
+      ),
+    ]),
+    createNavItemWithContent(t('NewHsk'), [
+      createNavContent(
+        '/new-hsk-books-2026',
+        t('NewHskBooks2026'),
+        t('Descriptions.NewHskBooks2026'),
+      ),
+      createNavContent(
+        '/new-hsk-audios-2026',
+        t('NewHskAudios2026'),
+        t('Descriptions.NewHskAudios2026'),
       ),
     ]),
     createNavItemWithContent(t('Tools'), [

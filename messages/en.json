@@ -5,6 +5,7 @@
     "AnkiDecks": "Anki Decks",
     "HskBooks": "HSK Books",
     "Hsk": "HSK",
+    "NewHsk": "New HSK 3.0",
     "Channels": "Channels",
     "Hanzi": "Hanzi Writing",
     "HskAudios": "HSK Audio Files",
@@ -16,11 +17,13 @@
     "Roadmap": "Roadmap",
     "Support": "Support Baulchino",
     "NewHskBooks2026": "New HSK 3.0 Books",
+    "NewHskAudios2026": "New HSK 3.0 Audios",
     "LogoAlt": "Baul chino logo, it's a close treasure chest, european style with brown and silver colors",
     "Descriptions": {
       "AnkiDecks": "Anki decks covering HSK 1 to HSK 4 vocabulary",
       "HskBooks": "Download HSK books (HSK 1-6) for free",
       "NewHskBooks2026": "Download the new HSK 3.0 books released in 2026",
+      "NewHskAudios2026": "Listen to the new HSK 3.0 audio files",
       "Channels": "YouTube channels for learning Mandarin Chinese with various teaching styles",
       "Hanzi": "Learn to write Chinese characters: master stroke order and discover radicals",
       "HskAudios": "Listen to HSK audio files from each unit in the HSK textbooks and workbooks",
@@ -64,6 +67,12 @@
         "ImgAlt": "Cover of the new HSK 3.0 books released in 2026",
         "Description": "Download the new HSK 3.0 books released in 2026. Updated curriculum for modern Mandarin learning.",
         "LinkName": "Go to New HSK 3.0 Books"
+      },
+      "NewHskAudios2026": {
+        "Title": "New HSK 3.0 Audios (2026)",
+        "ImgAlt": "Cover of the new HSK 3.0 audio files released in 2026",
+        "Description": "Listen to the new HSK 3.0 audio files released in 2026. Updated curriculum for modern Mandarin learning.",
+        "LinkName": "Go to New HSK 3.0 Audios"
       },
       "Channels": {
         "Title": "Chinese Learning Channels",
@@ -197,19 +206,19 @@
         "Title": "New HSK 3.0 Level 1",
         "Alt": "Cover of New HSK 3.0 Level 1 book",
         "Textbook": "HSK 3.0 Level 1 - Textbook",
-        "Workbook": "HSK 3.0 Level 1 - Workbook Not Available"
+        "Audio": "HSK 3.0 Level 1 - Audio Files"
       },
       "HSK2": {
         "Title": "New HSK 3.0 Level 2",
         "Alt": "Cover of New HSK 3.0 Level 2 book",
         "Textbook": "HSK 3.0 Level 2 - Textbook",
-        "Workbook": "HSK 3.0 Level 2 - Workbook Not Available"
+        "Audio": "HSK 3.0 Level 2 - Audio Files"
       },
       "HSK3": {
         "Title": "New HSK 3.0 Level 3",
         "Alt": "Cover of New HSK 3.0 Level 3 book",
         "Textbook": "HSK 3.0 Level 3 - Textbook",
-        "Workbook": "HSK 3.0 Level 3 - Workbook Not Available"
+        "Audio": "HSK 3.0 Level 3 - Audio Files"
       }
     }
   },
@@ -304,6 +313,15 @@
     "HeroMessage1": "Hi, here you can find all audio files from the HSK textbooks and workbooks units. This page aims to help you find the audios for each unit and allow you to practice or do the corresponding exercise. You can download the audio by pressing the ⬇️ button",
     "HeroMessage2": "If you find that an audio is wrong or missing you can notify me via the surveys on this website or an email at wichosubuilds@gmail.com. Thank you",
     "DownloadButton": "Download book audio in a single zip file"
+  },
+  "NewHskAudios": {
+    "Metadata": {
+      "Title": "New HSK Audio Files | HSK 3.0 2026 Edition",
+      "Description": "Listen to HSK audio files from each unit in the HSK textbooks and workbooks. Perfect for audio practice and language learning."
+    },
+    "HeroTitle": "Listen to New HSK 3.0 audio files",
+    "HeroMessage1": "Hi, here you can find all audio files from the HSK textbooks and workbooks units. This page aims to help you find the audios for each unit and allow you to practice or do the corresponding exercise. You can download the audio by pressing the ⬇️ button",
+    "HeroMessage2": "If you find that an audio is wrong or missing you can notify me via the surveys on this website or an email at wichosubuilds@gmail.com. Thank you"
   },
   "HskAudiosDownload": {
     "Metadata": {
