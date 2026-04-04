@@ -65,6 +65,10 @@ export default async function Page({
           name: t('BookCards.HSK1.Textbook'),
           url: 'https://cdn.baulchino.com/new-hsk-books/hsk-course-1.pdf',
         },
+        {
+          name: t('BookCards.HSK1.Audio'),
+          url: '/new-hsk-audios-2026',
+        },
       ],
     },
     {
@@ -77,6 +81,10 @@ export default async function Page({
           name: t('BookCards.HSK2.Textbook'),
           url: 'https://cdn.baulchino.com/new-hsk-books/hsk-course-2.pdf',
         },
+        {
+          name: t('BookCards.HSK2.Audio'),
+          url: '/new-hsk-audios-2026',
+        },
       ],
     },
     {
@@ -88,6 +96,10 @@ export default async function Page({
         {
           name: t('BookCards.HSK3.Textbook'),
           url: 'https://cdn.baulchino.com/new-hsk-books/hsk-course-3.pdf',
+        },
+        {
+          name: t('BookCards.HSK3.Audio'),
+          url: '/new-hsk-audios-2026',
         },
       ],
     },
