@@ -21,7 +21,10 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'HskAudios.Metadata' });
+  const t = await getTranslations({
+    locale,
+    namespace: 'NewHskAudios.Metadata',
+  });
 
   return {
     title: t('Title'),
@@ -55,7 +58,7 @@ export default async function Page({
 
   setRequestLocale(locale);
 
-  const t = await getTranslations('HskAudios');
+  const t = await getTranslations('NewHskAudios');
 
   return (
     <>
