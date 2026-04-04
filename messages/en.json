@@ -68,6 +68,12 @@
         "Description": "Download the new HSK 3.0 books released in 2026. Updated curriculum for modern Mandarin learning.",
         "LinkName": "Go to New HSK 3.0 Books"
       },
+      "NewHskAudios2026": {
+        "Title": "New HSK 3.0 Audios (2026)",
+        "ImgAlt": "Cover of the new HSK 3.0 audio files released in 2026",
+        "Description": "Listen to the new HSK 3.0 audio files released in 2026. Updated curriculum for modern Mandarin learning.",
+        "LinkName": "Go to New HSK 3.0 Audios"
+      },
       "Channels": {
         "Title": "Chinese Learning Channels",
         "ImgAlt": "Collection of 4 images showing YouTube channels that teach Mandarin Chinese in different ways",
