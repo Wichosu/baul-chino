@@ -62,15 +62,6 @@ export default async function Page({
       <Hero title={t('HeroTitle')}>
         <span className='block'>{t('HeroMessage1')}</span>
         <span className='block my-4'>{t('HeroMessage2')}</span>
-        <Button
-          as='link'
-          href='/hsk-audios-download'
-          type='yellow'
-          margin='none'
-          className='block whitespace-normal w-fit'
-        >
-          {t('DownloadButton')}
-        </Button>
       </Hero>
       <AccordionRoot type='multiple' width='full'>
         {Books.map((book, index) => (
