@@ -5,6 +5,7 @@
     "AnkiDecks": "Mazos Anki",
     "HskBooks": "Libros HSK",
     "Hsk": "HSK",
+    "NewHsk": "Nuevo HSK 3.0",
     "Channels": "Lista de Canales",
     "Hanzi": "Escritura de Hanzi",
     "HskAudios": "Archivos de Audio HSK",
@@ -16,11 +17,13 @@
     "Roadmap": "Roadmap de Baulchino",
     "Support": "Apoya Baulchino",
     "NewHskBooks2026": "Nuevos Libros HSK 3.0",
+    "NewHskAudios2026": "Nuevos Audios HSK 3.0",
     "LogoAlt": "Logo de Baulchino, es un baúl o cofre de tesoro cerrado, estilo europeo de color café con plateado",
     "Descriptions": {
       "AnkiDecks": "Mazos Anki con vocabulario del HSK 1 al HSK 4",
       "HskBooks": "Descarga los libros HSK del 1 al 6 de manera gratuita",
       "NewHskBooks2026": "Descarga los nuevos libros HSK 3.0 lanzados en 2026",
+      "NewHskAudios2026": "Escucha los nuevos audios del HSK 3.0",
       "Channels": "YouTube channels for learning Mandarin Chinese with various teaching styles",
       "Hanzi": "Aprende a escribir caracteres chinos: domina el orden de trazos y descubre sus radicales",
       "HskAudios": "Escucha los audios de los libros HSK Textbook y Workbook de todas las unidades",
@@ -298,12 +301,21 @@
   "HskAudios": {
     "Metadata": {
       "Title": "Audios HSK | Audios HSK Textbook y Workbook",
-      "Description": "Escucha los audios de los libros HSK Textbook y Workbook para practicar y realizar los ejercicios correspondientes. Perfecto para practicar y mejorar tu idioma"
+      "Description": "Escucha los audios de los libros HSK Textbook y Workbook para practicar y realizar los ejercicios correspondientes. Perfecto para practicar y mejorar"
     },
     "HeroTitle": "Escucha los Audios HSK",
     "HeroMessage1": "Buenas, aquí puedes escuchar los audios de los libros HSK Textbook y Workbook. Esta página te ayudará a encontrar los audios de cada unidad y te permitirá practicar o realizar los ejercicios correspondientes. Puedes descargar los audios presionando el botón ⬇️",
     "HeroMessage2": "Si hay algún audio incorrecto o que falte, puedes hacermelo saber a través de las encuestas en esta página o por un email a wichosubuilds@gmail.com",
     "DownloadButton": "Descargar los audios del libro en un solo archivo zip"
+  },
+  "NewHskAudios": {
+    "Metadata": {
+      "Title": "Nuevos Audios HSK | HSK 3.0 2026 Edition",
+      "Description": "Escucha los audios de los libros HSK Textbook y Workbook para practicar y realizar los ejercicios correspondientes. Perfecto para practicar y mejorar"
+    },
+    "HeroTitle": "Escucha los nuevos audios HSK 3.0",
+    "HeroMessage1": "Hola, aquí puedes encontrar todos los audios de las unidades de los libros HSK Textbook y Workbook. Esta página tiene como objetivo ayudarte a encontrar los audios de cada unidad y permitirte practicar o hacer el ejercicio correspondiente. Puedes descargar el audio presionando el botón ⬇️",
+    "HeroMessage2": "Si hay algún audio incorrecto o que falte, puedes hacermelo saber a través de las encuestas en esta página o por un email a wichosubuilds@gmail.com"
   },
   "HskAudiosDownload": {
     "Metadata": {
