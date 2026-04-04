@@ -65,8 +65,14 @@
       "NewHskBooks2026": {
         "Title": "Nuevos Libros HSK 3.0 (2026)",
         "ImgAlt": "Portada de los nuevos libros HSK 3.0 lanzados en 2026",
-        "Description": "Descarga los nuevos libros HSK 3.0 lanzados en 2026. Currículo actualizado para el aprendizaje moderno del mandarín.",
+        "Description": "Descarga los nuevos libros HSK 3.0 lanzados en 2026. Currículum actualizado para el aprendizaje moderno del mandarín.",
         "LinkName": "Ir a Nuevos Libros HSK 3.0"
+      },
+      "NewHskAudios2026": {
+        "Title": "Nuevos Audios HSK 3.0 (2026)",
+        "ImgAlt": "Portada de los nuevos audios HSK 3.0 lanzados en 2026",
+        "Description": "Escucha los nuevos audios HSK 3.0 lanzados en 2026. Currículum actualizado para el aprendizaje moderno del mandarín.",
+        "LinkName": "Ir a Nuevos Audios HSK 3.0"
       },
       "Channels": {
         "Title": "Canales de Chino",
