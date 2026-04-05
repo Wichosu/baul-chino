@@ -206,19 +206,22 @@
         "Title": "New HSK 3.0 Level 1",
         "Alt": "Cover of New HSK 3.0 Level 1 book",
         "Textbook": "HSK 3.0 Level 1 - Textbook",
-        "Audio": "HSK 3.0 Level 1 - Audio Files"
+        "Audio": "Listen to Audio Files",
+        "DownloadAudio": "Download Audio Files"
       },
       "HSK2": {
         "Title": "New HSK 3.0 Level 2",
         "Alt": "Cover of New HSK 3.0 Level 2 book",
         "Textbook": "HSK 3.0 Level 2 - Textbook",
-        "Audio": "HSK 3.0 Level 2 - Audio Files"
+        "Audio": "Listen to Audio Files",
+        "DownloadAudio": "Download Audio Files"
       },
       "HSK3": {
         "Title": "New HSK 3.0 Level 3",
         "Alt": "Cover of New HSK 3.0 Level 3 book",
         "Textbook": "HSK 3.0 Level 3 - Textbook",
-        "Audio": "HSK 3.0 Level 3 - Audio Files"
+        "Audio": "Listen to Audio Files",
+        "DownloadAudio": "Download Audio Files"
       }
     }
   },
