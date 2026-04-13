@@ -428,6 +428,16 @@
       "Paragraph2": "The phonetic table will be split in two, first maybe buttons with only vowels and their tones, and then the table with all consonants and their tones."
     }
   },
+  "NewHskMockTest2026": {
+    "Metadata": {
+      "Title": "HSK 3.0 2026 Mock Test online and for download",
+      "Description": "Try an HSK 3.0 2026 mock test online or download it to practice in person."
+    },
+    "HeroTitle": "HSK 3.0 2026 mock test online",
+    "HeroMessage1": "This site aims to help you get a better idea of what the new HSK 3.0 2026 exam might be like. Choose a level and exam of your interest and an interactive digital version will open.",
+    "HeroMessage2": "The mock tests were created based on the new HSK 3.0 2026 curriculum. If you have any exam you'd like to share, please contact me through X.",
+    "DownloadBundles": "Download the HSK 3.0 2026 mock test bundle (exam, answers, audio file)"
+  },
   "Support": {
     "Metadata": {
       "Title": "Support Baulchino",
