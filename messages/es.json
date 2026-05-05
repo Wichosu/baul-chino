@@ -428,6 +428,16 @@
       "Paragraph2": "La tabla fonética se dividirá en dos, primero botones con solo vocales y sus tonos, y luego la tabla con todas las consonantes y sus tonos."
     }
   },
+  "NewHskMockTest2026": {
+    "Metadata": {
+      "Title": "Mock Test HSK 3.0 2026 en línea y para descargar",
+      "Description": "Prueba un mock test HSK 3.0 2026 en línea o descárgalo para probarlo en persona."
+    },
+    "HeroTitle": "Mock test HSK 3.0 2026 en línea",
+    "HeroMessage1": "Este sitio busca ayudarte a tener una mejor idea de cómo puede ser un examen del nuevo HSK 3.0 2026. Escoge un nivel y examen de tu interés y se abrirá una versión digital interactiva.",
+    "HeroMessage2": "Los mock test fueron creados basados en el nuevo currículo HSK 3.0 2026. Si tienes algún examen que quieras compartir, por favor contáctame a través de X.",
+    "DownloadBundles": "Descarga el paquete HSK 3.0 2026 mock test (examen, respuestas, archivo de audio)"
+  },
   "Support": {
     "Metadata": {
       "Title": "Apoya Baulchino",
