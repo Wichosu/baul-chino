@@ -4,45 +4,54 @@ type Supporter = {
 
 export const supporters: Supporter[] = [
   {
-    name: 'Star',
+    name: "Star",
   },
   {
-    name: 'Leo',
+    name: "Leo",
   },
   {
-    name: 'Vanyafresita',
+    name: "Vanyafresita",
   },
   {
-    name: 'Asem Altarefi',
+    name: "Asem Altarefi",
   },
   {
-    name: '柯美晨',
+    name: "柯美晨",
   },
   {
-    name: 'Noxor11',
+    name: "Noxor11",
   },
   {
-    name: 'Juan Manuel',
+    name: "Juan Manuel",
   },
   {
-    name: 'Lucas Neres',
+    name: "Lucas Neres",
   },
   {
-    name: 'Camilo Galleguillos',
+    name: "Camilo Galleguillos",
   },
   {
-    name: 'Auralyx',
+    name: "Auralyx",
   },
   {
-    name: 'Isaac',
+    name: "Isaac",
   },
   {
-    name: 'Joanna',
+    name: "Joanna",
   },
   {
-    name: 'Abi Vojdani',
+    name: "Abi Vojdani",
   },
   {
-    name: 'Mango Chinese',
+    name: "Mango Chinese",
+  },
+  {
+    name: "Ting",
+  },
+  {
+    name: "Elia Cuevas",
+  },
+  {
+    name: "Marcelo",
   },
 ];
