@@ -1,11 +1,11 @@
-import { Metadata } from 'next';
-import { Hero } from '../../components/Hero';
-import { BookCard } from '../../components/Card';
-import { hasLocale } from 'next-intl';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { routing } from '@/src/i18n/routing';
-import { notFound } from 'next/navigation';
-import { Book } from '../../constants/newhskbooks/newhskbooks.types';
+import { Metadata } from "next";
+import { Hero } from "../../components/Hero";
+import { BookCard } from "../../components/Card";
+import { hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { routing } from "@/src/i18n/routing";
+import { notFound } from "next/navigation";
+import { Book } from "../../constants/newhskbooks/newhskbooks.types";
 
 export async function generateMetadata({
   params,
@@ -15,20 +15,20 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({
     locale,
-    namespace: 'NewHskBooks2026.Metadata',
+    namespace: "NewHskBooks2026.Metadata",
   });
 
   return {
-    title: t('Title'),
-    description: t('Description'),
+    title: t("Title"),
+    description: t("Description"),
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
     },
     alternates: {
-      canonical: '/new-hsk-books-2026',
+      canonical: "/new-hsk-books-2026",
       languages: {
-        en: '/en/new-hsk-books-2026',
-        es: '/es/new-hsk-books-2026',
+        en: "/en/new-hsk-books-2026",
+        es: "/es/new-hsk-books-2026",
       },
     },
   };
@@ -51,67 +51,83 @@ export default async function Page({
 
   setRequestLocale(locale);
 
-  const t = await getTranslations('NewHskBooks2026');
+  const t = await getTranslations("NewHskBooks2026");
 
   // Book data - update URLs when available
   const books: Book[] = [
     {
-      title: t('BookCards.HSK1.Title'),
-      image: '/newhskbooks/new-hsk-1.avif',
-      fallbackImage: '/newhskbooks/new-hsk-1.png',
-      alt: t('BookCards.HSK1.Alt'),
+      title: t("BookCards.HSK1.Title"),
+      image: "/newhskbooks/new-hsk-1.avif",
+      fallbackImage: "/newhskbooks/new-hsk-1.png",
+      alt: t("BookCards.HSK1.Alt"),
       downloadLinks: [
         {
-          name: t('BookCards.HSK1.Textbook'),
-          url: 'https://cdn.baulchino.com/new-hsk-books/hsk-course-1.pdf',
+          name: t("BookCards.HSK1.Textbook"),
+          url: "https://cdn.baulchino.com/new-hsk-books/hsk-course-1.pdf",
         },
         {
-          name: t('BookCards.HSK1.Audio'),
-          url: '/new-hsk-audios-2026',
+          name: t("BookCards.HSK1.Workbook"),
+          url: "https://cdn.baulchino.com/new-hsk-books/hsk-course-1-workbook.pdf",
         },
         {
-          name: t('BookCards.HSK1.DownloadAudio'),
-          url: 'https://cdn.baulchino.com/new-hsk-books-audios/HSK-1-textbook-audio-files.zip',
+          name: t("BookCards.HSK1.Writing"),
+          url: "https://cdn.baulchino.com/new-hsk-books/hsk-course-1-writing.pdf",
+        },
+        {
+          name: t("BookCards.HSK1.Audio"),
+          url: "/new-hsk-audios-2026",
+        },
+        {
+          name: t("BookCards.HSK1.DownloadAudio"),
+          url: "https://cdn.baulchino.com/new-hsk-books-audios/HSK-1-textbook-audio-files.zip",
         },
       ],
     },
     {
-      title: t('BookCards.HSK2.Title'),
-      image: '/newhskbooks/new-hsk-2.avif',
-      fallbackImage: '/newhskbooks/new-hsk-2.png',
-      alt: t('BookCards.HSK2.Alt'),
+      title: t("BookCards.HSK2.Title"),
+      image: "/newhskbooks/new-hsk-2.avif",
+      fallbackImage: "/newhskbooks/new-hsk-2.png",
+      alt: t("BookCards.HSK2.Alt"),
       downloadLinks: [
         {
-          name: t('BookCards.HSK2.Textbook'),
-          url: 'https://cdn.baulchino.com/new-hsk-books/hsk-course-2.pdf',
+          name: t("BookCards.HSK2.Textbook"),
+          url: "https://cdn.baulchino.com/new-hsk-books/hsk-course-2.pdf",
         },
         {
-          name: t('BookCards.HSK2.Audio'),
-          url: '/new-hsk-audios-2026',
+          name: t("BookCards.HSK2.Workbook"),
+          url: "https://cdn.baulchino.com/new-hsk-books/hsk-course-2-workbook.pdf",
         },
         {
-          name: t('BookCards.HSK2.DownloadAudio'),
-          url: 'https://cdn.baulchino.com/new-hsk-books-audios/HSK-2-textbook-audio-files.zip',
+          name: t("BookCards.HSK2.Writing"),
+          url: "https://cdn.baulchino.com/new-hsk-books/hsk-course-2-writing.pdf",
+        },
+        {
+          name: t("BookCards.HSK2.Audio"),
+          url: "/new-hsk-audios-2026",
+        },
+        {
+          name: t("BookCards.HSK2.DownloadAudio"),
+          url: "https://cdn.baulchino.com/new-hsk-books-audios/HSK-2-textbook-audio-files.zip",
         },
       ],
     },
     {
-      title: t('BookCards.HSK3.Title'),
-      image: '/newhskbooks/new-hsk-3.avif',
-      fallbackImage: '/newhskbooks/new-hsk-3.png',
-      alt: t('BookCards.HSK3.Alt'),
+      title: t("BookCards.HSK3.Title"),
+      image: "/newhskbooks/new-hsk-3.avif",
+      fallbackImage: "/newhskbooks/new-hsk-3.png",
+      alt: t("BookCards.HSK3.Alt"),
       downloadLinks: [
         {
-          name: t('BookCards.HSK3.Textbook'),
-          url: 'https://cdn.baulchino.com/new-hsk-books/hsk-course-3.pdf',
+          name: t("BookCards.HSK3.Textbook"),
+          url: "https://cdn.baulchino.com/new-hsk-books/hsk-course-3.pdf",
         },
         {
-          name: t('BookCards.HSK3.Audio'),
-          url: '/new-hsk-audios-2026',
+          name: t("BookCards.HSK3.Audio"),
+          url: "/new-hsk-audios-2026",
         },
         {
-          name: t('BookCards.HSK3.DownloadAudio'),
-          url: 'https://cdn.baulchino.com/new-hsk-books-audios/HSK-3-textbook-audio-files.zip',
+          name: t("BookCards.HSK3.DownloadAudio"),
+          url: "https://cdn.baulchino.com/new-hsk-books-audios/HSK-3-textbook-audio-files.zip",
         },
       ],
     },
@@ -119,15 +135,15 @@ export default async function Page({
 
   return (
     <>
-      <Hero title={t('HeroTitle')}>
-        <span className='block'>{t('HeroMessage1')}</span>
-        <span className='block mt-4'>{t('HeroMessage2')}</span>
+      <Hero title={t("HeroTitle")}>
+        <span className="block">{t("HeroMessage1")}</span>
+        <span className="block mt-4">{t("HeroMessage2")}</span>
       </Hero>
       <section>
-        <h2 className='text-2xl text-black font-medium my-5'>
-          {t('BookCards.Title')}
+        <h2 className="text-2xl text-black font-medium my-5">
+          {t("BookCards.Title")}
         </h2>
-        <div className='grid grid-cols-1 gap-4 justify-center sm:gap-6 lg:gap-8 lg:grid-cols-2 xl:grid-cols-3'>
+        <div className="grid grid-cols-1 gap-4 justify-center sm:gap-6 lg:gap-8 lg:grid-cols-2 xl:grid-cols-3">
           {books.map((book) => (
             <BookCard
               key={book.title}
