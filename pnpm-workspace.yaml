@@ -6,3 +6,5 @@ allowBuilds:
   core-js: true
   sharp: true
   unrs-resolver: true
+minimumReleaseAgeExclude:
+  - baseline-browser-mapping@2.10.42
