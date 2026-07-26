@@ -49,6 +49,7 @@ export default async function Page({
           {supporters.map((supporter, index) => (
             <Chip key={supporter.name + index}>{supporter.name}</Chip>
           ))}
+          <Chip>And the many more anonymous supporters</Chip>
         </div>
       </section>
       <section>
