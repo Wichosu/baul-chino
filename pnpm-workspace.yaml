@@ -7,7 +7,7 @@ allowBuilds:
   sharp: true
   unrs-resolver: true
 minimumReleaseAgeExclude:
-  - baseline-browser-mapping@2.10.42 || 2.11.4
+  - baseline-browser-mapping@2.10.42 || 2.11.4 || 2.11.23
   - '@next/env@16.2.12'
   - '@next/eslint-plugin-next@16.2.12'
   - '@next/swc-darwin-arm64@16.2.12'
@@ -21,3 +21,5 @@ minimumReleaseAgeExclude:
   - eslint-config-next@16.2.12
   - lucide-react@1.27.0
   - next@16.2.12
+  - posthog-js@1.430.3
+  - tailwind-merge@3.7.0
