@@ -72,7 +72,7 @@ export default async function RootLayout({
               </Container>
             </NextIntlClientProvider>
           </PostHogProvider>
-          <Script type='text/javascript'>
+          <Script id='umami-outbound-links' type='text/javascript'>
             {`
               (() => {
                 const name = 'outbound-link-click';

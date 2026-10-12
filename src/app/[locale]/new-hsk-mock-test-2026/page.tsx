@@ -4,7 +4,6 @@ import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/src/i18n/routing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { useTranslations } from "next-intl";
 import { Hero } from "@/src/app/components/Hero";
 import { Card } from "@/src/app/components/Card";
 import { Button } from "@/src/app/components/Button";

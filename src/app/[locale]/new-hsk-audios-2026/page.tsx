@@ -13,7 +13,6 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { hasLocale } from 'next-intl';
 import { routing } from '@/src/i18n/routing';
 import { notFound } from 'next/navigation';
-import { Button } from '../../components/Button';
 
 export async function generateMetadata({
   params,

@@ -10,7 +10,7 @@ export default function TemplateDownload({ toPDF }: Props) {
   const t = useTranslations(
     'TemplateGenerator.TemplateGenerator.TemplateDownload',
   );
-  const { filename } = useTemplateContext();
+  const { filenameRef } = useTemplateContext();
 
   return (
     <section>
@@ -27,7 +27,7 @@ export default function TemplateDownload({ toPDF }: Props) {
         name='filename'
         id='filename'
         placeholder={t('Placeholder')}
-        onChange={(e) => (filename.current = e.target.value.trim())}
+        onChange={(e) => (filenameRef.current = e.target.value.trim())}
         className='
           block text-xl text-black font-normal rounded-md
           bg-transparent border border-black my-5 py-1 px-2
@@ -35,7 +35,7 @@ export default function TemplateDownload({ toPDF }: Props) {
         '
       />
       <Button
-        onClick={() => toPDF(filename.current)}
+        onClick={() => toPDF(filenameRef.current)}
         type='yellow'
         className='text-lg font-medium'
       >

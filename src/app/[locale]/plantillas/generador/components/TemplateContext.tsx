@@ -21,7 +21,7 @@ export type Title = {
 };
 
 type TemplateContext = {
-  filename: RefObject<string>;
+  filenameRef: RefObject<string>;
   gridGap: number;
   squareCount: number;
   squareSize: number;
@@ -40,14 +40,14 @@ export default function TemplateContextProvider({ children }: Props) {
   const [squareCount, setSquareCount] = useState(330);
   const [squareSize, setSquareSize] = useState(12);
 
-  const filename = useRef('');
+  const filenameRef = useRef('');
 
   const [titles, setTitles] = useState<Title[]>([]);
 
   return (
     <TemplateContext.Provider
       value={{
-        filename,
+        filenameRef,
         gridGap,
         squareCount,
         squareSize,
