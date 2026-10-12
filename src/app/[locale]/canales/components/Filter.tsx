@@ -32,8 +32,7 @@ type FilterContext = {
     id: number,
     filter: Dispatch<SetStateAction<number[]>>
   ) => void;
-  resetTrigger: boolean;
-  setUpTrigger: () => void;
+  resetTrigger: number;
   selectedLanguage: number[];
   setSelectedLanguage: Dispatch<SetStateAction<number[]>>;
   selectedCategory: number[];
@@ -45,8 +44,7 @@ export const FilterContext = createContext({
   FetchedCategories: [],
   addIdToFilter: () => {},
   removeIdFromFilter: () => {},
-  resetTrigger: false,
-  setUpTrigger: () => {},
+  resetTrigger: 0,
   selectedLanguage: [],
   setSelectedLanguage: () => {},
   selectedCategory: [],
@@ -65,7 +63,7 @@ export default function Filter({
 
   const [dataChannel, setDataChannel] = useState<IChannel[]>(FetchedChannels);
 
-  const [resetTrigger, setResetTrigger] = useState(false);
+  const [resetTrigger, setResetTrigger] = useState(0);
 
   const supabase = createClient();
 
@@ -126,12 +124,7 @@ export default function Filter({
   const cleanFilters = () => {
     setSelectedLanguage([]);
     setSelectedCategory([]);
-    setResetTrigger(true);
-  };
-
-  //Restart Trigger after reseting filter buttons
-  const setUpTrigger = () => {
-    setResetTrigger(false);
+    setResetTrigger((prev) => prev + 1);
   };
 
   const addIdToFilter = (
@@ -162,7 +155,6 @@ export default function Filter({
         addIdToFilter,
         removeIdFromFilter,
         resetTrigger,
-        setUpTrigger,
         selectedLanguage,
         setSelectedLanguage,
         selectedCategory,

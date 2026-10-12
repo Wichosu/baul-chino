@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect, useContext, Dispatch, SetStateAction } from "react"
+import { useState, useContext, Dispatch, SetStateAction } from "react"
 import { ReactNode } from "react"
 import { FilterContext } from "./Filter"
 
@@ -14,16 +14,16 @@ export default function FilterButton({
   id,
   filter
 }: Props) {
-  const { addIdToFilter, removeIdFromFilter, resetTrigger, setUpTrigger } = useContext(FilterContext)
+  const { addIdToFilter, removeIdFromFilter, resetTrigger } = useContext(FilterContext)
   //Toggle Filter Buttons
   const [toggleFilter, setToggleFilter] = useState(false);
 
-  useEffect(() => {
-    if (resetTrigger) {
-      setToggleFilter(false)
-      setUpTrigger()
-    }
-  }, [resetTrigger, setUpTrigger])
+  //Reset toggle when the parent signals a filter cleanup
+  const [prevResetTrigger, setPrevResetTrigger] = useState(resetTrigger);
+  if (resetTrigger !== prevResetTrigger) {
+    setPrevResetTrigger(resetTrigger);
+    setToggleFilter(false);
+  }
 
   const onClickFilter = () => {
     setToggleFilter((state) => !state)

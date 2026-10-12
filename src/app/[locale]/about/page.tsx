@@ -5,8 +5,6 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/src/i18n/routing';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { RoadmapItem } from '@/src/app/components/Roadmap';
-import { KoFiButton } from '@/src/app/components/KoFiButton';
 
 export async function generateMetadata({
   params,
