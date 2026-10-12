@@ -80,5 +80,23 @@ export const supporters: Supporter[] = [
   },
   {
     name: "Vienna_Roh"
+  },
+  {
+    name: "Ixpilla",
+  },
+  {
+    name: "Roach",
+  },
+  {
+    name: "Maja jiejie",
+  },
+  {
+    name: "Karina",
+  },
+  {
+    name: "res",
+  },
+  {
+    name: "Chitatanga",
   }
 ];
