@@ -224,8 +224,19 @@
         "Title": "New HSK 3.0 Level 3",
         "Alt": "Cover of New HSK 3.0 Level 3 book",
         "Textbook": "HSK 3.0 Level 3 - Textbook",
+        "Workbook": "HSK 3.0 Level 3 - Workbook",
         "Audio": "Listen to Audio Files",
         "DownloadAudio": "Download Audio Files"
+      },
+      "HSK4a": {
+        "Title": "New HSK 3.0 Level 4A",
+        "Alt": "Cover of New HSK 3.0 Level 4A book",
+        "Textbook": "HSK 3.0 Level 4A - Textbook"
+      },
+      "HSK4b": {
+        "Title": "New HSK 3.0 Level 4B",
+        "Alt": "Cover of New HSK 3.0 Level 4B book",
+        "Textbook": "HSK 3.0 Level 4B - Textbook"
       }
     }
   },

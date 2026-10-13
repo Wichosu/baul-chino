@@ -122,12 +122,40 @@ export default async function Page({
           url: "https://cdn.baulchino.com/new-hsk-books/hsk-course-3.pdf",
         },
         {
+          name: t("BookCards.HSK3.Workbook"),
+          url: "https://cdn.baulchino.com/new-hsk-books/hsk-course-3-workbook.pdf",
+        },
+        {
           name: t("BookCards.HSK3.Audio"),
           url: "/new-hsk-audios-2026",
         },
         {
           name: t("BookCards.HSK3.DownloadAudio"),
           url: "https://cdn.baulchino.com/new-hsk-books-audios/HSK-3-textbook-audio-files.zip",
+        },
+      ],
+    },
+    {
+      title: t("BookCards.HSK4a.Title"),
+      image: "/newhskbooks/new-hsk-4a.avif",
+      fallbackImage: "/newhskbooks/new-hsk-4a.jpg",
+      alt: t("BookCards.HSK4a.Alt"),
+      downloadLinks: [
+        {
+          name: t("BookCards.HSK4a.Textbook"),
+          url: "https://cdn.baulchino.com/new-hsk-books/hsk-course-4a.pdf",
+        },
+      ],
+    },
+    {
+      title: t("BookCards.HSK4b.Title"),
+      image: "/newhskbooks/new-hsk-4b.avif",
+      fallbackImage: "/newhskbooks/new-hsk-4b.jpg",
+      alt: t("BookCards.HSK4b.Alt"),
+      downloadLinks: [
+        {
+          name: t("BookCards.HSK4b.Textbook"),
+          url: "https://cdn.baulchino.com/new-hsk-books/hsk-course-4b.pdf",
         },
       ],
     },
