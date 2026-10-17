@@ -145,6 +145,10 @@ export default async function Page({
           name: t("BookCards.HSK4a.Textbook"),
           url: "https://cdn.baulchino.com/new-hsk-books/hsk-course-4a.pdf",
         },
+        {
+          name: t("BookCards.HSK4a.Audio"),
+          url: "/new-hsk-audios-2026",
+        },
       ],
     },
     {
