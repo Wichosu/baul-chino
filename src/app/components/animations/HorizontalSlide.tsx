@@ -1,5 +1,7 @@
+'use client'
 import Image from "next/image"
 import SlideHand from "./assets/SlideHand.svg"
+import { useTranslations } from "next-intl"
 
 type Props = {
   width?: number,
@@ -7,9 +9,11 @@ type Props = {
 }
 
 export default function HorizontalSlide({ width = 20, height = 20 }: Props) {
+  const t = useTranslations('Components')
+
   return (
     <Image
-      alt="Scroll horizontally with your finger"
+      alt={t('HorizontalSlideAlt')}
       src={SlideHand}
       width={width}
       height={height} 

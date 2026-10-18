@@ -40,7 +40,7 @@ export function ReadingMatchImage({
           src={questions[0]?.image?.imageFallback ?? ''}
           alt={
             questions[0]?.image?.alt ??
-            'Error fetching image alt text please refresh the page'
+            t('ImageAltFallback')
           }
           fill
           className='object-contain'

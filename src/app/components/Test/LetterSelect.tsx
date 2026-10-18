@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import {
   SelectRoot,
@@ -6,6 +7,7 @@ import {
   SelectItem,
 } from '@/src/app/components/Select';
 import { SelectOptions } from './Test.types';
+import { useTranslations } from 'next-intl';
 
 export const LETTERS_ABC: SelectOptions[] = ['A', 'B', 'C'];
 export const LETTERS_ABCDEF: SelectOptions[] = ['A', 'B', 'C', 'D', 'E', 'F'];
@@ -21,10 +23,14 @@ export function LetterSelect({
   options,
   onValueChange,
 }: Props) {
+  const t = useTranslations('Test');
+
   return (
     <SelectRoot onValueChange={(value) => onValueChange(value as SelectOptions)}>
-      <SelectTrigger ariaLabel={`options for question ${questionNumber}`}>
-        Choose a letter
+      <SelectTrigger
+        ariaLabel={t('LetterSelect.AriaLabel', { questionNumber })}
+      >
+        {t('LetterSelect.Trigger')}
       </SelectTrigger>
       <SelectContent>
         {options.map((option) => (

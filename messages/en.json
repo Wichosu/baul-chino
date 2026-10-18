@@ -33,8 +33,10 @@
       "TemplateGenerator": "Generate customized templates for targeted practice",
       "About": "Information about the author and Baulchino",
       "Roadmap": "Future plans for Baulchino",
-      "Support": "Ways to support Baulchino"
-    }
+      "Support": "Ways to support Baulchino",
+      "NewHskMockTest2026": "Try the new HSK 3.0 mock test online or download it"
+    },
+    "NewHskMockTest2026": "New HSK 3.0 Mock Test"
   },
   "Footer": {
     "Message": "More to come. You can suggest your ideas via the media icons below, choose your favorite and click it to reach me out",
@@ -139,6 +141,11 @@
         "Ideas": "You can suggest your ideas via the media icons at the bottom of the page, choose your favorite and click it to reach me out",
         "Errors": "Please send me a message via the media icons at the bottom of the page, choose your favorite and click it to reach me out, please describe the error so I can fix it. I might reply later, but I do read all messages. Thank you."
       }
+    },
+    "Supporters": {
+      "Title": "Supporters and Contributors",
+      "Message": "I want to give a huge shoutout to all the people who have supported me on this journey. You can appear in this section by donation or contributing to the project.",
+      "Anonymous": "And the many more anonymous supporters"
     }
   },
   "AnkiDecks": {
@@ -189,7 +196,15 @@
     "ListContainer": {
       "Title": "Download the PDF book with one click",
       "ListenAudios": "Listen to HSK audios",
-      "MockTest": "Download mock tests"
+      "MockTest": "Download mock tests",
+      "Alts": {
+        "HSK1": "Picture of both HSK 1 books",
+        "HSK2": "Picture of both HSK 2 books",
+        "HSK3": "Picture of both HSK 3 books",
+        "HSK4": "Picture of both HSK 4 books",
+        "HSK5": "Picture of both HSK 5 books",
+        "HSK6": "Picture of both HSK 6 books"
+      }
     }
   },
   "NewHskBooks2026": {
@@ -272,6 +287,10 @@
       "InputWriter": {
         "Placeholder": "Type a Chinese character (汉字)..."
       }
+    },
+    "Ime": {
+      "Loading": "Loading Ime...",
+      "Hint": "(this allows you to write hanzi without installing anything)..."
     }
   },
   "Templates": {
@@ -402,7 +421,13 @@
       "Check": "Answer true",
       "X": "Answer false"
     },
-    "ShowAnswers": "Show Answers"
+    "ShowAnswers": "Show Answers",
+    "LetterSelect": {
+      "Trigger": "Choose a letter",
+      "AriaLabel": "Options for question {questionNumber}"
+    },
+    "ImageAltFallback": "Error fetching image alt text please refresh the page",
+    "ImageAltMissing": "If I have not place an alt tag here please report this. I do plan on supporting alt tags for screen reader users"
   },
   "About": {
     "Metadata": {
@@ -483,6 +508,13 @@
       "InProgress": "In Progress",
       "Pending": "Pending",
       "Completed": "Completed"
-    }
+    },
+    "HorizontalSlideAlt": "Scroll horizontally with your finger"
+  },
+  "Common": {
+    "Loading": "Loading...",
+    "ErrorTitle": "Something went wrong",
+    "ErrorMessage": "An unexpected error occurred while loading this page.",
+    "Retry": "Try again"
   }
 }

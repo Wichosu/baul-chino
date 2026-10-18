@@ -36,7 +36,7 @@ export function ReadingTrueFalse({
               src={question.imageFallback}
               alt={
                 question.alt ??
-                'Error fetching image alt text please refresh the page'
+                t('ImageAltFallback')
               }
               sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
               fill

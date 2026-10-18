@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 import { createClient } from '@/src/app/utils/supabase/server';
 import { TestClient } from './TestClient';
 import { Test } from './Test.types';
+import { getTranslations } from 'next-intl/server';
 
 type Props = {
   testId: string;
@@ -117,6 +118,8 @@ export async function TestFetch({ testId }: Props) {
     );
   }
 
+  const t = await getTranslations('Test');
+
   const test: Test = {
     level: 'hsk1',
     flowOrder: [
@@ -151,12 +154,12 @@ export async function TestFetch({ testId }: Props) {
           ? {
               image: question.image.image,
               imageFallback: question.image.imageFallback,
-              alt: 'If I have not place an alt tag here please report this. I do plan on supporting alt tags for screen reader users',
+              alt: t('ImageAltMissing'),
             }
           : {
               image: 'Error fetching image please refresh the page',
               imageFallback: 'Error fetching image please refresh the page',
-              alt: 'Error fetching image alt text please refresh the page',
+              alt: t('ImageAltFallback'),
             },
       })),
   };
