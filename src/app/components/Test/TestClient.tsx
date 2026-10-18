@@ -27,8 +27,9 @@ type Props = {
 export function TestClient({ test }: Props) {
   const [showAnswers, setShowAnswers] = React.useState(false);
 
+  //unanswered questions stay undefined so they never match a true/false answer
   const [listeningTrueFalseAnswers, setListeningTrueFalseAnswers] =
-    React.useState<boolean[]>(
+    React.useState<(boolean | undefined)[]>(
       Array.from({ length: test.listeningTrueFalse.length })
     );
 
@@ -65,14 +66,17 @@ export function TestClient({ test }: Props) {
       }))
     );
 
+  //unanswered questions stay undefined so a false answer only counts when the
+  //user actually picked it (previously initialized to false, gifting points for
+  //unanswered false statements)
   const [readingTrueFalseAnswers, setReadingTrueFalseAnswers] = React.useState<
     {
-      answer: boolean;
+      answer: boolean | undefined;
       questionNumber: Database['mock_test']['Tables']['reading_true_false']['Row']['questionNumber'];
     }[]
   >(
     Array.from({ length: test.readingTrueFalse.length }).map(() => ({
-      answer: false,
+      answer: undefined,
       questionNumber: '',
     }))
   );
