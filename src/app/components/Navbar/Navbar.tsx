@@ -12,31 +12,17 @@ import { useTranslations } from 'next-intl';
 import { LanguageSwitcher } from '../LanguageSwitcher';
 import { KoFiButton } from '../KoFiButton';
 
-type NavItem =
-  | {
-      type: 'trigger';
-      trigger: string;
-      content: NavContent[];
-    }
-  | {
-      type: 'link';
-      href: string;
-      title: string;
-    };
+type NavItem = {
+  type: 'trigger';
+  trigger: string;
+  content: NavContent[];
+};
 
 type NavContent = {
   href: string;
   title: string;
   description: string;
 };
-
-// function createNavItem(href: string, title: string): NavItem {
-//   return {
-//     type: 'link',
-//     href,
-//     title,
-//   };
-// }
 
 function createNavItemWithContent(
   trigger: string,
@@ -137,9 +123,6 @@ export function Navbar() {
         </NavbarItem>
         {NavbarItems.map((item, index) => (
           <NavbarItem key={`navitem-${index}`}>
-            {item.type === 'link' && (
-              <NavbarLink href={item.href}>{item.title}</NavbarLink>
-            )}
             {item.type === 'trigger' && (
               <>
                 <NavbarTrigger>{item.trigger}</NavbarTrigger>
