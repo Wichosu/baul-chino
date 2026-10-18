@@ -369,8 +369,7 @@
       "title": "Simulador de Examen HSK en Línea Demo",
       "message": "Este sitio busca ayudarte a tener una mejor idea de cómo puede ser un examen HSK.",
       "message2": "Advertencia: Este es un demo, no el examen real. Está incompleto y se actualizará gradualmente con más preguntas y características para cada nivel HSK",
-      "message3": "Por favor envía tus comentarios a wichosubuilds@gmail.com o a través de cualquiera de los iconos de las redes sociales al final de la página. También agregaré una encuesta a la página para recopilar comentarios pronto.",
-      "error": "Ocurrió un error al cargar la descripción. Si el examen no se muestra, por favor actualiza la página o intenta nuevamente más tarde."
+      "message3": "Por favor envía tus comentarios a wichosubuilds@gmail.com o a través de cualquiera de los iconos de las redes sociales al final de la página. También agregaré una encuesta a la página para recopilar comentarios pronto."
     },
     "Titles": {
       "listeningTrueFalse": "Listening Verdadero o Falso",
@@ -403,8 +402,6 @@
       "Check": "Responder verdadero",
       "X": "Responder falso"
     },
-    "Previous": "Anterior",
-    "Next": "Siguiente",
     "ShowAnswers": "Mostrar Respuestas"
   },
   "About": {

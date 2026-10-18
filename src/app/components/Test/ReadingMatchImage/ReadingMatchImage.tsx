@@ -1,17 +1,13 @@
+'use client';
 import React from 'react';
+import { LetterSelect, LETTERS_ABCDEF } from '../LetterSelect';
+import { QuestionSection } from '../QuestionSection';
 import {
-  SelectRoot,
-  SelectTrigger,
-  SelectContent,
-  SelectItem,
-} from '@/src/app/components/Select';
-import {
-  TestTranslations,
   HandleReadingMatchImageAnswer,
-  SelectOptions,
 } from '../Test.types';
 import { Database } from '@/src/app/types/supabase';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 type Props = {
   questions: (Omit<
@@ -25,30 +21,25 @@ type Props = {
     } | null;
   })[];
   handleReadingMatchImageAnswer: HandleReadingMatchImageAnswer;
-  translations: TestTranslations;
 };
-
-const SELECTOPTIONS: SelectOptions[] = ['A', 'B', 'C', 'D', 'E', 'F'];
 
 export function ReadingMatchImage({
   questions,
   handleReadingMatchImageAnswer,
-  translations,
 }: Props) {
+  const t = useTranslations('Test');
+
   return (
-    <section className='mb-8'>
-      <h2 className='text-3xl font-medium text-center mb-2'>
-        {translations.Titles.readingMatchImage}
-      </h2>
-      <p className='text-xl text-justify w-fit mx-auto mb-6'>
-        {translations.Descriptions.readingMatchImage}
-      </p>
+    <QuestionSection
+      title={t('Titles.readingMatchImage')}
+      description={t('Descriptions.readingMatchImage')}
+    >
       <picture className='block relative w-full h-96 mb-4'>
-        <source src={questions[0].image?.image ?? ''} width={'100%'} />
+        <source src={questions[0]?.image?.image ?? ''} width={'100%'} />
         <Image
-          src={questions[0].image?.imageFallback ?? ''}
+          src={questions[0]?.image?.imageFallback ?? ''}
           alt={
-            questions[0].image?.alt ??
+            questions[0]?.image?.alt ??
             'Error fetching image alt text please refresh the page'
           }
           fill
@@ -68,31 +59,20 @@ export function ReadingMatchImage({
                 <p>{question.sentenceHanzi}</p>
               </div>
             </div>
-            <SelectRoot
+            <LetterSelect
+              questionNumber={question.questionNumber}
+              options={LETTERS_ABCDEF}
               onValueChange={(value) =>
                 handleReadingMatchImageAnswer(
-                  value as SelectOptions,
+                  value,
                   index,
                   question.questionNumber
                 )
               }
-            >
-              <SelectTrigger
-                ariaLabel={`options for question ${question.questionNumber}`}
-              >
-                Choose a letter
-              </SelectTrigger>
-              <SelectContent>
-                {SELECTOPTIONS.map((option) => (
-                  <SelectItem key={option} value={option}>
-                    {option}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </SelectRoot>
+            />
           </article>
         ))}
       </div>
-    </section>
+    </QuestionSection>
   );
 }
