@@ -45,6 +45,7 @@ export function BookCard({
             type='yellow'
             as='link'
             href={link.url}
+            target={link.url.startsWith('/') ? '_self' : '_blank'}
             key={index}
             className='whitespace-normal'
           >

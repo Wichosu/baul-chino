@@ -26,7 +26,6 @@ export function MockTestCard({ title, tests }: Props) {
             type='yellow'
             as='link'
             href={`/hsk-mock-test/${id}`}
-            target='_self'
           >
             {name}
           </Button>

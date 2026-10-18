@@ -77,7 +77,6 @@ export default async function Page({
                     type="yellow"
                     as="link"
                     href={item.url}
-                    target="_self"
                   >
                     {item.title}
                   </Button>

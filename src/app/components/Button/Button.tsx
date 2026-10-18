@@ -53,7 +53,7 @@ const marginClass: Record<ButtonAllowedScale, string> = {
 export function Button({
   as: Tag = 'button',
   href = '',
-  target = '_blank',
+  target = '_self',
   type = 'primary',
   padding = '2',
   margin = '1',

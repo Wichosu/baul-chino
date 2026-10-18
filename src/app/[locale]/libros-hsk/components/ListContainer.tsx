@@ -189,7 +189,13 @@ export default function ListContainer() {
             </picture>
             <div className='flex flex-col text-center mt-2'>
               {card.books.map((book, index) => (
-                <Button type='yellow' as='link' href={book.link} key={index}>
+                <Button
+                  type='yellow'
+                  as='link'
+                  href={book.link}
+                  target='_blank'
+                  key={index}
+                >
                   {book.name}
                 </Button>
               ))}

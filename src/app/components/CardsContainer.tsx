@@ -161,7 +161,6 @@ export default function CardsContainer() {
               type='yellow'
               as='link'
               href={card.linkHref}
-              target='_self'
               margin='none'
               className='block whitespace-normal text-center'
             >
@@ -181,7 +180,6 @@ export default function CardsContainer() {
             type='yellow'
             as='link'
             href='/about'
-            target='_self'
             margin='none'
           >
             {t('About.LinkNameAbout')}
@@ -190,7 +188,6 @@ export default function CardsContainer() {
             type='yellow'
             as='link'
             href='/roadmap'
-            target='_self'
             margin='none'
           >
             {t('About.LinkNameRoadmap')}
@@ -199,7 +196,6 @@ export default function CardsContainer() {
             type='yellow'
             as='link'
             href='/support'
-            target='_self'
             margin='none'
           >
             {t('About.LinkNameSupport')}
