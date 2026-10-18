@@ -9,6 +9,9 @@ import { MockTestBundles } from "@/src/app/constants/hskmocktest/hskmocktestbund
 import { MockTestCardFetch } from "@/src/app/components/MockTestCardFetch";
 import { CardSkeleton } from "@/src/app/components/Card";
 
+// Keep the test list fresh: rendered per request, never baked at build time
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({
   params,
 }: {

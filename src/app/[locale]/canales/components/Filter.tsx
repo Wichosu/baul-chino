@@ -1,11 +1,10 @@
 'use client';
-import { createClient } from '@/src/app/utils/supabase/client';
 import { ILanguage } from '../interfaces/ILanguage';
 import { IChannel } from '../interfaces/IChannel';
 import { ICategory } from '../interfaces/ICategory';
 import {
   useState,
-  useEffect,
+  useMemo,
   createContext,
   Dispatch,
   SetStateAction,
@@ -24,15 +23,6 @@ type Props = {
 type FilterContext = {
   FetchedLanguages: ILanguage[];
   FetchedCategories: ICategory[];
-  addIdToFilter: (
-    id: number,
-    filter: Dispatch<SetStateAction<number[]>>
-  ) => void;
-  removeIdFromFilter: (
-    id: number,
-    filter: Dispatch<SetStateAction<number[]>>
-  ) => void;
-  resetTrigger: number;
   selectedLanguage: number[];
   setSelectedLanguage: Dispatch<SetStateAction<number[]>>;
   selectedCategory: number[];
@@ -42,9 +32,6 @@ type FilterContext = {
 export const FilterContext = createContext({
   FetchedLanguages: [],
   FetchedCategories: [],
-  addIdToFilter: () => {},
-  removeIdFromFilter: () => {},
-  resetTrigger: 0,
   selectedLanguage: [],
   setSelectedLanguage: () => {},
   selectedCategory: [],
@@ -61,90 +48,29 @@ export default function Filter({
   const [selectedLanguage, setSelectedLanguage] = useState<number[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<number[]>([]);
 
-  const [dataChannel, setDataChannel] = useState<IChannel[]>(FetchedChannels);
-
-  const [resetTrigger, setResetTrigger] = useState(0);
-
-  const supabase = createClient();
-
-  // This effect will run whenever filter selections change
-  useEffect(() => {
-    const fetchFilteredChannel = async () => {
-      // Use all options if nothing is selected
-      const languages =
-        selectedLanguage.length === 0
-          ? FetchedLanguages.map((language) => language.id)
-          : selectedLanguage;
-
-      const categories =
-        selectedCategory.length === 0
-          ? FetchedCategories.map((category) => category.id)
-          : selectedCategory;
-
-      const { data, error } = await supabase
-        .from('channel')
-        .select(
-          `
-          *,
-          channel_category!inner (
-            category!inner (
-              id,
-              name
-            )
-          ),
-          channel_language!inner (
-            language!inner (
-              id,
-              name
-            )
-          )
-        `
-        )
-        .in('channel_category.category.id', categories)
-        .in('channel_language.language.id', languages);
-
-      if (error) {
-        console.error('Error fetching filtered data:', error);
-        return;
-      }
-
-      setDataChannel(data as IChannel[]);
-    };
-
-    fetchFilteredChannel();
-  }, [
-    selectedCategory,
-    selectedLanguage,
-    FetchedCategories,
-    FetchedLanguages,
-    supabase,
-  ]);
+  // Client-side filtering mirrors the old inner-join query: a channel passes
+  // when it has at least one selected category AND one selected language
+  // (an empty selection means no restriction on that axis)
+  const filteredChannels = useMemo(
+    () =>
+      FetchedChannels.filter(
+        (channel) =>
+          (selectedCategory.length === 0 ||
+            channel.channel_category.some(({ category }) =>
+              selectedCategory.includes(category.id)
+            )) &&
+          (selectedLanguage.length === 0 ||
+            channel.channel_language.some(({ language }) =>
+              selectedLanguage.includes(language.id)
+            ))
+      ),
+    [FetchedChannels, selectedCategory, selectedLanguage]
+  );
 
   //Clean Filters
   const cleanFilters = () => {
     setSelectedLanguage([]);
     setSelectedCategory([]);
-    setResetTrigger((prev) => prev + 1);
-  };
-
-  const addIdToFilter = (
-    id: number,
-    filter: Dispatch<SetStateAction<number[]>>
-  ) => {
-    filter((prev) => {
-      // Only add if not already in the array
-      if (!prev.includes(id)) {
-        return [...prev, id];
-      }
-      return prev;
-    });
-  };
-
-  const removeIdFromFilter = (
-    id: number,
-    filter: Dispatch<SetStateAction<number[]>>
-  ) => {
-    filter((prev) => prev.filter((item) => item !== id));
   };
 
   return (
@@ -152,9 +78,6 @@ export default function Filter({
       value={{
         FetchedLanguages,
         FetchedCategories,
-        addIdToFilter,
-        removeIdFromFilter,
-        resetTrigger,
         selectedLanguage,
         setSelectedLanguage,
         selectedCategory,
@@ -173,7 +96,7 @@ export default function Filter({
         </button>
         <LanguageFilters />
         <CategoriesFilter />
-        <ChannelsList dataChannel={dataChannel} />
+        <ChannelsList dataChannel={filteredChannels} />
       </section>
     </FilterContext.Provider>
   );

@@ -1,9 +1,11 @@
 "use client"
-import { useTemplateContext } from "./TemplateContext"
+import { memo } from "react"
 
-export default function Square() {
-  const { squareSize } = useTemplateContext()
+type Props = {
+  squareSize: number
+}
 
+function Square({ squareSize }: Props) {
   const styles = {
     width: `${squareSize}mm`,
     height: `${squareSize}mm`,
@@ -20,3 +22,5 @@ export default function Square() {
     </div>
   )
 }
+
+export default memo(Square)

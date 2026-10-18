@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl"
 export default function CategoriesFilter() {
   const t = useTranslations('Channels.Filter.CategoriesFilter')
 
-  const { FetchedCategories, selectedCategory, setSelectedCategory } = useContext(FilterContext)
+  const { FetchedCategories, selectedCategory } = useContext(FilterContext)
   const [showAnimation, setShowAnimation] = useState(true)
 
   const categoriesOnTop = FetchedCategories.slice(0, FetchedCategories.length / 2)
@@ -26,7 +26,7 @@ export default function CategoriesFilter() {
             <FilterButton 
               key={index} 
               id={category.id} 
-              filter={setSelectedCategory}
+              filter="category"
             >
               { category.name }
             </FilterButton>
@@ -42,7 +42,7 @@ export default function CategoriesFilter() {
                 <FilterButton 
                   key={index} 
                   id={category.id} 
-                  filter={setSelectedCategory}
+                  filter="category"
                 >
                   { category.name }
                 </FilterButton>
@@ -55,7 +55,7 @@ export default function CategoriesFilter() {
                 <FilterButton 
                   key={index} 
                   id={category.id} 
-                  filter={setSelectedCategory}
+                  filter="category"
                 >
                   { category.name }
                 </FilterButton>

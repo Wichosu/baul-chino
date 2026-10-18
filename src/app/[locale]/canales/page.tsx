@@ -2,12 +2,8 @@ import 'server-only';
 import { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import { createClient } from '@/src/app/utils/supabase/server';
-import { cache } from 'react';
 import { Hero } from '../../components/Hero';
 import Filter from './components/Filter';
-import { ILanguage } from './interfaces/ILanguage';
-import { ICategory } from './interfaces/ICategory';
-import { IChannel } from './interfaces/IChannel';
 import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata({
@@ -33,29 +29,14 @@ export async function generateMetadata({
   };
 }
 
-const getCategories = cache(async () => {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+export default async function Page() {
+  const t = await getTranslations('Channels');
+  const supabase = createClient(cookies());
 
-  const { data } = await supabase.from('category').select('*');
-
-  return data as ICategory[];
-});
-
-const getLanguages = cache(async () => {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
-
-  const { data } = await supabase.from('language').select('*');
-
-  return data as ILanguage[];
-});
-
-const getChannels = cache(async () => {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
-
-  const { data } = await supabase.from('channel').select(`
+  const [categoriesRes, languagesRes, channelsRes] = await Promise.all([
+    supabase.from('category').select('*'),
+    supabase.from('language').select('*'),
+    supabase.from('channel').select(`
       *,
       channel_category!inner (
         category!inner (
@@ -69,21 +50,7 @@ const getChannels = cache(async () => {
           name
         )
       )
-    `);
-
-  return data as IChannel[];
-});
-
-export default async function Page() {
-  const t = await getTranslations('Channels');
-  const categoriesData = getCategories();
-  const languagesData = getLanguages();
-  const channelsData = getChannels();
-
-  const [categories, languages, channels] = await Promise.all([
-    categoriesData,
-    languagesData,
-    channelsData,
+    `),
   ]);
 
   return (
@@ -94,9 +61,9 @@ export default async function Page() {
         <span style={{ display: 'block' }}>{t('HeroMessage2')}</span>
       </Hero>
       <Filter
-        FetchedCategories={categories}
-        FetchedLanguages={languages}
-        FetchedChannels={channels}
+        FetchedCategories={categoriesRes.data ?? []}
+        FetchedLanguages={languagesRes.data ?? []}
+        FetchedChannels={channelsRes.data ?? []}
       />
     </>
   );

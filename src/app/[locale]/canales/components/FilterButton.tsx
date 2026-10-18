@@ -1,38 +1,28 @@
 "use client"
-import { useState, useContext, Dispatch, SetStateAction } from "react"
-import { ReactNode } from "react"
+import { useContext, ReactNode } from "react"
 import { FilterContext } from "./Filter"
 
 interface Props {
   children: string | ReactNode
   id: number
-  filter: Dispatch<SetStateAction<number[]>>
+  filter: "language" | "category"
 }
 
-export default function FilterButton({ 
+export default function FilterButton({
   children,
   id,
   filter
 }: Props) {
-  const { addIdToFilter, removeIdFromFilter, resetTrigger } = useContext(FilterContext)
-  //Toggle Filter Buttons
-  const [toggleFilter, setToggleFilter] = useState(false);
+  const { selectedLanguage, setSelectedLanguage, selectedCategory, setSelectedCategory } = useContext(FilterContext)
 
-  //Reset toggle when the parent signals a filter cleanup
-  const [prevResetTrigger, setPrevResetTrigger] = useState(resetTrigger);
-  if (resetTrigger !== prevResetTrigger) {
-    setPrevResetTrigger(resetTrigger);
-    setToggleFilter(false);
-  }
+  const selected = filter === "language" ? selectedLanguage : selectedCategory
+  const setSelected = filter === "language" ? setSelectedLanguage : setSelectedCategory
+  const isActive = selected.includes(id)
 
   const onClickFilter = () => {
-    setToggleFilter((state) => !state)
-
-    if (toggleFilter) {
-      removeIdFromFilter(id, filter)
-    } else {
-      addIdToFilter(id, filter)
-    }
+    setSelected((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    )
   }
 
   return (
@@ -41,8 +31,8 @@ export default function FilterButton({
       className={`
         cursor-pointer text-lg font-normal inline py-1 px-2 my-2 mx-1
         border-none rounded-md transition whitespace-nowrap snap-start
-        ${!toggleFilter && "text-black bg-gray-300"}
-        ${toggleFilter && "text-white bg-blue-600"}
+        ${!isActive && "text-black bg-gray-300"}
+        ${isActive && "text-white bg-blue-600"}
       `}
     >
       { children }

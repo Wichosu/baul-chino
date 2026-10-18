@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl"
 
 export default function LanguageFilter() {
   const t = useTranslations('Channels.Filter.LanguageFilter')
-  const { FetchedLanguages, selectedLanguage, setSelectedLanguage } = useContext(FilterContext)
+  const { FetchedLanguages, selectedLanguage } = useContext(FilterContext)
 
   return (
     <>
@@ -19,7 +19,7 @@ export default function LanguageFilter() {
           <FilterButton 
             key={index} 
             id={language.id} 
-            filter={setSelectedLanguage}
+            filter="language"
           >
             { language.name }
           </FilterButton>
