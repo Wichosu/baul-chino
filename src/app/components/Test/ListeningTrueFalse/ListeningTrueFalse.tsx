@@ -49,9 +49,7 @@ export function ListeningTrueFalse({
           <Audio
             audioUrl={question.audio}
             caption={`${question.questionNumber}.-`}
-          >
-            <source src={question.audio} />
-          </Audio>
+          />
           <div>
             <ListeningTrueFalseButtons
               translations={translations}

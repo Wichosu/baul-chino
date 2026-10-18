@@ -88,9 +88,7 @@ export default async function Page({
                           caption={`${book.title} - ${audioTrack.title}`}
                           audioUrl={audioTrack.url}
                           key={index}
-                        >
-                          <source src={audioTrack.url} type='audio/mp3' />
-                        </Audio>
+                        />
                       ))}
                     </AccordionContent>
                   </AccordionItem>

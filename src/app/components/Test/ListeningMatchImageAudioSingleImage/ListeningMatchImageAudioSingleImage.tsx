@@ -57,9 +57,7 @@ export function ListeningMatchImageAudioSingleImage({
               <Audio
                 audioUrl={question.audio}
                 caption={question.questionNumber}
-              >
-                <source src={question.audio} />
-              </Audio>
+              />
               <SelectRoot
                 onValueChange={(value) =>
                   handleListeningMatchImageAudioSingleImageAnswer(

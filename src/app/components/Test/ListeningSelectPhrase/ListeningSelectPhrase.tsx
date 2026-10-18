@@ -61,9 +61,7 @@ export function ListeningSelectPhrase({
               <Audio
                 audioUrl={question.audio}
                 caption={question.questionNumber}
-              >
-                <source src={question.audio} />
-              </Audio>
+              />
               <SelectRoot
                 onValueChange={(
                   answer: Database['public']['Enums']['letter_range']
