@@ -18,9 +18,6 @@ export async function generateMetadata({
   return {
     title: t('Title'),
     description: t('Description'),
-    twitter: {
-      card: 'summary_large_image',
-    },
     alternates: {
       canonical: '/libros-hsk',
       languages: {
@@ -59,6 +56,7 @@ export default async function Page({
           type='yellow'
           as='link'
           href='https://drive.google.com/drive/folders/1sokLkXNydcG5jzs-i639_38LU3bzga1f?usp=sharing'
+          target='_blank'
           padding='1'
           margin='none'
         >

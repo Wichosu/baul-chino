@@ -23,9 +23,6 @@ export async function generateMetadata({
   return {
     title: t('Title'),
     description: t('Description'),
-    twitter: {
-      card: 'summary_large_image',
-    },
     alternates: {
       canonical: '/hsk-audios-download',
       languages: {
@@ -38,15 +35,6 @@ export async function generateMetadata({
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
-
-const hskBooks = [
-  { level: 'HSK 1', id: 'hsk1', zipUrl: '#' },
-  { level: 'HSK 2', id: 'hsk2', zipUrl: '#' },
-  { level: 'HSK 3', id: 'hsk3', zipUrl: '#' },
-  { level: 'HSK 4', id: 'hsk4', zipUrl: '#' },
-  { level: 'HSK 5', id: 'hsk5', zipUrl: '#' },
-  { level: 'HSK 6', id: 'hsk6', zipUrl: '#' },
-];
 
 export default async function Page({
   params,
@@ -104,7 +92,6 @@ export default async function Page({
                     margin='none'
                     padding='2'
                     rounded='1'
-                    target='_self'
                   >
                     {file.title}
                   </Button>

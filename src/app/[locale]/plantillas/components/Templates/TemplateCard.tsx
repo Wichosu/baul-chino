@@ -31,6 +31,7 @@ export default function TemplateCard({
       <Button
         as='link'
         href={pdfUrl}
+        target='_blank'
         type='yellow'
         className='flex items-center w-fit mx-auto text-lg'
       >

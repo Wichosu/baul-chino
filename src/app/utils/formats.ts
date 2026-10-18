@@ -10,7 +10,6 @@ export function formatSeconds(seconds: number, format: AllowedFormats): string {
       }${remainingSeconds}`;
 
       return formatedString;
-      break;
     default:
       throw new Error('No allowed format match with the format given');
   }

@@ -33,8 +33,10 @@
       "TemplateGenerator": "Genera plantillas adaptadas a tu nivel para perfeccionar tu caligrafía",
       "About": "Información sobre el autor y Baulchino",
       "Roadmap": "Planes a futuro de Baulchino",
-      "Support": "Formas de apoyar a Baulchino"
-    }
+      "Support": "Formas de apoyar a Baulchino",
+      "NewHskMockTest2026": "Prueba el nuevo mock test HSK 3.0 en línea o descárgalo"
+    },
+    "NewHskMockTest2026": "Nuevo Mock Test HSK 3.0"
   },
   "Footer": {
     "Message": "Más por venir. Puedes sugerir tus ideas a través de los iconos de las redes sociales, elige tu favorito y haz click para contactarme",
@@ -139,6 +141,11 @@
         "Ideas": "Puedes sugerir tus ideas a través de los iconos de las redes sociales, elige tu favorito y haz click para contactarme",
         "Errors": "Por favor envíame un mensaje via los iconos de las redes sociales, elige tu favorito y haz click para contactarme, por favor describe el error para que pueda corregirlo. Puede que tarde en responder, pero leo todos los mensajes. Gracias."
       }
+    },
+    "Supporters": {
+      "Title": "Colaboradores y contribuidores",
+      "Message": "Quiero agradecer enormemente a todas las personas que me han apoyado en este camino. Puedes aparecer en esta sección donando o contribuyendo al proyecto.",
+      "Anonymous": "Y a muchos más anónimos"
     }
   },
   "AnkiDecks": {
@@ -189,7 +196,15 @@
     "ListContainer": {
       "Title": "Descarga el libro en PDF con un solo clic",
       "ListenAudios": "Escucha los audios HSK",
-      "MockTest": "Descarga los mock tests"
+      "MockTest": "Descarga los mock tests",
+      "Alts": {
+        "HSK1": "Imagen de los dos libros de HSK 1",
+        "HSK2": "Imagen de los dos libros de HSK 2",
+        "HSK3": "Imagen de los dos libros de HSK 3",
+        "HSK4": "Imagen de los dos libros de HSK 4",
+        "HSK5": "Imagen de los dos libros de HSK 5",
+        "HSK6": "Imagen de los dos libros de HSK 6"
+      }
     }
   },
   "NewHskBooks2026": {
@@ -272,6 +287,10 @@
       "InputWriter": {
         "Placeholder": "Escribe un carácter chino (汉字)..."
       }
+    },
+    "Ime": {
+      "Loading": "Cargando el IME...",
+      "Hint": "(esto te permite escribir hanzi sin instalar nada)..."
     }
   },
   "Templates": {
@@ -350,7 +369,6 @@
     "HeroTitle": "Descargar Audios HSK",
     "HeroMessage": "Descarga paquetes de audio completos para cada nivel HSK. Cada archivo ZIP contiene todas las pistas de audio de los libros de texto y cuadernos, organizados para un fácil acceso y práctica sin conexión.",
     "SectionTitle": "Descarga todos los audios de un libro HSK",
-    "DownloadButton": "Descargar ZIP",
     "GoToHskAudios": "Escuchar Audios HSK ahora"
   },
   "HskMockTest": {
@@ -370,8 +388,7 @@
       "title": "Simulador de Examen HSK en Línea Demo",
       "message": "Este sitio busca ayudarte a tener una mejor idea de cómo puede ser un examen HSK.",
       "message2": "Advertencia: Este es un demo, no el examen real. Está incompleto y se actualizará gradualmente con más preguntas y características para cada nivel HSK",
-      "message3": "Por favor envía tus comentarios a wichosubuilds@gmail.com o a través de cualquiera de los iconos de las redes sociales al final de la página. También agregaré una encuesta a la página para recopilar comentarios pronto.",
-      "error": "Ocurrió un error al cargar la descripción. Si el examen no se muestra, por favor actualiza la página o intenta nuevamente más tarde."
+      "message3": "Por favor envía tus comentarios a wichosubuilds@gmail.com o a través de cualquiera de los iconos de las redes sociales al final de la página. También agregaré una encuesta a la página para recopilar comentarios pronto."
     },
     "Titles": {
       "listeningTrueFalse": "Listening Verdadero o Falso",
@@ -404,9 +421,13 @@
       "Check": "Responder verdadero",
       "X": "Responder falso"
     },
-    "Previous": "Anterior",
-    "Next": "Siguiente",
-    "ShowAnswers": "Mostrar Respuestas"
+    "ShowAnswers": "Mostrar Respuestas",
+    "LetterSelect": {
+      "Trigger": "Elige una letra",
+      "AriaLabel": "Opciones para la pregunta {questionNumber}"
+    },
+    "ImageAltFallback": "Error al obtener el texto alternativo de la imagen, actualiza la página",
+    "ImageAltMissing": "Si no coloqué una etiqueta alt aquí, repórtalo. Planeo agregar soporte de etiquetas alt para usuarios de lectores de pantalla"
   },
   "About": {
     "Metadata": {
@@ -487,6 +508,13 @@
       "InProgress": "En Progreso",
       "Pending": "Pendiente",
       "Completed": "Completado"
-    }
+    },
+    "HorizontalSlideAlt": "Desliza horizontalmente con el dedo"
+  },
+  "Common": {
+    "Loading": "Cargando...",
+    "ErrorTitle": "Algo salió mal",
+    "ErrorMessage": "Ocurrió un error inesperado al cargar esta página.",
+    "Retry": "Reintentar"
   }
 }

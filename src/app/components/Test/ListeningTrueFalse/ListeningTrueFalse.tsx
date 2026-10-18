@@ -3,31 +3,28 @@ import React from 'react';
 import Image from 'next/image';
 import Audio from '@/src/app/components/Audio/Audio';
 import { Database } from '@/src/app/types/supabase';
-import {
-  HandleListeningTrueFalseAnswer,
-  TestTranslations,
-} from '../Test.types';
-import { ListeningTrueFalseButtons } from './ListeningTrueFalseButtons';
+import { HandleListeningTrueFalseAnswer } from '../Test.types';
+import { TrueFalseButtons } from '../TrueFalseButtons';
+import { QuestionSection } from '../QuestionSection';
+import { useTranslations } from 'next-intl';
 
 type Props = {
   questions: Database['mock_test']['Tables']['listening_true_false']['Row'][];
   handleListeningTrueFalseAnswer: HandleListeningTrueFalseAnswer;
-  translations: TestTranslations;
 };
 
 export function ListeningTrueFalse({
   questions,
   handleListeningTrueFalseAnswer,
-  translations,
 }: Props) {
+  const t = useTranslations('Test');
+
   return (
-    <section className='mb-12'>
-      <h2 className='text-3xl font-medium text-center mb-2'>
-        {translations.Titles.listeningTrueFalse}
-      </h2>
-      <p className='text-xl text-justify w-fit mx-auto mb-6'>
-        {translations.Descriptions.listeningTrueFalse}
-      </p>
+    <QuestionSection
+      title={t('Titles.listeningTrueFalse')}
+      description={t('Descriptions.listeningTrueFalse')}
+      className='mb-12'
+    >
       {questions?.map((question, index) => (
         <article
           key={question.id}
@@ -39,7 +36,7 @@ export function ListeningTrueFalse({
               src={question.imgFallback}
               alt={
                 question.alt ??
-                'Error fetching image alt text please refresh the page'
+                t('ImageAltFallback')
               }
               sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
               fill
@@ -49,18 +46,16 @@ export function ListeningTrueFalse({
           <Audio
             audioUrl={question.audio}
             caption={`${question.questionNumber}.-`}
-          >
-            <source src={question.audio} />
-          </Audio>
+          />
           <div>
-            <ListeningTrueFalseButtons
-              translations={translations}
-              handleListeningTrueFalseAnswer={handleListeningTrueFalseAnswer}
-              index={index}
+            <TrueFalseButtons
+              onAnswer={(answer) =>
+                handleListeningTrueFalseAnswer(answer, index)
+              }
             />
           </div>
         </article>
       ))}
-    </section>
+    </QuestionSection>
   );
 }

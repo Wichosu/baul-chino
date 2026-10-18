@@ -3,37 +3,29 @@ import React from 'react';
 import { Button } from '@/src/app/components/Button';
 import { Check, X } from 'lucide-react';
 import { VisuallyHidden } from '@/src/app/components/VisuallyHidden';
-import {
-  HandleListeningTrueFalseAnswer,
-  TestTranslations,
-} from '../Test.types';
+import { useTranslations } from 'next-intl';
 
-type states = 'initial' | 'greenSelected' | 'redSelected';
+type State = 'initial' | 'greenSelected' | 'redSelected';
 
 type Props = {
-  translations: TestTranslations;
-  handleListeningTrueFalseAnswer: HandleListeningTrueFalseAnswer;
-  index: number;
+  onAnswer: (answer: boolean) => void;
 };
 
-export function ListeningTrueFalseButtons({
-  translations,
-  handleListeningTrueFalseAnswer,
-  index,
-}: Props) {
-  const [state, setState] = React.useState<states>('initial');
+export function TrueFalseButtons({ onAnswer }: Props) {
+  const [state, setState] = React.useState<State>('initial');
+  const t = useTranslations('Test');
 
-  const handleState = (newState: states) => {
+  function handleState(newState: State) {
     setState(newState);
 
     if (newState === 'greenSelected') {
-      handleListeningTrueFalseAnswer(true, index);
+      onAnswer(true);
     }
 
     if (newState === 'redSelected') {
-      handleListeningTrueFalseAnswer(false, index);
+      onAnswer(false);
     }
-  };
+  }
 
   return (
     <>
@@ -43,7 +35,7 @@ export function ListeningTrueFalseButtons({
         className={`${state === 'redSelected' && 'opacity-30'}`}
       >
         <Check />
-        <VisuallyHidden>{translations.check}</VisuallyHidden>
+        <VisuallyHidden>{t('Icons.Check')}</VisuallyHidden>
       </Button>
       <Button
         type='lightred'
@@ -51,7 +43,7 @@ export function ListeningTrueFalseButtons({
         className={`${state === 'greenSelected' && 'opacity-30'}`}
       >
         <X />
-        <VisuallyHidden>{translations.x}</VisuallyHidden>
+        <VisuallyHidden>{t('Icons.X')}</VisuallyHidden>
       </Button>
     </>
   );

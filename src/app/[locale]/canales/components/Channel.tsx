@@ -20,10 +20,14 @@ export default function Channel({ channel }: Props) {
         {channel.description}
       </p>
       <Categories>
-        {channel.channel_category.map(({ category }) => `${category.name} | `)}
+        {channel.channel_category
+          .map(({ category }) => category.name)
+          .join(' | ')}
       </Categories>
       <Categories>
-        {channel.channel_language.map(({ language }) => `${language.name} | `)}
+        {channel.channel_language
+          .map(({ language }) => language.name)
+          .join(' | ')}
       </Categories>
     </article>
   );

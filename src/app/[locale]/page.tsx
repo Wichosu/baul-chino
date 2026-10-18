@@ -38,18 +38,16 @@ export default async function Page({
       <CardsContainer />
       <section className="grid gap-4 my-8">
         <h2 className="text-center text-4xl font-medium">
-          Supporters and Contributors
+          {t("Supporters.Title")}
         </h2>
         <p className="text-center text-lg max-w-3xl mx-auto">
-          I want to give a huge shoutout to all the people who have supported me
-          on this journey. You can appear in this section by donation or
-          contributing to the project.
+          {t("Supporters.Message")}
         </p>
         <div className="flex flex-wrap gap-2 justify-center">
           {supporters.map((supporter, index) => (
             <Chip key={supporter.name + index}>{supporter.name}</Chip>
           ))}
-          <Chip>And the many more anonymous supporters</Chip>
+          <Chip>{t("Supporters.Anonymous")}</Chip>
         </div>
       </section>
       <section>

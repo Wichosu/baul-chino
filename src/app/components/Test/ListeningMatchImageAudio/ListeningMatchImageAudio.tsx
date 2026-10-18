@@ -1,44 +1,29 @@
+'use client';
 import React from 'react';
 import { Database } from '@/src/app/types/supabase';
-import {
-  HandleListeningMatchImageAudioAnswer,
-  TestTranslations,
-} from '@/src/app/components/Test/Test.types';
+import { HandleListeningMatchImageAudioAnswer } from '@/src/app/components/Test/Test.types';
 import Image from 'next/image';
 import Audio from '@/src/app/components/Audio/Audio';
-import {
-  SelectRoot,
-  SelectTrigger,
-  SelectContent,
-  SelectItem,
-} from '@/src/app/components/Select';
+import { LetterSelect, LETTERS_ABC } from '../LetterSelect';
+import { QuestionSection } from '../QuestionSection';
+import { useTranslations } from 'next-intl';
 
 type Props = {
   questions: Database['mock_test']['Tables']['listening_match_image_audio']['Row'][];
   handleListeningMatchImageAudioAnswer: HandleListeningMatchImageAudioAnswer;
-  translations: TestTranslations;
 };
-
-type SelectOptions = Extract<
-  Database['public']['Enums']['letter_range'],
-  'A' | 'B' | 'C'
->;
-
-const SELECTOPTIONS: SelectOptions[] = ['A', 'B', 'C'];
 
 export function ListeningMatchImageAudio({
   questions,
   handleListeningMatchImageAudioAnswer,
-  translations,
 }: Props) {
+  const t = useTranslations('Test');
+
   return (
-    <section className='mb-8'>
-      <h2 className='text-3xl font-medium text-center mb-2'>
-        {translations.Titles.listeningMatchImageAudio}
-      </h2>
-      <p className='text-xl text-justify w-fit mx-auto mb-6'>
-        {translations.Descriptions.listeningMatchImageAudio}
-      </p>
+    <QuestionSection
+      title={t('Titles.listeningMatchImageAudio')}
+      description={t('Descriptions.listeningMatchImageAudio')}
+    >
       <div className='flex flex-col gap-12'>
         {questions.map((question, index) => (
           <article key={question.id}>
@@ -58,10 +43,10 @@ export function ListeningMatchImageAudio({
               <Audio
                 audioUrl={question.audio}
                 caption={`${question.questionNumber}.-`}
-              >
-                <source src={question.audio} />
-              </Audio>
-              <SelectRoot
+              />
+              <LetterSelect
+                questionNumber={question.questionNumber}
+                options={LETTERS_ABC}
                 onValueChange={(value) =>
                   handleListeningMatchImageAudioAnswer(
                     value,
@@ -69,24 +54,11 @@ export function ListeningMatchImageAudio({
                     question.questionNumber
                   )
                 }
-              >
-                <SelectTrigger
-                  ariaLabel={`options for question ${question.questionNumber}`}
-                >
-                  Choose a letter
-                </SelectTrigger>
-                <SelectContent>
-                  {SELECTOPTIONS.map((option) => (
-                    <SelectItem key={option} value={option}>
-                      {option}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </SelectRoot>
+              />
             </div>
           </article>
         ))}
       </div>
-    </section>
+    </QuestionSection>
   );
 }

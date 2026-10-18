@@ -1,10 +1,8 @@
 import React from 'react';
 import { Button, DownloadButton } from '../Button';
 import { LoaderCircle, Pause, Play, RotateCcw } from 'lucide-react';
-import { Translation } from './Audio.types';
+import { AudioStatus, Translation } from './Audio.types';
 import { VisuallyHidden } from '@/src/app/components/VisuallyHidden';
-
-type AudioStatus = 'playing' | 'pause' | 'finished' | 'loading';
 
 type Props = {
   caption: string;
@@ -21,8 +19,6 @@ type Props = {
   handleMouseClickRelease: () => void;
   handleKeyRelease: (event: React.KeyboardEvent) => void;
   handlePlayButtonKeyRelease: (event: React.KeyboardEvent) => void;
-  audioRef: React.RefObject<HTMLAudioElement>;
-  children: React.ReactNode;
   translations: Translation;
 };
 
@@ -39,8 +35,6 @@ export default function AudioSmallScreen({
   handleMouseClickRelease,
   handleKeyRelease,
   handlePlayButtonKeyRelease,
-  audioRef,
-  children,
   translations,
 }: Props) {
   return (
@@ -91,9 +85,6 @@ export default function AudioSmallScreen({
         />
         <DownloadButton url={audioUrl} filename={caption} />
       </div>
-      <audio ref={audioRef} preload='metadata'>
-        {children}
-      </audio>
     </figure>
   );
 }

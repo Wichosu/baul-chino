@@ -28,13 +28,10 @@ export async function generateMetadata({
   return {
     title: t('Title'),
     description: t('Description'),
-    twitter: {
-      card: 'summary_large_image',
-    },
     alternates: {
-      canonical: '/hsk-audios',
+      canonical: '/new-hsk-audios-2026',
       languages: {
-        es: '/es/hsk-audios',
+        es: '/es/new-hsk-audios-2026',
       },
     },
   };
@@ -88,9 +85,7 @@ export default async function Page({
                           caption={`${book.title} - ${audioTrack.title}`}
                           audioUrl={audioTrack.url}
                           key={index}
-                        >
-                          <source src={audioTrack.url} type='audio/mp3' />
-                        </Audio>
+                        />
                       ))}
                     </AccordionContent>
                   </AccordionItem>

@@ -8,7 +8,7 @@ type Props = {
 }
 
 export default function TemplatePreview({ targetRef }: Props) {
-  const { gridGap, squareCount } = useTemplateContext()
+  const { gridGap, squareCount, squareSize } = useTemplateContext()
 
   const gridStyles = {
     gap: `${gridGap}mm`,
@@ -23,7 +23,7 @@ export default function TemplatePreview({ targetRef }: Props) {
           <div className="w-11/12 mx-auto flex flex-wrap" style={gridStyles}>
             {
               Array.from({ length: squareCount }).map((_, index) => (
-                <Square key={index} />
+                <Square key={index} squareSize={squareSize} />
               ))
             }
           </div>

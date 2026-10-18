@@ -11,7 +11,7 @@ type Book = {
 type Card = {
   name: string;
   img: string;
-  alt: string;
+  altKey: string;
   fallbackImg: string;
   books: Book[];
 };
@@ -26,14 +26,14 @@ function createBook(name: string, link: string): Book {
 function createCard(
   name: string,
   img: string,
-  alt: string,
+  altKey: string,
   fallbackImg: string,
   books: Book[],
 ): Card {
   return {
     name: name,
     img: img,
-    alt: alt,
+    altKey: altKey,
     fallbackImg: fallbackImg,
     books: books,
   };
@@ -43,7 +43,7 @@ const BookCards = [
   createCard(
     'HSK-1',
     '/hskbooks/hsk1.avif',
-    'Picture of both HSK 1 books',
+    'Alts.HSK1',
     '/hskbooks/hsk1.jpg',
     [
       createBook(
@@ -63,7 +63,7 @@ const BookCards = [
   createCard(
     'HSK-2',
     '/hskbooks/hsk2.avif',
-    'Picture of both HSK 2 books',
+    'Alts.HSK2',
     '/hskbooks/hsk2.jpg',
     [
       createBook(
@@ -79,7 +79,7 @@ const BookCards = [
   createCard(
     'HSK-3',
     '/hskbooks/hsk3.avif',
-    'Picture of both HSK 3 books',
+    'Alts.HSK3',
     '/hskbooks/hsk3.jpg',
     [
       createBook(
@@ -95,7 +95,7 @@ const BookCards = [
   createCard(
     'HSK-4',
     '/hskbooks/hsk4.avif',
-    'Picture of both HSK 4 books',
+    'Alts.HSK4',
     '/hskbooks/hsk4.jpg',
     [
       createBook(
@@ -119,7 +119,7 @@ const BookCards = [
   createCard(
     'HSK-5',
     '/hskbooks/hsk5.avif',
-    'Picture of both HSK 5 books',
+    'Alts.HSK5',
     '/hskbooks/hsk5.jpg',
     [
       createBook(
@@ -143,7 +143,7 @@ const BookCards = [
   createCard(
     'HSK-6',
     '/hskbooks/hsk6.avif',
-    'Picture of both HSK 6 books',
+    'Alts.HSK6',
     '/hskbooks/hsk6.jpg',
     [
       createBook(
@@ -180,7 +180,7 @@ export default function ListContainer() {
               <source srcSet={card.img} width={500} height={500} />
               <Image
                 src={card.fallbackImg}
-                alt={card.alt}
+                alt={t(card.altKey)}
                 width={500}
                 height={500}
                 loading='lazy'
@@ -189,7 +189,13 @@ export default function ListContainer() {
             </picture>
             <div className='flex flex-col text-center mt-2'>
               {card.books.map((book, index) => (
-                <Button type='yellow' as='link' href={book.link} key={index}>
+                <Button
+                  type='yellow'
+                  as='link'
+                  href={book.link}
+                  target='_blank'
+                  key={index}
+                >
                   {book.name}
                 </Button>
               ))}

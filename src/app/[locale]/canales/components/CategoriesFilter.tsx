@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl"
 export default function CategoriesFilter() {
   const t = useTranslations('Channels.Filter.CategoriesFilter')
 
-  const { FetchedCategories, selectedCategory, setSelectedCategory } = useContext(FilterContext)
+  const { FetchedCategories, selectedCategory } = useContext(FilterContext)
   const [showAnimation, setShowAnimation] = useState(true)
 
   const categoriesOnTop = FetchedCategories.slice(0, FetchedCategories.length / 2)
@@ -22,11 +22,11 @@ export default function CategoriesFilter() {
       </h3>
       <div className="hidden lg:block">
         {
-          FetchedCategories.map((category, index) => (
+          FetchedCategories.map((category) => (
             <FilterButton 
-              key={index} 
+              key={category.id} 
               id={category.id} 
-              filter={setSelectedCategory}
+              filter="category"
             >
               { category.name }
             </FilterButton>
@@ -35,14 +35,14 @@ export default function CategoriesFilter() {
       </div>
       <div onTouchStart={() => setShowAnimation(() => false)} className="relative isolate lg:hidden">
         { showAnimation && <HorizontalSlide /> }
-        <div className="overflow-auto scroll-smooth snap-mandatory snap-x" style={{scrollbarWidth: "none"}}>
+        <div className="overflow-auto scroll-smooth snap-mandatory snap-x scrollbar-none">
           <div className="flex">
             {
-              categoriesOnTop.map((category, index) => (
+              categoriesOnTop.map((category) => (
                 <FilterButton 
-                  key={index} 
+                  key={category.id} 
                   id={category.id} 
-                  filter={setSelectedCategory}
+                  filter="category"
                 >
                   { category.name }
                 </FilterButton>
@@ -51,11 +51,11 @@ export default function CategoriesFilter() {
           </div>
           <div className="flex">
             {
-              categoriesOnBottom.map((category, index) => (
+              categoriesOnBottom.map((category) => (
                 <FilterButton 
-                  key={index} 
+                  key={category.id} 
                   id={category.id} 
-                  filter={setSelectedCategory}
+                  filter="category"
                 >
                   { category.name }
                 </FilterButton>

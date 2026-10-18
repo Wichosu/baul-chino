@@ -1,14 +1,19 @@
 import 'server-only';
 import { Metadata } from 'next';
-import { cookies } from 'next/headers';
 import { createClient } from '@/src/app/utils/supabase/server';
-import { cache } from 'react';
-import { Hero } from '../../components/Hero';
+import { hasLocale } from 'next-intl';
+import { notFound } from 'next/navigation';
+import { Hero } from '@/src/app/components/Hero';
 import Filter from './components/Filter';
-import { ILanguage } from './interfaces/ILanguage';
-import { ICategory } from './interfaces/ICategory';
-import { IChannel } from './interfaces/IChannel';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { routing } from '@/src/i18n/routing';
+
+//revalidate at most once an hour so new channels show up without a redeploy
+export const revalidate = 3600;
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({
   params,
@@ -21,9 +26,6 @@ export async function generateMetadata({
   return {
     title: t('Title'),
     description: t('Description'),
-    twitter: {
-      card: 'summary_large_image',
-    },
     alternates: {
       canonical: '/canales',
       languages: {
@@ -33,29 +35,26 @@ export async function generateMetadata({
   };
 }
 
-const getCategories = cache(async () => {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
 
-  const { data } = await supabase.from('category').select('*');
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
 
-  return data as ICategory[];
-});
+  setRequestLocale(locale);
 
-const getLanguages = cache(async () => {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+  const t = await getTranslations('Channels');
+  const supabase = createClient();
 
-  const { data } = await supabase.from('language').select('*');
-
-  return data as ILanguage[];
-});
-
-const getChannels = cache(async () => {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
-
-  const { data } = await supabase.from('channel').select(`
+  const [categoriesRes, languagesRes, channelsRes] = await Promise.all([
+    supabase.from('category').select('*'),
+    supabase.from('language').select('*'),
+    supabase.from('channel').select(`
       *,
       channel_category!inner (
         category!inner (
@@ -69,21 +68,7 @@ const getChannels = cache(async () => {
           name
         )
       )
-    `);
-
-  return data as IChannel[];
-});
-
-export default async function Page() {
-  const t = await getTranslations('Channels');
-  const categoriesData = getCategories();
-  const languagesData = getLanguages();
-  const channelsData = getChannels();
-
-  const [categories, languages, channels] = await Promise.all([
-    categoriesData,
-    languagesData,
-    channelsData,
+    `),
   ]);
 
   return (
@@ -94,9 +79,9 @@ export default async function Page() {
         <span style={{ display: 'block' }}>{t('HeroMessage2')}</span>
       </Hero>
       <Filter
-        FetchedCategories={categories}
-        FetchedLanguages={languages}
-        FetchedChannels={channels}
+        FetchedCategories={categoriesRes.data ?? []}
+        FetchedLanguages={languagesRes.data ?? []}
+        FetchedChannels={channelsRes.data ?? []}
       />
     </>
   );

@@ -23,13 +23,9 @@ export async function generateMetadata({
   return {
     title: t("Title"),
     description: t("Description"),
-    twitter: {
-      card: "summary_large_image",
-    },
     alternates: {
       canonical: "/new-hsk-mock-test-2026",
       languages: {
-        en: "/en/new-hsk-mock-test-2026",
         es: "/es/new-hsk-mock-test-2026",
       },
     },
@@ -76,7 +72,6 @@ export default async function Page({
                     type="yellow"
                     as="link"
                     href={item.url}
-                    target="_self"
                   >
                     {item.title}
                   </Button>

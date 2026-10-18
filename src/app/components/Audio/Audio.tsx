@@ -4,17 +4,14 @@ import { formatSeconds } from '@/src/app/utils/formats';
 import AudioSmallScreen from './AudioSmallScreen';
 import AudioBigScreen from './AudioBigScreen';
 import { useTranslations } from 'next-intl';
-import { Translation } from './Audio.types';
+import { AudioStatus, Translation } from './Audio.types';
 
 type Props = {
   caption: string;
   audioUrl: string;
-  children: React.ReactNode;
 };
 
-type AudioStatus = 'playing' | 'pause' | 'finished' | 'loading';
-
-export default function Audio({ caption, audioUrl, children }: Props) {
+export default function Audio({ caption, audioUrl }: Props) {
   const audioRef = React.useRef<HTMLAudioElement>(null!);
   const [audioStatus, setAudioStatus] = React.useState<AudioStatus>('loading');
   const [audioTimeTracker, setAudioTimeTracker] = React.useState(0);
@@ -158,9 +155,9 @@ export default function Audio({ caption, audioUrl, children }: Props) {
 
   return (
     <>
+      <audio ref={audioRef} preload='metadata' src={audioUrl} />
       <AudioSmallScreen
         audioDuration={audioDuration}
-        audioRef={audioRef}
         audioStatus={audioStatus}
         audioTimeTracker={audioTimeTracker}
         audioUrl={audioUrl}
@@ -173,12 +170,9 @@ export default function Audio({ caption, audioUrl, children }: Props) {
         handleMouseClickRelease={handleMouseClickRelease}
         onChangeAudioTimeTracker={onChangeAudioTimeTracker}
         translations={translations}
-      >
-        {children}
-      </AudioSmallScreen>
+      />
       <AudioBigScreen
         audioDuration={audioDuration}
-        audioRef={audioRef}
         audioStatus={audioStatus}
         audioTimeTracker={audioTimeTracker}
         audioUrl={audioUrl}
@@ -192,9 +186,7 @@ export default function Audio({ caption, audioUrl, children }: Props) {
         handleVolume={handleVolume}
         onChangeAudioTimeTracker={onChangeAudioTimeTracker}
         translations={translations}
-      >
-        {children}
-      </AudioBigScreen>
+      />
     </>
   );
 }

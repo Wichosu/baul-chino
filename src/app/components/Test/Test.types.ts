@@ -38,41 +38,6 @@ export type Test = {
   })[];
 };
 
-export type TestTranslations = {
-  Titles: {
-    listeningTrueFalse: string;
-    listeningMatchImageAudio: string;
-    listeningMatchImageAudioSingleImage: string;
-    listeningSelectPhrase: string;
-    readingTrueFalse: string;
-    readingMatchImage: string;
-  };
-  Descriptions: {
-    listeningTrueFalse: string;
-    listeningMatchImageAudio: string;
-    listeningMatchImageAudioSingleImage: string;
-    listeningSelectPhrase: string;
-    readingTrueFalse: string;
-    readingMatchImage: string;
-  };
-  Answers: {
-    score: string;
-    test: string;
-    your: string;
-    listeningTrueFalse: string;
-    listeningMatchImageAudio: string;
-    listeningMatchImageAudioSingleImage: string;
-    listeningSelectPhrase: string;
-    readingTrueFalse: string;
-    readingMatchImage: string;
-  };
-  check: string;
-  x: string;
-  previous: string;
-  next: string;
-  showAnswers: string;
-};
-
 /**SECTION ANSWER TYPES */
 export type HandleListeningTrueFalseAnswer = (
   answer: boolean,

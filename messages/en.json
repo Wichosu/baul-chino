@@ -33,8 +33,10 @@
       "TemplateGenerator": "Generate customized templates for targeted practice",
       "About": "Information about the author and Baulchino",
       "Roadmap": "Future plans for Baulchino",
-      "Support": "Ways to support Baulchino"
-    }
+      "Support": "Ways to support Baulchino",
+      "NewHskMockTest2026": "Try the new HSK 3.0 mock test online or download it"
+    },
+    "NewHskMockTest2026": "New HSK 3.0 Mock Test"
   },
   "Footer": {
     "Message": "More to come. You can suggest your ideas via the media icons below, choose your favorite and click it to reach me out",
@@ -139,6 +141,11 @@
         "Ideas": "You can suggest your ideas via the media icons at the bottom of the page, choose your favorite and click it to reach me out",
         "Errors": "Please send me a message via the media icons at the bottom of the page, choose your favorite and click it to reach me out, please describe the error so I can fix it. I might reply later, but I do read all messages. Thank you."
       }
+    },
+    "Supporters": {
+      "Title": "Supporters and Contributors",
+      "Message": "I want to give a huge shoutout to all the people who have supported me on this journey. You can appear in this section by donation or contributing to the project.",
+      "Anonymous": "And the many more anonymous supporters"
     }
   },
   "AnkiDecks": {
@@ -189,7 +196,15 @@
     "ListContainer": {
       "Title": "Download the PDF book with one click",
       "ListenAudios": "Listen to HSK audios",
-      "MockTest": "Download mock tests"
+      "MockTest": "Download mock tests",
+      "Alts": {
+        "HSK1": "Picture of both HSK 1 books",
+        "HSK2": "Picture of both HSK 2 books",
+        "HSK3": "Picture of both HSK 3 books",
+        "HSK4": "Picture of both HSK 4 books",
+        "HSK5": "Picture of both HSK 5 books",
+        "HSK6": "Picture of both HSK 6 books"
+      }
     }
   },
   "NewHskBooks2026": {
@@ -272,6 +287,10 @@
       "InputWriter": {
         "Placeholder": "Type a Chinese character (汉字)..."
       }
+    },
+    "Ime": {
+      "Loading": "Loading Ime...",
+      "Hint": "(this allows you to write hanzi without installing anything)..."
     }
   },
   "Templates": {
@@ -350,7 +369,6 @@
     "HeroTitle": "Download HSK Audio Files",
     "HeroMessage": "Download complete audio packs for each HSK level. Each ZIP file contains all audio tracks from the textbooks and workbooks, organized for easy offline access and practice.",
     "SectionTitle": "Download all audios from a HSK book",
-    "DownloadButton": "Download ZIP",
     "GoToHskAudios": "Listen HSK Audio Files now"
   },
   "HskMockTest": {
@@ -370,8 +388,7 @@
       "title": "HSK Online Simulator Demo",
       "message": "This page aims to help you get an idea of what an HSK test might be.",
       "message2": "Disclaimer: This is a demo, not the real test. It is incomplete and will be updated gradually with more questions and features for every HSK level",
-      "message3": "Please send feedback to wichosubuilds@gmail.com or any of the media icons at the bottom of the page. I will also add a survey to the page to gather feedback soon.",
-      "error": "An error has occurred while loading the description. If the test is not showing please refresh the page or try again later."
+      "message3": "Please send feedback to wichosubuilds@gmail.com or any of the media icons at the bottom of the page. I will also add a survey to the page to gather feedback soon."
     },
     "Titles": {
       "listeningTrueFalse": "Listening True False",
@@ -404,9 +421,13 @@
       "Check": "Answer true",
       "X": "Answer false"
     },
-    "Previous": "Previous",
-    "Next": "Next",
-    "ShowAnswers": "Show Answers"
+    "ShowAnswers": "Show Answers",
+    "LetterSelect": {
+      "Trigger": "Choose a letter",
+      "AriaLabel": "Options for question {questionNumber}"
+    },
+    "ImageAltFallback": "Error fetching image alt text please refresh the page",
+    "ImageAltMissing": "If I have not place an alt tag here please report this. I do plan on supporting alt tags for screen reader users"
   },
   "About": {
     "Metadata": {
@@ -487,6 +508,13 @@
       "InProgress": "In Progress",
       "Pending": "Pending",
       "Completed": "Completed"
-    }
+    },
+    "HorizontalSlideAlt": "Scroll horizontally with your finger"
+  },
+  "Common": {
+    "Loading": "Loading...",
+    "ErrorTitle": "Something went wrong",
+    "ErrorMessage": "An unexpected error occurred while loading this page.",
+    "Retry": "Try again"
   }
 }

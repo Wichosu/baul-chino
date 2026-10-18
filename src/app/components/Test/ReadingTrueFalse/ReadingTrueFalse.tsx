@@ -2,28 +2,28 @@
 import React from 'react';
 import Image from 'next/image';
 import { Database } from '@/src/app/types/supabase';
-import { HandleReadingTrueFalseAnswer, TestTranslations } from '../Test.types';
-import { ReadingTrueFalseButtons } from './ReadingTrueFalseButtons';
+import { HandleReadingTrueFalseAnswer } from '../Test.types';
+import { TrueFalseButtons } from '../TrueFalseButtons';
+import { QuestionSection } from '../QuestionSection';
+import { useTranslations } from 'next-intl';
 
 type Props = {
   questions: Database['mock_test']['Tables']['reading_true_false']['Row'][];
   handleReadingTrueFalseAnswer: HandleReadingTrueFalseAnswer;
-  translations: TestTranslations;
 };
 
 export function ReadingTrueFalse({
   questions,
   handleReadingTrueFalseAnswer,
-  translations,
 }: Props) {
+  const t = useTranslations('Test');
+
   return (
-    <section className='mb-12'>
-      <h2 className='text-3xl font-medium text-center mb-2'>
-        {translations.Titles.readingTrueFalse}
-      </h2>
-      <p className='text-xl text-justify w-fit mx-auto mb-6'>
-        {translations.Descriptions.readingTrueFalse}
-      </p>
+    <QuestionSection
+      title={t('Titles.readingTrueFalse')}
+      description={t('Descriptions.readingTrueFalse')}
+      className='mb-12'
+    >
       {questions?.map((question, index) => (
         <article
           key={question.id}
@@ -36,7 +36,7 @@ export function ReadingTrueFalse({
               src={question.imageFallback}
               alt={
                 question.alt ??
-                'Error fetching image alt text please refresh the page'
+                t('ImageAltFallback')
               }
               sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
               fill
@@ -44,15 +44,18 @@ export function ReadingTrueFalse({
             />
           </picture>
           <div>
-            <ReadingTrueFalseButtons
-              translations={translations}
-              handleReadingTrueFalseAnswer={handleReadingTrueFalseAnswer}
-              index={index}
-              questionNumber={question.questionNumber}
+            <TrueFalseButtons
+              onAnswer={(answer) =>
+                handleReadingTrueFalseAnswer(
+                  answer,
+                  index,
+                  question.questionNumber
+                )
+              }
             />
           </div>
         </article>
       ))}
-    </section>
+    </QuestionSection>
   );
 }

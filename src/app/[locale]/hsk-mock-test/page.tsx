@@ -1,13 +1,22 @@
 import React from "react";
 import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
-import { useTranslations } from "next-intl";
+import { hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/src/i18n/routing";
 import { Hero } from "@/src/app/components/Hero";
 import { Card } from "@/src/app/components/Card";
 import { Button } from "@/src/app/components/Button";
 import { MockTestBundles } from "@/src/app/constants/hskmocktest/hskmocktestbundles";
 import { MockTestCardFetch } from "@/src/app/components/MockTestCardFetch";
 import { CardSkeleton } from "@/src/app/components/Card";
+
+// Revalidate at most once an hour so new mock tests show up without a redeploy
+export const revalidate = 3600;
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({
   params,
@@ -23,9 +32,6 @@ export async function generateMetadata({
   return {
     title: t("Title"),
     description: t("Description"),
-    twitter: {
-      card: "summary_large_image",
-    },
     alternates: {
       canonical: "/hsk-mock-test",
       languages: {
@@ -35,8 +41,20 @@ export async function generateMetadata({
   };
 }
 
-export default function Page() {
-  const t = useTranslations("HskMockTest");
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+
+  const t = await getTranslations("HskMockTest");
 
   return (
     <>
@@ -65,7 +83,6 @@ export default function Page() {
                     type="yellow"
                     as="link"
                     href={item.url}
-                    target="_self"
                   >
                     {item.title}
                   </Button>
