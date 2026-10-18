@@ -1,123 +1,35 @@
 import { MetadataRoute } from 'next';
 
+const BASE_URL =
+  process.env.NEXT_PUBLIC_BASE_URL ?? 'https://www.baulchino.com';
+
+const ROUTES = [
+  '/',
+  '/mazos-anki',
+  '/libros-hsk',
+  '/hsk-audios',
+  '/hsk-mock-test',
+  '/canales',
+  '/hanzi',
+  '/plantillas',
+  '/plantillas/generador',
+  '/hsk-audios-download',
+  '/support',
+  '/about',
+  '/roadmap',
+  '/new-hsk-books-2026',
+  '/new-hsk-audios-2026',
+  '/new-hsk-mock-test-2026',
+];
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  return [
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
-      alternates: {
-        languages: {
-          en: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
-          es: `${process.env.NEXT_PUBLIC_BASE_URL}/es`,
-        },
+  return ROUTES.map((route) => ({
+    url: `${BASE_URL}${route}`,
+    alternates: {
+      languages: {
+        en: `${BASE_URL}${route}`,
+        es: `${BASE_URL}/es${route}`,
       },
     },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/mazos-anki`,
-      alternates: {
-        languages: {
-          en: `${process.env.NEXT_PUBLIC_BASE_URL}/mazos-anki`,
-          es: `${process.env.NEXT_PUBLIC_BASE_URL}/es/mazos-anki`,
-        },
-      },
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/libros-hsk`,
-      alternates: {
-        languages: {
-          en: `${process.env.NEXT_PUBLIC_BASE_URL}/libros-hsk`,
-          es: `${process.env.NEXT_PUBLIC_BASE_URL}/es/libros-hsk`,
-        },
-      },
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/hsk-audios`,
-      alternates: {
-        languages: {
-          en: `${process.env.NEXT_PUBLIC_BASE_URL}/hsk-audios`,
-          es: `${process.env.NEXT_PUBLIC_BASE_URL}/es/hsk-audios`,
-        },
-      },
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/hsk-mock-test`,
-      alternates: {
-        languages: {
-          en: `${process.env.NEXT_PUBLIC_BASE_URL}/hsk-mock-test`,
-          es: `${process.env.NEXT_PUBLIC_BASE_URL}/es/hsk-mock-test`,
-        },
-      },
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/canales`,
-      alternates: {
-        languages: {
-          en: `${process.env.NEXT_PUBLIC_BASE_URL}/canales`,
-          es: `${process.env.NEXT_PUBLIC_BASE_URL}/es/canales`,
-        },
-      },
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/hanzi`,
-      alternates: {
-        languages: {
-          en: `${process.env.NEXT_PUBLIC_BASE_URL}/hanzi`,
-          es: `${process.env.NEXT_PUBLIC_BASE_URL}/es/hanzi`,
-        },
-      },
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/plantillas`,
-      alternates: {
-        languages: {
-          en: `${process.env.NEXT_PUBLIC_BASE_URL}/plantillas`,
-          es: `${process.env.NEXT_PUBLIC_BASE_URL}/es/plantillas`,
-        },
-      },
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/plantillas/generador`,
-      alternates: {
-        languages: {
-          en: `${process.env.NEXT_PUBLIC_BASE_URL}/plantillas/generador`,
-          es: `${process.env.NEXT_PUBLIC_BASE_URL}/es/plantillas/generador`,
-        },
-      },
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/hsk-audios-download`,
-      alternates: {
-        languages: {
-          en: `${process.env.NEXT_PUBLIC_BASE_URL}/hsk-audios-download`,
-          es: `${process.env.NEXT_PUBLIC_BASE_URL}/es/hsk-audios-download`,
-        },
-      },
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/support`,
-      alternates: {
-        languages: {
-          en: `${process.env.NEXT_PUBLIC_BASE_URL}/support`,
-          es: `${process.env.NEXT_PUBLIC_BASE_URL}/es/support`,
-        },
-      },
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/about`,
-      alternates: {
-        languages: {
-          en: `${process.env.NEXT_PUBLIC_BASE_URL}/about`,
-          es: `${process.env.NEXT_PUBLIC_BASE_URL}/es/about`,
-        },
-      },
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/roadmap`,
-      alternates: {
-        languages: {
-          en: `${process.env.NEXT_PUBLIC_BASE_URL}/roadmap`,
-          es: `${process.env.NEXT_PUBLIC_BASE_URL}/es/roadmap`,
-        },
-      },
-    },
-  ];
+  }));
 }

@@ -29,9 +29,9 @@ export async function generateMetadata({
     title: t('Title'),
     description: t('Description'),
     alternates: {
-      canonical: '/hsk-audios',
+      canonical: '/new-hsk-audios-2026',
       languages: {
-        es: '/es/hsk-audios',
+        es: '/es/new-hsk-audios-2026',
       },
     },
   };

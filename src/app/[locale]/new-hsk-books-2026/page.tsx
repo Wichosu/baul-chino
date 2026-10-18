@@ -24,7 +24,6 @@ export async function generateMetadata({
     alternates: {
       canonical: "/new-hsk-books-2026",
       languages: {
-        en: "/en/new-hsk-books-2026",
         es: "/es/new-hsk-books-2026",
       },
     },

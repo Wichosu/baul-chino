@@ -26,7 +26,6 @@ export async function generateMetadata({
     alternates: {
       canonical: "/new-hsk-mock-test-2026",
       languages: {
-        en: "/en/new-hsk-mock-test-2026",
         es: "/es/new-hsk-mock-test-2026",
       },
     },
