@@ -90,6 +90,11 @@ export function Navbar() {
         t('NewHskAudios2026'),
         t('Descriptions.NewHskAudios2026'),
       ),
+      createNavContent(
+        '/new-hsk-mock-test-2026',
+        t('NewHskMockTest2026'),
+        t('Descriptions.NewHskMockTest2026'),
+      ),
     ]),
     createNavItemWithContent(t('Tools'), [
       createNavContent('/canales', t('Channels'), t('Descriptions.Channels')),
