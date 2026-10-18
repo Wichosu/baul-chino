@@ -15,9 +15,9 @@ export default function LanguageFilter() {
         { selectedLanguage.length > 0 && <span className="text-lg text-black font-normal ml-2.5">({ selectedLanguage.length })</span> }
       </h3>
       {
-        FetchedLanguages.map((language, index) => (
+        FetchedLanguages.map((language) => (
           <FilterButton 
-            key={index} 
+            key={language.id} 
             id={language.id} 
             filter="language"
           >

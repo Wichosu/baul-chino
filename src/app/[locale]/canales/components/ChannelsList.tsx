@@ -9,8 +9,8 @@ export default function ChannelsList({ dataChannel }: Props) {
   return (
     <>
       {
-        dataChannel.map((channel, index) => (
-          <Channel key={index} channel={channel} />
+        dataChannel.map((channel) => (
+          <Channel key={channel.id} channel={channel} />
         ))
       }
     </>

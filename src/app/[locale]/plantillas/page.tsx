@@ -17,9 +17,6 @@ export async function generateMetadata({
   return {
     title: t('Title'),
     description: t('Description'),
-    twitter: {
-      card: 'summary_large_image',
-    },
     alternates: {
       canonical: '/plantillas',
       languages: {

@@ -4,6 +4,8 @@ import {
   AllowedWidthScale,
 } from './Accordion.types';
 
+export { roundedClass, elevationClass } from '../scales';
+
 export const paddingClass: Record<AllowedScale, string> = {
   none: 'px-0 py-0',
   '1': 'px-1 py-0.5 md:px-2 md:py-1',
@@ -33,20 +35,6 @@ export const marginXClass: Record<AllowedMarginScale, string> = {
   '2': 'mx-2 md:mx-4',
   '3': 'mx-3 md:mx-6',
   center: 'mx-auto',
-};
-
-export const roundedClass: Record<AllowedScale, string> = {
-  none: 'rounded-none',
-  '1': 'rounded-md',
-  '2': 'rounded-lg',
-  '3': 'rounded-xl',
-};
-
-export const elevationClass: Record<AllowedScale, string> = {
-  none: '',
-  '1': 'shadow',
-  '2': 'shadow-md',
-  '3': 'shadow-lg',
 };
 
 export const widthClass: Record<AllowedWidthScale, string> = {

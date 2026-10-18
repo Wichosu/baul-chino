@@ -7,6 +7,7 @@ import {
   ButtonProps,
 } from './Button.types';
 import { twMerge } from 'tailwind-merge';
+import { roundedClass } from '../scales';
 
 const allowedTags: ButtonAllowedTags[] = ['link', 'button'];
 const allowedTypes: ButtonAllowedTypes[] = [
@@ -47,13 +48,6 @@ const marginClass: Record<ButtonAllowedScale, string> = {
   '1': 'm-2',
   '2': 'm-4',
   '3': 'm-6',
-};
-
-const roundedClass: Record<ButtonAllowedScale, string> = {
-  none: 'rounded-none',
-  '1': 'rounded-md',
-  '2': 'rounded-lg',
-  '3': 'rounded-xl',
 };
 
 export function Button({

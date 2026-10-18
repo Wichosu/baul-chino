@@ -2,9 +2,12 @@ import 'server-only';
 import { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import { createClient } from '@/src/app/utils/supabase/server';
-import { Hero } from '../../components/Hero';
+import { hasLocale } from 'next-intl';
+import { notFound } from 'next/navigation';
+import { Hero } from '@/src/app/components/Hero';
 import Filter from './components/Filter';
 import { getTranslations } from 'next-intl/server';
+import { routing } from '@/src/i18n/routing';
 
 export async function generateMetadata({
   params,
@@ -17,9 +20,6 @@ export async function generateMetadata({
   return {
     title: t('Title'),
     description: t('Description'),
-    twitter: {
-      card: 'summary_large_image',
-    },
     alternates: {
       canonical: '/canales',
       languages: {
@@ -29,7 +29,17 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page() {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
   const t = await getTranslations('Channels');
   const supabase = createClient(cookies());
 

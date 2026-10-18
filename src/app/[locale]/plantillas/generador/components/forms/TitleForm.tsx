@@ -99,8 +99,7 @@ export default function TitleForm() {
       {titles.map((title, index) => (
         <div
           key={index}
-          className='flex w-full overflow-x-scroll scroll-smooth snap-mandatory'
-          style={{ scrollbarWidth: 'none' }}
+          className='flex w-full overflow-x-scroll scroll-smooth snap-mandatory scrollbar-none'
         >
           <Button
             type='delete'

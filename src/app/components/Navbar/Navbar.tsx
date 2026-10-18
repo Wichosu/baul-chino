@@ -9,6 +9,7 @@ import { NavbarIndicator } from './NavbarIndicator';
 import { NavbarViewport } from './NavbarViewport';
 import { NavbarLink } from './NavbarLink';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { LanguageSwitcher } from '../LanguageSwitcher';
 import { KoFiButton } from '../KoFiButton';
 
@@ -117,7 +118,14 @@ export function Navbar() {
         <NavbarItem>
           <NavbarLink href='/'>
             <picture className='w-5'>
-              <img src='/logo.svg' alt={t('LogoAlt')} />
+              <Image
+                src='/logo.svg'
+                alt={t('LogoAlt')}
+                width={512}
+                height={512}
+                loading='eager'
+                unoptimized
+              />
             </picture>
           </NavbarLink>
         </NavbarItem>

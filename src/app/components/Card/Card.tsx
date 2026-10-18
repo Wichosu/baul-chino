@@ -1,7 +1,7 @@
 import React from 'react';
+import { AllowedScale, roundedClass, elevationClass } from '../scales';
 
 type AllowedTags = 'div' | 'figure' | 'section' | 'article' | 'li';
-type AllowedScale = 'none' | '1' | '2' | '3';
 
 type Props = {
   as?: AllowedTags;
@@ -20,13 +20,6 @@ const allowedTags: AllowedTags[] = [
   'article',
   'li',
 ];
-
-const elevationClass: Record<AllowedScale, string> = {
-  none: '',
-  '1': 'shadow',
-  '2': 'shadow-md',
-  '3': 'shadow-lg',
-};
 
 const borderClass: Record<AllowedScale, string> = {
   none: 'border-0',
@@ -47,13 +40,6 @@ const marginClass: Record<AllowedScale, string> = {
   '1': 'm-2',
   '2': 'm-4',
   '3': 'm-8',
-};
-
-const roundedClass: Record<AllowedScale, string> = {
-  none: 'rounded-none',
-  '1': 'rounded-md',
-  '2': 'rounded-lg',
-  '3': 'rounded-xl',
 };
 
 export function Card({

@@ -1,7 +1,9 @@
 import React from "react";
 import { Metadata } from "next";
+import { hasLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
-import { useTranslations } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "@/src/i18n/routing";
 import { Hero } from "@/src/app/components/Hero";
 import { Card } from "@/src/app/components/Card";
 import { Button } from "@/src/app/components/Button";
@@ -26,9 +28,6 @@ export async function generateMetadata({
   return {
     title: t("Title"),
     description: t("Description"),
-    twitter: {
-      card: "summary_large_image",
-    },
     alternates: {
       canonical: "/hsk-mock-test",
       languages: {
@@ -38,8 +37,18 @@ export async function generateMetadata({
   };
 }
 
-export default function Page() {
-  const t = useTranslations("HskMockTest");
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  const t = await getTranslations("HskMockTest");
 
   return (
     <>

@@ -17,13 +17,12 @@ export default function TemplateSection({ children, data }: Props) {
       <h2 className='text-3xl text-black font-medium'>{children}</h2>
       <article
         onTouchStart={hideAnimation}
-        className='relative mx-auto flex gap-4 overflow-scroll scroll-smooth snap-mandatory snap-x lg:overflow-visible lg:flex-wrap'
-        style={{ scrollbarWidth: 'none' }}
+        className='relative mx-auto flex gap-4 overflow-scroll scroll-smooth snap-mandatory snap-x lg:overflow-visible lg:flex-wrap scrollbar-none'
       >
         {showAnimation && <HorizontalSlide width={40} height={40} />}
-        {data.map((templateCard, index) => (
+        {data.map((templateCard) => (
           <TemplateCard
-            key={index}
+            key={templateCard.img}
             textAlt={templateCard.textAlt}
             img={templateCard.img}
             imgFallback={templateCard.imgFallback}
