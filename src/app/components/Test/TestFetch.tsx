@@ -1,5 +1,4 @@
 import React from 'react';
-import { cookies } from 'next/headers';
 import { createClient } from '@/src/app/utils/supabase/server';
 import { TestClient } from './TestClient';
 import { Test } from './Test.types';
@@ -10,8 +9,7 @@ type Props = {
 };
 
 export async function TestFetch({ testId }: Props) {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = createClient();
 
   //Getting the data from my postgresql db :D
   const [

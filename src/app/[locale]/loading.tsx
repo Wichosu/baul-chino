@@ -1,7 +1,9 @@
-import { getTranslations } from 'next-intl/server';
+'use client';
 
-export default async function Loading() {
-  const t = await getTranslations('Common');
+import { useTranslations } from 'next-intl';
+
+export default function Loading() {
+  const t = useTranslations('Common');
 
   return (
     <div role='status' className='flex justify-center items-center min-h-[60vh]'>

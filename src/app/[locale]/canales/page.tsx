@@ -1,13 +1,19 @@
 import 'server-only';
 import { Metadata } from 'next';
-import { cookies } from 'next/headers';
 import { createClient } from '@/src/app/utils/supabase/server';
 import { hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { Hero } from '@/src/app/components/Hero';
 import Filter from './components/Filter';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/src/i18n/routing';
+
+//revalidate at most once an hour so new channels show up without a redeploy
+export const revalidate = 3600;
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({
   params,
@@ -40,8 +46,10 @@ export default async function Page({
     notFound();
   }
 
+  setRequestLocale(locale);
+
   const t = await getTranslations('Channels');
-  const supabase = createClient(cookies());
+  const supabase = createClient();
 
   const [categoriesRes, languagesRes, channelsRes] = await Promise.all([
     supabase.from('category').select('*'),

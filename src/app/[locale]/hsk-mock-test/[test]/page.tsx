@@ -1,13 +1,24 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { hasLocale } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/src/i18n/routing';
 import { createClient } from '@/src/app/utils/supabase/server';
 import { TestFetch } from '@/src/app/components/Test/TestFetch';
 import { ListeningTrueFalseSkeleton } from '@/src/app/components/Test/ListeningTrueFalse';
 import { TestHero } from '@/src/app/components/Test/TestHero';
+
+//each test page is prerendered at build then revalidated hourly; unknown
+//test ids still render on demand so new tests show up immediately
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  const supabase = createClient();
+  const { data } = await supabase.schema('mock_test').from('mock_test').select('id');
+
+  return (data ?? []).map(({ id }) => ({ test: id }));
+}
 
 export async function generateMetadata({
   params,
@@ -50,6 +61,8 @@ export default async function Page({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+
+  setRequestLocale(locale);
 
   return (
     <>

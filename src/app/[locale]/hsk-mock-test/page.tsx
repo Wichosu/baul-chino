@@ -1,7 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import { hasLocale } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/src/i18n/routing";
 import { Hero } from "@/src/app/components/Hero";
@@ -11,8 +11,12 @@ import { MockTestBundles } from "@/src/app/constants/hskmocktest/hskmocktestbund
 import { MockTestCardFetch } from "@/src/app/components/MockTestCardFetch";
 import { CardSkeleton } from "@/src/app/components/Card";
 
-// Keep the test list fresh: rendered per request, never baked at build time
-export const dynamic = "force-dynamic";
+// Revalidate at most once an hour so new mock tests show up without a redeploy
+export const revalidate = 3600;
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({
   params,
@@ -47,6 +51,8 @@ export default async function Page({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+
+  setRequestLocale(locale);
 
   const t = await getTranslations("HskMockTest");
 
