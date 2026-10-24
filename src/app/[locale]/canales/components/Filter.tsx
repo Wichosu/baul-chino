@@ -5,6 +5,8 @@ import { ICategory } from '../interfaces/ICategory';
 import {
   useState,
   useMemo,
+  useEffect,
+  useRef,
   createContext,
   Dispatch,
   SetStateAction,
@@ -69,6 +71,54 @@ export default function Filter({
       ),
     [FetchedChannels, selectedCategory, selectedLanguage]
   );
+
+  //Restore filter selection from the URL on mount (?cat=1,3&lang=2) so
+  //refresh, back/forward and shared links keep the same view
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('cat');
+    const lang = params.get('lang');
+    if (cat) {
+      setSelectedCategory(
+        cat
+          .split(',')
+          .map(Number)
+          .filter((n) => !Number.isNaN(n))
+      );
+    }
+    if (lang) {
+      setSelectedLanguage(
+        lang
+          .split(',')
+          .map(Number)
+          .filter((n) => !Number.isNaN(n))
+      );
+    }
+  }, []);
+
+  //Reflect the selection back into the URL. Uses history.replaceState instead
+  //of useSearchParams so the page stays a cached (ISR) render.
+  const isFirstRender = useRef(true);
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    const params = new URLSearchParams(window.location.search);
+    if (selectedCategory.length > 0) {
+      params.set('cat', selectedCategory.join(','));
+    } else {
+      params.delete('cat');
+    }
+    if (selectedLanguage.length > 0) {
+      params.set('lang', selectedLanguage.join(','));
+    } else {
+      params.delete('lang');
+    }
+    const query = params.toString();
+    const url = `${window.location.pathname}${query ? `?${query}` : ''}`;
+    window.history.replaceState(null, '', url);
+  }, [selectedCategory, selectedLanguage]);
 
   //Clean Filters
   const cleanFilters = () => {
