@@ -286,7 +286,8 @@
     "Writer": {
       "InputWriter": {
         "Placeholder": "Type a Chinese character (汉字)..."
-      }
+      },
+      "LoadingCanvas": "Loading Canvas..."
     },
     "Ime": {
       "Loading": "Loading Ime...",

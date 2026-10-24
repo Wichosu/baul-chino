@@ -1,7 +1,11 @@
+import { useTranslations } from "next-intl"
+
 export default function LoadingCanvasSkeleton() {
+  const t = useTranslations('Hanzi')
+
   return (
     <>
-      <p className="text-center">Loading Canvas...</p>
+      <p className="text-center">{t('Writer.LoadingCanvas')}</p>
       <div className="w-fit mx-auto flex flex-wrap gap-5">
         <LoadingCanvasSkeletonItem />
         <LoadingCanvasSkeletonItem />
