@@ -429,7 +429,9 @@
       "AriaLabel": "Options for question {questionNumber}"
     },
     "ImageAltFallback": "Error fetching image alt text please refresh the page",
-    "ImageAltMissing": "If I have not place an alt tag here please report this. I do plan on supporting alt tags for screen reader users"
+    "ImageAltMissing": "If I have not place an alt tag here please report this. I do plan on supporting alt tags for screen reader users",
+    "FetchErrorTitle": "Couldn't load the test",
+    "FetchErrorMessage": "Something went wrong while loading the questions. Refresh the page, and if it keeps happening please report it."
   },
   "About": {
     "Metadata": {

@@ -2,6 +2,7 @@ import React from 'react';
 import { createClient } from '@/src/app/utils/supabase/server';
 import { TestClient } from './TestClient';
 import { Test } from './Test.types';
+import { EmptyState } from '@/src/app/components/EmptyState/EmptyState';
 import { getTranslations } from 'next-intl/server';
 
 type Props = {
@@ -10,6 +11,7 @@ type Props = {
 
 export async function TestFetch({ testId }: Props) {
   const supabase = createClient();
+  const t = await getTranslations('Test');
 
   //Getting the data from my postgresql db :D
   const [
@@ -62,61 +64,23 @@ export async function TestFetch({ testId }: Props) {
       .eq('mockTest', testId),
   ]);
 
-  if (!questionsListeningTrueFalse) {
+  //supabase returns data: null when a query fails (vs [] when it succeeds
+  //with no rows), so a null here means the fetch itself broke
+  if (
+    !questionsListeningTrueFalse ||
+    !questionsListeningMatchImageAudio ||
+    !questionsListeningMatchImageAudioSingleImage ||
+    !questionsListeningSelectPhrase ||
+    !questionsReadingTrueFalse ||
+    !questionsReadingMatchImage
+  ) {
     return (
-      <p>
-        No questions found for true or false listening found. Please refresh or
-        report this
-      </p>
+      <EmptyState
+        title={t('FetchErrorTitle')}
+        message={t('FetchErrorMessage')}
+      />
     );
   }
-
-  if (!questionsListeningMatchImageAudio) {
-    return (
-      <p>
-        No questions found for match image audio found. Please refresh or report
-        this
-      </p>
-    );
-  }
-
-  if (!questionsListeningMatchImageAudioSingleImage) {
-    return (
-      <p>
-        No questions found for match image audio single image found. Please
-        refresh or report this
-      </p>
-    );
-  }
-
-  if (!questionsListeningSelectPhrase) {
-    return (
-      <p>
-        No questions found for select phrase found. Please refresh or report
-        this
-      </p>
-    );
-  }
-
-  if (!questionsReadingTrueFalse) {
-    return (
-      <p>
-        No questions found for reading true false found. Please refresh or
-        report this
-      </p>
-    );
-  }
-
-  if (!questionsReadingMatchImage) {
-    return (
-      <p>
-        No questions found for reading match image found. Please refresh or
-        report this
-      </p>
-    );
-  }
-
-  const t = await getTranslations('Test');
 
   const test: Test = {
     level: 'hsk1',

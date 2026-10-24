@@ -429,7 +429,9 @@
       "AriaLabel": "Opciones para la pregunta {questionNumber}"
     },
     "ImageAltFallback": "Error al obtener el texto alternativo de la imagen, actualiza la página",
-    "ImageAltMissing": "Si no coloqué una etiqueta alt aquí, repórtalo. Planeo agregar soporte de etiquetas alt para usuarios de lectores de pantalla"
+    "ImageAltMissing": "Si no coloqué una etiqueta alt aquí, repórtalo. Planeo agregar soporte de etiquetas alt para usuarios de lectores de pantalla",
+    "FetchErrorTitle": "No se pudo cargar el examen",
+    "FetchErrorMessage": "Algo salió mal al cargar las preguntas. Actualiza la página y, si el problema continúa, repórtalo."
   },
   "About": {
     "Metadata": {
