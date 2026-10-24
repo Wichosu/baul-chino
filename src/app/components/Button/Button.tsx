@@ -90,8 +90,10 @@ export function Button({
     throw new Error('href must be a string');
   }
 
+  //min-h-11 (44px) is the minimum comfortable touch target; inline-flex keeps
+  //both the <button> and the <Link> render centered at that height
   const className = twMerge(
-    `${typeClass[type]} ${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]} whitespace-nowrap`,
+    `${typeClass[type]} ${paddingClass[padding]} ${marginClass[margin]} ${roundedClass[rounded]} min-h-11 inline-flex items-center justify-center whitespace-nowrap`,
     props.className
   );
 

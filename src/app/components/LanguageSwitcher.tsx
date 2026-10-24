@@ -26,6 +26,7 @@ export function LanguageSwitcher() {
           margin='none'
           padding='1'
           className='mx-1'
+          aria-current={locale === lang.code ? 'true' : undefined}
           onClick={() => handleLanguageChange(lang.code)}
         >
           {lang.label}
