@@ -58,7 +58,7 @@ export async function TestFetch({ testId }: Props) {
       .select(
         `
       *,
-      image (image, imageFallback)
+      image (image, imageFallback, alt)
       `
       )
       .eq('mockTest', testId),
@@ -116,7 +116,11 @@ export async function TestFetch({ testId }: Props) {
           ? {
               image: question.image.image,
               imageFallback: question.image.imageFallback,
-              alt: t('ImageAltMissing'),
+              //alt is a jsonb column, so only a plain string reaches the img
+              alt:
+                typeof question.image.alt === 'string'
+                  ? question.image.alt
+                  : t('ImageAltMissing'),
             }
           : {
               image: 'Error fetching image please refresh the page',
