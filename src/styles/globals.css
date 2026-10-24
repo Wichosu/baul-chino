@@ -149,7 +149,8 @@
   --muted: hsl(0 0% 97%);
   --muted-foreground: hsl(0 0% 55.6%);
   --border: hsl(0 0% 92.2%);
-  --ring: hsl(0 0% 70.8%);
+  /* focus ring: dark neutral so it keeps >=3:1 against white and light fills */
+  --ring: hsl(0 0% 30%);
   --radius: 0.625rem;
 }
 
@@ -175,6 +176,12 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  /* global keyboard focus indicator: components with their own focus:
+     utilities override this (utilities layer beats base) */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
   }
 }
 
