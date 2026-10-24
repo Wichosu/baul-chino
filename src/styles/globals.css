@@ -1,7 +1,46 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@custom-variant dark (&:is(.dark *));
+/* ============================================================================
+   BAUL CHINO — DESIGN SYSTEM
+   Single source of truth for tokens and visual roles. Components should express
+   intent through the roles below; raw palette colors are assigned per role in
+   section 2. (Note: hyphens in class names below are non-breaking so the Tailwind
+   scanner never picks candidates out of this comment.)
+   ----------------------------------------------------------------------------
+   1. COLOR ROLES (custom properties, exposed as theme utilities)
+      --background / --foreground ..... page surface / base text
+      --muted / --muted-foreground .... subtle panel fill / secondary text
+      --border ........................ hairlines, dashed empty-state borders
+      --ring .......................... focus outlines (see base layer below)
+      --radius ........................ base corner radius (0.625rem)
+
+   2. BRAND PALETTE (raw palette colors used directly in components)
+      yellow-* ............... brand and primary actions (CTAs, highlights)
+      blue-* ................. selection state (active filter chips), links
+      red-* .................. destructive / reset actions
+      green-* / lime-* ....... success feedback
+      gray-* / neutral-* ..... dividers, placeholders, muted icons
+      black / white .......... default text / text on dark surfaces
+
+   3. TYPOGRAPHY — Montserrat, single family (latin subset), with a platform
+      CJK fallback chain (PingFang / Hiragino / YaHei / Noto Sans CJK) so
+      Chinese text renders in a proper Chinese face
+      headings text‑2xl · lead text‑xl · secondary text‑lg · default base
+      long unbreakable strings (URLs in channel descriptions) use break‑words
+
+   4. MOTION (animation tokens defined in @theme below)
+      navbar menu enter/exit ....... 200ms ease
+      horizontal‑slide ............ 1s hint on swipeable strips, hidden on
+                                    first touch and for reduced motion
+      prefers‑reduced‑motion ...... global kill switch at the bottom of this file
+
+   5. FOCUS & TOUCH
+      every interactive element gets a visible focus outline (--ring based)
+      standalone controls (buttons, nav triggers, filter chips) are >=44×44 px;
+      inline content links (channel titles, footer credit) follow their line
+      height and only need the WCAG 2.5.8 minimum of 24×24
+   ============================================================================ */
 
 @theme {
   --animate-horizontal-slide: horizontal-slide 1s ease infinite alternate;
@@ -108,114 +147,32 @@
   }
 }
 
+/* live roles only — the app paints with raw palette colors (see header §2) */
 :root {
   --background: hsl(0 0% 100%);
   --foreground: hsl(0 0% 14.5%);
-  --card: hsl(0 0% 100%);
-  --card-foreground: hsl(0 0% 14.5%);
-  --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(0 0% 14.5%);
-  --primary: hsl(0 0% 20.5%);
-  --primary-foreground: hsl(0 0% 98.5%);
-  --secondary: hsl(0 0% 97%);
-  --secondary-foreground: hsl(0 0% 20.5%);
   --muted: hsl(0 0% 97%);
   --muted-foreground: hsl(0 0% 55.6%);
-  --accent: hsl(0 0% 97%);
-  --accent-foreground: hsl(0 0% 20.5%);
-  --destructive: hsl(0 84% 60%);
-  --destructive-foreground: hsl(0 84% 60%);
   --border: hsl(0 0% 92.2%);
-  --input: hsl(0 0% 92.2%);
-  --ring: hsl(0 0% 70.8%);
-  --chart-1: hsl(39 100% 50%);
-  --chart-2: hsl(173 58% 39%);
-  --chart-3: hsl(197 37% 24%);
-  --chart-4: hsl(43 74% 66%);
-  --chart-5: hsl(27 87% 67%);
+  /* focus ring: dark neutral so it keeps >=3:1 against white and light fills */
+  --ring: hsl(0 0% 30%);
   --radius: 0.625rem;
-  --sidebar: hsl(0 0% 98.5%);
-  --sidebar-foreground: hsl(0 0% 14.5%);
-  --sidebar-primary: hsl(0 0% 20.5%);
-  --sidebar-primary-foreground: hsl(0 0% 98.5%);
-  --sidebar-accent: hsl(0 0% 97%);
-  --sidebar-accent-foreground: hsl(0 0% 20.5%);
-  --sidebar-border: hsl(0 0% 92.2%);
-  --sidebar-ring: hsl(0 0% 70.8%);
 }
 
-.dark {
-  --background: hsl(0 0% 14.5%);
-  --foreground: hsl(0 0% 98.5%);
-  --card: hsl(0 0% 14.5%);
-  --card-foreground: hsl(0 0% 98.5%);
-  --popover: hsl(0 0% 14.5%);
-  --popover-foreground: hsl(0 0% 98.5%);
-  --primary: hsl(0 0% 98.5%);
-  --primary-foreground: hsl(0 0% 20.5%);
-  --secondary: hsl(0 0% 26.9%);
-  --secondary-foreground: hsl(0 0% 98.5%);
-  --muted: hsl(0 0% 26.9%);
-  --muted-foreground: hsl(0 0% 70.8%);
-  --accent: hsl(0 0% 26.9%);
-  --accent-foreground: hsl(0 0% 98.5%);
-  --destructive: hsl(0 62% 50%);
-  --destructive-foreground: hsl(0 93% 73%);
-  --border: hsl(0 0% 26.9%);
-  --input: hsl(0 0% 26.9%);
-  --ring: hsl(0 0% 43.9%);
-  --chart-1: hsl(220 70% 50%);
-  --chart-2: hsl(160 60% 45%);
-  --chart-3: hsl(30 80% 55%);
-  --chart-4: hsl(280 65% 60%);
-  --chart-5: hsl(340 75% 55%);
-  --sidebar: hsl(0 0% 20.5%);
-  --sidebar-foreground: hsl(0 0% 98.5%);
-  --sidebar-primary: hsl(220 70% 50%);
-  --sidebar-primary-foreground: hsl(0 0% 98.5%);
-  --sidebar-accent: hsl(0 0% 26.9%);
-  --sidebar-accent-foreground: hsl(0 0% 98.5%);
-  --sidebar-border: hsl(0 0% 26.9%);
-  --sidebar-ring: hsl(0 0% 43.9%);
-}
+/* the site is light-only: dark-mode tokens were pruned (2026-10-23).
+   If dark mode returns, reintroduce a full token set + toggle as one feature. */
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
-  --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 @layer base {
@@ -224,5 +181,23 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  /* global keyboard focus indicator: components with their own focus:
+     utilities override this (utilities layer beats base) */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+/* reduced motion: kill all non-essential animation/transition/smooth-scroll */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

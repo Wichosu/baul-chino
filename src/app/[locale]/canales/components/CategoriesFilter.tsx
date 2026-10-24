@@ -1,15 +1,16 @@
 "use client"
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { FilterContext } from "./Filter"
 import FilterButton from "./FilterButton"
 import HorizontalSlide from "@/src/app/components/animations/HorizontalSlide"
+import useShowAnimation from "@/src/app/hooks/useShowAnimation"
 import { useTranslations } from "next-intl"
 
 export default function CategoriesFilter() {
   const t = useTranslations('Channels.Filter.CategoriesFilter')
 
   const { FetchedCategories, selectedCategory } = useContext(FilterContext)
-  const [showAnimation, setShowAnimation] = useState(true)
+  const { showAnimation, hideAnimation, hideOnScroll } = useShowAnimation()
 
   const categoriesOnTop = FetchedCategories.slice(0, FetchedCategories.length / 2)
   const categoriesOnBottom = FetchedCategories.slice(FetchedCategories.length / 2, FetchedCategories.length)
@@ -33,9 +34,16 @@ export default function CategoriesFilter() {
           ))
         }
       </div>
-      <div onTouchStart={() => setShowAnimation(() => false)} className="relative isolate lg:hidden">
+      <div
+        onTouchStart={hideAnimation}
+        onFocus={hideAnimation}
+        className="relative isolate lg:hidden"
+      >
         { showAnimation && <HorizontalSlide /> }
-        <div className="overflow-auto scroll-smooth snap-mandatory snap-x scrollbar-none">
+        <div
+          onScroll={hideOnScroll}
+          className="overflow-auto scroll-smooth snap-mandatory snap-x scrollbar-none"
+        >
           <div className="flex">
             {
               categoriesOnTop.map((category) => (

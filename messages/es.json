@@ -286,7 +286,8 @@
     "Writer": {
       "InputWriter": {
         "Placeholder": "Escribe un carácter chino (汉字)..."
-      }
+      },
+      "LoadingCanvas": "Cargando el lienzo..."
     },
     "Ime": {
       "Loading": "Cargando el IME...",
@@ -422,12 +423,16 @@
       "X": "Responder falso"
     },
     "ShowAnswers": "Mostrar Respuestas",
+    "UnansweredConfirm": "Tienes {count, plural, one {# pregunta sin responder} other {# preguntas sin responder}} — ¿mostrar las respuestas de todos modos?",
+    "KeepAnswering": "Seguir Respondiendo",
     "LetterSelect": {
       "Trigger": "Elige una letra",
       "AriaLabel": "Opciones para la pregunta {questionNumber}"
     },
     "ImageAltFallback": "Error al obtener el texto alternativo de la imagen, actualiza la página",
-    "ImageAltMissing": "Si no coloqué una etiqueta alt aquí, repórtalo. Planeo agregar soporte de etiquetas alt para usuarios de lectores de pantalla"
+    "ImageAltMissing": "Si no coloqué una etiqueta alt aquí, repórtalo. Planeo agregar soporte de etiquetas alt para usuarios de lectores de pantalla",
+    "FetchErrorTitle": "No se pudo cargar el examen",
+    "FetchErrorMessage": "Algo salió mal al cargar las preguntas. Actualiza la página y, si el problema continúa, repórtalo."
   },
   "About": {
     "Metadata": {
@@ -515,6 +520,18 @@
     "Loading": "Cargando...",
     "ErrorTitle": "Algo salió mal",
     "ErrorMessage": "Ocurrió un error inesperado al cargar esta página.",
-    "Retry": "Reintentar"
+    "Retry": "Reintentar",
+    "SkipToContent": "Saltar al contenido",
+    "NotFoundTitle": "Página no encontrada",
+    "NotFoundMessage": "La página que buscas no existe o ha sido movida.",
+    "NotFoundHome": "Ir a la página de inicio",
+    "Empty": {
+      "FirstUseTitle": "Aún no hay nada aquí",
+      "FirstUseMessage": "Nuevo contenido se añadirá aquí pronto.",
+      "NoResultsTitle": "No se encontraron resultados",
+      "NoResultsMessage": "Nada coincide con tus filtros. Prueba a cambiarlos o a quitarlos.",
+      "ClearedTitle": "Todo listo",
+      "ClearedMessage": "No queda nada por mostrar."
+    }
   }
 }

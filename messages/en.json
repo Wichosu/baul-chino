@@ -286,7 +286,8 @@
     "Writer": {
       "InputWriter": {
         "Placeholder": "Type a Chinese character (汉字)..."
-      }
+      },
+      "LoadingCanvas": "Loading Canvas..."
     },
     "Ime": {
       "Loading": "Loading Ime...",
@@ -422,12 +423,16 @@
       "X": "Answer false"
     },
     "ShowAnswers": "Show Answers",
+    "UnansweredConfirm": "You have {count, plural, one {# unanswered question} other {# unanswered questions}} — show the answers anyway?",
+    "KeepAnswering": "Keep Answering",
     "LetterSelect": {
       "Trigger": "Choose a letter",
       "AriaLabel": "Options for question {questionNumber}"
     },
     "ImageAltFallback": "Error fetching image alt text please refresh the page",
-    "ImageAltMissing": "If I have not place an alt tag here please report this. I do plan on supporting alt tags for screen reader users"
+    "ImageAltMissing": "If I have not place an alt tag here please report this. I do plan on supporting alt tags for screen reader users",
+    "FetchErrorTitle": "Couldn't load the test",
+    "FetchErrorMessage": "Something went wrong while loading the questions. Refresh the page, and if it keeps happening please report it."
   },
   "About": {
     "Metadata": {
@@ -515,6 +520,18 @@
     "Loading": "Loading...",
     "ErrorTitle": "Something went wrong",
     "ErrorMessage": "An unexpected error occurred while loading this page.",
-    "Retry": "Try again"
+    "Retry": "Try again",
+    "SkipToContent": "Skip to content",
+    "NotFoundTitle": "Page not found",
+    "NotFoundMessage": "The page you are looking for does not exist or has been moved.",
+    "NotFoundHome": "Go to the home page",
+    "Empty": {
+      "FirstUseTitle": "Nothing here yet",
+      "FirstUseMessage": "New content will be added here soon.",
+      "NoResultsTitle": "No results found",
+      "NoResultsMessage": "Nothing matches your filters. Try changing or clearing them.",
+      "ClearedTitle": "All done",
+      "ClearedMessage": "Nothing left to show."
+    }
   }
 }

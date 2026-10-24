@@ -34,9 +34,7 @@ export function ListeningSelectPhrase({
               <source src={question.image} width={100} height={100} />
               <Image
                 src={question.imageFallback}
-                alt={
-                  'If I have not place an alt tag here please report this. I do plan on supporting alt tags for screen reader users'
-                }
+                alt={t('ImageAltMissing')}
                 sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                 fill
                 className='object-contain'
