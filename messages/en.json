@@ -519,6 +519,14 @@
     "SkipToContent": "Skip to content",
     "NotFoundTitle": "Page not found",
     "NotFoundMessage": "The page you are looking for does not exist or has been moved.",
-    "NotFoundHome": "Go to the home page"
+    "NotFoundHome": "Go to the home page",
+    "Empty": {
+      "FirstUseTitle": "Nothing here yet",
+      "FirstUseMessage": "New content will be added here soon.",
+      "NoResultsTitle": "No results found",
+      "NoResultsMessage": "Nothing matches your filters. Try changing or clearing them.",
+      "ClearedTitle": "All done",
+      "ClearedMessage": "Nothing left to show."
+    }
   }
 }

@@ -13,6 +13,8 @@ import ChannelsList from './ChannelsList';
 import LanguageFilters from './LanguageFilter';
 import CategoriesFilter from './CategoriesFilter';
 import { useTranslations } from 'next-intl';
+import { EmptyState } from '@/src/app/components/EmptyState/EmptyState';
+import { Button } from '@/src/app/components/Button';
 
 type Props = {
   FetchedLanguages: ILanguage[];
@@ -44,6 +46,7 @@ export default function Filter({
   FetchedChannels,
 }: Props) {
   const t = useTranslations('Channels.Filter');
+  const tCommon = useTranslations('Common');
   // Start with empty selection arrays instead of all items selected
   const [selectedLanguage, setSelectedLanguage] = useState<number[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<number[]>([]);
@@ -96,7 +99,18 @@ export default function Filter({
         </button>
         <LanguageFilters />
         <CategoriesFilter />
-        <ChannelsList dataChannel={filteredChannels} />
+        {filteredChannels.length === 0 ? (
+          <EmptyState
+            title={tCommon('Empty.NoResultsTitle')}
+            message={tCommon('Empty.NoResultsMessage')}
+          >
+            <Button type='primary' onClick={cleanFilters}>
+              {t('ActionButton')}
+            </Button>
+          </EmptyState>
+        ) : (
+          <ChannelsList dataChannel={filteredChannels} />
+        )}
       </section>
     </FilterContext.Provider>
   );
