@@ -515,6 +515,10 @@
     "Loading": "Loading...",
     "ErrorTitle": "Something went wrong",
     "ErrorMessage": "An unexpected error occurred while loading this page.",
-    "Retry": "Try again"
+    "Retry": "Try again",
+    "SkipToContent": "Skip to content",
+    "NotFoundTitle": "Page not found",
+    "NotFoundMessage": "The page you are looking for does not exist or has been moved.",
+    "NotFoundHome": "Go to the home page"
   }
 }

@@ -515,6 +515,10 @@
     "Loading": "Cargando...",
     "ErrorTitle": "Algo salió mal",
     "ErrorMessage": "Ocurrió un error inesperado al cargar esta página.",
-    "Retry": "Reintentar"
+    "Retry": "Reintentar",
+    "SkipToContent": "Saltar al contenido",
+    "NotFoundTitle": "Página no encontrada",
+    "NotFoundMessage": "La página que buscas no existe o ha sido movida.",
+    "NotFoundHome": "Ir a la página de inicio"
   }
 }
