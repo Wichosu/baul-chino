@@ -26,6 +26,9 @@ type Props = {
 
 export function TestClient({ test }: Props) {
   const [showAnswers, setShowAnswers] = React.useState(false);
+  const [confirmingShowAnswers, setConfirmingShowAnswers] =
+    React.useState(false);
+  const scoreRef = React.useRef<HTMLParagraphElement>(null);
 
   //unanswered questions stay undefined so they never match a true/false answer
   const [listeningTrueFalseAnswers, setListeningTrueFalseAnswers] =
@@ -160,6 +163,34 @@ export function TestClient({ test }: Props) {
     test.listeningSelectPhrase.length +
     test.readingTrueFalse.length +
     test.readingMatchImage.length;
+
+  //count questions the user has actually answered, to warn before scoring
+  const answeredCount =
+    listeningTrueFalseAnswers.filter((a) => a !== undefined).length +
+    listeningMatchImageAudioAnswers.filter((a) => a.answer !== '').length +
+    listeningMatchImageAudioSingleImageAnswers.filter(
+      (a) => a.answer !== ''
+    ).length +
+    listeningSelectPhraseAnswers.filter((a) => a.answer !== '').length +
+    readingTrueFalseAnswers.filter((a) => a.answer !== undefined).length +
+    readingMatchImageAnswers.filter((a) => a.answer !== '').length;
+
+  const unansweredCount = totalQuestions - answeredCount;
+
+  const handleShowAnswers = () => {
+    if (unansweredCount > 0) {
+      setConfirmingShowAnswers(true);
+      return;
+    }
+    setShowAnswers(true);
+  };
+
+  //move focus to the score so screen-reader users are told the result
+  React.useEffect(() => {
+    if (showAnswers) {
+      scoreRef.current?.focus();
+    }
+  }, [showAnswers]);
 
   //evaluate user answers with test answers
   //if true it means correct answer, if false it means incorrect answer
@@ -371,12 +402,37 @@ export function TestClient({ test }: Props) {
         handleReadingMatchImageAnswer={handleReadingMatchImageAnswer}
       />
       <div className='w-fit mx-auto flex flex-col gap-6 items-center'>
-        <Button type='yellow' onClick={() => setShowAnswers(true)}>
-          {t('ShowAnswers')}
-        </Button>
+        {!showAnswers && confirmingShowAnswers && (
+          <div className='flex flex-col items-center gap-3 text-center'>
+            <p className='text-lg' role='alert'>
+              {t('UnansweredConfirm', { count: unansweredCount })}
+            </p>
+            <div className='flex flex-wrap justify-center gap-2'>
+              <Button type='yellow' onClick={() => setShowAnswers(true)}>
+                {t('ShowAnswers')}
+              </Button>
+              <Button
+                type='primary'
+                onClick={() => setConfirmingShowAnswers(false)}
+              >
+                {t('KeepAnswering')}
+              </Button>
+            </div>
+          </div>
+        )}
+        {!showAnswers && !confirmingShowAnswers && (
+          <Button type='yellow' onClick={handleShowAnswers}>
+            {t('ShowAnswers')} ({answeredCount}/{totalQuestions})
+          </Button>
+        )}
         {showAnswers && (
           <>
-            <p className='text-xl italic'>
+            <p
+              ref={scoreRef}
+              tabIndex={-1}
+              aria-live='polite'
+              className='text-xl italic outline-none'
+            >
               {t('Answers.Score')}: {totalScore} / {totalQuestions}
             </p>
             <div className='flex flex-wrap gap-12'>

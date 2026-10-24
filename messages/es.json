@@ -422,6 +422,8 @@
       "X": "Responder falso"
     },
     "ShowAnswers": "Mostrar Respuestas",
+    "UnansweredConfirm": "Tienes {count, plural, one {# pregunta sin responder} other {# preguntas sin responder}} — ¿mostrar las respuestas de todos modos?",
+    "KeepAnswering": "Seguir Respondiendo",
     "LetterSelect": {
       "Trigger": "Elige una letra",
       "AriaLabel": "Opciones para la pregunta {questionNumber}"

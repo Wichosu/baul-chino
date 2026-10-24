@@ -422,6 +422,8 @@
       "X": "Answer false"
     },
     "ShowAnswers": "Show Answers",
+    "UnansweredConfirm": "You have {count, plural, one {# unanswered question} other {# unanswered questions}} — show the answers anyway?",
+    "KeepAnswering": "Keep Answering",
     "LetterSelect": {
       "Trigger": "Choose a letter",
       "AriaLabel": "Options for question {questionNumber}"
