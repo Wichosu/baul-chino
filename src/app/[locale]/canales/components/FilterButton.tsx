@@ -28,6 +28,7 @@ export default function FilterButton({
   return (
     <button
       onClick={onClickFilter}
+      aria-pressed={isActive}
       className={`
         cursor-pointer text-lg font-normal inline py-1 px-2 my-2 mx-1
         border-none rounded-md transition whitespace-nowrap snap-start
