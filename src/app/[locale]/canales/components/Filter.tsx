@@ -3,10 +3,8 @@ import { ILanguage } from '../interfaces/ILanguage';
 import { IChannel } from '../interfaces/IChannel';
 import { ICategory } from '../interfaces/ICategory';
 import {
-  useState,
   useMemo,
-  useEffect,
-  useRef,
+  useSyncExternalStore,
   createContext,
   Dispatch,
   SetStateAction,
@@ -42,6 +40,75 @@ export const FilterContext = createContext({
   setSelectedCategory: () => {},
 } as FilterContext);
 
+//The URL is the single source of truth for filter selection (?cat=1,3&lang=2)
+//so refresh, back/forward and shared links all keep the same view.
+//history.replaceState + a custom event is used instead of useSearchParams so
+//the page stays a cached (ISR) render.
+const FILTERS_CHANGE_EVENT = 'canales-filters-change';
+
+//stable empty array for getServerSnapshot (must not be re-created per call)
+const EMPTY_IDS: number[] = [];
+
+//getSnapshot must return a stable reference for the same search string,
+//otherwise useSyncExternalStore re-renders in a loop — cache per search value
+let cachedSearch: string | null = null;
+let cachedIds: Record<string, number[]> = { cat: [], lang: [] };
+
+function getIdsFromUrl(key: string): number[] {
+  const search = window.location.search;
+  if (search !== cachedSearch) {
+    cachedSearch = search;
+    cachedIds = {
+      cat: parseIds(new URLSearchParams(search).get('cat')),
+      lang: parseIds(new URLSearchParams(search).get('lang')),
+    };
+  }
+  return cachedIds[key];
+}
+
+function parseIds(raw: string | null): number[] {
+  if (!raw) return [];
+  return raw
+    .split(',')
+    .map(Number)
+    .filter((n) => !Number.isNaN(n));
+}
+
+function writeIdsToUrl(key: string, ids: number[]) {
+  const params = new URLSearchParams(window.location.search);
+  if (ids.length > 0) {
+    params.set(key, ids.join(','));
+  } else {
+    params.delete(key);
+  }
+  const query = params.toString();
+  const url = `${window.location.pathname}${query ? `?${query}` : ''}`;
+  window.history.replaceState(window.history.state, '', url);
+  window.dispatchEvent(new Event(FILTERS_CHANGE_EVENT));
+}
+
+function subscribeToUrlFilters(onStoreChange: () => void) {
+  window.addEventListener(FILTERS_CHANGE_EVENT, onStoreChange);
+  window.addEventListener('popstate', onStoreChange);
+  return () => {
+    window.removeEventListener(FILTERS_CHANGE_EVENT, onStoreChange);
+    window.removeEventListener('popstate', onStoreChange);
+  };
+}
+
+function useUrlFilterIds(key: string): [number[], Dispatch<SetStateAction<number[]>>] {
+  const ids = useSyncExternalStore(
+    subscribeToUrlFilters,
+    () => getIdsFromUrl(key),
+    () => EMPTY_IDS
+  );
+  const setIds: Dispatch<SetStateAction<number[]>> = (action) => {
+    const next = typeof action === 'function' ? action(ids) : action;
+    writeIdsToUrl(key, next);
+  };
+  return [ids, setIds];
+}
+
 export default function Filter({
   FetchedLanguages,
   FetchedCategories,
@@ -49,9 +116,8 @@ export default function Filter({
 }: Props) {
   const t = useTranslations('Channels.Filter');
   const tCommon = useTranslations('Common');
-  // Start with empty selection arrays instead of all items selected
-  const [selectedLanguage, setSelectedLanguage] = useState<number[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<number[]>([]);
+  const [selectedLanguage, setSelectedLanguage] = useUrlFilterIds('lang');
+  const [selectedCategory, setSelectedCategory] = useUrlFilterIds('cat');
 
   // Client-side filtering mirrors the old inner-join query: a channel passes
   // when it has at least one selected category AND one selected language
@@ -71,54 +137,6 @@ export default function Filter({
       ),
     [FetchedChannels, selectedCategory, selectedLanguage]
   );
-
-  //Restore filter selection from the URL on mount (?cat=1,3&lang=2) so
-  //refresh, back/forward and shared links keep the same view
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const cat = params.get('cat');
-    const lang = params.get('lang');
-    if (cat) {
-      setSelectedCategory(
-        cat
-          .split(',')
-          .map(Number)
-          .filter((n) => !Number.isNaN(n))
-      );
-    }
-    if (lang) {
-      setSelectedLanguage(
-        lang
-          .split(',')
-          .map(Number)
-          .filter((n) => !Number.isNaN(n))
-      );
-    }
-  }, []);
-
-  //Reflect the selection back into the URL. Uses history.replaceState instead
-  //of useSearchParams so the page stays a cached (ISR) render.
-  const isFirstRender = useRef(true);
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-    const params = new URLSearchParams(window.location.search);
-    if (selectedCategory.length > 0) {
-      params.set('cat', selectedCategory.join(','));
-    } else {
-      params.delete('cat');
-    }
-    if (selectedLanguage.length > 0) {
-      params.set('lang', selectedLanguage.join(','));
-    } else {
-      params.delete('lang');
-    }
-    const query = params.toString();
-    const url = `${window.location.pathname}${query ? `?${query}` : ''}`;
-    window.history.replaceState(null, '', url);
-  }, [selectedCategory, selectedLanguage]);
 
   //Clean Filters
   const cleanFilters = () => {
