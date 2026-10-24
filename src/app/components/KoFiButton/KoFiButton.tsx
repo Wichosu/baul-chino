@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function KoFiButton() {
   return (
@@ -9,10 +10,10 @@ export function KoFiButton() {
         target='_blank'
         className='inline-flex min-h-11 items-center'
       >
-        <img
-          height='36'
-          style={{ border: '0px', height: '36px' }}
-          src='https://storage.ko-fi.com/cdn/kofi6.png?v=6'
+        <Image
+          src='/kofi6.png'
+          width={143}
+          height={36}
           alt='Buy Me a Coffee at ko-fi.com'
         />
       </Link>
