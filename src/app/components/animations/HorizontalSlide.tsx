@@ -17,7 +17,7 @@ export default function HorizontalSlide({ width = 20, height = 20 }: Props) {
       src={SlideHand}
       width={width}
       height={height} 
-      className="absolute top-1/2 left-1/2 ml-2.5 animate-horizontal-slide lg:hidden"
+      className="absolute top-1/2 left-1/2 ml-2.5 animate-horizontal-slide lg:hidden motion-reduce:hidden"
     />
   )
 }
