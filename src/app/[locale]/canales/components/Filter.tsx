@@ -161,7 +161,7 @@ export default function Filter({
         </h2>
         <button
           onClick={cleanFilters}
-          className='cursor-pointer py-1 px-2.5 ml-2.5 border-none rounded-lg bg-red-600 text-xl text-white font-medium lg:mr-5'
+          className='cursor-pointer min-h-11 inline-flex items-center px-4 ml-2.5 border-none rounded-lg bg-red-600 text-xl text-white font-medium lg:mr-5'
         >
           {t('ActionButton')}
         </button>

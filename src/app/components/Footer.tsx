@@ -18,7 +18,7 @@ export default function Footer() {
         <Link
           href={'https://wichosu.com'}
           target='_blank'
-          className='text-blue-600 hover:text-blue-700'
+          className='inline-flex min-h-11 items-center text-blue-600 hover:text-blue-700'
         >
           wichosu.com
         </Link>

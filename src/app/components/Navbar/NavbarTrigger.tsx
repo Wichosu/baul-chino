@@ -8,7 +8,7 @@ type Props = {
 
 export function NavbarTrigger({ children }: Props) {
   const triggerClassName = `
-    group flex select-none items-center justify-between gap-0.5 rounded px-3 py-2 
+    group flex min-h-11 select-none items-center justify-between gap-0.5 rounded px-3 py-2 
     text-black text-lg font-medium leading-none outline-none 
     hover:bg-yellow-200 focus:shadow-[0_0_0_4px] focus:shadow-yellow-900
   `;

@@ -4,7 +4,11 @@ import Link from 'next/link';
 export function KoFiButton() {
   return (
     <>
-      <Link href='https://ko-fi.com/N4N61JGIR0' target='_blank'>
+      <Link
+        href='https://ko-fi.com/N4N61JGIR0'
+        target='_blank'
+        className='inline-flex min-h-11 items-center'
+      >
         <img
           height='36'
           style={{ border: '0px', height: '36px' }}

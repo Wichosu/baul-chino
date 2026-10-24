@@ -34,7 +34,9 @@
 
    5. FOCUS & TOUCH
       every interactive element gets a visible focus outline (--ring based)
-      interactive targets are at least 44×44 px
+      standalone controls (buttons, nav triggers, filter chips) are >=44×44 px;
+      inline content links (channel titles, footer credit) follow their line
+      height and only need the WCAG 2.5.8 minimum of 24×24
    ============================================================================ */
 
 @theme {
