@@ -11,6 +11,15 @@ import Script from 'next/script';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
+  // CJK glyphs are not in Montserrat; name the platform CJK sans fonts so
+  // Chinese text renders in a real Chinese face instead of a generic default
+  fallback: [
+    'PingFang SC',
+    'Hiragino Sans GB',
+    'Microsoft YaHei',
+    'Noto Sans CJK SC',
+    'sans-serif',
+  ],
 });
 
 export async function generateMetadata({

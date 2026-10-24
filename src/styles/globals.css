@@ -23,8 +23,11 @@
       gray-* / neutral-* ..... dividers, placeholders, muted icons
       black / white .......... default text / text on dark surfaces
 
-   3. TYPOGRAPHY — Montserrat, single family (latin subset)
+   3. TYPOGRAPHY — Montserrat, single family (latin subset), with a platform
+      CJK fallback chain (PingFang / Hiragino / YaHei / Noto Sans CJK) so
+      Chinese text renders in a proper Chinese face
       headings text‑2xl · lead text‑xl · secondary text‑lg · default base
+      long unbreakable strings (URLs in channel descriptions) use break‑words
 
    4. MOTION (animation tokens defined in @theme below)
       navbar menu enter/exit ....... 200ms ease

@@ -16,7 +16,7 @@ export default function Channel({ channel }: Props) {
       >
         {channel.name}
       </Link>
-      <p className='text-xl text-black font-normal my-2.5'>
+      <p className='text-xl text-black font-normal my-2.5 break-words'>
         {channel.description}
       </p>
       <Categories>
