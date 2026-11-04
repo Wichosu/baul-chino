@@ -1,3 +1,4 @@
+'use client';
 import * as React from 'react';
 import { NavbarListItem } from './NavbarListItem';
 import { NavbarContent } from './NavbarContent';
@@ -8,22 +9,13 @@ import { NavbarRoot } from './NavbarRoot';
 import { NavbarIndicator } from './NavbarIndicator';
 import { NavbarViewport } from './NavbarViewport';
 import { NavbarLink } from './NavbarLink';
+import { NavbarMobile } from './NavbarMobile';
+import { NavContent, NavItem } from './types';
 import { useTranslations } from 'next-intl';
+import { usePathname } from '@/src/i18n/navigation';
 import Image from 'next/image';
 import { LanguageSwitcher } from '../LanguageSwitcher';
 import { KoFiButton } from '../KoFiButton';
-
-type NavItem = {
-  type: 'trigger';
-  trigger: string;
-  content: NavContent[];
-};
-
-type NavContent = {
-  href: string;
-  title: string;
-  description: string;
-};
 
 function createNavItemWithContent(
   trigger: string,
@@ -50,6 +42,10 @@ function createNavContent(
 
 export function Navbar() {
   const t = useTranslations('Navbar');
+  const pathname = usePathname();
+
+  const isCurrent = (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
 
   const NavbarItems: NavItem[] = [
     createNavItemWithContent(t('Hsk'), [
@@ -164,6 +160,7 @@ export function Navbar() {
         </NavbarItem>
         <NavbarIndicator />
       </NavbarList>
+      <NavbarMobile items={NavbarItems} isCurrent={isCurrent} />
       <NavbarViewport />
     </NavbarRoot>
   );

@@ -19,6 +19,9 @@
     "NewHskBooks2026": "Nuevos Libros HSK 3.0",
     "NewHskAudios2026": "Nuevos Audios HSK 3.0",
     "LogoAlt": "Logo de Baulchino, es un baúl o cofre de tesoro cerrado, estilo europeo de color café con plateado",
+    "OpenMenu": "Abrir menú",
+    "CloseMenu": "Cerrar menú",
+    "MenuTitle": "Menú",
     "Descriptions": {
       "AnkiDecks": "Mazos Anki con vocabulario del HSK 1 al HSK 4",
       "HskBooks": "Descarga los libros HSK del 1 al 6 de manera gratuita",
