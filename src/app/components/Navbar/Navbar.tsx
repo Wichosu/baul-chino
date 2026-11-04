@@ -117,7 +117,7 @@ export function Navbar() {
     <NavbarRoot>
       <NavbarList>
         <NavbarItem>
-          <NavbarLink href='/'>
+          <NavbarLink href='/' current={isCurrent('/')}>
             <picture className='w-5'>
               <Image
                 src='/logo.svg'
@@ -134,13 +134,18 @@ export function Navbar() {
           <NavbarItem key={`navitem-${index}`}>
             {item.type === 'trigger' && (
               <>
-                <NavbarTrigger>{item.trigger}</NavbarTrigger>
+                <NavbarTrigger
+                  active={item.content.some((link) => isCurrent(link.href))}
+                >
+                  {item.trigger}
+                </NavbarTrigger>
                 <NavbarContent>
                   {item.content.map((listItem, index) => (
                     <NavbarListItem
                       key={`navlistitem-${index}`}
                       href={listItem.href}
                       title={listItem.title}
+                      current={isCurrent(listItem.href)}
                     >
                       {listItem.description}
                     </NavbarListItem>

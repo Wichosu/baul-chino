@@ -5,9 +5,10 @@ import Link from 'next/link';
 type Props = {
   href: string;
   children: React.ReactNode;
+  current?: boolean;
 };
 
-export function NavbarLink({ href, children }: Props) {
+export function NavbarLink({ href, children, current }: Props) {
   return (
     <NavigationMenu.Link
       className='
@@ -17,7 +18,13 @@ export function NavbarLink({ href, children }: Props) {
       '
       asChild
     >
-      <Link href={href}>{children}</Link>
+      <Link
+        href={href}
+        aria-current={current ? 'page' : undefined}
+        className={current ? 'rounded bg-yellow-200' : undefined}
+      >
+        {children}
+      </Link>
     </NavigationMenu.Link>
   );
 }
