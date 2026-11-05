@@ -4,13 +4,15 @@ import { ChevronDown } from 'lucide-react';
 
 type Props = {
   children: string;
+  active?: boolean;
 };
 
-export function NavbarTrigger({ children }: Props) {
+export function NavbarTrigger({ children, active }: Props) {
   const triggerClassName = `
     group flex min-h-11 select-none items-center justify-between gap-0.5 rounded px-3 py-2 
     text-black text-lg font-medium leading-none outline-none 
     hover:bg-yellow-200 focus:shadow-[0_0_0_4px] focus:shadow-yellow-900
+    ${active ? 'bg-yellow-200' : ''}
   `;
 
   const iconClassName = `

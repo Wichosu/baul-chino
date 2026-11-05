@@ -3,7 +3,7 @@ import { NavigationMenu } from 'radix-ui';
 
 export function NavbarViewport() {
   return (
-    <div className='perspective-[2000px] absolute left-0 top-full flex w-full justify-center'>
+    <div className='perspective-[2000px] absolute left-0 top-full hidden w-full justify-center lg:flex'>
       <NavigationMenu.Viewport
         className='
           relative mt-2.5 h-[var(--radix-navigation-menu-viewport-height)] w-full 

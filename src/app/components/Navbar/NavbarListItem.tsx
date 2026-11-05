@@ -6,15 +6,23 @@ type Props = {
   children?: React.ReactNode;
   title: string;
   href: string;
+  current?: boolean;
   forwardedRef?: React.RefObject<HTMLAnchorElement>;
 };
 
-export function NavbarListItem({ children, title, forwardedRef, href }: Props) {
+export function NavbarListItem({
+  children,
+  title,
+  forwardedRef,
+  href,
+  current,
+}: Props) {
   const linkClassName = `
     block select-none rounded-md p-3 leading-none no-underline outline-none
     transition-colors 
     hover:bg-yellow-200 
     focus:shadow-[0_0_0_3px] focus:shadow-yellow-900
+    ${current ? 'bg-yellow-200' : ''}
 `;
 
   const titleClassName = `
@@ -28,7 +36,12 @@ export function NavbarListItem({ children, title, forwardedRef, href }: Props) {
   return (
     <li>
       <NavigationMenu.Link asChild>
-        <Link className={linkClassName} href={href} ref={forwardedRef}>
+        <Link
+          className={linkClassName}
+          href={href}
+          ref={forwardedRef}
+          aria-current={current ? 'page' : undefined}
+        >
           <div className={titleClassName}>{title}</div>
           {children && <p className={descriptionClassName}>{children}</p>}
         </Link>
