@@ -504,7 +504,8 @@
     "DownloadButton": {
       "Download": "Descargar",
       "Fetching": "Descargando",
-      "Fetched": "Descargado"
+      "Fetched": "Descargado",
+      "Error": "Error al descargar, haz click para reintentar"
     },
     "VolumeButton": {
       "Mute": "Silenciar",
