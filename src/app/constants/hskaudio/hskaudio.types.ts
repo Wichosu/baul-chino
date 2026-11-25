@@ -1,6 +1,7 @@
 export type Book = {
   title: string;
   lessons: Lesson[];
+  zipUrl?: string;
 };
 
 type Lesson = {
@@ -14,10 +15,15 @@ type AudioTrack = {
   url: string;
 };
 
-export function createBook(title: string, lessons: Lesson[]): Book {
+export function createBook(
+  title: string,
+  lessons: Lesson[],
+  zipUrl?: string
+): Book {
   return {
     title,
     lessons,
+    zipUrl,
   };
 }
 

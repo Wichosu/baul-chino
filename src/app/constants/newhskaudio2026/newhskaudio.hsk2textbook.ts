@@ -639,4 +639,5 @@ export const newhsk2textbook: Book = createBook(
       ),
     ]),
   ],
+  'https://cdn.baulchino.com/new-hsk-books-audios/HSK-2-textbook-audio-files.zip',
 );

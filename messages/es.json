@@ -227,7 +227,8 @@
         "Workbook": "HSK 3.0 Nivel 1 - Workbook",
         "Writing": "HSK 3.0 Nivel 1 - Writing",
         "Audio": "Escucha los audios - Textbook",
-        "DownloadAudio": "Descarga los audios"
+        "DownloadTextbookAudio": "Descarga los audios - Textbook",
+        "DownloadWorkbookAudio": "Descarga los audios - Workbook"
       },
       "HSK2": {
         "Title": "Nuevo HSK 3.0 Nivel 2",
@@ -236,7 +237,8 @@
         "Workbook": "HSK 3.0 Nivel 2 - Workbook",
         "Writing": "HSK 3.0 Nivel 2 - Writing",
         "Audio": "Escucha los audios - Textbook",
-        "DownloadAudio": "Descarga los audios"
+        "DownloadTextbookAudio": "Descarga los audios - Textbook",
+        "DownloadWorkbookAudio": "Descarga los audios - Workbook"
       },
       "HSK3": {
         "Title": "Nuevo HSK 3.0 Nivel 3",
@@ -244,13 +246,15 @@
         "Textbook": "HSK 3.0 Nivel 3 - Textbook",
         "Workbook": "HSK 3.0 Nivel 3 - Workbook",
         "Audio": "Escucha los audios",
-        "DownloadAudio": "Descarga los audios"
+        "DownloadTextbookAudio": "Descarga los audios - Textbook",
+        "DownloadWorkbookAudio": "Descarga los audios - Workbook"
       },
       "HSK4a": {
         "Title": "Nuevo HSK 3.0 Nivel 4A",
         "Alt": "Portada del libro Nuevo HSK 3.0 Nivel 4A",
         "Textbook": "HSK 3.0 Nivel 4A - Textbook",
-        "Audio": "Escucha los audios - Textbook"
+        "Audio": "Escucha los audios - Textbook",
+        "DownloadTextbookAudio": "Descarga los audios - Textbook"
       },
       "HSK4b": {
         "Title": "Nuevo HSK 3.0 Nivel 4B",
@@ -363,7 +367,8 @@
     },
     "HeroTitle": "Escucha los nuevos audios HSK 3.0",
     "HeroMessage1": "Hola, aquí puedes encontrar todos los audios de las unidades de los libros HSK Textbook y Workbook. Esta página tiene como objetivo ayudarte a encontrar los audios de cada unidad y permitirte practicar o hacer el ejercicio correspondiente. Puedes descargar el audio presionando el botón ⬇️",
-    "HeroMessage2": "Si hay algún audio incorrecto o que falte, puedes hacermelo saber a través de las encuestas en esta página o por un email a wichosubuilds@gmail.com"
+    "HeroMessage2": "Si hay algún audio incorrecto o que falte, puedes hacermelo saber a través de las encuestas en esta página o por un email a wichosubuilds@gmail.com",
+    "DownloadAllZip": "Descarga todos los audios (ZIP)"
   },
   "HskAudiosDownload": {
     "Metadata": {

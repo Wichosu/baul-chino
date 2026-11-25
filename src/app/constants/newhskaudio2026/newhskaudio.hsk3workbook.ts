@@ -142,4 +142,5 @@ export const newhsk3workbook: Book = createBook(
       ),
     ]),
   ],
+  'https://cdn.baulchino.com/new-hsk-books-audios/HSK-3-workbook-audio-files.zip',
 );

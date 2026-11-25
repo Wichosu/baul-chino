@@ -8,6 +8,7 @@ import {
 } from '@/src/app/components/Accordion';
 import { Books } from '@/src/app/constants/newhskaudio2026/newhskaudiocollection';
 import Audio from '@/src/app/components/Audio/Audio';
+import { Button } from '@/src/app/components/Button';
 import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { hasLocale } from 'next-intl';
@@ -71,6 +72,18 @@ export default async function Page({
           >
             <AccordionTrigger>{book.title}</AccordionTrigger>
             <AccordionContent marginX='1'>
+              {book.zipUrl && (
+                <Button
+                  as='link'
+                  href={book.zipUrl}
+                  target='_blank'
+                  type='yellow'
+                  margin='none'
+                  className='block w-fit whitespace-normal mb-3'
+                >
+                  {t('DownloadAllZip')}
+                </Button>
+              )}
               <AccordionRoot type='multiple' width='full'>
                 {book.lessons.map((lesson, index) => (
                   <AccordionItem
