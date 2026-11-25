@@ -259,7 +259,9 @@
       "HSK4b": {
         "Title": "Nuevo HSK 3.0 Nivel 4B",
         "Alt": "Portada del libro Nuevo HSK 3.0 Nivel 4B",
-        "Textbook": "HSK 3.0 Nivel 4B - Textbook"
+        "Textbook": "HSK 3.0 Nivel 4B - Textbook",
+        "Audio": "Escucha los audios - Textbook",
+        "DownloadTextbookAudio": "Descarga los audios - Textbook"
       }
     }
   },
