@@ -429,4 +429,5 @@ export const newhsk4atextbook: Book = createBook(
       ),
     ]),
   ],
+  'https://cdn.baulchino.com/new-hsk-books-audios/HSK-4a-textbook-audio-files.zip',
 );

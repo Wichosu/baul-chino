@@ -504,4 +504,5 @@ export const newhsk1textbook: Book = createBook(
       ),
     ]),
   ],
+  'https://cdn.baulchino.com/new-hsk-books-audios/HSK-1-textbook-audio-files.zip',
 );

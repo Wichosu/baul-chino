@@ -74,8 +74,12 @@ export default async function Page({
           url: "/new-hsk-audios-2026",
         },
         {
-          name: t("BookCards.HSK1.DownloadAudio"),
+          name: t("BookCards.HSK1.DownloadTextbookAudio"),
           url: "https://cdn.baulchino.com/new-hsk-books-audios/HSK-1-textbook-audio-files.zip",
+        },
+        {
+          name: t("BookCards.HSK1.DownloadWorkbookAudio"),
+          url: "https://cdn.baulchino.com/new-hsk-books-audios/HSK-1-workbook-audio-files.zip",
         },
       ],
     },
@@ -102,8 +106,12 @@ export default async function Page({
           url: "/new-hsk-audios-2026",
         },
         {
-          name: t("BookCards.HSK2.DownloadAudio"),
+          name: t("BookCards.HSK2.DownloadTextbookAudio"),
           url: "https://cdn.baulchino.com/new-hsk-books-audios/HSK-2-textbook-audio-files.zip",
+        },
+        {
+          name: t("BookCards.HSK2.DownloadWorkbookAudio"),
+          url: "https://cdn.baulchino.com/new-hsk-books-audios/HSK-2-workbook-audio-files.zip",
         },
       ],
     },
@@ -126,8 +134,12 @@ export default async function Page({
           url: "/new-hsk-audios-2026",
         },
         {
-          name: t("BookCards.HSK3.DownloadAudio"),
+          name: t("BookCards.HSK3.DownloadTextbookAudio"),
           url: "https://cdn.baulchino.com/new-hsk-books-audios/HSK-3-textbook-audio-files.zip",
+        },
+        {
+          name: t("BookCards.HSK3.DownloadWorkbookAudio"),
+          url: "https://cdn.baulchino.com/new-hsk-books-audios/HSK-3-workbook-audio-files.zip",
         },
       ],
     },
@@ -145,6 +157,10 @@ export default async function Page({
           name: t("BookCards.HSK4a.Audio"),
           url: "/new-hsk-audios-2026",
         },
+        {
+          name: t("BookCards.HSK4a.DownloadTextbookAudio"),
+          url: "https://cdn.baulchino.com/new-hsk-books-audios/HSK-4a-textbook-audio-files.zip",
+        },
       ],
     },
     {
@@ -156,6 +172,14 @@ export default async function Page({
         {
           name: t("BookCards.HSK4b.Textbook"),
           url: "https://cdn.baulchino.com/new-hsk-books/hsk-course-4b.pdf",
+        },
+        {
+          name: t("BookCards.HSK4b.Audio"),
+          url: "/new-hsk-audios-2026",
+        },
+        {
+          name: t("BookCards.HSK4b.DownloadTextbookAudio"),
+          url: "https://cdn.baulchino.com/new-hsk-books-audios/HSK-4b-textbook-audio-files.zip",
         },
       ],
     },

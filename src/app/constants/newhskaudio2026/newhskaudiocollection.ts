@@ -6,6 +6,7 @@ import { newhsk2workbook } from './newhskaudio.hsk2workbook';
 import { newhsk3textbook } from './newhskaudio.hsk3textbook';
 import { newhsk3workbook } from './newhskaudio.hsk3workbook';
 import { newhsk4atextbook } from './newhskaudio.hsk4atextbook';
+import { newhsk4btextbook } from './newhskaudio.hsk4btextbook';
 
 export const Books: Book[] = [
   newhsk1textbook,
@@ -15,4 +16,5 @@ export const Books: Book[] = [
   newhsk3textbook,
   newhsk3workbook,
   newhsk4atextbook,
+  newhsk4btextbook,
 ];

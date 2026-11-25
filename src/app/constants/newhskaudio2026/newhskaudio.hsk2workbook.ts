@@ -121,4 +121,5 @@ export const newhsk2workbook: Book = createBook(
       ),
     ]),
   ],
+  'https://cdn.baulchino.com/new-hsk-books-audios/HSK-2-workbook-audio-files.zip',
 );

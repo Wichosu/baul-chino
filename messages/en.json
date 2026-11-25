@@ -227,7 +227,8 @@
         "Workbook": "HSK 3.0 Level 1 - Workbook",
         "Writing": "HSK 3.0 Level 1 - Writing",
         "Audio": "Listen to Textbook Audio Files",
-        "DownloadAudio": "Download Audio Files"
+        "DownloadTextbookAudio": "Download Audio Files - Textbook",
+        "DownloadWorkbookAudio": "Download Audio Files - Workbook"
       },
       "HSK2": {
         "Title": "New HSK 3.0 Level 2",
@@ -236,7 +237,8 @@
         "Workbook": "HSK 3.0 Level 2 - Workbook",
         "Writing": "HSK 3.0 Level 2 - Writing",
         "Audio": "Listen to Textbook Audio Files",
-        "DownloadAudio": "Download Audio Files"
+        "DownloadTextbookAudio": "Download Audio Files - Textbook",
+        "DownloadWorkbookAudio": "Download Audio Files - Workbook"
       },
       "HSK3": {
         "Title": "New HSK 3.0 Level 3",
@@ -244,18 +246,22 @@
         "Textbook": "HSK 3.0 Level 3 - Textbook",
         "Workbook": "HSK 3.0 Level 3 - Workbook",
         "Audio": "Listen to Audio Files",
-        "DownloadAudio": "Download Audio Files"
+        "DownloadTextbookAudio": "Download Audio Files - Textbook",
+        "DownloadWorkbookAudio": "Download Audio Files - Workbook"
       },
       "HSK4a": {
         "Title": "New HSK 3.0 Level 4A",
         "Alt": "Cover of New HSK 3.0 Level 4A book",
         "Textbook": "HSK 3.0 Level 4A - Textbook",
-        "Audio": "Listen to Textbook Audio Files"
+        "Audio": "Listen to Textbook Audio Files",
+        "DownloadTextbookAudio": "Download Audio Files - Textbook"
       },
       "HSK4b": {
         "Title": "New HSK 3.0 Level 4B",
         "Alt": "Cover of New HSK 3.0 Level 4B book",
-        "Textbook": "HSK 3.0 Level 4B - Textbook"
+        "Textbook": "HSK 3.0 Level 4B - Textbook",
+        "Audio": "Listen to Textbook Audio Files",
+        "DownloadTextbookAudio": "Download Audio Files - Textbook"
       }
     }
   },
@@ -363,7 +369,8 @@
     },
     "HeroTitle": "Listen to New HSK 3.0 audio files",
     "HeroMessage1": "Hi, here you can find all audio files from the HSK textbooks and workbooks units. This page aims to help you find the audios for each unit and allow you to practice or do the corresponding exercise. You can download the audio by pressing the ⬇️ button",
-    "HeroMessage2": "If you find that an audio is wrong or missing you can notify me via the surveys on this website or an email at wichosubuilds@gmail.com. Thank you"
+    "HeroMessage2": "If you find that an audio is wrong or missing you can notify me via the surveys on this website or an email at wichosubuilds@gmail.com. Thank you",
+    "DownloadAllZip": "Download all audio files (ZIP)"
   },
   "HskAudiosDownload": {
     "Metadata": {
