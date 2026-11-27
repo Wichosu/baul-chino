@@ -23,9 +23,9 @@ type AccordionTriggerProps = {
 };
 
 const themeColors: Record<AllowedThemeColors, string> = {
-  blue: 'bg-blue-700 hover:bg-blue-800 focus:bg-blue-800 text-white',
+  blue: 'bg-brass-deep hover:bg-[#553409] focus:bg-[#553409] text-white',
   yellow:
-    'bg-yellow-800 hover:bg-yellow-950 focus:bg-yellow-950 text-white',
+    'bg-brass-deep hover:bg-[#553409] focus:bg-[#553409] text-white',
 };
 
 export function AccordionTrigger({

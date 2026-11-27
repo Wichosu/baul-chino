@@ -21,19 +21,22 @@ const allowedTypes: ButtonAllowedTypes[] = [
 ];
 
 const typeClass: Record<ButtonAllowedTypes, string> = {
+  // one accent: primary and yellow are the same brass, kept as two names so
+  // existing call sites keep working. warning is the quiet variant, signal is
+  // destructive, success is for correct-answer feedback only.
   primary:
-    'bg-blue-700 text-white cursor-pointer transition-colors hover:bg-blue-800 focus:bg-blue-800 active:bg-blue-900',
+    'bg-brass text-white cursor-pointer transition-colors hover:bg-brass-deep focus:bg-brass-deep active:bg-[#553409]',
   warning:
-    'bg-amber-300 text-black cursor-pointer transition-colors hover:bg-amber-400 focus:bg-amber-400 active:bg-amber-500',
+    'bg-brass-tint text-brass-deep cursor-pointer transition-colors hover:bg-[#e9dbc0] focus:bg-[#e9dbc0] active:bg-[#e0cfae]',
   delete:
-    'bg-red-700 text-white cursor-pointer transition-colors hover:bg-red-800 focus:bg-red-800 active:bg-red-900',
+    'bg-signal text-white cursor-pointer transition-colors hover:bg-[#8e1c16] focus:bg-[#8e1c16] active:bg-[#7a1712]',
   disabled:
-    'bg-gray-300 text-gray-800 cursor-not-allowed transition-colors',
+    'bg-line text-ink-2 cursor-not-allowed transition-colors',
   yellow:
-    'bg-yellow-700 text-white cursor-pointer transition-colors hover:bg-yellow-900 focus:bg-yellow-900 active:bg-yellow-950',
+    'bg-brass text-white cursor-pointer transition-colors hover:bg-brass-deep focus:bg-brass-deep active:bg-[#553409]',
   lightred:
-    'bg-red-500 text-white cursor-pointer transition-colors hover:bg-red-600 focus:bg-red-600 active:bg-red-700',
-  lime: 'bg-lime-500 text-white cursor-pointer transition-colors hover:bg-lime-600 focus:bg-lime-600 active:bg-lime-700',
+    'bg-signal text-white cursor-pointer transition-colors hover:bg-[#8e1c16] focus:bg-[#8e1c16] active:bg-[#7a1712]',
+  lime: 'bg-success text-white cursor-pointer transition-colors hover:bg-[#12512a] focus:bg-[#12512a] active:bg-[#0f4322]',
 };
 
 const paddingClass: Record<ButtonAllowedScale, string> = {

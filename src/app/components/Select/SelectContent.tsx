@@ -17,7 +17,7 @@ type Props = {
 export function SelectContent({ children }: Props) {
   return (
     <SelectPortal>
-      <Select.Content className='overflow-hidden rounded-md bg-yellow-50 shadow-lg'>
+      <Select.Content className='overflow-hidden rounded-md border border-line bg-surface shadow-lg'>
         <SelectScrollUpButton />
         <SelectViewport>{children}</SelectViewport>
         <SelectScrollDownButton />

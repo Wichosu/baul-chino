@@ -8,17 +8,17 @@ export default function Footer() {
 
   return (
     <footer className='my-8'>
-      <small className='w-full mx-auto block text-center text-lg font-normal text-black lg:w-1/2'>
+      <small className='w-full mx-auto block text-center text-lg font-normal text-ink-2 lg:w-1/2'>
         {t('Message')}
         <br />
         {t('Link')} {t('Author')}
       </small>
-      <p className='text-center text-lg font-normal text-black'>
+      <p className='text-center text-lg font-normal text-ink-2'>
         {t('PersonalWebsite')}{' '}
         <Link
           href={'https://wichosu.com'}
           target='_blank'
-          className='inline-flex min-h-11 items-center text-blue-600 hover:text-blue-700'
+          className='inline-flex min-h-11 items-center text-brass-deep hover:text-[#553409]'
         >
           wichosu.com
         </Link>

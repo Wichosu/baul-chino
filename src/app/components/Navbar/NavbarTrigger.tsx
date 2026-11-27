@@ -10,9 +10,9 @@ type Props = {
 export function NavbarTrigger({ children, active }: Props) {
   const triggerClassName = `
     group flex min-h-11 select-none items-center justify-between gap-0.5 rounded px-3 py-2 
-    text-black text-lg font-medium leading-none 
-    hover:bg-yellow-200
-    ${active ? 'bg-yellow-200' : ''}
+    text-ink text-lg font-medium leading-none 
+    hover:bg-brass-tint
+    ${active ? 'bg-brass-tint text-brass-deep' : ''}
   `;
 
   const iconClassName = `

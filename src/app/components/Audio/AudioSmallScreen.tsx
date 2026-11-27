@@ -38,7 +38,7 @@ export default function AudioSmallScreen({
   translations,
 }: Props) {
   return (
-    <figure className='md:hidden flex flex-col bg-yellow-200 rounded-md w-fit my-2 py-2 px-2'>
+    <figure className='md:hidden flex flex-col border border-line bg-brass-tint rounded-md w-fit my-2 py-2 px-2'>
       <div className='flex'>
         <figcaption className='mr-2'>{caption}</figcaption>
         <time>

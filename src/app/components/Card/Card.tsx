@@ -45,8 +45,8 @@ const marginClass: Record<AllowedScale, string> = {
 export function Card({
   as: Tag = 'div',
   children,
-  elevation = '1',
-  border = 'none',
+  elevation = 'none',
+  border = '1',
   padding = '2',
   margin = '2',
   rounded = '2',
@@ -59,8 +59,10 @@ export function Card({
     );
   }
 
+  // cards get their edge from a hairline on paper, not from a drop shadow:
+  // the shadow stays available per call site (elevation) but is off by default
   const className = `
-    border-gray-200 bg-white
+    border-line bg-surface
     ${elevationClass[elevation]} ${borderClass[border]} ${paddingClass[padding]} 
     ${marginClass[margin]} ${roundedClass[rounded]}
   `;

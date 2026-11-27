@@ -143,7 +143,7 @@ export default function CardsContainer() {
     <section className='lg:grid lg:grid-cols-2 lg:gap-5 xl:grid-cols-3'>
       {cardsList.map((card, index) => (
         <Card key={index} as='article'>
-          <h2 className='text-3xl text-center font-medium'>{card.title}</h2>
+          <h2 className='text-3xl text-center font-medium text-ink'>{card.title}</h2>
           <picture>
             <source srcSet={card.img} width={500} height={500} />
             <Image
@@ -155,7 +155,7 @@ export default function CardsContainer() {
               className='aspect-square object-contain mx-auto'
             />
           </picture>
-          <p className='text-lg my-2'>{card.description}</p>
+          <p className='text-lg my-2 text-ink-2'>{card.description}</p>
           <div className='mx-auto w-fit mt-4'>
             <Button
               type='yellow'
@@ -170,11 +170,11 @@ export default function CardsContainer() {
         </Card>
       ))}
       <Card as='article'>
-        <h2 className='text-3xl text-center font-medium'>{t('About.Title')}</h2>
+        <h2 className='text-3xl text-center font-medium text-ink'>{t('About.Title')}</h2>
         <picture>
           <Heart className='mx-auto' fill='red' size={150} />
         </picture>
-        <p className='text-lg my-2'>{t('About.Description')}</p>
+        <p className='text-lg my-2 text-ink-2'>{t('About.Description')}</p>
         <div className='flex flex-col gap-2 items-center mx-auto w-fit mt-4'>
           <Button
             type='yellow'

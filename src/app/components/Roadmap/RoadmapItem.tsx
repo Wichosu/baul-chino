@@ -19,15 +19,15 @@ export function RoadmapItem({ title, status, children }: Props) {
         <p className='mt-1'>
           <strong className='font-medium'>{t('CurrentStatus')} </strong>
           {status === 'pending' && (
-            <span className='text-red-600 font-medium'>{t('Pending')}</span>
+            <span className='text-ink-3 font-medium'>{t('Pending')}</span>
           )}
           {status === 'in-progress' && (
-            <span className='text-yellow-600 font-medium'>
+            <span className='text-brass-deep font-medium'>
               {t('InProgress')}
             </span>
           )}
           {status === 'completed' && (
-            <span className='text-green-600 font-medium'>{t('Completed')}</span>
+            <span className='text-success font-medium'>{t('Completed')}</span>
           )}
         </p>
       </li>

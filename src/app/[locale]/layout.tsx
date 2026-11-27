@@ -79,7 +79,7 @@ export default async function RootLayout({
               <Container>
                 <a
                   href='#main'
-                  className='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-yellow-200 focus:px-4 focus:py-2 focus:text-black focus:outline focus:outline-2 focus:outline-black'
+                  className='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-brass-tint focus:px-4 focus:py-2 focus:text-ink focus:outline focus:outline-2 focus:outline-black'
                 >
                   {t('SkipToContent')}
                 </a>

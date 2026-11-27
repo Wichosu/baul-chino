@@ -6,7 +6,7 @@ type Props = {
 
 export function Chip({ children }: Props) {
   return (
-    <div className='border-2 border-yellow-400 bg-yellow-50 p-2 rounded-xl w-fit text-lg capitalize'>
+    <div className='border border-line bg-brass-tint p-2 rounded-xl w-fit text-lg capitalize text-ink'>
       {children}
     </div>
   );

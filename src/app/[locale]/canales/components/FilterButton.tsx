@@ -32,8 +32,9 @@ export default function FilterButton({
       className={`
         cursor-pointer text-lg font-normal min-h-11 inline-flex items-center px-3 my-2 mx-1
         border-none rounded-md transition whitespace-nowrap snap-start
-        ${!isActive && "text-black bg-gray-300"}
-        ${isActive && "text-white bg-blue-600"}
+        border border-line
+        ${!isActive && "text-ink bg-surface hover:bg-brass-tint"}
+        ${isActive && "text-white bg-brass border-brass"}
       `}
     >
       { children }

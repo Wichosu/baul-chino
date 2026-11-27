@@ -12,7 +12,7 @@ export default function Channel({ channel }: Props) {
       <Link
         href={channel.url}
         target='_blank'
-        className='text-2xl text-blue-600 font-medium no-underline hover:underline hover:text-blue-700'
+        className='text-2xl text-brass-deep font-medium no-underline hover:underline hover:text-[#553409]'
       >
         {channel.name}
       </Link>

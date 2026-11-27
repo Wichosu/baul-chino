@@ -9,19 +9,21 @@
    scanner never picks candidates out of this comment.)
    ----------------------------------------------------------------------------
    1. COLOR ROLES (custom properties, exposed as theme utilities)
-      --background / --foreground ..... page surface / base text
-      --muted / --muted-foreground .... subtle panel fill / secondary text
-      --border ........................ hairlines, dashed empty-state borders
+      paper / surface ................. page background / cards, panels
+      ink / ink‑2 / ink‑3 ............. title+body / secondary / meta text
+      line ............................ hairlines and card edges
+      brass / brass‑deep .............. the single accent: CTAs, links, selection
+      brass‑tint ...................... hover and selected fills
+      signal / success ................ destructive / correct-answer feedback
+      --muted‑foreground .............. alias of ink‑3 (kept for compatibility)
       --ring .......................... focus outlines (see base layer below)
       --radius ........................ base corner radius (0.625rem)
+      --measure ....................... 68ch, the cap for long paragraphs
 
-   2. BRAND PALETTE (raw palette colors used directly in components)
-      yellow-* ............... brand and primary actions (CTAs, highlights)
-      blue-* ................. selection state (active filter chips), links
-      red-* .................. destructive / reset actions
-      green-* / lime-* ....... success feedback
-      gray-* / neutral-* ..... dividers, placeholders, muted icons
-      black / white .......... default text / text on dark surfaces
+   2. PALETTE DISCIPLINE
+      one warm neutral family (paper/ink/line), one accent (brass), two
+      semantic signals (signal, success). No blue, no lemon yellow, no
+      second accent. New colour means a new role, not a new hex value.
 
    3. TYPOGRAPHY — Montserrat, single family (latin subset), with a platform
       CJK fallback chain (PingFang / Hiragino / YaHei / Noto Sans CJK) so
@@ -147,16 +149,31 @@
   }
 }
 
-/* live roles only — the app paints with raw palette colors (see header §2) */
+/* live roles — warm paper / ink / brass. Every text pair below was measured:
+   paper+ink 16.23 · paper+ink‑2 7.08 · paper+ink‑3 5.10 · white+brass 5.86 ·
+   white+brass‑deep 8.54 · ink on brass‑tint 14.30 · white+signal 6.54 */
 :root {
-  --background: hsl(0 0% 100%);
-  --foreground: hsl(0 0% 14.5%);
-  --muted: hsl(0 0% 97%);
-  --muted-foreground: hsl(0 0% 55.6%);
-  --border: hsl(0 0% 92.2%);
-  /* focus ring: dark neutral so it keeps >=3:1 against white and light fills */
-  --ring: hsl(0 0% 30%);
+  --paper: #faf6ef;
+  --surface: #ffffff;
+  --ink: #1c1917;
+  --ink-2: #57534e;
+  --ink-3: #6e6862;
+  --line: #dcd3c3;
+  --brass: #8a5b12;
+  --brass-deep: #6b4410;
+  --brass-tint: #f3e7d2;
+  --signal: #b3261e;
+  --success: #166534;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --muted: var(--brass-tint);
+  --muted-foreground: var(--ink-3);
+  --border: var(--line);
+  /* focus ring: near-black so it clears 3:1 on paper, white and brass alike */
+  --ring: var(--ink);
   --radius: 0.625rem;
+  --measure: 68ch;
 }
 
 /* the site is light-only: dark-mode tokens were pruned (2026-10-23).
@@ -169,6 +186,17 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
   --color-ring: var(--ring);
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-brass: var(--brass);
+  --color-brass-deep: var(--brass-deep);
+  --color-brass-tint: var(--brass-tint);
+  --color-signal: var(--signal);
+  --color-success: var(--success);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -182,11 +210,22 @@
   body {
     @apply bg-background text-foreground;
   }
+  /* links carry the accent; components that need another colour set it */
+  a {
+    color: var(--brass-deep);
+    text-underline-offset: 2px;
+  }
   /* global keyboard focus indicator: components with their own focus:
      utilities override this (utilities layer beats base) */
   :focus-visible {
     outline: 2px solid var(--ring);
     outline-offset: 2px;
+  }
+  /* long-form copy: one measure, no exceptions. body text inside a narrow
+     column is unaffected because the cap is a maximum, not a width */
+  p,
+  li {
+    text-wrap: pretty;
   }
 }
 

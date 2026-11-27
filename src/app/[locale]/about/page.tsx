@@ -58,7 +58,7 @@ export default async function Page({
               height={'250'}
             />
           </picture>
-          <figcaption className='text-center font-medium pt-1 bg-yellow-100 rounded'>
+          <figcaption className='text-center font-medium pt-1 bg-brass-tint rounded'>
             {t('Figcaption')}
           </figcaption>
         </figure>

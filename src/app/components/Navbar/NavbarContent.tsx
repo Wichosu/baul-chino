@@ -8,7 +8,7 @@ type Props = {
 export function NavbarContent({ children }: Props) {
   const contentClassName = `
     absolute left-0 top-0 w-full
-    bg-yellow-100
+    bg-surface
     data-[motion=from-end]:animate-enter-from-right data-[motion=from-start]:animate-enter-from-left 
     data-[motion=to-end]:animate-exit-to-right data-[motion=to-start]:animate-exit-to-left 
     sm:w-auto

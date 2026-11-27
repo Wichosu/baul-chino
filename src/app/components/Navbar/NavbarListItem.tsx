@@ -20,16 +20,16 @@ export function NavbarListItem({
   const linkClassName = `
     block select-none rounded-md p-3 leading-none no-underline
     transition-colors 
-    hover:bg-yellow-200
-    ${current ? 'bg-yellow-200' : ''}
+    hover:bg-brass-tint
+    ${current ? 'bg-brass-tint text-brass-deep' : ''}
 `;
 
   const titleClassName = `
-    mb-1 font-medium leading-6 text-black
+    mb-1 font-medium leading-6 text-ink
   `;
 
   const descriptionClassName = `
-    leading-6 text-black
+    leading-6 text-ink-2
   `;
 
   return (

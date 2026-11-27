@@ -7,7 +7,7 @@ export function NavbarViewport() {
       <NavigationMenu.Viewport
         className='
           relative mt-2.5 h-[var(--radix-navigation-menu-viewport-height)] w-full 
-          origin-[top_center] overflow-hidden rounded-md bg-yellow-100 
+          origin-[top_center] overflow-hidden rounded-md border border-line bg-surface 
           transition-[width,_height] duration-300 
           data-[state=closed]:animate-scale-out data-[state=open]:animate-scale-in 
           sm:w-[var(--radix-navigation-menu-viewport-width)]

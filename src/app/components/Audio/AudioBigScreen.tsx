@@ -44,7 +44,7 @@ export default function AudioBigScreen({
   translations,
 }: Props) {
   return (
-    <figure className='hidden md:flex items-center bg-yellow-200 rounded-md w-fit my-2 py-2 px-4'>
+    <figure className='hidden md:flex items-center border border-line bg-brass-tint rounded-md w-fit my-2 py-2 px-4'>
       <Button
         type='yellow'
         onClick={handlePlayButtonClick}

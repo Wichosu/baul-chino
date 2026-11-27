@@ -15,7 +15,7 @@ export default function Downloads() {
       <ButtonLink
         href={'https://play.google.com/store/apps/details?id=com.ichi2.anki'}
         target='_blank'
-        className='bg-green-600'
+        className='bg-brass'
       >
         <StyledImage alt='' src={'/android.svg'} width={20} height={20} />
         {t('Android')}
@@ -25,7 +25,7 @@ export default function Downloads() {
           'https://itunes.apple.com/us/app/ankimobile-flashcards/id373493387'
         }
         target='_blank'
-        className='bg-slate-700'
+        className='bg-brass'
       >
         <StyledImage alt='' src={'/iphone.svg'} width={20} height={20} />
         {t('Iphone')}
@@ -36,7 +36,7 @@ export default function Downloads() {
         }
         download={true}
         target='_blank'
-        className='bg-blue-500'
+        className='bg-brass'
       >
         <StyledImage alt='' src={'/windows.svg'} width={20} height={20} />
         {t('Windows')}
@@ -47,7 +47,7 @@ export default function Downloads() {
         }
         download={true}
         target='_blank'
-        className='bg-slate-700'
+        className='bg-brass'
       >
         <StyledImage alt='' src={'/apple.svg'} width={20} height={20} />
         {t('Mac')}
@@ -58,7 +58,7 @@ export default function Downloads() {
         }
         download={true}
         target='_blank'
-        className='bg-neutral-800'
+        className='bg-brass'
       >
         <StyledImage alt='' src={'/linux.svg'} width={20} height={20} />
         {t('Linux')}
@@ -107,7 +107,7 @@ function ButtonLink({
       href={href}
       download={download}
       target={target}
-      className={`${className} flex items-center w-full text-white py-3 px-6 my-2.5 rounded-lg no-underline lg:inline-block lg:w-fit lg:mr-5`}
+      className={`${className} flex items-center w-full text-white py-3 px-6 my-2.5 rounded-lg no-underline transition-colors hover:bg-brass-deep lg:inline-block lg:w-fit lg:mr-5`}
     >
       {children}
     </Link>

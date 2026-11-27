@@ -30,11 +30,11 @@ export function NavbarMobile({ items, isCurrent }: Props) {
 
   return (
     <>
-      <div className='flex h-11 w-full items-center justify-between rounded-md bg-yellow-100 px-1 shadow-md lg:hidden'>
+      <div className='flex h-11 w-full items-center justify-between rounded-md border border-line bg-surface px-1 shadow-sm lg:hidden'>
         <Link
           href='/'
           aria-current={isCurrent('/') ? 'page' : undefined}
-          className='flex min-h-11 items-center rounded px-3 no-underline hover:bg-yellow-200'
+          className='flex min-h-11 items-center rounded px-3 no-underline hover:bg-brass-tint'
         >
           <picture className='w-5'>
             <Image
@@ -52,7 +52,7 @@ export function NavbarMobile({ items, isCurrent }: Props) {
             <button
               type='button'
               aria-label={t(open ? 'CloseMenu' : 'OpenMenu')}
-              className='flex min-h-11 min-w-11 items-center justify-center rounded text-black hover:bg-yellow-200'
+              className='flex min-h-11 min-w-11 items-center justify-center rounded text-ink hover:bg-brass-tint'
             >
               {open ? (
                 <X aria-hidden className='size-6' />
@@ -65,9 +65,9 @@ export function NavbarMobile({ items, isCurrent }: Props) {
             <Dialog.Overlay className='fixed inset-0 z-50 bg-black/50 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out' />
             <Dialog.Content
               aria-describedby={undefined}
-              className='fixed inset-0 z-50 mx-auto flex w-full max-w-xl flex-col bg-yellow-100 text-black data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out'
+              className='fixed inset-0 z-50 mx-auto flex w-full max-w-xl flex-col bg-paper text-ink data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out'
             >
-              <div className='flex items-center justify-between border-b border-yellow-200 px-4 py-2'>
+              <div className='flex items-center justify-between border-b border-line px-4 py-2'>
                 <Dialog.Title className='text-lg font-medium leading-none'>
                   {t('MenuTitle')}
                 </Dialog.Title>
@@ -75,7 +75,7 @@ export function NavbarMobile({ items, isCurrent }: Props) {
                   <button
                     type='button'
                     aria-label={t('CloseMenu')}
-                    className='flex min-h-11 min-w-11 items-center justify-center rounded text-black hover:bg-yellow-200'
+                    className='flex min-h-11 min-w-11 items-center justify-center rounded text-ink hover:bg-brass-tint'
                   >
                     <X aria-hidden className='size-6' />
                   </button>
@@ -96,8 +96,8 @@ export function NavbarMobile({ items, isCurrent }: Props) {
                             aria-current={
                               isCurrent(link.href) ? 'page' : undefined
                             }
-                            className={`block select-none rounded-md p-3 leading-none no-underline transition-colors hover:bg-yellow-200 ${
-                              isCurrent(link.href) ? 'bg-yellow-200' : ''
+                            className={`block select-none rounded-md p-3 leading-none no-underline transition-colors hover:bg-brass-tint ${
+                              isCurrent(link.href) ? 'bg-brass-tint text-brass-deep' : ''
                             }`}
                           >
                             <span className='mb-1 block font-medium leading-6'>
@@ -113,7 +113,7 @@ export function NavbarMobile({ items, isCurrent }: Props) {
                   </section>
                 ))}
               </div>
-              <div className='flex flex-wrap items-center justify-between gap-4 border-t border-yellow-200 px-4 py-4'>
+              <div className='flex flex-wrap items-center justify-between gap-4 border-t border-line px-4 py-4'>
                 <LanguageSwitcher />
                 <KoFiButton />
               </div>

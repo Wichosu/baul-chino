@@ -36,7 +36,7 @@ export function VolumeButton({ handleVolume }: Props) {
   }
 
   return (
-    <div className='group flex gap-2 rounded-md bg-yellow-200'>
+    <div className='group flex gap-2 rounded-md border border-line bg-brass-tint'>
       <Button
         type='yellow'
         padding='1'
