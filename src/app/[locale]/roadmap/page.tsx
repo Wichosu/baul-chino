@@ -47,7 +47,7 @@ export default async function Page({
 
   return (
     <section className='my-6'>
-      <h2 className='text-3xl text-center font-medium mb-2'>{t('Title')}</h2>
+      <h1 className='text-3xl text-center font-medium mb-2'>{t('Title')}</h1>
       <p className='text-lg text-center mb-2'>{t('Paragraph')}</p>
       <ul className='flex flex-wrap gap-4 w-fit mx-auto'>
         <RoadmapItem title={t('Card1.Title')} status='in-progress'>

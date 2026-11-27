@@ -14,7 +14,7 @@ export function NavbarLink({ href, children, current }: Props) {
       className='
         flex min-h-11 select-none rounded px-3 py-2 text-lg font-medium leading-none text-black 
         h-full items-center
-        no-underline outline-none hover:bg-yellow-200 focus:shadow-[0_0_0_4px] focus:shadow-yellow-900
+        no-underline hover:bg-yellow-200
       '
       asChild
     >

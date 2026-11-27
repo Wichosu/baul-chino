@@ -71,7 +71,7 @@ export function VolumeButton({ handleVolume }: Props) {
           group-hover:w-24 group-hover:ml-0 group-hover:opacity-100
           group-focus:w-24 group-focus:ml-0 group-focus:opacity-100
           peer-focus:w-24 peer-focus:ml-0 peer-focus:opacity-100
-          focus:w-24 focus:ml-0 focus:opacity-100 focus:outline-4 focus:outline-yellow-700
+          focus:w-24 focus:ml-0 focus:opacity-100
         '
       />
       <div />

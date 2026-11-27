@@ -13,10 +13,9 @@ export function SelectTrigger({ children, ariaLabel }: Props) {
   return (
     <Select.Trigger
       className={`
-      inline-flex h-10 items-center justify-center gap-2 rounded bg-yellow-100 px-4 leading-none text-black shadow-md outline-none 
+      inline-flex h-10 items-center justify-center gap-2 rounded bg-yellow-100 px-4 leading-none text-black shadow-md 
       cursor-pointer transition-colors
-      hover:bg-yellow-200 
-      focus:shadow-[0_0_0_2px] focus:shadow-black focus:bg-yellow-200
+      hover:bg-yellow-200 focus:bg-yellow-200
       data-placeholder:text-black
     `}
       aria-label={ariaLabel}

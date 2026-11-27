@@ -34,7 +34,7 @@ export function NavbarMobile({ items, isCurrent }: Props) {
         <Link
           href='/'
           aria-current={isCurrent('/') ? 'page' : undefined}
-          className='flex min-h-11 items-center rounded px-3 no-underline outline-none hover:bg-yellow-200 focus:shadow-[0_0_0_4px] focus:shadow-yellow-900'
+          className='flex min-h-11 items-center rounded px-3 no-underline hover:bg-yellow-200'
         >
           <picture className='w-5'>
             <Image
@@ -52,7 +52,7 @@ export function NavbarMobile({ items, isCurrent }: Props) {
             <button
               type='button'
               aria-label={t(open ? 'CloseMenu' : 'OpenMenu')}
-              className='flex min-h-11 min-w-11 items-center justify-center rounded text-black outline-none hover:bg-yellow-200 focus:shadow-[0_0_0_4px] focus:shadow-yellow-900'
+              className='flex min-h-11 min-w-11 items-center justify-center rounded text-black hover:bg-yellow-200'
             >
               {open ? (
                 <X aria-hidden className='size-6' />
@@ -65,7 +65,7 @@ export function NavbarMobile({ items, isCurrent }: Props) {
             <Dialog.Overlay className='fixed inset-0 z-50 bg-black/50 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out' />
             <Dialog.Content
               aria-describedby={undefined}
-              className='fixed inset-0 z-50 mx-auto flex w-full max-w-xl flex-col bg-yellow-100 text-black outline-none data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out'
+              className='fixed inset-0 z-50 mx-auto flex w-full max-w-xl flex-col bg-yellow-100 text-black data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out'
             >
               <div className='flex items-center justify-between border-b border-yellow-200 px-4 py-2'>
                 <Dialog.Title className='text-lg font-medium leading-none'>
@@ -75,7 +75,7 @@ export function NavbarMobile({ items, isCurrent }: Props) {
                   <button
                     type='button'
                     aria-label={t('CloseMenu')}
-                    className='flex min-h-11 min-w-11 items-center justify-center rounded text-black outline-none hover:bg-yellow-200 focus:shadow-[0_0_0_4px] focus:shadow-yellow-900'
+                    className='flex min-h-11 min-w-11 items-center justify-center rounded text-black hover:bg-yellow-200'
                   >
                     <X aria-hidden className='size-6' />
                   </button>
@@ -96,7 +96,7 @@ export function NavbarMobile({ items, isCurrent }: Props) {
                             aria-current={
                               isCurrent(link.href) ? 'page' : undefined
                             }
-                            className={`block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-yellow-200 focus:shadow-[0_0_0_3px] focus:shadow-yellow-900 ${
+                            className={`block select-none rounded-md p-3 leading-none no-underline transition-colors hover:bg-yellow-200 ${
                               isCurrent(link.href) ? 'bg-yellow-200' : ''
                             }`}
                           >

@@ -90,7 +90,7 @@ export default function AudioBigScreen({
         onChange={onChangeAudioTimeTracker}
         onMouseUp={handleMouseClickRelease}
         onKeyUp={handleKeyRelease}
-        className='accent-yellow-800 rounded focus:outline-4 focus:outline-yellow-700 mr-2'
+        className='accent-yellow-800 rounded mr-2'
       />
       <DownloadButton url={audioUrl} filename={caption} />
       <VolumeButton handleVolume={handleVolume} />

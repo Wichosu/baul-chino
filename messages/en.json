@@ -99,7 +99,7 @@
       },
       "HskAudiosDownload": {
         "Title": "Download all HSK audio files",
-        "ImgAlt": "pending",
+        "ImgAlt": "Illustration of a download arrow above a stack of HSK audio files",
         "Description": "Download all HSK audio files from every HSK textbook and workbooks",
         "LinkName": "Go to Download all HSK audio files"
       },
@@ -123,7 +123,7 @@
       },
       "About": {
         "Title": "About",
-        "ImgAlt": "pending",
+        "ImgAlt": "Red heart illustration",
         "Description": "Here you can find information about the author and Baulchino",
         "LinkNameAbout": "Go to About",
         "LinkNameRoadmap": "Go to Roadmap",
@@ -217,7 +217,7 @@
     },
     "HeroTitle": "New HSK 3.0 Books",
     "HeroMessage1": "These are the new HSK 3.0 books, released in 2026. Download for free, no ads or account required.",
-    "HeroMessage2": "I currently have the first book available, but I will try to upload the rest as soon as possible. If you have more books, please share them with me so we can share them with the community.",
+    "HeroMessage2": "Levels 1 to 3 include the textbook and the workbook, levels 4A and 4B have the textbook, and every level has its audio. Higher levels are on the way. If you have a book or an audio file I am missing, send it over and I will add it for everyone.",
     "BookCards": {
       "Title": "Available Books",
       "HSK1": {
@@ -271,7 +271,7 @@
       "Description": "Curated collection of the best YouTube channels for learning Mandarin Chinese. Perfect for practicing pronunciation, grammar and vocabulary with authentic content."
     },
     "HeroTitle": "Mandarin Chinese Learning Channels",
-    "HeroMessage1": "Explore top educational YouTube channels for mastering Mandarin. Filter by category and level to find perfect content for your needs.",
+    "HeroMessage1": "Educational YouTube channels for mastering Mandarin. Filter by language and topic to find what fits your level.",
     "HeroMessage2": "How to use: Select your preferred topics and click any channel to visit.",
     "Filter": {
       "Title": "Filters",
@@ -354,7 +354,7 @@
   },
   "HskAudios": {
     "Metadata": {
-      "Title": "HSK Audio Files | HSK Texbook and Workbook Audios",
+      "Title": "HSK Audio Files | HSK Textbook and Workbook Audios",
       "Description": "Listen to HSK audio files from each unit in the HSK textbooks and workbooks. Perfect for audio practice and language learning."
     },
     "HeroTitle": "Listen to HSK audio files",
@@ -364,12 +364,12 @@
   },
   "NewHskAudios": {
     "Metadata": {
-      "Title": "New HSK Audio Files | HSK 3.0 2026 Edition",
-      "Description": "Listen to HSK audio files from each unit in the HSK textbooks and workbooks. Perfect for audio practice and language learning."
+      "Title": "New HSK 3.0 Audio Files (2026) | Textbook and Workbook",
+      "Description": "Every audio file from the new HSK 3.0 (2026) textbooks and workbooks, unit by unit, with per-track and whole-book downloads."
     },
     "HeroTitle": "Listen to New HSK 3.0 audio files",
-    "HeroMessage1": "Hi, here you can find all audio files from the HSK textbooks and workbooks units. This page aims to help you find the audios for each unit and allow you to practice or do the corresponding exercise. You can download the audio by pressing the ⬇️ button",
-    "HeroMessage2": "If you find that an audio is wrong or missing you can notify me via the surveys on this website or an email at wichosubuilds@gmail.com. Thank you",
+    "HeroMessage1": "Every audio file from the new HSK 3.0 (2026) textbooks and workbooks, grouped by book and lesson. Open a book to see its lessons, press the download button on a track to save that track, or use the ZIP button to get the whole book at once.",
+    "HeroMessage2": "If an audio is wrong or missing, tell me through the surveys on this site or email wichosubuilds@gmail.com. Thank you.",
     "DownloadAllZip": "Download all audio files (ZIP)"
   },
   "HskAudiosDownload": {
@@ -486,7 +486,7 @@
       "Description": "Try an HSK 3.0 2026 mock test online or download it to practice in person."
     },
     "HeroTitle": "HSK 3.0 2026 mock test online",
-    "HeroMessage1": "This site aims to help you get a better idea of what the new HSK 3.0 2026 exam might be like. Choose a level and exam of your interest and an interactive digital version will open.",
+    "HeroMessage1": "Downloadable bundles for the new HSK 3.0 (2026) exam: the exam paper, the answer key and the audio file for each level, following the new HSK 3.0 curriculum.",
     "HeroMessage2": "The mock tests were created based on the new HSK 3.0 2026 curriculum. If you have any exam you'd like to share, please contact me through X.",
     "DownloadBundles": "Download the HSK 3.0 2026 mock test bundle (exam, answers, audio file)"
   },

@@ -99,7 +99,7 @@
       },
       "HskAudiosDownload": {
         "Title": "Descargar todos los audios de los libros HSK",
-        "ImgAlt": "pendiente",
+        "ImgAlt": "Ilustración de una flecha de descarga sobre una pila de audios del HSK",
         "Description": "Descarga todos los audios de los libros HSK Textbook y Workbook",
         "LinkName": "Ir a Descargar todos los audios de los libros HSK"
       },
@@ -217,7 +217,7 @@
     },
     "HeroTitle": "Nuevos Libros HSK 3.0",
     "HeroMessage1": "Estos son los nuevos libros HSK 3.0, lanzados en 2026. Descarga gratis, sin anuncios ni cuenta requerida.",
-    "HeroMessage2": "Actualmente tengo disponible el primer libro, pero intentaré subir el resto lo antes posible. Si tienes más libros, por favor compártelos conmigo para que podamos compartirlos con la comunidad.",
+    "HeroMessage2": "Los niveles 1 a 3 incluyen el libro y el cuaderno de ejercicios, los niveles 4A y 4B tienen el libro, y todos los niveles incluyen sus audios. Los niveles superiores están en camino. Si tienes un libro o un audio que me falte, envíamelo y lo añado para todos.",
     "BookCards": {
       "Title": "Libros Disponibles",
       "HSK1": {
@@ -271,7 +271,7 @@
       "Description": "Selección de los mejores canales de YouTube para aprender chino mandarín. Ideal para practicar pronunciación, gramática y vocabulario con contenido auténtico."
     },
     "HeroTitle": "Canales para Aprender Chino Mandarín",
-    "HeroMessage1": "Descubre los mejores canales educativos de YouTube para dominar el mandarín. Filtra por categoría y nivel para encontrar contenido perfecto para tus necesidades.",
+    "HeroMessage1": "Canales educativos de YouTube para dominar el mandarín. Filtra por idioma y tema para encontrar lo que encaja con tu nivel.",
     "HeroMessage2": "Cómo usar: Selecciona tus temas de interés y haz clic en cualquier canal para visitarlo.",
     "Filter": {
       "Title": "Filtros",
@@ -364,12 +364,12 @@
   },
   "NewHskAudios": {
     "Metadata": {
-      "Title": "Nuevos Audios HSK | HSK 3.0 2026 Edition",
-      "Description": "Escucha los audios de los libros HSK Textbook y Workbook para practicar y realizar los ejercicios correspondientes. Perfecto para practicar y mejorar"
+      "Title": "Nuevos Audios HSK 3.0 (2026) | Libro y cuaderno de ejercicios",
+      "Description": "Todos los audios de los libros y cuadernos de ejercicios del nuevo HSK 3.0 (2026), unidad por unidad, con descargas por pista y por libro completo."
     },
     "HeroTitle": "Escucha los nuevos audios HSK 3.0",
-    "HeroMessage1": "Hola, aquí puedes encontrar todos los audios de las unidades de los libros HSK Textbook y Workbook. Esta página tiene como objetivo ayudarte a encontrar los audios de cada unidad y permitirte practicar o hacer el ejercicio correspondiente. Puedes descargar el audio presionando el botón ⬇️",
-    "HeroMessage2": "Si hay algún audio incorrecto o que falte, puedes hacermelo saber a través de las encuestas en esta página o por un email a wichosubuilds@gmail.com",
+    "HeroMessage1": "Todos los audios de los libros y cuadernos de ejercicios del nuevo HSK 3.0 (2026), agrupados por libro y lección. Abre un libro para ver sus lecciones, pulsa el botón de descarga de una pista para guardarla, o el botón ZIP para descargar el libro completo de una vez.",
+    "HeroMessage2": "Si algún audio está mal o falta, avísame mediante las encuestas de este sitio o escribe a wichosubuilds@gmail.com. Gracias.",
     "DownloadAllZip": "Descarga todos los audios (ZIP)"
   },
   "HskAudiosDownload": {
@@ -486,7 +486,7 @@
       "Description": "Prueba un mock test HSK 3.0 2026 en línea o descárgalo para probarlo en persona."
     },
     "HeroTitle": "Mock test HSK 3.0 2026 en línea",
-    "HeroMessage1": "Este sitio busca ayudarte a tener una mejor idea de cómo puede ser un examen del nuevo HSK 3.0 2026. Escoge un nivel y examen de tu interés y se abrirá una versión digital interactiva.",
+    "HeroMessage1": "Paquetes descargables del nuevo examen HSK 3.0 (2026): el examen, la clave de respuestas y el audio de cada nivel, siguiendo el currículo del nuevo HSK 3.0.",
     "HeroMessage2": "Los mock test fueron creados basados en el nuevo currículo HSK 3.0 2026. Si tienes algún examen que quieras compartir, por favor contáctame a través de X.",
     "DownloadBundles": "Descarga el paquete HSK 3.0 2026 mock test (examen, respuestas, archivo de audio)"
   },

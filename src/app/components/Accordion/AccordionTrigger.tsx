@@ -23,9 +23,9 @@ type AccordionTriggerProps = {
 };
 
 const themeColors: Record<AllowedThemeColors, string> = {
-  blue: 'bg-blue-700 hover:bg-blue-800 focus:bg-blue-800 focus:outline-blue-500 text-white',
+  blue: 'bg-blue-700 hover:bg-blue-800 focus:bg-blue-800 text-white',
   yellow:
-    'bg-yellow-800 hover:bg-yellow-950 focus:bg-yellow-950 focus:outline-yellow-700 text-white',
+    'bg-yellow-800 hover:bg-yellow-950 focus:bg-yellow-950 text-white',
 };
 
 export function AccordionTrigger({
@@ -37,7 +37,7 @@ export function AccordionTrigger({
   const themeContext = React.useContext(AccordionThemeContext);
 
   const className = `
-    group flex justify-between w-full cursor-pointer transition-colors focus:outline-4 
+    group flex justify-between w-full cursor-pointer transition-colors 
     text-xl
     ${themeColors[themeContext]} ${paddingClass[padding]} ${roundedClass[rounded]} ${elevationClass[elevation]}
   `;

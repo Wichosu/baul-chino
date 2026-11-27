@@ -18,10 +18,9 @@ export function NavbarListItem({
   current,
 }: Props) {
   const linkClassName = `
-    block select-none rounded-md p-3 leading-none no-underline outline-none
+    block select-none rounded-md p-3 leading-none no-underline
     transition-colors 
-    hover:bg-yellow-200 
-    focus:shadow-[0_0_0_3px] focus:shadow-yellow-900
+    hover:bg-yellow-200
     ${current ? 'bg-yellow-200' : ''}
 `;
 

@@ -51,7 +51,7 @@ export default async function Page({
 
   return (
     <section className='my-6'>
-      <h2 className='text-3xl text-center font-medium mb-2'>{t('Title')}</h2>
+      <h1 className='text-3xl text-center font-medium mb-2'>{t('Title')}</h1>
       <div className='max-w-xl mx-auto text-lg flex flex-col gap-4'>
         <p>{t('Paragraph1')}</p>
         <p>{t('Paragraph2')}</p>
