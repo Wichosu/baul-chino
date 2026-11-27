@@ -57,6 +57,13 @@ export default async function Page({
 
   const t = await getTranslations('NewHskAudios');
 
+  // "HSK 4A TEXTBOOK (HSK 3.0 2026 Edition)" -> hsk-4a
+  // workbooks get a suffix so both books of a level stay linkable
+  const anchorFor = (title: string) => {
+    const level = title.split(' ').slice(0, 2).join('-').toLowerCase();
+    return title.includes('WORKBOOK') ? `${level}-workbook` : level;
+  };
+
   return (
     <>
       <Hero title={t('HeroTitle')}>
@@ -67,6 +74,7 @@ export default async function Page({
         {Books.map((book, index) => (
           <AccordionItem
             value={`book-${index}`}
+            id={anchorFor(book.title)}
             marginY='2'
             key={`book-${index}`}
           >
@@ -84,7 +92,7 @@ export default async function Page({
                   {t('DownloadAllZip')}
                 </Button>
               )}
-              <AccordionRoot type='multiple' width='full'>
+              <AccordionRoot type='multiple' width='full' theme='quiet'>
                 {book.lessons.map((lesson, index) => (
                   <AccordionItem
                     value={`unit-${index}`}

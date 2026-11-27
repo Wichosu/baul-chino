@@ -54,6 +54,25 @@
     },
     "HeroTitle": "¿Qué es Baúl Chino?",
     "HeroMessage": "Baúl Chino es tu repositorio educativo especializado en la enseñanza del chino mandarín. Ofrecemos material didáctico de calidad para hacer tu aprendizaje más fácil, efectivo y divertido. 好好学习, 天天向上 (¡Estudia con dedicación y mejora cada día!)",
+    "StartHere": {
+      "Title": "Empieza por el HSK 3.0",
+      "Intro": "Los materiales HSK 3.0 de 2026 ya están aquí: libros, audios y mock tests del nivel 1 al 3, además de los libros 4A y 4B con el audio del textbook. Todo lo de abajo sigue el currículum nuevo."
+    },
+    "Levels": {
+      "Title": "Materiales por nivel",
+      "Books": "Libros",
+      "Audio": "Audios",
+      "MockTests": "Mock tests",
+      "WorkbookSoon": "Workbook en camino",
+      "MockSoon": "Mock test en camino"
+    },
+    "Tools": {
+      "Title": "Herramientas y práctica"
+    },
+    "Legacy": {
+      "Title": "HSK 2.0 (legado, niveles 1–6)",
+      "Intro": "Los materiales originales del HSK 2.0 siguen aquí, sin cambios. Si te preparas para el examen tal como era antes de 2026, empieza por aquí."
+    },
     "CardsContainer": {
       "AnkiDecks": {
         "Title": "Mazos Anki HSK 1-4",
@@ -78,6 +97,12 @@
         "ImgAlt": "Portada de los nuevos audios HSK 3.0 lanzados en 2026",
         "Description": "Escucha los nuevos audios HSK 3.0 lanzados en 2026. Currículum actualizado para el aprendizaje moderno del mandarín.",
         "LinkName": "Ir a Nuevos Audios HSK 3.0"
+      },
+      "NewHskMockTest2026": {
+        "Title": "Nuevos Mock Tests HSK 3.0 (2026)",
+        "ImgAlt": "Carátula de un mock test del nuevo HSK 3.0",
+        "Description": "Descarga los bundles de mock test HSK 3.0 (2026): examen, respuestas y audio de cada nivel.",
+        "LinkName": "Ir a Mock Tests HSK 3.0"
       },
       "Channels": {
         "Title": "Canales de Chino",

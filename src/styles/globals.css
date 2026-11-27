@@ -207,6 +207,10 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    /* in-page anchors (#hsk-4b) must clear the sticky navbar */
+    scroll-padding-top: 5rem;
+  }
   body {
     @apply bg-background text-foreground;
   }

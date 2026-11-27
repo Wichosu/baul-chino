@@ -11,6 +11,7 @@ import {
 
 type AccordionItemProps = {
   value: string;
+  id?: string;
   padding?: AllowedScale;
   marginX?: AllowedMarginScale;
   marginY?: AllowedMarginScale;

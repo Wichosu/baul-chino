@@ -52,6 +52,7 @@ export default async function Page({
   // Book data - update URLs when available
   const books: Book[] = [
     {
+      id: "hsk-1",
       title: t("BookCards.HSK1.Title"),
       image: "/newhskbooks/new-hsk-1.avif",
       fallbackImage: "/newhskbooks/new-hsk-1.png",
@@ -84,6 +85,7 @@ export default async function Page({
       ],
     },
     {
+      id: "hsk-2",
       title: t("BookCards.HSK2.Title"),
       image: "/newhskbooks/new-hsk-2.avif",
       fallbackImage: "/newhskbooks/new-hsk-2.png",
@@ -116,6 +118,7 @@ export default async function Page({
       ],
     },
     {
+      id: "hsk-3",
       title: t("BookCards.HSK3.Title"),
       image: "/newhskbooks/new-hsk-3.avif",
       fallbackImage: "/newhskbooks/new-hsk-3.png",
@@ -144,6 +147,7 @@ export default async function Page({
       ],
     },
     {
+      id: "hsk-4a",
       title: t("BookCards.HSK4a.Title"),
       image: "/newhskbooks/new-hsk-4a.avif",
       fallbackImage: "/newhskbooks/new-hsk-4a.jpg",
@@ -164,6 +168,7 @@ export default async function Page({
       ],
     },
     {
+      id: "hsk-4b",
       title: t("BookCards.HSK4b.Title"),
       image: "/newhskbooks/new-hsk-4b.avif",
       fallbackImage: "/newhskbooks/new-hsk-4b.jpg",
@@ -197,14 +202,15 @@ export default async function Page({
         </h2>
         <div className="grid grid-cols-1 gap-4 justify-center sm:gap-6 lg:gap-8 lg:grid-cols-2 xl:grid-cols-3">
           {books.map((book) => (
-            <BookCard
-              key={book.title}
-              title={book.title}
-              image={book.image}
-              fallbackImage={book.fallbackImage}
-              alt={book.alt}
-              downloadLinks={book.downloadLinks}
-            />
+            <div key={book.title} id={book.id}>
+              <BookCard
+                title={book.title}
+                image={book.image}
+                fallbackImage={book.fallbackImage}
+                alt={book.alt}
+                downloadLinks={book.downloadLinks}
+              />
+            </div>
           ))}
         </div>
       </section>

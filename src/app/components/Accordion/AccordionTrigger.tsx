@@ -26,6 +26,9 @@ const themeColors: Record<AllowedThemeColors, string> = {
   blue: 'bg-brass-deep hover:bg-[#553409] focus:bg-[#553409] text-white',
   yellow:
     'bg-brass-deep hover:bg-[#553409] focus:bg-[#553409] text-white',
+  // quiet: for nested or secondary groups, so a dark bar means "this is the
+  // level above", not "every row"
+  quiet: 'bg-brass-tint text-ink hover:bg-[#e9dbc0] focus:bg-[#e9dbc0]',
 };
 
 export function AccordionTrigger({

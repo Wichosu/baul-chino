@@ -27,6 +27,7 @@ type AccordionContentProps = {
 const themeColors: Record<AllowedThemeColors, string> = {
   blue: 'bg-brass-tint text-ink',
   yellow: 'bg-brass-tint text-ink',
+  quiet: 'bg-surface text-ink',
 };
 
 export function AccordionContent({

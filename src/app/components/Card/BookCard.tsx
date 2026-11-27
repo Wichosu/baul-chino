@@ -42,7 +42,8 @@ export function BookCard({
       <div className='flex flex-col text-center mt-2 gap-2 px-2'>
         {downloadLinks.map((link, index) => (
           <Button
-            type='yellow'
+            // the textbook is the entry point; everything else is secondary
+            type={index === 0 ? 'yellow' : 'warning'}
             as='link'
             href={link.url}
             target={link.url.startsWith('/') ? '_self' : '_blank'}

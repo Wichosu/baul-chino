@@ -54,6 +54,25 @@
     },
     "HeroTitle": "What is Baúl Chino?",
     "HeroMessage": "Baúl Chino is your go-to resource for learning Mandarin Chinese. We provide high-quality teaching materials to make your language journey smoother, smarter, and more enjoyable. 好好学习, 天天向上 (Study hard, improve every day!)",
+    "StartHere": {
+      "Title": "Start with HSK 3.0",
+      "Intro": "The 2026 HSK 3.0 materials are here: books, audio and mock tests for levels 1 to 3, plus the 4A and 4B books with their textbook audio. Everything below follows the new curriculum."
+    },
+    "Levels": {
+      "Title": "Materials by level",
+      "Books": "Books",
+      "Audio": "Audio",
+      "MockTests": "Mock tests",
+      "WorkbookSoon": "Workbook coming soon",
+      "MockSoon": "Mock test coming soon"
+    },
+    "Tools": {
+      "Title": "Tools and practice"
+    },
+    "Legacy": {
+      "Title": "Legacy HSK 2.0 (levels 1–6)",
+      "Intro": "The original HSK 2.0 materials are still here, unchanged. If you are preparing for the exam as it was before 2026, start here."
+    },
     "CardsContainer": {
       "AnkiDecks": {
         "Title": "Anki Decks HSK 1-4",
@@ -78,6 +97,12 @@
         "ImgAlt": "Cover of the new HSK 3.0 audio files released in 2026",
         "Description": "Listen to the new HSK 3.0 audio files released in 2026. Updated curriculum for modern Mandarin learning.",
         "LinkName": "Go to New HSK 3.0 Audios"
+      },
+      "NewHskMockTest2026": {
+        "Title": "New HSK 3.0 Mock Tests (2026)",
+        "ImgAlt": "Cover of a new HSK 3.0 mock test",
+        "Description": "Download the HSK 3.0 (2026) mock test bundles: exam paper, answer key and audio for each level.",
+        "LinkName": "Go to HSK 3.0 Mock Tests"
       },
       "Channels": {
         "Title": "Chinese Learning Channels",

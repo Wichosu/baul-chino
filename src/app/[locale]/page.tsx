@@ -37,10 +37,10 @@ export default async function Page({
       <Hero title={t("HeroTitle")}>{t("HeroMessage")}</Hero>
       <CardsContainer />
       <section className="grid gap-4 my-8">
-        <h2 className="text-center text-4xl font-medium">
+        <h2 className="text-center text-3xl font-medium text-ink">
           {t("Supporters.Title")}
         </h2>
-        <p className="text-center text-lg max-w-3xl mx-auto">
+        <p className="text-center text-lg text-ink-2 max-w-3xl mx-auto">
           {t("Supporters.Message")}
         </p>
         <div className="flex flex-wrap gap-2 justify-center">
@@ -51,8 +51,8 @@ export default async function Page({
         </div>
       </section>
       <section>
-        <h2 className="text-center text-4xl font-medium">{t("Q&A.Title")}</h2>
-        <AccordionRoot type="single" width="xl">
+        <h2 className="text-center text-3xl font-medium text-ink">{t("Q&A.Title")}</h2>
+        <AccordionRoot type="single" width="xl" theme="quiet">
           <AccordionItem value="1" marginY="1">
             <AccordionTrigger>{t("Q&A.Questions.HowMuch")}</AccordionTrigger>
             <AccordionContent padding="3">
